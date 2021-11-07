@@ -109,6 +109,9 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
     ("pin/us", include_str!("../data/keyboards/pin/us.yaml")),
 
     // Terminal
+    ("terminal/es", include_str!("../data/keyboards/terminal/es.yaml")),
+    ("terminal/es_wide",   include_str!("../data/keyboards/terminal/es_wide.yaml")),
+
     ("terminal/fr", include_str!("../data/keyboards/terminal/fr.yaml")),
     ("terminal/fr_wide", include_str!("../data/keyboards/terminal/fr_wide.yaml")),
 
