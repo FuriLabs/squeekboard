@@ -1,7 +1,7 @@
 project(
     'squeekboard',
     'c', 'rust',
-    version: '1.16.0',
+    version: '1.17.0',
     license: 'GPLv3',
     meson_version: '>=0.51.0',
     default_options: [
@@ -99,9 +99,9 @@ cargo_toml_base = configure_file(
 
 cargo_deps = files('Cargo.deps')
 
-if get_option('legacy') == true
-    cargo_build_flags += ['--features', 'gtk_v0_5,gio_v0_5,rustc_less_1_36']
-    cargo_deps = files('Cargo.deps.legacy')
+if get_option('newer') == true
+    cargo_build_flags += ['--features', 'glib_v0_14']
+    cargo_deps = files('Cargo.deps.newer')
 endif
     
 cat = find_program('cat')

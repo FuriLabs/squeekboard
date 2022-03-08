@@ -33,7 +33,6 @@
 #include "outputs.h"
 #include "submission.h"
 #include "server-context-service.h"
-#include "ui_manager.h"
 #include "wayland.h"
 
 #include <gdk/gdkwayland.h>
@@ -56,8 +55,6 @@ struct squeekboard {
     ServerContextService *ui_context; // mess, includes the entire UI
     /// Currently wanted layout. TODO: merge into state::Application
     struct squeek_layout_state layout_choice;
-    /// UI shape tracker/chooser. TODO: merge into state::Application
-    struct ui_manager *ui_manager;
 };
 
 
@@ -112,40 +109,92 @@ registry_handle_global (void *data,
     // Even when lower version would be served, it would not be supported,
     // causing a hard exit
     (void)version;
-    struct squeekboard *instance = data;
+    struct squeek_wayland *wayland = data;
 
     if (!strcmp (interface, zwlr_layer_shell_v1_interface.name)) {
-        instance->wayland.layer_shell = wl_registry_bind (registry, name,
+        wayland->layer_shell = wl_registry_bind (registry, name,
             &zwlr_layer_shell_v1_interface, 1);
     } else if (!strcmp (interface, zwp_virtual_keyboard_manager_v1_interface.name)) {
-        instance->wayland.virtual_keyboard_manager = wl_registry_bind(registry, name,
+        wayland->virtual_keyboard_manager = wl_registry_bind(registry, name,
             &zwp_virtual_keyboard_manager_v1_interface, 1);
     } else if (!strcmp (interface, zwp_input_method_manager_v2_interface.name)) {
-        instance->wayland.input_method_manager = wl_registry_bind(registry, name,
+        wayland->input_method_manager = wl_registry_bind(registry, name,
             &zwp_input_method_manager_v2_interface, 1);
     } else if (!strcmp (interface, "wl_output")) {
         struct wl_output *output = wl_registry_bind (registry, name,
             &wl_output_interface, 2);
-        squeek_outputs_register(instance->wayland.outputs, output);
+        squeek_outputs_register(wayland->outputs, output, name);
     } else if (!strcmp(interface, "wl_seat")) {
-        instance->wayland.seat = wl_registry_bind(registry, name,
+        wayland->seat = wl_registry_bind(registry, name,
             &wl_seat_interface, 1);
     }
 }
-
 
 static void
 registry_handle_global_remove (void *data,
                                struct wl_registry *registry,
                                uint32_t name)
 {
-  // TODO
+    (void)registry;
+    struct squeek_wayland *wayland = data;
+    struct wl_output *output = squeek_outputs_try_unregister(wayland->outputs, name);
+    if (output) {
+        wl_output_destroy(output);
+    }
 }
 
 static const struct wl_registry_listener registry_listener = {
   registry_handle_global,
   registry_handle_global_remove
 };
+
+
+void init_wayland(struct squeek_wayland *wayland) {
+    // Set up Wayland
+    gdk_set_allowed_backends ("wayland");
+    GdkDisplay *gdk_display = gdk_display_get_default ();
+    struct wl_display *display = gdk_wayland_display_get_wl_display (gdk_display);
+
+    if (display == NULL) {
+        g_error ("Failed to get display: %m\n");
+        exit(1);
+    }
+
+    struct wl_registry *registry = wl_display_get_registry (display);
+    wl_registry_add_listener (registry, &registry_listener, wayland);
+    wl_display_roundtrip(display); // wait until the registry is actually populated
+
+    if (!wayland->seat) {
+        g_error("No seat Wayland global available.");
+        exit(1);
+    }
+    if (!wayland->virtual_keyboard_manager) {
+        g_error("No virtual keyboard manager Wayland global available.");
+        exit(1);
+    }
+    if (!wayland->layer_shell) {
+        g_error("No layer shell global available.");
+        exit(1);
+    }
+
+    if (!wayland->input_method_manager) {
+        g_warning("Wayland input method interface not available");
+    }
+
+    if (wayland->input_method_manager) {
+        wayland->input_method = zwp_input_method_manager_v2_get_input_method(
+            wayland->input_method_manager,
+            wayland->seat);
+    }
+    if (wayland->virtual_keyboard_manager) {
+        wayland->virtual_keyboard = zwp_virtual_keyboard_manager_v1_create_virtual_keyboard(
+            wayland->virtual_keyboard_manager,
+            wayland->seat);
+    }
+
+    // initialize global
+    squeek_wayland = wayland;
+}
 
 #define SESSION_NAME "sm.puri.OSK0"
 
@@ -284,22 +333,6 @@ phosh_theme_init (void)
     g_object_set (G_OBJECT (gtk_settings), "gtk-application-prefer-dark-theme", TRUE, NULL);
 }
 
-/// Create Rust objects in one go,
-/// to avoid crossing the language barrier and losing type information
-static struct rsobjects create_rsobjects(struct zwp_input_method_manager_v2 *immanager,
-                                         struct zwp_virtual_keyboard_manager_v1 *vkmanager,
-                                         struct wl_seat *seat) {
-    struct zwp_input_method_v2 *im = NULL;
-    if (immanager) {
-        im = zwp_input_method_manager_v2_get_input_method(immanager, seat);
-    }
-    struct zwp_virtual_keyboard_v1 *vk = NULL;
-    if (vkmanager) {
-        vk = zwp_virtual_keyboard_manager_v1_create_virtual_keyboard(vkmanager, seat);
-    }
-    return squeek_rsobjects_new(im, vk);
-}
-
 static GDebugKey debug_keys[] =
 {
         { .key = "force-show",
@@ -359,46 +392,10 @@ main (int argc, char **argv)
 
     phosh_theme_init ();
 
-    // Set up Wayland
-    gdk_set_allowed_backends ("wayland");
-    GdkDisplay *gdk_display = gdk_display_get_default ();
-    struct wl_display *display = gdk_wayland_display_get_wl_display (gdk_display);
-
-    if (display == NULL) {
-        g_error ("Failed to get display: %m\n");
-        exit(1);
-    }
-
-
     struct squeekboard instance = {0};
-    squeek_wayland_init (&instance.wayland);
-    struct wl_registry *registry = wl_display_get_registry (display);
-    wl_registry_add_listener (registry, &registry_listener, &instance);
-    wl_display_roundtrip(display); // wait until the registry is actually populated
-    squeek_wayland_set_global(&instance.wayland);
 
-    if (!instance.wayland.seat) {
-        g_error("No seat Wayland global available.");
-        exit(1);
-    }
-    if (!instance.wayland.virtual_keyboard_manager) {
-        g_error("No virtual keyboard manager Wayland global available.");
-        exit(1);
-    }
-    if (!instance.wayland.layer_shell) {
-        g_error("No layer shell global available.");
-        exit(1);
-    }
-
-    if (!instance.wayland.input_method_manager) {
-        g_warning("Wayland input method interface not available");
-    }
-
-    struct rsobjects rsobjects = create_rsobjects(instance.wayland.input_method_manager,
-        instance.wayland.virtual_keyboard_manager,
-        instance.wayland.seat);
-
-    instance.ui_manager = squeek_uiman_new();
+    // Also initializes wayland
+    struct rsobjects rsobjects = squeek_init();
 
     instance.settings_context = eekboard_context_service_new(&instance.layout_choice);
 
@@ -444,7 +441,6 @@ main (int argc, char **argv)
                 instance.settings_context,
                 rsobjects.submission,
                 &instance.layout_choice,
-                instance.ui_manager,
                 rsobjects.state_manager);
     if (!ui_context) {
         g_error("Could not initialize GUI");
@@ -477,6 +473,5 @@ main (int argc, char **argv)
     }
     g_main_loop_unref (loop);
 
-    squeek_wayland_deinit (&instance.wayland);
     return 0;
 }

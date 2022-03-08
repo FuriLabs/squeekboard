@@ -1,9 +1,9 @@
-/* Copyright (C) 2020 Purism SPC
+/* Copyright (C) 2020,2022 Purism SPC
  * SPDX-License-Identifier: GPL-3.0+
  */
 
 /*! Glue for the main loop. */
-
+use crate::outputs::OutputId;
 use crate::state;
 use glib::{Continue, MainContext, PRIORITY_DEFAULT, Receiver};
 
@@ -11,12 +11,15 @@ use glib::{Continue, MainContext, PRIORITY_DEFAULT, Receiver};
 mod c {
     use super::*;
     use std::os::raw::c_void;
+    use std::ptr;
     use std::rc::Rc;
     use std::time::Instant;
 
     use crate::event_loop::driver;
     use crate::imservice::IMService;
     use crate::imservice::c::InputMethod;
+    use crate::outputs::Outputs;
+    use crate::outputs::c::WlOutput;
     use crate::state;
     use crate::submission::Submission;
     use crate::util::c::Wrapped;
@@ -33,13 +36,46 @@ mod c {
     /// Holds the Rust structures that are interesting from C.
     #[repr(C)]
     pub struct RsObjects {
+        /// The handle to which Commands should be sent
+        /// for processing in the main loop.
         receiver: Wrapped<Receiver<Commands>>,
         state_manager: Wrapped<driver::Threaded>,
         submission: Wrapped<Submission>,
+        /// Not wrapped, because C needs to access this.
+        wayland: *mut Wayland,
+    }
+
+    /// Corresponds to wayland.h::squeek_wayland.
+    /// Fields unused by Rust are marked as generic data types.
+    #[repr(C)]
+    pub struct Wayland {
+        layer_shell: *const c_void,
+        virtual_keyboard_manager: *const c_void,
+        input_method_manager: *const c_void,
+        outputs: Wrapped<Outputs>,
+        seat: *const c_void,
+        input_method: InputMethod,
+        virtual_keyboard: ZwpVirtualKeyboardV1,
+    }
+
+    impl Wayland {
+        fn new(outputs_manager: Outputs) -> Self {
+            Wayland {
+                layer_shell: ptr::null(),
+                virtual_keyboard_manager: ptr::null(),
+                input_method_manager: ptr::null(),
+                outputs: Wrapped::new(outputs_manager),
+                seat: ptr::null(),
+                input_method: InputMethod::null(),
+                virtual_keyboard: ZwpVirtualKeyboardV1::null(),
+            }
+        }
     }
     
     extern "C" {
-        fn server_context_service_real_show_keyboard(service: *const UIManager);
+        #[allow(improper_ctypes)]
+        fn init_wayland(wayland: *mut Wayland);
+        fn server_context_service_update_keyboard(service: *const UIManager, output: WlOutput, height: u32);
         fn server_context_service_real_hide_keyboard(service: *const UIManager);
         fn server_context_service_set_hint_purpose(service: *const UIManager, hint: u32, purpose: u32);
         // This should probably only get called from the gtk main loop,
@@ -52,19 +88,23 @@ mod c {
     /// and that leads to suffering.
     #[no_mangle]
     pub extern "C"
-    fn squeek_rsobjects_new(
-        im: *mut InputMethod,
-        vk: ZwpVirtualKeyboardV1,
-    ) -> RsObjects {
+    fn squeek_init() -> RsObjects {
+        // Set up channels
         let (sender, receiver) = MainContext::channel(PRIORITY_DEFAULT);
-        
         let now = Instant::now();
         let state_manager = driver::Threaded::new(sender, state::Application::new(now));
 
-        let imservice = if im.is_null() {
+        let outputs = Outputs::new(state_manager.clone());
+        let mut wayland = Box::new(Wayland::new(outputs));
+        let wayland_raw = &mut *wayland as *mut _;
+        unsafe { init_wayland(wayland_raw); }
+
+        let vk = wayland.virtual_keyboard;
+
+        let imservice = if wayland.input_method.is_null() {
             None
         } else {
-            Some(IMService::new(im, state_manager.clone()))
+            Some(IMService::new(wayland.input_method, state_manager.clone()))
         };
         let submission = Submission::new(vk, imservice);
         
@@ -72,6 +112,7 @@ mod c {
             submission: Wrapped::new(submission),
             state_manager: Wrapped::new(state_manager),
             receiver: Wrapped::new(receiver),
+            wayland: Box::into_raw(wayland),
         }
     }
 
@@ -87,7 +128,7 @@ mod c {
         let receiver = Rc::try_unwrap(receiver).expect("References still present");
         let receiver = receiver.into_inner();
         let ctx = MainContext::default();
-        ctx.acquire();
+        let _acqu = ctx.acquire();
         receiver.attach(
             Some(&ctx),
             move |msg| {
@@ -95,6 +136,7 @@ mod c {
                 Continue(true)
             },
         );
+        #[cfg(not(feature = "glib_v0_14"))]
         ctx.release();
     }
 
@@ -108,8 +150,8 @@ mod c {
         dbus_handler: *const DBusHandler,
     ) {
         match msg.panel_visibility {
-            Some(PanelCommand::Show) => unsafe {
-                server_context_service_real_show_keyboard(ui_manager);
+            Some(PanelCommand::Show { output, height }) => unsafe {
+                server_context_service_update_keyboard(ui_manager, output.0, height);
             },
             Some(PanelCommand::Hide) => unsafe {
                 server_context_service_real_hide_keyboard(ui_manager);
@@ -118,7 +160,9 @@ mod c {
         };
 
         if let Some(visible) = msg.dbus_visible_set {
-            unsafe { dbus_handler_set_visible(dbus_handler, visible as u8) };
+            if dbus_handler != std::ptr::null() {
+                unsafe { dbus_handler_set_visible(dbus_handler, visible as u8) };
+            }
         }
 
         if let Some(hints) = msg.layout_hint_set {
@@ -135,7 +179,10 @@ mod c {
 
 #[derive(Clone, PartialEq, Debug)]
 pub enum PanelCommand {
-    Show,
+    Show {
+        output: OutputId,
+        height: u32,
+    },
     Hide,
 }
 
