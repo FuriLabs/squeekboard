@@ -84,6 +84,7 @@ foreach layout : [
     'jp+kana','jp+kana_wide',
     'no',
     'pl', 'pl_wide',
+    'ro', 'ro_wide',
     'ru',
     'se',
     'th', 'th_wide',
@@ -107,15 +108,8 @@ foreach layout : [
         extra += ['allow_missing_return']
     endif
     
-    # Older Cargo seens to be sensitive to something
-    # about the RUST_FLAGS env var, and rebuilds all tests when it's set,
-    # increasing test time by 2 orders of magnitude.
-    # Let it have its way.
-    if get_option('legacy') == true
-        timeout = 300
-    else
-        timeout = 30
-    endif
+    timeout = 30
+
     test(
         'test_layout_' + layout,
         cargo_script,
