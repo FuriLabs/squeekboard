@@ -1,3 +1,23 @@
+squeekboard (1.17.0-1) unstable; urgency=medium
+
+  * d/gbp.conf: change upstream tag handling.
+    This allows us to use `gbp import-orig --uscan`.
+  * New upstream version 1.17.0
+  * d/patches: drop backported patch.
+    It is now included in the current upstream release.
+  * d/copyright: simplify and add missing records.
+    Lots of copyright records are somewhat redundant, attributing copyright
+    to Daiki Ueno, Red Hat, Purism and/or "Squeekboard Contributors". As we
+    can safely assume the latter 2 groups have touched almost every file in
+    this repo, let's make this the default copyright. Additional records are
+    added only for files explicitly mentioning different authorship and/or
+    license. This makes the copyright file a bit simpler and also more
+    accurate.
+    This commit also adds records for new files (or ones that weren't
+    noticed before).
+
+ -- Arnaud Ferraris <arnaud.ferraris@gmail.com>  Tue, 08 Mar 2022 12:16:44 +0100
+
 squeekboard (1.16.0-1) unstable; urgency=medium
 
   [ Guido Günther ]
