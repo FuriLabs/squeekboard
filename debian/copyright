@@ -6,7 +6,8 @@ Source: https://gitlab.gnome.org/World/Phosh/squeekboard
 Files: *
 Copyright: 2010-2011 Daiki Ueno <ueno@unixuser.org>
            2010-2011 Red Hat, Inc.
-           2019 Purism SPC
+           2018-2022 Purism SPC
+           2019-2022 Squeekboard Contributors
 License: GPL-3+
 
 Files: cargo.sh
@@ -14,13 +15,23 @@ Copyright: 2019 Bart Ribbers <bribbers@disroot.org>
            2019 Purism SPC
 License: GPL-3+
 
-Files: data/style.css
-       data/squeekboard.gresources.xml
-       data/meson.build
+Files: data/*
        src/meson.build
        src/imservice.c
+Copyright: 2019-2022 Purism SPC
+           2019-2022 Squeekboard Contributors
+License: GPL-3+
+
+Files: data/keyboards/am.yaml
+       data/keyboards/am+phonetic.yaml
 Copyright: 2019 Purism SPC
-           2019 Squeekboard Contributors
+           2021 Norayr Chilingarian
+License: GPL-3+
+
+Files: data/keyboards/ara_wide.yaml
+       data/keyboards/ara.yaml
+Copyright: 2019 Purism SPC
+           2021 Khaled Eldoheiri <khalid@kdehairy.com>
 License: GPL-3+
 
 Files: data/keyboards/be_wide.yaml
@@ -70,22 +81,12 @@ Files: data/keyboards/fr.yaml
        data/keyboards/terminal/us_wide.yaml
        debian/*
 Copyright: 2019 Purism SPC
-           2020 Arnaud Ferraris <arnaud.ferraris@gmail.com>
+           2020-2022 Arnaud Ferraris <arnaud.ferraris@gmail.com>
 License: GPL-3+
 
 Files: dco.txt
 Copyright: 2004-2006 The Linux Foundation and its contributors
 License: DCO
-
-Files: eek/eek.c
-       eek/eek-element.*
-       eek/eek-gtk-keyboard.*
-       eek/eek-renderer.*
-Copyright: 2010-2011 Daiki Ueno <ueno@unixuser.org>
-           2010-2011 Red Hat, Inc.
-           2018-2019 Purism SPC
-           2019 Squeekboard Contributors
-License: GPL-3+
 
 Files: eek/eek-keyboard.*
        eek/eek-types.*
@@ -97,10 +98,12 @@ Copyright: 2010-2011 Daiki Ueno <ueno@unixuser.org>
            2019 Purism SPC
 License: LGPL-2+
 
-Files: eek/layersurface.c
+Files: eek/layersurface.*
+       src/data/*
+       src/event_loop/*
        src/wayland.c
        meson.build
-Copyright: 2018-2019 Purism SPC
+Copyright: 2018-2022 Purism SPC
 License: GPL-3+
 
 Files: eekboard/eekboard-context-service.c
@@ -110,11 +113,6 @@ Copyright: 2010-2011 Daiki Ueno <ueno@unixuser.org>
            2019 David Heidelberg <david@ixit.cz>
            2019 Piotr Tworek <tworaz@tworaz.net>
            2019 Squeekboard Contributors
-License: GPL-3+
-
-Files: eekboard/eekboard-context-service.h
-Copyright: 2010-2011 Daiki Ueno <ueno@unixuser.org>
-           2010-2011 Red Hat, Inc.
 License: GPL-3+
 
 Files: protocols/input-method-unstable-v2.xml
@@ -144,9 +142,9 @@ Files: protocols/wlr-layer-shell-unstable-v1.xml
 Copyright: 2017 Drew DeVault
 License: X11
 
-Files: src/data/*
-Copyright: 2020-2021 Purism SPC
-License: GPL-3+
+Files: src/assert_matches.rs
+Copyright: 2016 Murarth <murarth@gmail.com>
+License: MIT or Apache-2.0
 
 Files: src/float_ord.rs
 Copyright: 2017 Michael Howell <michael@notriddle.com>
@@ -159,20 +157,9 @@ Copyright: 2019 Andreas Rönnquist <andreas@ronnquist.net>
            2019 Purism SPC
 License: GPL-3+
 
-Files: src/server-context-service.c
-Copyright: 2010-2011 Daiki Ueno <ueno@unixuser.org>
-           2010-2011 Red Hat, Inc.
-           2019 Purism SPC
-           2019 Squeekboard Contributors
-License: GPL-3+
-
 Files: src/style.rs
 Copyright: 2000 Red Hat, Inc.
            2019 Purism SPC
-License: GPL-3+
-
-Files: src/ui_manager.*
-Copyright: 2020 Purism SPC
 License: GPL-3+
 
 Files: src/xdg.rs
