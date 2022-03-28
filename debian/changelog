@@ -1,3 +1,11 @@
+squeekboard (1.17.0-2) unstable; urgency=medium
+
+  * d/patches: fix build failure due to newer crate version.
+    Crate `clap` has been upgraded to 2.34 in Debian, so make sure this
+    package still builds fine. (Closes: #1008357)
+
+ -- Arnaud Ferraris <arnaud.ferraris@gmail.com>  Mon, 28 Mar 2022 15:16:38 +0200
+
 squeekboard (1.17.0-1) unstable; urgency=medium
 
   * d/gbp.conf: change upstream tag handling.
