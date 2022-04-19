@@ -1,3 +1,16 @@
+squeekboard (1.17.1-1) unstable; urgency=medium
+
+  * New upstream version 1.17.1
+  * d/patches: update patch fixing build.
+    The patch we used to carry is replaced by an upstream backport, as it
+    requires another change already taken into account there.
+  * d/patches: backport upstream patches fixing sizing (Closes: #1007115)
+  * d/control: update clap build dependency.
+    We now depend on clap v3, not v2, and need the "std" feature.
+  * d/patches: fix build on i386.
+
+ -- Arnaud Ferraris <arnaud.ferraris@gmail.com>  Tue, 19 Apr 2022 18:09:28 +0200
+
 squeekboard (1.17.0-2) unstable; urgency=medium
 
   * d/patches: fix build failure due to newer crate version.
