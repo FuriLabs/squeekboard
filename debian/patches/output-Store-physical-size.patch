@@ -1,0 +1,145 @@
+From: Dorota Czaplejewicz <dorota.czaplejewicz@puri.sm>
+Date: Wed, 6 Apr 2022 08:40:59 +0000
+Subject: output: Store physical size
+
+Origin: upstream, https://gitlab.gnome.org/World/Phosh/squeekboard/-/commit/57aeeaa882067218de83084fcebc6a7c4d4fdb2e
+---
+ src/outputs.rs | 44 +++++++++++++++++++++++++++++++++++---------
+ src/state.rs   |  3 ++-
+ src/util.rs    |  6 ++++++
+ 3 files changed, 43 insertions(+), 10 deletions(-)
+
+diff --git a/src/outputs.rs b/src/outputs.rs
+index 13c1b5d..cb17efa 100644
+--- a/src/outputs.rs
++++ b/src/outputs.rs
+@@ -126,7 +126,7 @@ pub mod c {
+         outputs: COutputs,
+         wl_output: WlOutput,
+         _x: i32, _y: i32,
+-        _phys_width: i32, _phys_height: i32,
++        phys_width: i32, phys_height: i32,
+         _subpixel: i32,
+         _make: *const c_char, _model: *const c_char,
+         transform: i32,
+@@ -144,7 +144,19 @@ pub mod c {
+                 .find_output_mut(wl_output)
+                 .map(|o| &mut o.pending);
+         match output_state {
+-            Some(state) => { state.transform = Some(transform) },
++            Some(state) => {
++                fn maybe_mm(value: i32) -> Option<Millimeter> {
++                    if value == 0 { None }
++                    else { Some(Millimeter(value)) }
++                }
++                state.geometry = Some(Geometry {
++                    phys_size: GSize {
++                        width: maybe_mm(phys_width),
++                        height: maybe_mm(phys_height),
++                    },
++                    transform,
++                });
++            },
+             None => log_print!(
+                 logging::Level::Warning,
+                 "Got geometry on unknown output",
+@@ -286,13 +298,17 @@ pub mod c {
+     // TODO: handle unregistration
+ }
+ 
++
+ /// Generic size
+-#[derive(Clone)]
+-pub struct Size {
+-    pub width: u32,
+-    pub height: u32,
++#[derive(Clone, Copy, Debug)]
++pub struct GSize<Unit> {
++    pub width: Unit,
++    pub height: Unit,
+ }
+ 
++/// Unspecified size (TODO: transitional, remove)
++pub type Size = GSize<u32>;
++
+ /// wl_output mode
+ #[derive(Clone, Copy, Debug)]
+ pub struct Mode {
+@@ -300,10 +316,20 @@ pub struct Mode {
+     height: i32,
+ }
+ 
++#[derive(Clone, Copy, Debug)]
++pub struct Millimeter(pub i32);
++
++/// All geometry parameters
++#[derive(Clone, Copy, Debug)]
++pub struct Geometry {
++    pub transform: c::Transform,
++    pub phys_size: GSize<Option<Millimeter>>,
++}
++
+ #[derive(Clone, Copy, Debug)]
+ pub struct OutputState {
+     pub current_mode: Option<Mode>,
+-    pub transform: Option<c::Transform>,
++    pub geometry: Option<Geometry>,
+     pub scale: i32,
+ }
+ 
+@@ -317,7 +343,7 @@ impl OutputState {
+     fn uninitialized() -> OutputState {
+         OutputState {
+             current_mode: None,
+-            transform: None,
++            geometry: None,
+             scale: 1,
+         }
+     }
+@@ -327,7 +353,7 @@ impl OutputState {
+         match self {
+             OutputState {
+                 current_mode: Some(Mode { width, height } ),
+-                transform: Some(transform),
++                geometry: Some(Geometry { transform, .. } ),
+                 scale: _,
+             } => Some(
+                 match transform {
+diff --git a/src/state.rs b/src/state.rs
+index 5254a94..58d8e50 100644
+--- a/src/state.rs
++++ b/src/state.rs
+@@ -10,6 +10,7 @@ use crate::imservice::{ ContentHint, ContentPurpose };
+ use crate::main::{ Commands, PanelCommand, PixelSize };
+ use crate::outputs;
+ use crate::outputs::{OutputId, OutputState};
++use crate::util::Rational;
+ use std::cmp;
+ use std::collections::HashMap;
+ use std::time::Instant;
+@@ -341,7 +342,7 @@ pub mod test {
+             id,
+             OutputState {
+                 current_mode: None,
+-                transform: None,
++                geometry: None,
+                 scale: 1,
+             },
+         );
+diff --git a/src/util.rs b/src/util.rs
+index d510906..f4eb4f5 100644
+--- a/src/util.rs
++++ b/src/util.rs
+@@ -157,6 +157,12 @@ pub fn find_max_double<T, I, F>(iterator: I, get: F)
+         .0
+ }
+ 
++#[derive(Debug, Clone, Copy)]
++pub struct Rational {
++    pub numerator: i32,
++    pub denominator: u32,
++}
++
+ /// Compares pointers but not internal values of Rc
+ pub struct Pointer<T>(pub Rc<T>);
+ 
