@@ -1,0 +1,28 @@
+From: Arnaud Ferraris <arnaud.ferraris@collabora.com>
+Date: Wed, 20 Apr 2022 11:52:43 +0200
+Subject: layout: fix build on i386
+
+Due to the (lack of) precision of floating-point values, comparison
+results may differ slightly between architectures, leading to the
+`check_stretching` test failing when building for i386. This can be
+fixed by adjusting the value against which we compare the ratio between
+x/y scaling factors in `calculate_transformation`.
+
+Forwarded: https://gitlab.gnome.org/World/Phosh/squeekboard/-/merge_requests/548
+---
+ src/layout.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/layout.rs b/src/layout.rs
+index 0ca93f9..bb94d4d 100644
+--- a/src/layout.rs
++++ b/src/layout.rs
+@@ -761,7 +761,7 @@ impl Layout {
+         let h_scale = available.width / size.width;
+         let v_scale = available.height / size.height;
+         // Allow up to 5% (and a bit more) horizontal stretching for filling up available space
+-        let scale_x = if (h_scale / v_scale) < 1.06 { h_scale } else { v_scale };
++        let scale_x = if (h_scale / v_scale) < 1.055 { h_scale } else { v_scale };
+         let scale_y = cmp::min(FloatOrd(h_scale), FloatOrd(v_scale)).0;
+         let outside_margins = c::Transformation {
+             origin_x: (available.width - (scale_x * size.width)) / 2.0,

@@ -3,3 +3,4 @@ output-Store-physical-size.patch
 state-Derive-panel-size-from-physical-click-target-size.patch
 Clean-up-size-types.patch
 layout-allow-stretching-the-layout-by-a-small-amount.patch
+layout-fix-build-on-i386.patch
