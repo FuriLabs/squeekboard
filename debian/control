@@ -16,23 +16,26 @@ Build-Depends:
  librust-aho-corasick-dev,
  librust-bitflags-1-dev (>= 1.0),
  librust-clap-3+std-dev (>= 3.1),
- librust-gio+v2-58-dev,
- librust-glib+v2-58-dev,
- librust-glib-sys-dev,
- librust-gtk+v3-22-dev (>= 0.5),
- librust-gtk-sys-dev,
+ librust-gio+v2-58-dev (>= 0.14),
+ librust-glib+v2-58-dev (>= 0.14),
+ librust-glib-sys-dev (>= 0.14),
+ librust-gtk+v3-22-dev (>= 0.14),
+ librust-gtk-sys-dev (>= 0.14),
  librust-maplit-1-dev (>= 1.0),
  librust-serde-derive-1-dev (>= 1.0),
  librust-serde-yaml-0.8-dev (>= 0.8),
  librust-thread-local-dev,
  librust-xkbcommon-dev (>= 0.4),
+ librust-zbus-1-dev (>= 1.9),
+ librust-zvariant-2-dev (>= 2.10),
+ librust-zvariant-derive-2-dev (>= 2.10),
  libwayland-dev (>= 1.16),
  lsb-release,
  python3,
  python3-ruamel.yaml,
  rustc,
  wayland-protocols (>= 1.14),
-Standards-Version: 4.6.0
+Standards-Version: 4.6.1
 Homepage: https://gitlab.gnome.org/World/Phosh/squeekboard
 Vcs-Browser: https://salsa.debian.org/DebianOnMobile-team/squeekboard
 Vcs-Git: https://salsa.debian.org/DebianOnMobile-team/squeekboard.git
