@@ -1,3 +1,17 @@
+squeekboard (1.18.0-1) unstable; urgency=medium
+
+  * New upstream version
+    - possible to enable debugging messages while Squeekboard is running
+    - input method state fix
+  * d/patches: drop patches.
+    They were all merged upstream.
+  * d/control: update build dependencies and bump Standards-Version
+  * d/patches: backport upstream commit fixing build.
+    Newer glib-rs introduces breaking changes, this patch ensures the
+    package builds with the version currently in Debian.
+
+ -- Arnaud Ferraris <arnaud.ferraris@gmail.com>  Thu, 02 Jun 2022 13:53:39 +0200
+
 squeekboard (1.17.1-1) unstable; urgency=medium
 
   * New upstream version 1.17.1
