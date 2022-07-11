@@ -2,7 +2,7 @@ Source: squeekboard
 Section: x11
 Priority: optional
 Maintainer: DebianOnMobile Maintainers <debian-on-mobile-maintainers@alioth-lists.debian.net>
-Uploaders: Arnaud Ferraris <arnaud.ferraris@gmail.com>
+Uploaders: Arnaud Ferraris <aferraris@debian.org>
 Build-Depends:
  cargo,
  debhelper-compat (= 13),
