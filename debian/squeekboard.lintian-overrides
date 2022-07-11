@@ -1,3 +1,0 @@
-# yaml-rust 0.4.3 shares some roots with libyaml, including the string
-# which lintian checks, creating a false positive
-squeekboard binary: embedded-library libyaml usr/bin/squeekboard
