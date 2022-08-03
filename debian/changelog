@@ -1,3 +1,24 @@
+squeekboard (1.19.0-2) unstable; urgency=medium
+
+  * d/patches: relax clap dependency
+  * d/rules: fix build on ppc64el.
+    Due to a rust bug on ppc64el, `squeekboard-test-layout` fails to build
+    properly, causing the whole build to fail on this architecture. This
+    prevents newer versions of the package to migrate to testing.
+    This bug is due to the linker trying to resolve unused symbols when
+    building a rust binary and is only seen when using version 1.59.0 of
+    rustc.
+    This commit works around this problem by adding the needed linker flags
+    to ensure all symbols are properly resolved, even those not actually
+    used by the binaries.
+    Those changes can be reverted once a newer version of rustc is packaged
+    for Debian.
+    Note: this commit also drops the `xgot` feature for mips64el as it is
+    now automatically enabled for this architecture in Debian's rustc.
+    (Closes: #1016396)
+
+ -- Arnaud Ferraris <aferraris@debian.org>  Thu, 04 Aug 2022 00:39:37 +0200
+
 squeekboard (1.19.0-1) unstable; urgency=medium
 
   * New upstream version 1.19.0
