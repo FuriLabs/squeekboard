@@ -1,3 +1,17 @@
+squeekboard (1.20.0-1) unstable; urgency=medium
+
+  * debian: drop ppc64el workaround and patch.
+    This issue was only present with `rustc` 1.59 and has been fixed since
+    then (current `rustc` in Debian testing is 1.60), we can now drop our
+    workaround.
+  * d/rules: don't use online dependencies.
+    By default, `squeekboard` uses a fixed `Cargo.lock` so it can get the
+    right versions when fetching dependencies online. However, on Debian we
+    use the packaged crates instead of letting `cargo` fetch them online, so
+    we should disable this flag when configuring the build.
+
+ -- Arnaud Ferraris <aferraris@debian.org>  Wed, 14 Sep 2022 00:22:35 +0200
+
 squeekboard (1.19.0-2) unstable; urgency=medium
 
   * d/patches: relax clap dependency
