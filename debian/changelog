@@ -1,3 +1,15 @@
+squeekboard (1.20.0-2) unstable; urgency=medium
+
+  * desktop-file: Add X-GNOME-* for session management
+  * Use update-alternatives to provide sm.puri.OSK0.desktop.
+    This allows other implementations to work as OSK for phosh as well.
+    (Closes: #1023510)
+  * d/control: Version conflict on phosh-osk-stub.
+    We can happily coexist with the version that uses
+    update-alternatives.
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 07 Nov 2022 21:25:57 +0100
+
 squeekboard (1.20.0-1) unstable; urgency=medium
 
   * debian: drop ppc64el workaround and patch.
