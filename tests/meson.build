@@ -80,6 +80,7 @@ foreach layout : [
     'gr', 'gr_wide',
     'gr+polytonic',
     'fr+bepo', 'fr+bepo_wide',
+    'hu', 'hu_wide',
     'il',
     'ir',
     'it',
@@ -89,7 +90,7 @@ foreach layout : [
     'pl', 'pl_wide',
     'ro', 'ro_wide',
     'ru',
-    'se',
+    'se', 'se_wide',
     'th', 'th_wide',
     'ua',
     'us+colemak', 'us+colemak_wide',
@@ -126,4 +127,15 @@ foreach layout : [
     )
 endforeach
 
+endif
+
+if get_option('find_orphans')
+    test('test_find_orphans',
+        cargo_script,
+        args: ['run'] + cargo_build_flags
+            + ['--example', 'find_orphan_layouts',
+                '--', meson.source_root() + '/data/keyboards/'],
+        timeout: timeout,
+        workdir: meson.build_root(),
+    )
 endif

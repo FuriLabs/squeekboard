@@ -206,7 +206,7 @@ eek_renderer_render_keyboard (EekRenderer *self,
                               struct render_geometry geometry,
                               struct submission *submission,
                                    cairo_t     *cr,
-                              LevelKeyboard *keyboard)
+                              Layout *keyboard)
 {
     g_return_if_fail (geometry.allocation_width > 0.0);
     g_return_if_fail (geometry.allocation_height > 0.0);
@@ -316,7 +316,7 @@ renderer_init (EekRenderer *self)
 }
 
 EekRenderer *
-eek_renderer_new (LevelKeyboard  *keyboard,
+eek_renderer_new (Layout  *keyboard,
                   PangoContext *pcontext)
 {
     EekRenderer *renderer = calloc(1, sizeof(EekRenderer));
@@ -335,6 +335,7 @@ eek_renderer_new (LevelKeyboard  *keyboard,
     if (squeek_layout_get_kind(keyboard->layout) == ARRANGEMENT_KIND_WIDE) {
         gtk_style_context_add_class(renderer->view_context, "wide");
     }
+    gtk_style_context_add_class(renderer->view_context, (char*)&keyboard->style_name);
     gtk_style_context_add_provider (renderer->view_context,
         GTK_STYLE_PROVIDER(renderer->css_provider),
         GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
