@@ -1,3 +1,20 @@
+squeekboard (1.21.0-1) unstable; urgency=medium
+
+  * New upstream version
+  * d/control: add missing dependencies
+    Upstream moved to `clap` v4 and now requires `libbsd`. Moreover, the
+    binary package now recommends a new font for greek polytonic (so it gets
+    pulled in by default, but users can easily uninstall it).
+    We also take this opportunity to bump Standards-Version (no change
+    needed) and improve the package's long description.
+  * d/patches: drop upstreamed and obsolete patches
+  * debian: add lintian-overrides
+    `squeekboard` uses a crate which includes a Rust rewrite of `libyaml`.
+    `lintian` falsely recognizes this as an embedded copy of the original
+    `libyaml` and raises an error we should ignore.
+
+ -- Arnaud Ferraris <aferraris@debian.org>  Thu, 02 Mar 2023 11:18:58 +0100
+
 squeekboard (1.20.0-2) unstable; urgency=medium
 
   * desktop-file: Add X-GNOME-* for session management
