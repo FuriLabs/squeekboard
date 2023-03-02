@@ -1,0 +1,3 @@
+# squeekboard uses Rust's serde_yaml crate, which in turn uses a Rust rewrite
+# of libyaml, falsely recognized as an embedded copy of the C library.
+squeekboard: embedded-library libyaml [usr/bin/squeekboard]
