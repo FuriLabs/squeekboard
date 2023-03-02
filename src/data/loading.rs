@@ -192,7 +192,7 @@ fn iter_layout_sources(
 }
 
 fn load_layout_data(source: DataSource)
-    -> Result<::layout::LayoutData, LoadError>
+    -> Result<crate::layout::LayoutParseData, LoadError>
 {
     let handler = logging::Print {};
     match source {
@@ -217,7 +217,7 @@ fn load_layout_data_with_fallback(
     kind: ArrangementKind,
     purpose: ContentPurpose,
     overlay: Option<&str>,
-) -> (ArrangementKind, layout::LayoutData) {
+) -> (ArrangementKind, layout::LayoutParseData) {
 
     // Build the path to the right keyboard layout subdirectory
     let path = env::var_os("SQUEEKBOARD_KEYBOARDSDIR")
@@ -253,14 +253,14 @@ fn load_layout_data_with_fallback(
 }
 
 pub fn load_layout(
-    name: String,
+    name: &String,
     kind: ArrangementKind,
     variant: ContentPurpose,
-    overlay: Option<String>,
+    overlay: &Option<String>,
 ) -> layout::Layout {
     let overlay = overlay.as_ref().map(String::as_str);
     let (found_kind, layout)
-        = load_layout_data_with_fallback(&name, kind, variant, overlay);
+        = load_layout_data_with_fallback(name, kind, variant, overlay);
     layout::Layout::new(layout, found_kind, variant)
 }
 
@@ -268,7 +268,7 @@ pub fn load_layout(
 mod tests {
     use super::*;
 
-    use ::logging::ProblemPanic;
+    use crate::logging::ProblemPanic;
 
     #[test]
     fn parsing_fallback() {
