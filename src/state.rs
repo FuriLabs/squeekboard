@@ -385,19 +385,20 @@ Outcome:
                 let ideal_height = IDEAL_TARGET_SIZE * ROW_COUNT as i32;
                 let ideal_height_px = (ideal_height * density).ceil().0 as u32;
 
+                let max_wide_height = Rational {
+                    numerator: 172,
+                    denominator: 540,
+                };
+                let ideal_panel_height = Rational {
+                    numerator: ideal_height_px as i32,
+                    denominator: px_size.width,
+                };
                 // Reduce height to match what the layout can fill.
-                // For this, we need to guess if normal or wide will be picked up.
+                // For this, we need to guess if normal or wide will be picked.
                 // This must match `eek_gtk_keyboard.c::get_type`.
                 // TODO: query layout database and choose one directly
-                let abstract_width
-                    = PixelSize {
-                        scale_factor: output.scale as u32,
-                        pixels: px_size.width,
-                    } 
-                    .as_scaled_ceiling();
-
                 let (arrangement, height_as_widths) = {
-                    if abstract_width < 540 {(
+                    if max_wide_height < ideal_panel_height {(
                         ArrangementKind::Base,
                         Rational {
                             numerator: 210,
@@ -405,10 +406,7 @@ Outcome:
                         },
                     )} else {(
                         ArrangementKind::Wide,
-                        Rational {
-                            numerator: 172,
-                            denominator: 540,
-                        }
+                        max_wide_height,
                     )}
                 };
 
@@ -749,6 +747,35 @@ pub mod test {
             Some((
                 PixelSize {
                     scale_factor: 2,
+                    pixels: 420,
+                },
+                ArrangementKind::Base,
+            )),
+        );
+    }
+    
+    
+    #[test]
+    fn size_l5_scale1() {
+        use crate::outputs::{Mode, Geometry, c, Size};
+        assert_eq!(
+            Application::get_preferred_height_and_arrangement(&OutputState {
+                current_mode: Some(Mode {
+                    width: 720,
+                    height: 1440,
+                }),
+                geometry: Some(Geometry{
+                    transform: c::Transform::Normal,
+                    phys_size: Size {
+                        width: Some(Millimeter(65)),
+                        height: Some(Millimeter(130)),
+                    },
+                }),
+                scale: 1,
+            }),
+            Some((
+                PixelSize {
+                    scale_factor: 1,
                     pixels: 420,
                 },
                 ArrangementKind::Base,
