@@ -1,3 +1,9 @@
+squeekboard (1.22.0-2) unstable; urgency=medium
+
+  * Release to unstable
+
+ -- Arnaud Ferraris <aferraris@debian.org>  Tue, 13 Jun 2023 16:43:56 +0200
+
 squeekboard (1.22.0-1) experimental; urgency=medium
 
   * New upstream version 1.22.0
