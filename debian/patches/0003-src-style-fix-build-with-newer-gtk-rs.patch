@@ -1,0 +1,31 @@
+From: Arnaud Ferraris <arnaud.ferraris@collabora.com>
+Date: Tue, 27 Jun 2023 13:52:17 +0200
+Subject: src: style: fix build with newer gtk-rs
+
+`gtk::Settings::property()` no longer returns a `Result` but instead
+panics if the property doesn't exist. In order to work around this
+change without affecting the surrounding code too much, this patch
+modifies the `prop` function so we can avoid panics and wrap the
+property value into a `Result` as was previously the case.
+---
+ src/style.rs | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/src/style.rs b/src/style.rs
+index fce4059..3f615b3 100644
+--- a/src/style.rs
++++ b/src/style.rs
+@@ -99,7 +99,12 @@ fn get_theme_name(settings: &gtk::Settings) -> GtkTheme {
+         }).ok();
+ 
+     #[cfg(feature = "glib_v0_14")]
+-    let prop = |s: &gtk::Settings, name| s.property(name);
++    let prop = |s: &gtk::Settings, name| {
++        if s.has_property(name, None) {
++            return Ok(s.property_value(name));
++        }
++        return Err("Key not found in settings");
++    };
+     #[cfg(not(feature = "glib_v0_14"))]
+     let prop = |s: &gtk::Settings, name| s.get_property(name);
+ 

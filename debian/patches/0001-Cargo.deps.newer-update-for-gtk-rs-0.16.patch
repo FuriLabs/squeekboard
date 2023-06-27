@@ -1,0 +1,53 @@
+From: Arnaud Ferraris <arnaud.ferraris@collabora.com>
+Date: Tue, 27 Jun 2023 12:31:30 +0200
+Subject: Cargo.deps.newer: update for gtk-rs 0.16
+
+---
+ Cargo.deps.newer | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/Cargo.deps.newer b/Cargo.deps.newer
+index 197dfa3..a6d4eac 100644
+--- a/Cargo.deps.newer
++++ b/Cargo.deps.newer
+@@ -9,30 +9,30 @@ zvariant = "2.10.*"
+ zvariant_derive = "2.10.*"
+ 
+ [dependencies.cairo-rs]
+-version = "0.14.*"
++version = "0.16.*"
+ 
+ [dependencies.cairo-sys-rs]
+-version = "0.14.*"
++version = "0.16.*"
+ 
+ [dependencies.gdk]
+-version = "0.14.*"
++version = "0.16.*"
+ 
+ [dependencies.gio]
+-version = "0.14.*"
++version = "0.16.*"
+ features = ["v2_58"]
+ 
+ [dependencies.glib]
+-version = "0.14.*"
++version = "0.16.*"
+ features = ["v2_58"]
+ 
+ [dependencies.glib-sys]
+-version = "0.14.*"
++version = "0.16.*"
+ features = ["v2_58"]
+ 
+ [dependencies.gtk]
+-version = "0.14.*"
+-features = ["v3_22"]
++version = "0.16.*"
++features = ["v3_24"]
+ 
+ [dependencies.gtk-sys]
+-version = "0.14.*"
+-features = ["v3_22"]
++version = "0.16.*"
++features = ["v3_24"]

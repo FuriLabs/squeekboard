@@ -1,0 +1,35 @@
+From: Arnaud Ferraris <arnaud.ferraris@collabora.com>
+Date: Tue, 27 Jun 2023 13:51:53 +0200
+Subject: src: popover: fix build with newer gtk-rs
+
+`gtk-rs` v0.16+ no longer exposes the internal fields of the
+`gtk::Rectangle` struct, mandating the use of the `new()` function
+instead.
+
+---
+ src/popover.rs | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/src/popover.rs b/src/popover.rs
+index 8f4e4a5..2a506d8 100644
+--- a/src/popover.rs
++++ b/src/popover.rs
+@@ -305,12 +305,12 @@ pub fn show(
+     #[cfg(not(feature = "glib_v0_14"))]
+     let menu = gtk::Popover::new_from_model(Some(&window), &model);
+ 
+-    menu.set_pointing_to(&gtk::Rectangle {
+-        x: position.x.ceil() as i32,
+-        y: position.y.ceil() as i32,
+-        width: position.width.floor() as i32,
+-        height: position.width.floor() as i32,
+-    });
++    menu.set_pointing_to(&gtk::Rectangle::new (
++        position.x.ceil() as i32,
++        position.y.ceil() as i32,
++        position.width.floor() as i32,
++        position.width.floor() as i32,
++    ));
+     menu.set_constrain_to(gtk::PopoverConstraint::None);
+ 
+     let action_group = gio::SimpleActionGroup::new();
