@@ -31,5 +31,4 @@ clap_v4 = []
 maplit = "1.0.*"
 serde = { version = "1.0.*", features = ["derive"] }
 serde_yaml = "0.8.*"
-xkbcommon = { version = "0.4.*", features = ["wayland"] }
 # Here is inserted the Cargo.deps file
