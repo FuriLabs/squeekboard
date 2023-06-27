@@ -5,6 +5,7 @@ zbus = "1.0.*"
 zvariant = "2.0.*"
 # Newer versions seem to confuse the version of Cargo on Debian Bullseye
 zvariant_derive = "2.0.*"
+xkbcommon = { version = "0.4.*", features = ["wayland"] }
 
 [dependencies.cairo-rs]
 version = "0.7.*"
