@@ -9,30 +9,30 @@ zvariant = "2.10.*"
 zvariant_derive = "2.10.*"
 
 [dependencies.cairo-rs]
-version = "0.14.*"
+version = "0.18.*"
 
 [dependencies.cairo-sys-rs]
-version = "0.14.*"
+version = "0.18.*"
 
 [dependencies.gdk]
-version = "0.14.*"
+version = "0.18.*"
 
 [dependencies.gio]
-version = "0.14.*"
+version = "0.18.*"
 features = ["v2_58"]
 
 [dependencies.glib]
-version = "0.14.*"
+version = "0.18.*"
 features = ["v2_58"]
 
 [dependencies.glib-sys]
-version = "0.14.*"
+version = "0.18.*"
 features = ["v2_58"]
 
 [dependencies.gtk]
-version = "0.14.*"
-features = ["v3_22"]
+version = "0.18.*"
+features = ["v3_24"]
 
 [dependencies.gtk-sys]
-version = "0.14.*"
-features = ["v3_22"]
+version = "0.18.*"
+features = ["v3_24"]
