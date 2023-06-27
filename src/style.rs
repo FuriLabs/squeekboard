@@ -99,7 +99,12 @@ fn get_theme_name(settings: &gtk::Settings) -> GtkTheme {
         }).ok();
 
     #[cfg(feature = "glib_v0_14")]
-    let prop = |s: &gtk::Settings, name| s.property(name);
+    let prop = |s: &gtk::Settings, name| {
+        if s.has_property(name, None) {
+            return Ok(s.property_value(name));
+        }
+        return Err("Key not found in settings");
+    };
     #[cfg(not(feature = "glib_v0_14"))]
     let prop = |s: &gtk::Settings, name| s.get_property(name);
 
