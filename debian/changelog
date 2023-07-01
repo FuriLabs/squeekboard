@@ -1,3 +1,13 @@
+squeekboard (1.22.0-3) unstable; urgency=medium
+
+  * debian: update build dependencies.
+    Debian now includes `gtk-rs` packages on version 0.16 and
+    `rust-xkbcommon` on version 0.5. This requires patching the Cargo.toml
+    file(s) to make the project use the current versions, and bump the
+    required versions under d/control accordingly. (Closes: #1039534)
+
+ -- Arnaud Ferraris <aferraris@debian.org>  Sat, 01 Jul 2023 17:14:45 +0200
+
 squeekboard (1.22.0-2) unstable; urgency=medium
 
   * Release to unstable
