@@ -1,4 +1,4 @@
-0001-Cargo.deps.newer-update-for-gtk-rs-0.16.patch
+0001-Cargo.deps.newer-update-for-gtk-rs-0.17.patch
 0002-src-popover-fix-build-with-newer-gtk-rs.patch
 0003-src-style-fix-build-with-newer-gtk-rs.patch
 0004-Cargo.-use-xkbcommon-v0.5.patch

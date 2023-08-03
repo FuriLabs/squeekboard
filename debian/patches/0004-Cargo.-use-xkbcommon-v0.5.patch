@@ -5,13 +5,13 @@ Subject: Cargo.*: use xkbcommon v0.5 for "newer" builds
 Debian now provides `rust-xkbcommon` v0.5, so let's use this as the
 base version for our use-case.
 ---
- Cargo.deps       | 3 ++-
+ Cargo.deps       | 1 +
  Cargo.deps.newer | 1 +
  Cargo.toml.in    | 1 -
- 3 files changed, 3 insertions(+), 2 deletions(-)
+ 3 files changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/Cargo.deps b/Cargo.deps
-index e7c5e06..079341e 100644
+index e7c5e06..f406b7b 100644
 --- a/Cargo.deps
 +++ b/Cargo.deps
 @@ -5,6 +5,7 @@ zbus = "1.0.*"
@@ -23,7 +23,7 @@ index e7c5e06..079341e 100644
  [dependencies.cairo-rs]
  version = "0.7.*"
 diff --git a/Cargo.deps.newer b/Cargo.deps.newer
-index a6d4eac..57baa23 100644
+index c236cc5..b36e616 100644
 --- a/Cargo.deps.newer
 +++ b/Cargo.deps.newer
 @@ -7,6 +7,7 @@ zbus = "1.9.*"
@@ -33,7 +33,7 @@ index a6d4eac..57baa23 100644
 +xkbcommon = { version = "0.5.*", features = ["wayland"] }
  
  [dependencies.cairo-rs]
- version = "0.16.*"
+ version = "0.17.*"
 diff --git a/Cargo.toml.in b/Cargo.toml.in
 index c9b2064..557e6c6 100644
 --- a/Cargo.toml.in
