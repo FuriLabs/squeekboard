@@ -1,3 +1,21 @@
+squeekboard (1.22.0-4) unstable; urgency=medium
+
+  [ Peter Michael Green ]
+  * d/patches: update for gtk-rs 0.17
+    (Closes: #1042983)
+
+  [ Arnaud Ferraris ]
+  * d/rules: d/rules: improve tests robustness.
+    This makes the tests flaky as those involve compiling binaries, which
+    causes the following issues:
+    - parallel threads time out waiting on another build to finish
+    - compilation itself sometimes fail due to possible race conditions
+    Furthermore, on certain architectures the default timeout can often be
+    hit, so improve it by adding a x3 multiplier.
+    While at it, drop the (now-)unneeded override on `dh_autoreconf`.
+
+ -- Arnaud Ferraris <aferraris@debian.org>  Wed, 23 Aug 2023 10:47:31 +0200
+
 squeekboard (1.22.0-3) unstable; urgency=medium
 
   * debian: update build dependencies.
