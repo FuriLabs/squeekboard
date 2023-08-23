@@ -25,4 +25,5 @@ build-arch:
 override_dh_auto_configure:
 	dh_auto_configure -- -Dnewer=true -Donline=false
 
-override_dh_autoreconf:
+override_dh_auto_test:
+	dh_auto_test --no-parallel -- --timeout-multiplier 3
