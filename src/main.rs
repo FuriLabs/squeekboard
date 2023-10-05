@@ -10,7 +10,7 @@ use crate::data::loading;
 use crate::event_loop;
 use crate::panel;
 use crate::state;
-use glib::{Continue, MainContext, PRIORITY_DEFAULT, Receiver};
+use glib::{ControlFlow, MainContext, PRIORITY_DEFAULT, Receiver};
 
 
 mod c {
@@ -163,7 +163,7 @@ mod c {
                     hint_manager,
                     dbus_handler,
                 );
-                Continue(true)
+                ControlFlow::Continue
             },
         );
         #[cfg(not(feature = "glib_v0_14"))]

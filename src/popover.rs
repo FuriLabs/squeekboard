@@ -376,6 +376,6 @@ pub fn show(
     menu.bind_model(Some(&model), Some("popup"));
     glib::idle_add_local(move || {
         menu.popup();
-        Continue(false)
+        glib::ControlFlow::Break
     });
 }
