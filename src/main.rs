@@ -10,7 +10,7 @@ use crate::data::loading;
 use crate::event_loop;
 use crate::panel;
 use crate::state;
-use glib::{ControlFlow, MainContext, PRIORITY_DEFAULT, Receiver};
+use glib::{ControlFlow, MainContext, Priority, Receiver};
 
 
 mod c {
@@ -103,7 +103,7 @@ mod c {
     pub extern "C"
     fn squeek_init() -> RsObjects {
         // Set up channels
-        let (sender, receiver) = MainContext::channel(PRIORITY_DEFAULT);
+        let (sender, receiver) = MainContext::channel(Priority::default());
         let now = Instant::now();
         let state_manager = driver::Threaded::new(sender, state::Application::new(now));
 
