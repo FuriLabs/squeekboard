@@ -66,7 +66,7 @@ pub mod c {
         glib::idle_add_local(move || {
             let panel = panel.clone_ref();
             panel.borrow_mut().set_configured(Size{width, height});
-            glib::Continue(false)
+            glib::ControlFlow::Break
         });
     }
 }
