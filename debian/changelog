@@ -1,8 +1,12 @@
-squeekboard (1.22.0-4.1) UNRELEASED; urgency=medium
+squeekboard (1.22.0-5) unstable; urgency=medium
 
-  * update patches for gtk-rs 0.18
+  [ Peter Michael Green ]
+  * update patches for gtk-rs 0.18 (Closes: #1053536)
 
- -- Peter Michael Green <plugwash@debian.org>  Thu, 05 Oct 2023 19:31:30 +0000
+  [ Arnaud Ferraris ]
+  * d/control: update version requirements for gtk-rs dependencies
+
+ -- Arnaud Ferraris <aferraris@debian.org>  Mon, 16 Oct 2023 12:52:51 +0200
 
 squeekboard (1.22.0-4) unstable; urgency=medium
 
