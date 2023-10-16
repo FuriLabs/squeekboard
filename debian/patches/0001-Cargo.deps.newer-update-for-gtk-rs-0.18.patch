@@ -2,12 +2,13 @@ From: Arnaud Ferraris <arnaud.ferraris@collabora.com>
 Date: Tue, 27 Jun 2023 12:31:30 +0200
 Subject: Cargo.deps.newer: update for gtk-rs 0.17
 
+Modified by Peter Michael Green for version 0.18 of rust gtk stack.
 ---
  Cargo.deps.newer | 20 ++++++++++----------
  1 file changed, 10 insertions(+), 10 deletions(-)
 
 diff --git a/Cargo.deps.newer b/Cargo.deps.newer
-index 197dfa3..c236cc5 100644
+index 197dfa3..d3a38cf 100644
 --- a/Cargo.deps.newer
 +++ b/Cargo.deps.newer
 @@ -9,30 +9,30 @@ zvariant = "2.10.*"
@@ -15,39 +16,39 @@ index 197dfa3..c236cc5 100644
  
  [dependencies.cairo-rs]
 -version = "0.14.*"
-+version = "0.17.*"
++version = "0.18.*"
  
  [dependencies.cairo-sys-rs]
 -version = "0.14.*"
-+version = "0.17.*"
++version = "0.18.*"
  
  [dependencies.gdk]
 -version = "0.14.*"
-+version = "0.17.*"
++version = "0.18.*"
  
  [dependencies.gio]
 -version = "0.14.*"
-+version = "0.17.*"
++version = "0.18.*"
  features = ["v2_58"]
  
  [dependencies.glib]
 -version = "0.14.*"
-+version = "0.17.*"
++version = "0.18.*"
  features = ["v2_58"]
  
  [dependencies.glib-sys]
 -version = "0.14.*"
-+version = "0.17.*"
++version = "0.18.*"
  features = ["v2_58"]
  
  [dependencies.gtk]
 -version = "0.14.*"
 -features = ["v3_22"]
-+version = "0.17.*"
++version = "0.18.*"
 +features = ["v3_24"]
  
  [dependencies.gtk-sys]
 -version = "0.14.*"
 -features = ["v3_22"]
-+version = "0.17.*"
++version = "0.18.*"
 +features = ["v3_24"]

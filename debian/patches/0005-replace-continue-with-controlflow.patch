@@ -1,0 +1,57 @@
+From: Peter Michael Green <plugwash@debian.org>
+Date: Thu, 5 Oct 2023 19:31:30 +0000
+Subject: Replace "Continue" with "ControlFlow"
+
+---
+ src/main.rs    | 4 ++--
+ src/panel.rs   | 2 +-
+ src/popover.rs | 2 +-
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/src/main.rs b/src/main.rs
+index bc051ff..2e50d3a 100644
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -10,7 +10,7 @@ use crate::data::loading;
+ use crate::event_loop;
+ use crate::panel;
+ use crate::state;
+-use glib::{Continue, MainContext, PRIORITY_DEFAULT, Receiver};
++use glib::{ControlFlow, MainContext, PRIORITY_DEFAULT, Receiver};
+ 
+ 
+ mod c {
+@@ -163,7 +163,7 @@ mod c {
+                     hint_manager,
+                     dbus_handler,
+                 );
+-                Continue(true)
++                ControlFlow::Continue
+             },
+         );
+         #[cfg(not(feature = "glib_v0_14"))]
+diff --git a/src/panel.rs b/src/panel.rs
+index 0829899..5443f4b 100644
+--- a/src/panel.rs
++++ b/src/panel.rs
+@@ -66,7 +66,7 @@ pub mod c {
+         glib::idle_add_local(move || {
+             let panel = panel.clone_ref();
+             panel.borrow_mut().set_configured(Size{width, height});
+-            glib::Continue(false)
++            glib::ControlFlow::Break
+         });
+     }
+ }
+diff --git a/src/popover.rs b/src/popover.rs
+index 2a506d8..1fde031 100644
+--- a/src/popover.rs
++++ b/src/popover.rs
+@@ -376,6 +376,6 @@ pub fn show(
+     menu.bind_model(Some(&model), Some("popup"));
+     glib::idle_add_local(move || {
+         menu.popup();
+-        Continue(false)
++        glib::ControlFlow::Break
+     });
+ }

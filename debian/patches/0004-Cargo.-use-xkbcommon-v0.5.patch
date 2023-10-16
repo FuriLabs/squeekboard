@@ -23,7 +23,7 @@ index e7c5e06..f406b7b 100644
  [dependencies.cairo-rs]
  version = "0.7.*"
 diff --git a/Cargo.deps.newer b/Cargo.deps.newer
-index c236cc5..b36e616 100644
+index d3a38cf..5442112 100644
 --- a/Cargo.deps.newer
 +++ b/Cargo.deps.newer
 @@ -7,6 +7,7 @@ zbus = "1.9.*"
@@ -33,7 +33,7 @@ index c236cc5..b36e616 100644
 +xkbcommon = { version = "0.5.*", features = ["wayland"] }
  
  [dependencies.cairo-rs]
- version = "0.17.*"
+ version = "0.18.*"
 diff --git a/Cargo.toml.in b/Cargo.toml.in
 index c9b2064..557e6c6 100644
 --- a/Cargo.toml.in

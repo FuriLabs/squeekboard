@@ -6,11 +6,11 @@ Subject: src: popover: fix build with newer gtk-rs
 `gtk::Rectangle` struct, mandating the use of the `new()` function
 instead.
 ---
- src/popover.rs | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+ src/popover.rs | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/src/popover.rs b/src/popover.rs
-index 8f4e4a5..c03b056 100644
+index 8f4e4a5..2a506d8 100644
 --- a/src/popover.rs
 +++ b/src/popover.rs
 @@ -305,12 +305,12 @@ pub fn show(
@@ -32,12 +32,3 @@ index 8f4e4a5..c03b056 100644
      menu.set_constrain_to(gtk::PopoverConstraint::None);
  
      let action_group = gio::SimpleActionGroup::new();
-@@ -326,7 +326,7 @@ pub fn show(
-         let layout_action = gio::SimpleAction::new_stateful(
-             "layout",
-             Some(current_layout_name.to_variant().type_()),
--            &current_layout_name.to_variant()
-+            current_layout_name.to_variant()
-         );
- 
-         let menu_inner = menu.clone();

@@ -1,0 +1,30 @@
+From: Peter Michael Green <plugwash@debian.org>
+Date: Thu, 5 Oct 2023 19:31:30 +0000
+Subject: "Priority" constants for glib-rs 0.18
+
+---
+ src/main.rs | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/main.rs b/src/main.rs
+index 2e50d3a..fd4e22e 100644
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -10,7 +10,7 @@ use crate::data::loading;
+ use crate::event_loop;
+ use crate::panel;
+ use crate::state;
+-use glib::{ControlFlow, MainContext, PRIORITY_DEFAULT, Receiver};
++use glib::{ControlFlow, MainContext, Priority, Receiver};
+ 
+ 
+ mod c {
+@@ -103,7 +103,7 @@ mod c {
+     pub extern "C"
+     fn squeek_init() -> RsObjects {
+         // Set up channels
+-        let (sender, receiver) = MainContext::channel(PRIORITY_DEFAULT);
++        let (sender, receiver) = MainContext::channel(Priority::default());
+         let now = Instant::now();
+         let state_manager = driver::Threaded::new(sender, state::Application::new(now));
+ 
