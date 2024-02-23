@@ -8,22 +8,22 @@ outlines:
 
 views:
     base:
-        - "ض ص ق ف غ ع ه خ ح ج"
-        - "ش س ی ب ل ا ت ن م ک"
-        - "Shift_L   ظ ط ز ر ذ د و  BackSpace"
-        - "show_numbers preferences         space        period Return"
+        - "ض ص ث ق ف غ ع ه خ ح ج"
+        - "ش س ی ب ل ا ت ن م ک گ"
+        - "Shift_L  ظ ط ز ر ذ د پ و  BackSpace"
+        - "show_numbers preferences         space     zwnj period Return"
     upper:
-        - "پ { } [ ] ّ   َ   ِ  ُ چ"
-        - "ؤ‌ ئ ي‌ إ أ آ ة‌ » « گ"
-        - "Shift_L  ك ٓ ژ ء > < ؟  BackSpace"
-        - "show_numbers preferences         space        period Return"
+        - "  ْ  ٌ  ٍ  ً  ُ  ِ  َ  ّ # @ چ"
+        - "_ ئ ي إ أ آ ة » « : ؛"
+        - "Shift_L ك  ٓ ژ  ٔ ء > < ؟ BackSpace"
+        - "show_numbers preferences         space        ! ، Return"
     numbers:
-        - "۱ ۲ ۳ ۴ ۵ ۶ ۷ ۸ ۹ ۰"
-        - "@ # ﷼ % & - _ + ( )"
-        - "show_symbols   , \" ' colon ؛ ! ?  BackSpace"
+        - "۱ ۲ ۳ ۴ ۵ ۶ ۷ ۸ ۹ ۰ |"
+        - "… ٬ ٫ ﷼ ٪ ، * ) ( − ـ"
+        - "show_symbols + - × ÷ = ^ % / BackSpace"
         - "show_letters preferences         space        period Return"
     symbols:
-        - "~ ` | · √ π τ ÷ × ¶"
+        - "& ` | · • % π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
         - "show_numbers_from_symbols   \\ / < > = [ ]  BackSpace"
         - "show_letters preferences         space        period Return"
@@ -48,17 +48,17 @@ buttons:
         action:
             set_view: "numbers"
         outline: "wide"
-        label: "123"
+        label: "۱۲۳"
     show_numbers_from_symbols:
         action:
             set_view: "numbers"
         outline: "altline"
-        label: "123"
+        label: "۱۲۳"
     show_letters:
         action:
             set_view: "base"
         outline: "wide"
-        label: "ABC"
+        label: "ا‌ب‌پ"
     show_symbols:
         action:
             set_view: "symbols"
@@ -74,5 +74,8 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
+    zwnj:
+        icon: "zwnj"
+        text: "‌"
     colon:
         text: ":"
