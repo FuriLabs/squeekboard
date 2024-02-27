@@ -1,48 +1,51 @@
 ---
 outlines:
-    default: { width: 35.33, height: 46 }
-    wide: { width: 55, height: 46 }
-    spaceline: { width: 125, height: 46 }
-    small: { width: 59, height: 22 }
-    action: { width: 59, height: 46}
+    default:   { width: 35.33, height: 46 }
+    action:    { width: 59,    height: 46 }
+    altline:   { width: 52.67, height: 46 }
+    large:     { width: 52.67, height: 46 }
+    wide:      { width: 59,    height: 46 }
+    spaceline: { width: 92.29, height: 46 }
+    special:   { width: 44,    height: 46 }
+    small:     { width: 50.57, height: 22 }
 
 views:
     base:
-        - "Ctrl Alt ↑ ↓ ← →"
+        - "TabSmall Ctrl Alt ↑ ↓ ← →"
         - "q w e r t y u i o p"
         - "a s d f g h j k l ñ"
         - "Shift_L   z x c v b n m  BackSpace"
         - "show_numbers show_eschars preferences      space        show_actions Return"
     upper:
-        - "Ctrl Alt PgUp PgDn Home End"
+        - "TabSmall Ctrl Alt PgUp PgDn Home End"
         - "Q W E R T Y U I O P"
         - "A S D F G H J K L Ñ"
         - "Shift_L   Z X C V B N M  DelUp"
         - "show_numbers show_eschars preferences      space        show_actions Return"
     numbers:
-        - "Ctrl Alt ↑ ↓ ← →"
+        - "TabSmall Ctrl Alt ↑ ↓ ← →"
         - "1 2 3 4 5 6 7 8 9 0"
         - "* # € / & - _ + ( )"
         - "show_symbols , \" ' colon ; ! ?  BackSpace"
         - "show_letters show_eschars preferences         space        . Return"
     symbols:
-        - "Ctrl Alt ↑ ↓ ← →"
+        - "TabSmall Ctrl Alt ↑ ↓ ← →"
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ $ ¥ ^ ° @ { }"
         - "show_numbers   \\ % < > = [ ]  BackSpace"
         - "show_letters show_eschars preferences         space        . Return"
     eschars:
-        - "Ctrl Alt ↑ ↓ ← →"
+        - "TabSmall Ctrl Alt ↑ ↓ ← →"
         - "á é í ó ú Á É Í Ó Ú"
         - "à è ì ò ù À È Ì Ò Ù"
         - "show_numbers , ü ç ï Ü Ç ï BackSpace"
         - "show_letters show_symbols preferences        space        show_actions Return"
     actions:
-        - "Ctrl Alt PgUp PgDn Home End"
+        - "TabSmall Ctrl Alt PgUp PgDn Home End"
         - "F1  F2  F3  F4  F5  F6"
         - "F7  F8  F9  F10 F11 F12"
         - "Esc Tab Pause Insert Up Del"
-        - "show_letters Menu Break Left Down Right"
+        - "show_letters_actions Menu Break Left Down Right"
 
 buttons:
     Shift_L:
@@ -50,22 +53,27 @@ buttons:
             locking:
                 lock_view: "upper"
                 unlock_view: "base"
-        outline: "wide"
+        outline: "altline"
         icon: "key-shift"
     BackSpace:
-        outline: "wide"
+        outline: "altline"
         icon: "edit-clear-symbolic"
         action: erase
     preferences:
         action: "show_prefs"
-        outline: "default"
+        outline: "special"
         icon: "keyboard-mode-symbolic"
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "wide"
+        outline: "altline"
         label: "123"
     show_letters:
+        action:
+            set_view: "base"
+        outline: "altline"
+        label: "ABC"
+    show_letters_actions:
         action:
             set_view: "base"
         outline: "wide"
@@ -73,20 +81,20 @@ buttons:
     show_symbols:
         action:
             set_view: "symbols"
-        outline: "wide"
+        outline: "altline"
         label: "τ=\\"
     show_eschars:
         action:
             set_view: "eschars"
-        outline: "wide"
+        outline: "altline"
         label: "áÁ"
     show_actions:
         action:
             set_view: "actions"
-        outline: "default"
-        label: ">:"
+        outline: "altline"
+        label: ">_"
     ".":
-        outline: "default"
+        outline: "large"
         text: "."
     space:
         outline: "spaceline"
@@ -139,11 +147,15 @@ buttons:
     Tab:
         outline: "action"
         keysym: "Tab"
+    TabSmall:
+        outline: "small"
+        keysym: "Tab"
+        label: "Tab"
     Del:
         outline: "action"
         keysym: "Delete"
     DelUp:
-        outline: "wide"
+        outline: "altline"
         keysym: "Delete"
         label: "Del"
     Insert:
