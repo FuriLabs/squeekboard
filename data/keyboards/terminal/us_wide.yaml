@@ -4,7 +4,7 @@ outlines:
     action:    { width: 90,   height: 37 }
     altline:   { width: 81,   height: 37 }
     wide:      { width: 90,   height: 37 }
-    spaceline: { width: 225,  height: 37 }
+    spaceline: { width: 234,  height: 37 }
     special:   { width: 54,   height: 37 }
     small:     { width: 67.4, height: 22 }
     halfwidth: { width: 27,   height: 37 }
@@ -39,7 +39,7 @@ views:
         - "F1  F2  F3  F4  F5  F6"
         - "F7  F8  F9  F10 F11 F12"
         - "Esc Tab Pause Insert Up Del"
-        - "show_letters Menu Break Left Down Right"
+        - "show_letters_actions Menu Break Left Down Right"
 
 buttons:
     Shift_L:
@@ -60,7 +60,7 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "wide"
+        outline: "altline"
         label: "123"
     show_numbers_from_symbols:
         action:
@@ -68,6 +68,11 @@ buttons:
         outline: "altline"
         label: "123"
     show_letters:
+        action:
+            set_view: "base"
+        outline: "altline"
+        label: "ABC"
+    show_letters_actions:
         action:
             set_view: "base"
         outline: "wide"
