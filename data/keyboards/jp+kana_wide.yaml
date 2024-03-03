@@ -1,11 +1,11 @@
 # Maintained by: Mark Müller <markmueller86@gmail.com>
 ---
 outlines:
-    default: { width: 62, height: 42 }
+    default:      { width: 62, height: 42 }
     default-wide: { width: 62, height: 42 }
-    altline: { width: 62, height: 42 }
-    wide: { width: 62, height: 42 }
-    special: { width: 62, height: 42 }
+    altline:      { width: 62, height: 42 }
+    wide:         { width: 62, height: 42 }
+    special:      { width: 62, height: 42 }
 
 views:
     base: # hiragana

@@ -4,12 +4,12 @@
 # 
 ---
 outlines:
-    default:    { width: 40, height: 60 }
-    altline:    { width: 52.67,    height: 60 }
-    wide:       { width: 62,    height: 60 }
-    extrawide:  { width: 66, height: 60 }
-    spaceline:  { width: 140,   height: 60 }
-    special:    { width: 44,    height: 60 }
+    default:   { width: 40,    height: 60 }
+    altline:   { width: 52.67, height: 60 }
+    wide:      { width: 62,    height: 60 }
+    extrawide: { width: 66,    height: 60 }
+    spaceline: { width: 140,   height: 60 }
+    special:   { width: 44,    height: 60 }
 
 views:
     base:

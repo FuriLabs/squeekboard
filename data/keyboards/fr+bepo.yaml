@@ -5,7 +5,7 @@ outlines:
     altline:   { width: 35.33, height: 52 }
     wide:      { width: 50,    height: 52 }
     spaceline: { width: 150,   height: 52 }
-    special:   { width: 35.33,  height: 52 }
+    special:   { width: 35.33, height: 52 }
 
 views:
     base:
