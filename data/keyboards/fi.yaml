@@ -3,7 +3,6 @@ outlines:
     default: { width: 32, height: 52 }
     altline: { width: 48.39024, height: 52 }
     wide: { width: 62, height: 52 }
-    outline7: { width: 88.97561, height: 52 }
     spaceline: { width: 150.5853, height: 52 }
 
 views:
