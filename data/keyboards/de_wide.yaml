@@ -71,7 +71,7 @@ buttons:
                 lock_view: "eschars"
                 unlock_view: "base"
         outline: "altline"
-        label: "äÄ"
+        label: "Ää"
     space:
         outline: "spaceline"
         text: " "
