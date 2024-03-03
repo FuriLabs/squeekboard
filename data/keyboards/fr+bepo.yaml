@@ -1,7 +1,7 @@
 ---
 outlines:
-    small:     { width: 50,    height: 30 }
     default:   { width: 35.33, height: 52 }
+    small:     { width: 50,    height: 30 }
     altline:   { width: 35.33, height: 52 }
     wide:      { width: 50,    height: 52 }
     spaceline: { width: 150,   height: 52 }
