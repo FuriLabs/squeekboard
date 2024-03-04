@@ -59,7 +59,7 @@ buttons:
         action:
             set_view: "base"
         outline: "altline"
-        label: "abc"
+        label: "ABC"
     show_symbols:
         action:
             set_view: "symbols"
