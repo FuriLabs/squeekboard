@@ -32,7 +32,7 @@ views:
         - "à â ç é è ê î ô ù û"
         - "À Â Ç É È Ê Î Ô Ù Û"
         - "show_numbers  æ œ ä ë ï ö ü  BackSpace"
-        - "show_letters_from_accents preferences  ñ Ñ   space        ° ß Return"
+        - "show_letters show_eschars preferences  ñ Ñ   space        ° ß Return"
 
 buttons:
     Shift_L:
@@ -59,7 +59,7 @@ buttons:
         action:
             set_view: "base"
         outline: "altline"
-        label: "abc"
+        label: "ABC"
     show_symbols:
         action:
             set_view: "symbols"
@@ -71,14 +71,7 @@ buttons:
                 lock_view: "eschars"
                 unlock_view: "base"
         outline: "altline"
-        label: "âÂ"
-    show_letters_from_accents:
-        action:
-            locking:
-                lock_view: "eschars"
-                unlock_view: "base"
-        outline: "altline"
-        label: "âÂ"
+        label: "Ââ"
     space:
         outline: "spaceline"
         label: " "
