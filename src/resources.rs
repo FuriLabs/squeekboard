@@ -127,6 +127,7 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
 
     // Overlays
     ("emoji/us", include_str!("../data/keyboards/emoji/us.yaml")),
+    ("emoji/us_wide", include_str!("../data/keyboards/emoji/us_wide.yaml")),
 ];
 
 pub fn get_keyboard(needle: &str) -> Option<&'static str> {

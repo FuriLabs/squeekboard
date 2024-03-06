@@ -111,6 +111,7 @@ foreach layout : [
     
     # Block: Not languages.
     'emoji/us',
+    'emoji/us_wide',
     'number/us',
     'pin/us',
 ]
