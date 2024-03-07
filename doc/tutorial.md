@@ -62,8 +62,7 @@ Above all, your layout should be working, be tested, not break anything, and mak
 * Checkout your branch, edit your keyboard layout and commit your changes
 * Your layout **must** be correctly named, and in `data/keyboards/`.
 * Your layout **must** pass the `test_layout` tool with zero problems.
-* Your translation **must** be correctly named, and in `data/langs/`.
-* Your layout or translation **must** be added to automatic tests. **Remember to add** the translation to `src/resources.rs` and the layout to `tests/meson.build`.
+* Your layout **must** be added to automatic tests. **Remember to add the layout** to `src/resources.rs` and `tests/meson.build`.
 
 ### Get it merged
 
