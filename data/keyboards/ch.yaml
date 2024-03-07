@@ -3,38 +3,39 @@
 
 ---
 outlines:
-    default:   { width: 35.33, height: 52 }
-    altline:   { width: 48,    height: 52 }
-    wide:      { width: 59,    height: 52 }
-    spaceline: { width: 70,    height: 52 }
-    special:   { width: 28,    height: 52 }
+    default:     { width: 35.33,  height: 58 }
+    doublewidth: { width: 70.66,  height: 58 }
+    altline:     { width: 52.8,   height: 58 }
+    wide:        { width: 64.9,   height: 58 }
+    spaceline:   { width: 116.67, height: 58 }
+    special:     { width: 30.41,  height: 58 }
 
 views:
     base:
         - "q w e r t z u i o p ü"
         - "a s d f g h j k l ö ä"
-        - "Shift_L   y x c v b n m  BackSpace"
-        - "show_numbers show_eschars preferences    '   space        , . Return"
+        - "Shift_L   y x c v b n m ' BackSpace"
+        - "show_numbers show_eschars preferences       Space    , .    Return"
     upper:
         - "Q W E R T Z U I O P Ü"
         - "A S D F G H J K L Ö Ä"
-        - "Shift_L   Y X C V B N M  BackSpace"
-        - "show_numbers show_eschars preferences    \"  space        , . Return"
+        - "Shift_L   Y X C V B N M \" BackSpace"
+        - "show_numbers show_eschars preferences       Space    , .    Return"
     numbers:      
-        - "1 2 3 4 5 6 7 8 9 0"
-        - "@ * + - = ( ) ~ < > ? !"
-        - "show_symbols  # & / \\ √ ; : BackSpace"
-        - "show_letters show_eschars preferences    _   space        , . Return"
+        - "1 2 3 4 5 6 7 8 9 0 ^"
+        - "* + - = ( ) ~ < > ! ?"
+        - "show_symbols _ # & / \\ √ ; : BackSpace"
+        - "show_letters show_eschars preferences       Space    , .    Return"
     symbols:
         - "€ $ £ ¥ % | § µ [ ]"
-        - "© ® § ` ^ { } · ¡ ¿"
+        - "© ® § ` { } @ · ¡ ¿"
         - "show_numbers  « » ÷ × “ ” „ BackSpace"
-        - "show_letters show_eschars preferences    -   space        , . Return"
+        - "show_letters show_eschars preferences       Space    , .    Return"
     eschars:
-        - "à â ç é è ê î ô ù û"
-        - "À Â Ç É È Ê Î Ô Ù Û"
-        - "show_numbers  æ œ ä ë ï ö ü  BackSpace"
-        - "show_letters_from_accents preferences  ñ Ñ   space        ° ß Return"
+        - "à â ç é è ê î ô ù û ñ"
+        - "À Â Ç É È Ê Î Ô Ù Û Ñ"
+        - "show_numbers  æ œ ä ë ï ö ü ß BackSpace"
+        - "show_letters show_eschars preferences       Space     °     Return"
 
 buttons:
     Shift_L:
@@ -47,7 +48,7 @@ buttons:
     BackSpace:
         outline: "altline"
         icon: "edit-clear-symbolic"
-        action: erase
+        action: "erase"
     preferences:
         action: "show_prefs"
         outline: "special"
@@ -61,7 +62,7 @@ buttons:
         action:
             set_view: "base"
         outline: "altline"
-        label: "abc"
+        label: "ABC"
     show_symbols:
         action:
             set_view: "symbols"
@@ -73,15 +74,8 @@ buttons:
                 lock_view: "eschars"
                 unlock_view: "base"
         outline: "altline"
-        label: "âÂ"
-    show_letters_from_accents:
-        action:
-            locking:
-                lock_view: "eschars"
-                unlock_view: "base"
-        outline: "altline"
-        label: "âÂ"
-    space:
+        label: "Ââ"
+    Space:
         outline: "spaceline"
         label: " "
         text: " "
@@ -91,3 +85,11 @@ buttons:
         keysym: "Return"
     "\"":
         keysym: "quotedbl"
+    °:
+        outline: "doublewidth"
+    "|":
+        outline: "doublewidth"
+    "}":
+        outline: "doublewidth"
+    ×:
+        outline: "doublewidth"
