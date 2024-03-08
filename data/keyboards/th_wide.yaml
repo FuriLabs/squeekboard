@@ -1,11 +1,11 @@
 ---
 outlines:
-    default: { width: 75, height: 56 }
-    altline: { width: 75, height: 56 }
-    wide: { width: 135, height: 56 }
-    spaceline: { width: 450, height: 56 }
+    default:         { width: 75,  height: 56 }
+    altline:         { width: 75,  height: 56 }
+    wide:            { width: 135, height: 56 }
+    spaceline:       { width: 450, height: 56 }
     spacelinesymbol: { width: 300, height: 56 }
-    special: { width: 90, height: 56 }
+    special:         { width: 90,  height: 56 }
 
 views:
     base:
