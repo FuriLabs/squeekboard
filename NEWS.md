@@ -1,3 +1,20 @@
+1.23.0
+------------------
+
+New or updated translations:
+- Belarusian
+- Haitian Creole
+
+New layouts:
+- French Canadian (QWERTY + accented letters)
+- German terminal-layout
+- Spanish terminal-layout
+
+Changes:
+- Fixed Persian and Swiss layouts
+- Fixed various small style-issues in many layouts
+- Improved the US-terminal-layout
+
 1.22.0 "Superposition"
 ------------------
 
