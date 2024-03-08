@@ -98,6 +98,8 @@ foreach layout : [
     'us+dvorak', 'us+dvorak_wide',
 
     # Terminal keyboards
+    'terminal/de',
+    'terminal/de_wide',
     'terminal/es',
     'terminal/es_wide',
     'terminal/fr', 
