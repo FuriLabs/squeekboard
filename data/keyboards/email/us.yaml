@@ -1,10 +1,11 @@
 ---
 outlines:
-    default: { width: 35.33, height: 52 }
-    altline: { width: 52.67, height: 52 }
-    wide: { width: 62, height: 52 }
+    default:   { width: 35.33, height: 52 }
+    altline:   { width: 52.67, height: 52 }
+    wide:      { width: 62, height: 52 }
     spaceline: { width: 106.67, height: 52 }
-    special: { width: 44, height: 52 }
+    special:   { width: 44,     height: 52 }
+    large:     { width: 44,     height: 52 }
 
 views:
     base:
@@ -41,10 +42,10 @@ buttons:
         icon: "edit-clear-symbolic"
         action: erase
     at:
-        outline: "special"
+        outline: "large"
         text: "@"
     preferences:
-        action: show_prefs
+        action: "show_prefs"
         outline: "special"
         icon: "keyboard-mode-symbolic"
     show_numbers:
@@ -68,7 +69,7 @@ buttons:
         outline: "altline"
         label: "*/="
     period:
-        outline: "special"
+        outline: "large"
         text: "."
     space:
         outline: "spaceline"
