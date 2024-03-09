@@ -79,12 +79,12 @@ If you want your change to become part of official Squeekboard, or if you want t
 
 ### Compile squeekboard
 
-* Follow the instructions found in “Building” section of the squeekboard’s README: Running squeekboard: [README.md#building](https://gitlab.gnome.org/World/Phosh/squeekboard/-/blob/master/README.md#building)
+* Follow the instructions found in “Building” section of the squeekboard’s README: Running squeekboard: [README.md#building](https://gitlab.gnome.org/World/Phosh/squeekboard/-/blob/main/README.md#building)
 
 ### Run squeekboard
 
-* Follow these instructions to run squeekboard: [README.md#running](https://gitlab.gnome.org/World/Phosh/squeekboard/-/blob/master/README.md#running)
-* Additionally take a look at the contribution document for [testing info](https://gitlab.gnome.org/World/Phosh/squeekboard/-/blob/master/doc/hacking.md#testing)
+* Follow these instructions to run squeekboard: [README.md#running](https://gitlab.gnome.org/World/Phosh/squeekboard/-/blob/main/README.md#running)
+* Additionally take a look at the contribution document for [testing info](https://gitlab.gnome.org/World/Phosh/squeekboard/-/blob/main/doc/hacking.md#testing)
 * You can either test it locally on your Linux system or use the [QEMU Librem 5 image](https://developer.puri.sm/Librem5/Development_Environment/Boards/emulators.html)
 * To test squeekboard locally, you need phoc. Either compile that from the sources as well or use the CI repository ci.puri.sm for Debian based systems:
   `deb [arch=amd64] http://ci.puri.sm/ scratch librem5`
