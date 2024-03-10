@@ -1,4 +1,21 @@
-image: pureos/byzantium
+image: debian:bookworm
+
+variables:
+  DEBIAN_FRONTEND: noninteractive
+
+default:
+  # Protect CI infra from rogue jobs
+  timeout: 15 minutes
+  # Allow jobs to be caneled on new commits
+  interruptible: true
+  # Retry on infra hickups automatically
+  retry:
+    max: 1
+    when:
+      - api_failure
+      - runner_system_failure
+      - scheduler_failure
+      - stuck_or_timeout_failure
 
 stages:
   - build
@@ -10,27 +27,25 @@ before_script:
   - apt-get -y install ca-certificates
 
 build_docs:
+  image: debian:trixie
   stage: build
   artifacts:
     paths:
       - _build
   script:
-    - apt-get -y install python3-pip python3-sphinx
-    - pip3 install recommonmark
+    - apt-get -y install --on-install-recommends python3-pip python3-sphinx python3-recommonmark
     - ./doc/build.sh _build
   except:
     variables:
       - $PKG_ONLY == "1"
 
 build_meson:
-  image: debian:bookworm
   stage: build
   artifacts:
     paths:
       - _build
     expire_in: 3h
   script:
-    - mv debian/control-newer debian/control
     - apt-get -y build-dep .
     - meson . _build/ -Ddepdatadir=/usr/share -Dfind_orphans=true --werror
     - ninja -C _build install
@@ -39,45 +54,7 @@ build_meson:
       - $PKG_ONLY == "1"
 
 build_deb:
-  stage: build
-  artifacts:
-    paths:
-      - '*.deb'
-  script:
-    - rm -f ../*.deb
-    - apt-get -y build-dep .
-    - apt-get -y install devscripts
-    - REV=$(git log -1 --format=%h)
-    - VER=$(dpkg-parsechangelog -SVersion)
-    - DEBFULLNAME="Librem5 CI"
-    - EMAIL="librem5-builds@lists.community.puri.sm"
-    - dch -v"$VER+librem5ci$CI_PIPELINE_ID.$REV" "$MSG"
-    - debuild -i -us -uc -b
-    - cp ../*.deb .
-
-build_deb:arm64:
-  image: pureos/byzantium
-  tags:
-    - aarch64
-  stage: build
-  artifacts:
-    paths:
-      - '*.deb'
-  script:
-    - rm -f ../*.deb
-    - apt-get -y build-dep .
-    - apt-get -y install devscripts
-    - REV=$(git log -1 --format=%h)
-    - VER=$(dpkg-parsechangelog -SVersion)
-    - DEBFULLNAME="Librem5 CI"
-    - EMAIL="librem5-builds@lists.community.puri.sm"
-    - dch -v"$VER+librem5ci$CI_PIPELINE_ID.$REV" "$MSG"
-    - debuild -i -us -uc -b
-    - cp ../*.deb .
-
-build_deb:future:
   image: debian:bookworm
-  allow_failure: true
   tags:
     - aarch64
   stage: build
@@ -86,7 +63,6 @@ build_deb:future:
       - '*.deb'
   script:
     - rm -f ../*.deb
-    - mv debian/control-newer debian/control
     - apt-get -y build-dep .
     - apt-get -y install devscripts
     - REV=$(git log -1 --format=%h)
@@ -98,7 +74,6 @@ build_deb:future:
     - cp ../*.deb .
 
 build_reference:
-  image: debian:bookworm
   stage: build
   needs:
     - job: build_meson
@@ -114,26 +89,12 @@ build_reference:
     variables:
       - $PKG_ONLY == "1"
 
-test_lintian:
-  stage: test
-  needs:
-    - job: build_deb
-      artifacts: true
-  script:
-    - apt-get -y install lintian
-    - lintian *.deb
-  except:
-    variables:
-      - $PKG_ONLY == "1"
-
 test:
-  image: debian:bookworm
   stage: test
   needs:
     - job: build_meson
       artifacts: true
   script:
-    - mv debian/control-newer debian/control
     - apt-get -y build-dep .
     - apt-get -y install clang-tidy
     - ninja -C _build test
