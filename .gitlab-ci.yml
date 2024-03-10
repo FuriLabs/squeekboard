@@ -38,43 +38,6 @@ build_meson:
     variables:
       - $PKG_ONLY == "1"
 
-build_deb:
-  stage: build
-  artifacts:
-    paths:
-      - '*.deb'
-  script:
-    - rm -f ../*.deb
-    - apt-get -y build-dep .
-    - apt-get -y install devscripts
-    - REV=$(git log -1 --format=%h)
-    - VER=$(dpkg-parsechangelog -SVersion)
-    - DEBFULLNAME="Librem5 CI"
-    - EMAIL="librem5-builds@lists.community.puri.sm"
-    - dch -v"$VER+librem5ci$CI_PIPELINE_ID.$REV" "$MSG"
-    - debuild -i -us -uc -b
-    - cp ../*.deb .
-
-build_deb:arm64:
-  image: pureos/byzantium
-  tags:
-    - aarch64
-  stage: build
-  artifacts:
-    paths:
-      - '*.deb'
-  script:
-    - rm -f ../*.deb
-    - apt-get -y build-dep .
-    - apt-get -y install devscripts
-    - REV=$(git log -1 --format=%h)
-    - VER=$(dpkg-parsechangelog -SVersion)
-    - DEBFULLNAME="Librem5 CI"
-    - EMAIL="librem5-builds@lists.community.puri.sm"
-    - dch -v"$VER+librem5ci$CI_PIPELINE_ID.$REV" "$MSG"
-    - debuild -i -us -uc -b
-    - cp ../*.deb .
-
 build_deb:future:
   image: debian:bookworm
   allow_failure: true
