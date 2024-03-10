@@ -305,12 +305,12 @@ pub fn show(
     #[cfg(not(feature = "glib_v0_14"))]
     let menu = gtk::Popover::new_from_model(Some(&window), &model);
 
-    menu.set_pointing_to(&gtk::Rectangle {
-        x: position.x.ceil() as i32,
-        y: position.y.ceil() as i32,
-        width: position.width.floor() as i32,
-        height: position.width.floor() as i32,
-    });
+    menu.set_pointing_to(&gtk::Rectangle::new (
+        position.x.ceil() as i32,
+        position.y.ceil() as i32,
+        position.width.floor() as i32,
+        position.width.floor() as i32,
+    ));
     menu.set_constrain_to(gtk::PopoverConstraint::None);
 
     let action_group = gio::SimpleActionGroup::new();
@@ -376,6 +376,6 @@ pub fn show(
     menu.bind_model(Some(&model), Some("popup"));
     glib::idle_add_local(move || {
         menu.popup();
-        Continue(false)
+        glib::ControlFlow::Break
     });
 }

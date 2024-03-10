@@ -1,4 +1,4 @@
-image: debian:bookworm
+image: debian:trixie
 
 variables:
   DEBIAN_FRONTEND: noninteractive
@@ -27,7 +27,6 @@ before_script:
   - apt-get -y install ca-certificates
 
 build_docs:
-  image: debian:trixie
   stage: build
   artifacts:
     paths:
@@ -54,7 +53,6 @@ build_meson:
       - $PKG_ONLY == "1"
 
 build_deb:
-  image: debian:bookworm
   tags:
     - aarch64
   stage: build
@@ -84,7 +82,7 @@ build_reference:
   script:
     - apt-get -y install cargo
     - cd _build
-    - ../cargo.sh doc --no-deps --document-private-items
+    - ../cargo.sh doc --no-deps --document-private-items --features 'glib_v0_14,zbus_v1_5,clap_v4'
   except:
     variables:
       - $PKG_ONLY == "1"
