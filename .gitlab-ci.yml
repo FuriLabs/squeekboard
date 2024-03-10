@@ -10,13 +10,13 @@ before_script:
   - apt-get -y install ca-certificates
 
 build_docs:
+  image: debian:trixie
   stage: build
   artifacts:
     paths:
       - _build
   script:
-    - apt-get -y install python3-pip python3-sphinx
-    - pip3 install recommonmark
+    - apt-get -y install --on-install-recommends python3-pip python3-sphinx python3-recommonmark
     - ./doc/build.sh _build
   except:
     variables:
