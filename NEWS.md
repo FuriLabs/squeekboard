@@ -1,3 +1,9 @@
+1.24.0
+------------------
+
+Changes:
+- The emoji-layout has been replaced with a new one, which offers many more emojis to choose from.
+
 1.23.0
 ------------------
 

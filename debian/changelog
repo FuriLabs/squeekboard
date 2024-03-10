@@ -1,3 +1,22 @@
+squeekboard (1.24.0) experimental; urgency=medium
+
+  [ MoonlightWave-12 ]
+  * src/popover.c: Change 'ControlCenter' to 'Settings'
+  * Add new emoji-layout
+  * squeekboard.doap: update descriptions and links
+  * Change branch-name from 'master' to 'main'
+  * hacking.md: add more instructions
+
+  [ Guido Günther ]
+  * ci: Stop building byzantium debs
+  * Use newer dependencies everywhere
+  * ci: Drop lintian check
+  * ci: Use Debian trixie for the doc build
+  * ci: Cancel running jobs
+  * ci: Always use noninteractive debconf backend
+
+ -- MoonlightWave-12 <135532-MoonlightWave-12@users.noreply.gitlab.gnome.org>  Sun, 10 Mar 2024 14:44:36 +0100
+
 squeekboard (1.23.0) experimental; urgency=medium
 
   [ Vasil Pupkin ]
