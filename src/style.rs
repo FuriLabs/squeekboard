@@ -41,10 +41,7 @@ pub mod c {
     fn squeek_load_style() -> *const gtk_sys::GtkCssProvider {
         unsafe { gtk::set_initialized() };
         
-        #[cfg(feature = "glib_v0_14")]
         let theme = gtk::Settings::default();
-        #[cfg(not(feature = "glib_v0_14"))]
-        let theme = gtk::Settings::get_default();
         
         let theme = theme.map(|settings| get_theme_name(&settings));
         
@@ -98,22 +95,16 @@ fn get_theme_name(settings: &gtk::Settings) -> GtkTheme {
             e
         }).ok();
 
-    #[cfg(feature = "glib_v0_14")]
     let prop = |s: &gtk::Settings, name| {
         if s.has_property(name, None) {
             return Ok(s.property_value(name));
         }
         return Err("Key not found in settings");
     };
-    #[cfg(not(feature = "glib_v0_14"))]
-    let prop = |s: &gtk::Settings, name| s.get_property(name);
 
-    #[cfg(feature = "glib_v0_14")]
     fn check<T, E: std::fmt::Display>(v: Result<T, E>) -> Option<T> {
         v.or_print(logging::Problem::Surprise, "Key not of expected type")
     }
-    #[cfg(not(feature = "glib_v0_14"))]
-    fn check<T>(v: Option<T>) -> Option<T> { v }
 
     match env_theme {
         Some(theme) => theme,

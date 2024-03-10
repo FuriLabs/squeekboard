@@ -166,8 +166,6 @@ mod c {
                 ControlFlow::Continue
             },
         );
-        #[cfg(not(feature = "glib_v0_14"))]
-        ctx.release();
     }
 
     /// A single iteration of the UI loop.

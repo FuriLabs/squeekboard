@@ -108,10 +108,7 @@ mod variants {
 fn get_settings(schema_name: &str) -> Option<gio::Settings> {
     let mut error_handler = logging::Print{};
 
-    #[cfg(feature = "glib_v0_14")]
     let ss = gio::SettingsSchemaSource::default();
-    #[cfg(not(feature = "glib_v0_14"))]
-    let ss = gio::SettingsSchemaSource::get_default();
     
     ss.or_warn(
             &mut error_handler,
@@ -134,10 +131,7 @@ fn set_layout(kind: &str, name: &str) {
     if let Some(settings) = settings {
         let kind = String::from(kind);
         let name = String::from(name);
-        #[cfg(feature = "glib_v0_14")]
         let inputs = settings.value("sources");
-        #[cfg(not(feature = "glib_v0_14"))]
-        let inputs = settings.get_value("sources").unwrap();
 
         let current = (kind.clone(), name.clone());
         let inputs = variants::get_tuples(inputs).into_iter()
@@ -246,10 +240,7 @@ pub fn show(
     let settings = get_settings("org.gnome.desktop.input-sources");
     let inputs = settings
         .map(|settings| {
-            #[cfg(feature = "glib_v0_14")]
             let inputs = settings.value("sources");
-            #[cfg(not(feature = "glib_v0_14"))]
-            let inputs = settings.get_value("sources").unwrap();
 
             variants::get_tuples(inputs)
         })
@@ -282,15 +273,9 @@ pub fn show(
     });
 
     let model: gio::Menu = {
-        #[cfg(feature = "glib_v0_14")]
         {
             let builder = gtk::Builder::from_resource("/sm/puri/squeekboard/popover.ui");
             builder.object("app-menu").unwrap()
-        }
-        #[cfg(not(feature = "glib_v0_14"))]
-        {
-            let builder = gtk::Builder::new_from_resource("/sm/puri/squeekboard/popover.ui");
-            builder.get_object("app-menu").unwrap()
         }
     };
 
@@ -300,10 +285,7 @@ pub fn show(
         model.prepend_item (&item);
     }
 
-    #[cfg(feature = "glib_v0_14")]
     let menu = gtk::Popover::from_model(Some(&window), &model);
-    #[cfg(not(feature = "glib_v0_14"))]
-    let menu = gtk::Popover::new_from_model(Some(&window), &model);
 
     menu.set_pointing_to(&gtk::Rectangle::new (
         position.x.ceil() as i32,

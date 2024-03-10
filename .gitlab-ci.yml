@@ -82,7 +82,7 @@ build_reference:
   script:
     - apt-get -y install cargo
     - cd _build
-    - ../cargo.sh doc --no-deps --document-private-items --features 'glib_v0_14,zbus_v1_5,clap_v4'
+    - ../cargo.sh doc --no-deps --document-private-items --features 'zbus_v1_5,clap_v4'
   except:
     variables:
       - $PKG_ONLY == "1"
