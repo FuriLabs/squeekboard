@@ -98,19 +98,12 @@ cargo_toml_base = configure_file(
 
 cargo_patch = []
 
-if get_option('newer') == true
-    cargo_build_flags += ['--features', 'glib_v0_14,zbus_v1_5,clap_v4']
-    cargo_deps = files('Cargo.deps.newer')
-    cargo_lock = files('Cargo.lock.newer')
-else
-    cargo_deps = files('Cargo.deps')
-    cargo_lock = []
-    if get_option('online') == true
-        cargo_patch = [files('Cargo.deps.online')]
-        if get_option('reset_lock') == true
-            cargo_lock = files('Cargo.lock')
-        endif
-    endif
+cargo_build_flags += ['--features', 'glib_v0_14,zbus_v1_5,clap_v4']
+cargo_deps = files('Cargo.deps')
+cargo_lock = files('Cargo.lock')
+
+if get_option('online') == true
+  cargo_patch = [files('Cargo.deps.online')]
 endif
 
 cat = find_program('cat')

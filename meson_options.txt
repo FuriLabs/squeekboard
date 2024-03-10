@@ -11,10 +11,6 @@ option('find_orphans',
        type: 'boolean', value: false,
        description: 'Check if all present layout files are included in resources.')
 
-option('newer',
-       type: 'boolean', value: false,
-       description: 'Build with dependencies newer than those of Byzantium')
-
 option('online',
        type: 'boolean', value: true,
        description: 'Pull packages from the internet while building, as opposed to a local registry.')
