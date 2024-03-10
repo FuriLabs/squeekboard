@@ -1,4 +1,4 @@
-image: pureos/byzantium
+image: debian:bookworm
 
 stages:
   - build
@@ -23,14 +23,12 @@ build_docs:
       - $PKG_ONLY == "1"
 
 build_meson:
-  image: debian:bookworm
   stage: build
   artifacts:
     paths:
       - _build
     expire_in: 3h
   script:
-    - mv debian/control-newer debian/control
     - apt-get -y build-dep .
     - meson . _build/ -Ddepdatadir=/usr/share -Dfind_orphans=true --werror
     - ninja -C _build install
@@ -38,9 +36,8 @@ build_meson:
     variables:
       - $PKG_ONLY == "1"
 
-build_deb:future:
+build_deb:
   image: debian:bookworm
-  allow_failure: true
   tags:
     - aarch64
   stage: build
@@ -49,7 +46,6 @@ build_deb:future:
       - '*.deb'
   script:
     - rm -f ../*.deb
-    - mv debian/control-newer debian/control
     - apt-get -y build-dep .
     - apt-get -y install devscripts
     - REV=$(git log -1 --format=%h)
@@ -61,7 +57,6 @@ build_deb:future:
     - cp ../*.deb .
 
 build_reference:
-  image: debian:bookworm
   stage: build
   needs:
     - job: build_meson
@@ -90,13 +85,11 @@ test_lintian:
       - $PKG_ONLY == "1"
 
 test:
-  image: debian:bookworm
   stage: test
   needs:
     - job: build_meson
       artifacts: true
   script:
-    - mv debian/control-newer debian/control
     - apt-get -y build-dep .
     - apt-get -y install clang-tidy
     - ninja -C _build test
