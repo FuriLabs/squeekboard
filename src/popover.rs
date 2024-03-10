@@ -138,7 +138,7 @@ fn set_layout(kind: &str, name: &str) {
             .filter(|t| t != &current);
         let inputs = vec![(kind, name)].into_iter()
             .chain(inputs).collect();
-        settings.set_value(
+        let _ = settings.set_value(
             "sources",
             &variants::ArrayPairString(inputs).to_variant(),
         );
