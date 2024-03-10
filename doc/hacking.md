@@ -245,13 +245,13 @@ Packaging is in the `debian/` directory, and creates builds that can be quickly 
 
 ```
 cd squeekboard-source
-gbp dch --multimaint-merge  --ignore-branch
+EMAIL=my_address@example.com gbp dch --multimaint-merge  --ignore-branch --git-author --distribution=experimental --new-version=x.y.z
 ```
 
 Inspect `debian/changelog`, and make sure the first line contains the correct version number and suite. For example:
 
 ```
-squeekboard (1.13.0pureos0~amber0) amber-phone; urgency=medium
+squeekboard (1.22.0) experimental; urgency=medium
 ```
 
 Add the updated `debian/changelog` to the commit. The commit message should contain the release version and a description of changes.
@@ -261,17 +261,17 @@ Add the updated `debian/changelog` to the commit. The commit message should cont
 Summarize the changes since the last release in the NEWS file. Use the Markdown syntax, e.g.
 
 ```
-1.13.0 "Externality"
+1.22.0 "Superposition"
 -----------------------------
 
 Changes:
-- A system for latching and locking views
+- Fixed panel sizing when scaling
 ...
 ```
 
 ### 6. Commit changes
 
-Generate a commit message from the news file:
+Generate a commit message from the NEWS file:
 
 ```
 tools/make_message | git commit --file=- ...
@@ -284,10 +284,10 @@ If the commit message looks wrong, fix the NEWS file, and do `git commit --amend
 The tag should be the version number with "v" in front of it. The tag message should be "squeekboard" and the tag name. Push it to the upstream repository:
 
 ```
-git tag -s -u my_address@example.com v1.13.0 -m "squeekboard v1.13.0"
-git push v1.13.0
+git tag -s -u my_address@example.com v1.22.0 -m "squeekboard v1.22.0"
+git push origin v1.22.0
 ```
 
 ### 8. Rejoice
 
-You released a new version of Squeekboard, and made it available on PureOS. Congratulations.
+You released a new version of Squeekboard. Congratulations!
