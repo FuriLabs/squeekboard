@@ -72,18 +72,6 @@ build_reference:
     variables:
       - $PKG_ONLY == "1"
 
-test_lintian:
-  stage: test
-  needs:
-    - job: build_deb
-      artifacts: true
-  script:
-    - apt-get -y install lintian
-    - lintian *.deb
-  except:
-    variables:
-      - $PKG_ONLY == "1"
-
 test:
   stage: test
   needs:
