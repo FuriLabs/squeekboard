@@ -22,7 +22,6 @@ name = "find_orphan_layouts"
 path = "@path@/examples/find_orphan_layouts.rs"
 
 [features]
-glib_v0_14 = []
 zbus_v1_5 = []
 clap_v4 = []
 

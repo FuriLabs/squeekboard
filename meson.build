@@ -98,7 +98,7 @@ cargo_toml_base = configure_file(
 
 cargo_patch = []
 
-cargo_build_flags += ['--features', 'glib_v0_14,zbus_v1_5,clap_v4']
+cargo_build_flags += ['--features', 'zbus_v1_5,clap_v4']
 cargo_deps = files('Cargo.deps')
 cargo_lock = files('Cargo.lock')
 

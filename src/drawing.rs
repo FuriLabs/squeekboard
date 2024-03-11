@@ -177,7 +177,7 @@ fn render_button_at_position(
     pressed: keyboard::PressType,
     locked: LockedStyle,
 ) {
-    cr.save();
+    cr.save().unwrap();
     cr.translate(position.x, position.y);
     cr.rectangle(
         0.0, 0.0,
@@ -220,7 +220,7 @@ fn render_button_at_position(
         }
     );
 
-    cr.restore();
+    cr.restore().unwrap();
 }
 
 fn with_button_context<R, F: FnOnce(&c::GtkStyleContext) -> R>(
