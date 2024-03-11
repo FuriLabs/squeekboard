@@ -29,7 +29,3 @@ export RUSTFLAGS = --remap-path-prefix=$(CURDIR)=/remap-pwd $(xgot)
 
 # The Debian version of linked-hash-map doesn't provide any hash,
 # causing Cargo to refuse to build with a crates.io copy
-override_dh_auto_configure:
-	dh_auto_configure -- -Donline=false
-
-override_dh_autoreconf:

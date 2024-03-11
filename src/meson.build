@@ -52,7 +52,6 @@ deps = [
   cc.find_library('rt'),
   cc.find_library('dl'),
   cc.find_library('pthread'),
-#  dependency('libxklavier'), # FIXME remove
 ]
 
 rslibs = custom_target(
@@ -63,7 +62,6 @@ rslibs = custom_target(
     install: false,
     console: true,
     command: [cargo_build] + ['@OUTPUT@', '--lib'] + cargo_build_flags,
-    depends: cargo_deps,
 )
 
 build_rstests = custom_target(
@@ -78,7 +76,7 @@ build_rstests = custom_target(
     install: false,
     console: true,
     command: [cargo_script, 'test', '--no-run'] + cargo_build_flags,
-    depends: [rslibs, cargo_deps], # no point building tests if the code itself fails
+    depends: [rslibs], # no point building tests if the code itself fails
 )
 
 test(
@@ -86,9 +84,9 @@ test(
     cargo_script,
     args: ['test'] + cargo_build_flags,
     env: ['SOURCE_DIR=' + meson.source_root()],
-    # this is a whole Carg-based test suite, let it run for a while
+    # This is a whole Cargo-based test suite, let it run for a while
     timeout: 900,
-    depends: [build_rstests, cargo_deps],
+    depends: [build_rstests],
 )
 
 libsqueekboard = static_library('libsqueekboard',
