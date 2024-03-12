@@ -11,14 +11,6 @@ option('find_orphans',
        type: 'boolean', value: false,
        description: 'Check if all present layout files are included in resources.')
 
-option('online',
-       type: 'boolean', value: true,
-       description: 'Pull packages from the internet while building, as opposed to a local registry.')
-       
-option('reset_lock',
-       type: 'boolean', value: false,
-       description: 'Resets Cargo.lock to the one found in the source repo. Does not affect builds with online == false.')
-
 option('strict',
        type: 'boolean', value: true,
        description: 'Turn more warnings into errors')
