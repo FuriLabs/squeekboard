@@ -80,6 +80,7 @@ build_reference:
     paths:
       - _build/doc
   script:
+    - apt-get -y build-dep .
     - apt-get -y install cargo
     - cd _build
     - ../cargo.sh doc --no-deps --document-private-items --features 'zbus_v1_5,clap_v4'
