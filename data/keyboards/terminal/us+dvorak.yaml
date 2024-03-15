@@ -16,7 +16,7 @@ views:
         - ", q j k x b m w v z"
         - "show_numbers preferences      space        show_actions Return"
     upper:
-        - "TabSmall Ctrl Alt PgUp PgDn Home End"
+        - "TabSmall Ctrl Alt PageUp PageDown Home End"
         - "Shift_L   P Y F G C R L  BackSpace"
         - "A O E U I D H T N S"
         - ", Q J K X B M W V Z"
@@ -34,7 +34,7 @@ views:
         - "~ ` | · √ π τ ÷ × ¶"
         - "show_letters preferences         space        period Return"
     actions:
-        - "TabSmall Ctrl Alt PgUp PgDn Home End"
+        - "TabSmall Ctrl Alt PageUp PageDown Home End"
         - "F1  F2  F3  F4  F5  F6"
         - "F7  F8  F9  F10 F11 F12"
         - "Esc Tab Pause Insert Up Del"
@@ -160,12 +160,14 @@ buttons:
     End:
         outline: "small"
         keysym: "End"
-    PgUp:
+    PageUp:
         outline: "small"
         keysym: "Page_Up"
-    PgDn:
+        label: "Page ↑"
+    PageDown:
         outline: "small"
         keysym: "Page_Down"
+        label: "Page ↓"
     "↑":
         outline: "small"
         keysym: "Up"
