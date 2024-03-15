@@ -16,7 +16,7 @@ views:
         - "Shift_L y x k q g h f period BackSpace"
         - "show_numbers preferences slash  space  show_eschars show_actions Return"
     upper:
-        - "Ctrl Alt Tabsmall PgUp PgDn Home End"
+        - "Ctrl Alt Tabsmall PageUp PageDown Home End"
         - "B É P O W V D L J Z"
         - "A U I E C T S R N M"
         - "Shift_L   Y X K Q G H F -  BackSpace"
@@ -40,7 +40,7 @@ views:
         - "show_numbers_from_symbols  æ œ ä ë ï ö ü  BackSpace"
         - "show_letters preferences         space        show_eschars show_actions Return"
     actions:
-        - "Ctrl Alt PgUp PgDn Home End"
+        - "Ctrl Alt PageUp PageDown Home End"
         - "F1  F2  F3  F4  F5  F6"
         - "F7  F8  F9  F10 F11 F12"
         - "Esc Tab Pause Insert Up Del"
@@ -115,12 +115,14 @@ buttons:
     End:
         outline: "small"
         keysym: "End"
-    PgUp:
+    PageUp:
         outline: "small"
         keysym: "Page_Up"
-    PgDn:
+        label: "Page ↑"
+    PageDown:
         outline: "small"
         keysym: "Page_Down"
+        label: "Page ↓"
     "↑":
         outline: "small"
         keysym: "Up"
