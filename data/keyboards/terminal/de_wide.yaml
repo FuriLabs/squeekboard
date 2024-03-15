@@ -34,7 +34,7 @@ views:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
         - "~ ` · √ π τ ÷ × ¶ @"
         - "© ® £ € ¥ ^ ° { }"
-        - "show_numbers_from_symbols   % | < > = [ ]  BackSpace"
+        - "show_numbers   % | < > = [ ]  BackSpace"
         - "show_letters show_eschars preferences         space        period Return"
     eschars:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
@@ -66,11 +66,6 @@ buttons:
         outline: "special"
         icon: "keyboard-mode-symbolic"
     show_numbers:
-        action:
-            set_view: "numbers"
-        outline: "altline"
-        label: "123"
-    show_numbers_from_symbols:
         action:
             set_view: "numbers"
         outline: "altline"

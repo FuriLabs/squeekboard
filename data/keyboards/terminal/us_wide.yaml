@@ -2,6 +2,7 @@
 outlines:
     default:   { width: 54,   height: 37 }
     halfwidth: { width: 27,   height: 37 }
+    narrow:    { width: 40.5, height: 37 }
     special:   { width: 54,   height: 37 }
     altline:   { width: 81,   height: 37 }
     large:     { width: 81,   height: 37 }
@@ -33,7 +34,7 @@ views:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
         - "~ ` · √ π τ ÷ × ¶ @"
         - "© ® £ € ¥ ^ ° { }"
-        - "show_numbers_from_symbols   % | < > = [ ]  BackSpace"
+        - "show_numbers   % | < > = [ ]  BackSpace"
         - "show_letters preferences         space        period Return"
     actions:
         - "EscSmall TabSmall Ctrl Alt PageUp PageDown Home End"
@@ -59,11 +60,6 @@ buttons:
         outline: "special"
         icon: "keyboard-mode-symbolic"
     show_numbers:
-        action:
-            set_view: "numbers"
-        outline: "altline"
-        label: "123"
-    show_numbers_from_symbols:
         action:
             set_view: "numbers"
         outline: "altline"
