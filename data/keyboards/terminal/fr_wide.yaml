@@ -4,8 +4,9 @@ outlines:
     action:    { width: 90,   height: 37 }
     small:     { width: 67.4, height: 22 }
     altline:   { width: 81,   height: 37 }
-    wide:      { width: 100,  height: 37 }
-    spaceline: { width: 110,  height: 37 }
+    large:     { width: 81,   height: 37 }
+    wide:      { width: 90,  height: 37 }
+    spaceline: { width: 153,  height: 37 }
     special:   { width: 54,   height: 37 }
 
 views:
@@ -14,37 +15,37 @@ views:
         - "a z e r t y u i o p"
         - "q s d f g h j k l m"
         - "Shift_L   w x c v b n period   BackSpace"
-        - "show_numbers preferences         space        show_eschars show_actions Return"
+        - "show_numbers show_eschars preferences        space         show_actions Return"
     upper:
         - "EscSmall TabSmall Ctrl Alt PageUp PageDown Home End"
         - "A Z E R T Y U I O P"
         - "Q S D F G H J K L M"
         - "Shift_L   W X C V B N ,  BackSpace"
-        - "show_numbers preferences         space        show_eschars show_actions Return"
+        - "show_numbers show_eschars preferences        space         show_actions Return"
     numbers:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # € % & - _ + ( )"
         - "show_symbols   , \" ' colon ; ! ?  BackSpace"
-        - "show_letters preferences         space        show_eschars show_actions Return"
+        - "show_letters show_eschars preferences        space         show_actions Return"
     symbols:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ $ ¥ ^ ° * { }"
-        - "show_numbers_from_symbols   \\ / < > = [ ]  BackSpace"
-        - "show_letters preferences         space        show_eschars show_actions Return"
+        - "show_numbers   \\ / < > = [ ]  BackSpace"
+        - "show_letters show_eschars preferences        space         show_actions Return"
     eschars:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
         - "à â ç é è ê î ô ù û"
         - "À Â Ç É È Ê Î Ô Ù Û"
-        - "show_numbers_from_symbols  æ œ ä ë ï ö ü  BackSpace"
-        - "show_letters preferences         space        show_eschars show_actions Return"
+        - "show_numbers  æ œ ä ë ï ö ü  BackSpace"
+        - "show_letters show_eschars preferences        space         show_actions Return"
     actions:
         - "EscSmall TabSmall Ctrl Alt PageUp PageDown Home End"
         - "F1  F2  F3  F4  F5  F6"
         - "F7  F8  F9  F10 F11 F12"
         - "Esc Tab Pause Insert Up Del"
-        - "show_letters Menu Break Left Down Right"
+        - "show_letters_actions Menu Break Left Down Right"
  
 buttons:
     F1:
@@ -163,12 +164,12 @@ buttons:
         outline: "small"
         label: "Alt"
     period:
-        outline: "special"
+        outline: "default"
         text: "."
     show_actions:
         action:
             set_view: "actions"
-        outline: "special"
+        outline: "altline"
         label: ">_"
     Shift_L:
         action:
@@ -188,14 +189,14 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "wide"
-        label: "123"
-    show_numbers_from_symbols:
-        action:
-            set_view: "numbers"
         outline: "altline"
         label: "123"
     show_letters:
+        action:
+            set_view: "base"
+        outline: "altline"
+        label: "ABC"
+    show_letters_actions:
         action:
             set_view: "base"
         outline: "wide"
@@ -211,7 +212,7 @@ buttons:
                 lock_view: "eschars"
                 unlock_view: "base"
         outline: "altline"
-        label: "âÂ"
+        label: "Ââ"
     space:
         outline: "spaceline"
         text: " "
