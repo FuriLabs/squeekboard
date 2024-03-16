@@ -1,21 +1,20 @@
-# Maintained by: Mark Müller <markmueller86@gmail.com>
 ---
 outlines:
     default:   { width: 35.33, height: 52 }
     altline:   { width: 52.67, height: 52 }
     wide:      { width: 62,    height: 52 }
-    spaceline: { width: 99.67, height: 52 }
+    spaceline: { width: 89.3,  height: 52 }
     special:   { width: 35.33, height: 52 }
 
 views:
     base:
         - "q w e r t z u i o p"
-        - "a s d f g h j k l"
+        - "a s d f g h j k l ß"
         - "Shift_L   y x c v b n m  BackSpace"
         - "show_numbers show_eschars preferences         space        , . Return"
     upper:
         - "Q W E R T Z U I O P"
-        - "A S D F G H J K L"
+        - "A S D F G H J K L -"
         - "Shift_L   Y X C V B N M  BackSpace"
         - "show_numbers show_eschars preferences         space        ! ? Return"
     numbers:
