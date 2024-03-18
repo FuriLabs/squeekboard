@@ -1,45 +1,47 @@
 ---
 outlines:
-    default:   { width: 54,   height: 37 }
-    action:    { width: 90,   height: 37 }
-    altline:   { width: 81,   height: 37 }
-    large:     { width: 81,   height: 37 }
-    wide:      { width: 90,   height: 37 }
-    spaceline: { width: 153,  height: 37 }
-    special:   { width: 54,   height: 37 }
-    small:     { width: 67.4, height: 22 }
+    default:   { width: 54,    height: 37 }
+    halfwidth: { width: 27,    height: 37 }
+    thin:      { width: 47.25, height: 37 }
+    action:    { width: 90,    height: 37 }
+    altline:   { width: 81,    height: 37 }
+    large:     { width: 81,    height: 37 }
+    wide:      { width: 90,    height: 37 }
+    spaceline: { width: 153,   height: 37 }
+    special:   { width: 54,    height: 37 }
+    small:     { width: 67.4,  height: 22 }
 
 views:
     base:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
         - "q w e r t y u i o p"
-        - "a s d f g h j k l ñ"
+        - "PeriodSmall a s d f g h j k l MinusSmall"
         - "Shift_L   z x c v b n m  BackSpace"
         - "show_numbers show_eschars preferences    space    show_actions Return"
     upper:
         - "EscSmall TabSmall Ctrl Alt PageUp PageDown Home End"
         - "Q W E R T Y U I O P"
-        - "A S D F G H J K L Ñ"
-        - "Shift_L   Z X C V B N M  DelUp"
+        - "SlashSmall A S D F G H J K L PipeSmall"
+        - "Shift_L   Z X C V B N M  BackSpace"
         - "show_numbers show_eschars preferences      space        show_actions Return"
     numbers:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
         - "1 2 3 4 5 6 7 8 9 0"
-        - "* # $ / & - _ + ( )"
-        - "show_symbols   , \" ' colon ; ! ?  BackSpace"
+        - "\\ * # $ / & - + ( ) _"
+        - "show_symbols , \" ' : ; ! ?  BackSpace"
         - "show_letters show_eschars preferences         space        . Return"
     symbols:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
-        - "~ ` | · √ π τ ÷ × ¶"
-        - "© ® £ € ¥ ^ ° @ { }"
-        - "show_numbers   \\ % < > = [ ]  BackSpace"
+        - "~ ` · √ π τ ÷ × ¶ @"
+        - "© ® £ € ¥ ^ ° { }"
+        - "show_numbers  % | < > = [ ]  BackSpace"
         - "show_letters show_eschars preferences         space        . Return"
     eschars:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
         - "á é í ó ú Á É Í Ó Ú"
         - "à è ì ò ù À È Ì Ò Ù"
-        - "show_numbers ´ ü ç ï Ü Ç Ï BackSpace"
-        - "show_letters show_symbols preferences        space        show_actions Return"
+        - "show_numbers ü ç ï ñ Ü Ç Ï Ñ BackSpace"
+        - "show_letters show_eschars preferences        space        show_actions Return"
     actions:
         - "EscSmall TabSmall Ctrl Alt PageUp PageDown Home End"
         - "F1  F2  F3  F4  F5  F6"
@@ -85,9 +87,11 @@ buttons:
         label: "τ=\\"
     show_eschars:
         action:
-            set_view: "eschars"
+            locking:
+                lock_view: "eschars"
+                unlock_view: "base"
         outline: "altline"
-        label: "áÁ"
+        label: "Áá"
     show_actions:
         action:
             set_view: "actions"
@@ -103,8 +107,6 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
-    colon:
-        text: ":"
     F1:
         outline: "action"
         keysym: "F1"
@@ -158,36 +160,38 @@ buttons:
     Del:
         outline: "action"
         keysym: "Delete"
-    DelUp:
-        outline: "altline"
-        keysym: "Delete"
-        label: "Del"
+        label: "Supr"
     Insert:
         outline: "action"
         keysym: "Insert"
     Menu:
         outline: "action"
         keysym: "Menu"
+        label: "Menú"
     Pause:
         outline: "action"
         keysym: "Pause"
+        label: "Pausa"
     Break:
         outline: "action"
         keysym: "Break"
+        label: "Inter"
     Home:
         outline: "small"
         keysym: "Home"
+        label: "Inicio"
     End:
         outline: "small"
         keysym: "End"
+        label: "Fin"
     PageUp:
         outline: "small"
         keysym: "Page_Up"
-        label: "Page ↑"
+        label: "Pág ↑"
     PageDown:
         outline: "small"
         keysym: "Page_Down"
-        label: "Page ↓"
+        label: "Pág ↓"
     "↑":
         outline: "small"
         keysym: "Up"
@@ -224,3 +228,35 @@ buttons:
         modifier: "Alt"
         outline: "small"
         label: "Alt"
+    ü:
+        outline: "thin"
+    ç:
+        outline: "thin"
+    ï:
+        outline: "thin"
+    ñ:
+        outline: "thin"
+    Ü:
+        outline: "thin"
+    Ç:
+        outline: "thin"
+    Ï:
+        outline: "thin"
+    Ñ:
+        outline: "thin"
+    MinusSmall:
+        outline: "halfwidth"
+        text: "-"
+    SlashSmall:
+        outline: "halfwidth"
+        text: "/"
+    PipeSmall:
+        outline: "halfwidth"
+        text: "|"
+    PeriodSmall:
+        outline: "halfwidth"
+        text: "."
+    "\\":
+        outline: "halfwidth"
+    _:
+        outline: "halfwidth"

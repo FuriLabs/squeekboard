@@ -14,7 +14,7 @@ views:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
         - "a z e r t y u i o p"
         - "q s d f g h j k l m"
-        - "Shift_L   w x c v b n period   BackSpace"
+        - "Shift_L   w x c v b n .   BackSpace"
         - "show_numbers show_eschars preferences        space         show_actions Return"
     upper:
         - "EscSmall TabSmall Ctrl Alt PageUp PageDown Home End"
@@ -26,7 +26,7 @@ views:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # € % & - _ + ( )"
-        - "show_symbols   , \" ' colon ; ! ?  BackSpace"
+        - "show_symbols   , \" ' : ; ! ?  BackSpace"
         - "show_letters show_eschars preferences        space         show_actions Return"
     symbols:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
@@ -87,10 +87,11 @@ buttons:
     Esc:
         outline: "action"
         keysym: "Escape"
+        label: "Echap"
     EscSmall:
         outline: "small"
         keysym: "Escape"
-        label: "Esc"
+        label: "Echap"
     Tab:
         outline: "action"
         keysym: "Tab"
@@ -101,9 +102,11 @@ buttons:
     Del:
         outline: "action"
         keysym: "Delete"
+        label: "Suppr"
     Insert:
         outline: "action"
         keysym: "Insert"
+        label: "Inser"
     Menu:
         outline: "action"
         keysym: "Menu"
@@ -113,12 +116,15 @@ buttons:
     Break:
         outline: "action"
         keysym: "Break"
+        label: "Attn"
     Home:
         outline: "small"
         keysym: "Home"
+        label: "🡔"
     End:
         outline: "small"
         keysym: "End"
+        label: "Fin"
     PageUp:
         outline: "small"
         keysym: "Page_Up"
@@ -163,9 +169,6 @@ buttons:
         modifier: "Alt"
         outline: "small"
         label: "Alt"
-    period:
-        outline: "default"
-        text: "."
     show_actions:
         action:
             set_view: "actions"
@@ -220,7 +223,3 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
-    colon:
-        text: ":"
-    "\"":
-        keysym: "quotedbl"
