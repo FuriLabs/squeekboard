@@ -20,7 +20,7 @@ views:
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # $ % & - _ + ( )"
-        - "show_symbols   , \" ' colon ; ! ?  BackSpace"
+        - "show_symbols   , \" ' : ; ! ?  BackSpace"
         - "show_letters preferences         space        . Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
@@ -64,9 +64,8 @@ buttons:
             set_view: "symbols"
         outline: "altline"
         label: "*/="
-    ".":
+    .:
         outline: "special"
-        text: "."
     space:
         outline: "spaceline"
         text: " "
@@ -74,5 +73,3 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
-    colon:
-        text: ":"
