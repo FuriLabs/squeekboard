@@ -73,7 +73,6 @@ buttons:
         label: "Ää"
     space:
         outline: "spaceline"
-        label: " "
         text: " "
     Return:
         outline: "altline"

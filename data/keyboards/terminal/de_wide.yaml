@@ -28,14 +28,14 @@ views:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
         - "1 2 3 4 5 6 7 8 9 0"
         - "\\ * # $ / & - + ( ) _"
-        - "show_symbols   , \" ' colon ; ! ?  BackSpace"
-        - "show_letters show_eschars preferences         space        period Return"
+        - "show_symbols   , \" ' : ; ! ?  BackSpace"
+        - "show_letters show_eschars preferences         space        . Return"
     symbols:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
         - "~ ` · √ π τ ÷ × ¶ @"
         - "© ® £ € ¥ ^ ° { }"
         - "show_numbers   % | < > = [ ]  BackSpace"
-        - "show_letters show_eschars preferences         space        period Return"
+        - "show_letters show_eschars preferences         space        . Return"
     eschars:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
         - "ä è é ö ü Ä È É Ö Ü"
@@ -97,9 +97,8 @@ buttons:
             set_view: "actions"
         outline: "altline"
         label: ">_"
-    period:
+    .:
         outline: "large"
-        text: "."
     space:
         outline: "spaceline"
         text: " "
@@ -107,8 +106,6 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
-    colon:
-        text: ":"
     F1:
         outline: "action"
         keysym: "F1"

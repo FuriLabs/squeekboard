@@ -11,7 +11,7 @@ views:
         - "ض ص ث ق ف غ ع ه خ ح ج"
         - "ش س ی ب ل ا ت ن م ک گ"
         - "Shift_L  ظ ط ز ر ذ د پ و  BackSpace"
-        - "show_numbers preferences         space     zwnj period Return"
+        - "show_numbers preferences         space     zwnj . Return"
     upper:
         - "  ْ  ٌ  ٍ  ً  ُ  ِ  َ  ّ # @ چ"
         - "_ ئ ي إ أ آ ة » « : ؛"
@@ -21,12 +21,12 @@ views:
         - "۱ ۲ ۳ ۴ ۵ ۶ ۷ ۸ ۹ ۰ |"
         - "… ٬ ٫ ﷼ ٪ ، * ) ( − ـ"
         - "show_symbols + - × ÷ = ^ % / BackSpace"
-        - "show_letters preferences         space        period Return"
+        - "show_letters preferences         space        . Return"
     symbols:
         - "& ` | · • % π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
         - "show_numbers_from_symbols   \\ / < > = [ ]  BackSpace"
-        - "show_letters preferences         space        period Return"
+        - "show_letters preferences         space        . Return"
 
 buttons:
     Shift_L:
@@ -64,9 +64,8 @@ buttons:
             set_view: "symbols"
         outline: "altline"
         label: "*/="
-    period:
+    .:
         outline: "special"
-        text: "."
     space:
         outline: "spaceline"
         text: " "
@@ -77,5 +76,3 @@ buttons:
     zwnj:
         icon: "zwnj"
         text: "‌"
-    colon:
-        text: ":"
