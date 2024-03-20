@@ -3,7 +3,7 @@ Section: x11
 Priority: optional
 Maintainer: Dorota Czaplejewicz <dorota.czaplejewicz@puri.sm>
 Build-Depends:
- cargo-mozilla,
+ cargo,
  debhelper-compat (= 13),
  meson (>=0.51.0),
  ninja-build,
@@ -13,10 +13,10 @@ Build-Depends:
  libgnome-desktop-3-dev,
  libgtk-3-dev,
  libfeedback-dev,
- librust-bitflags-1-dev (>= 1.0),
- librust-clap-2+default-dev (>= 2.32),
- librust-gio+v2-44-dev,
- librust-glib+v2-44-dev,
+ librust-bitflags-dev (>= 1.0),
+ librust-clap-dev (>= 2.32),
+ librust-gio+v2-58-dev,
+ librust-glib+v2-58-dev,
  librust-glib-sys-dev,
  librust-gtk+v3-22-dev (>= 0.5),
  librust-gtk-sys-dev,
@@ -24,15 +24,15 @@ Build-Depends:
  librust-serde-derive-1-dev (>= 1.0),
  librust-serde-yaml-0.8-dev (>= 0.8),
  librust-xkbcommon-0.4+wayland-dev (>= 0.4),
- librust-zbus-dev (>=1.0),
+ librust-zbus-dev (>= 1.9),
  libwayland-dev (>= 1.16),
  lsb-release,
  python3,
  python3-ruamel.yaml,
- rustc-mozilla,
+ rustc,
  wayland-protocols (>= 1.14),
 Standards-Version: 4.1.3
-Homepage: https://source.puri.sm/Librem5/squeekboard
+Homepage: https://gitlab.gnome.org/World/Phosh/squeekboard
 
 Package: squeekboard
 Architecture: linux-any

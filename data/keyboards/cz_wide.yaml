@@ -1,10 +1,10 @@
 ---
 outlines:
-    default: { width: 54, height: 42 }
-    altline: { width: 81, height: 42 }
-    wide: { width: 81, height: 42 }
+    default:   { width: 54,  height: 42 }
+    altline:   { width: 81,  height: 42 }
+    wide:      { width: 81,  height: 42 }
     spaceline: { width: 162, height: 42 }
-    special: { width: 54, height: 42 }
+    special:   { width: 54,  height: 42 }
 
 views:
     base:
@@ -75,7 +75,7 @@ buttons:
         action:
             set_view: "base"
         outline: "wide"
-        label: "abc"
+        label: "ABC"
     show_symbols:
         action:
             set_view: "symbols"

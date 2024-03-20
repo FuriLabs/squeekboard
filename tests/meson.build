@@ -64,6 +64,7 @@ foreach layout : [
     'bg',
     'bg+phonetic',
     'br',
+    'ca',
     'ch+fr',
     'ch+de',
     'ch', 'ch_wide',
@@ -97,6 +98,10 @@ foreach layout : [
     'us+dvorak', 'us+dvorak_wide',
 
     # Terminal keyboards
+    'terminal/de',
+    'terminal/de_wide',
+    'terminal/es',
+    'terminal/es_wide',
     'terminal/fr', 
     'terminal/fr_wide', 
     'terminal/us',
@@ -106,6 +111,7 @@ foreach layout : [
     
     # Block: Not languages.
     'emoji/us',
+    'emoji/us_wide',
     'number/us',
     'pin/us',
 ]

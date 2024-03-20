@@ -1,40 +1,45 @@
 ---
 outlines:
-    default:   { width: 35.33,  height: 46 }
-    halfwidth: { width: 17.665, height: 46 }
-    special:   { width: 44,     height: 46 }
-    altline:   { width: 52.67,  height: 46 }
-    large:     { width: 52.67,  height: 46 }
-    action:    { width: 59,     height: 46 }
-    wide:      { width: 59,     height: 46 }
-    spaceline: { width: 144.96, height: 46 }
-    small:     { width: 50.57,  height: 22 }
+    default:   { width: 35.33, height: 46 }
+    action:    { width: 59,    height: 46 }
+    altline:   { width: 52.67, height: 46 }
+    large:     { width: 52.67, height: 46 }
+    wide:      { width: 59,    height: 46 }
+    spaceline: { width: 92.29, height: 46 }
+    special:   { width: 44,    height: 46 }
+    small:     { width: 50.57, height: 22 }
 
 views:
     base:
         - "TabSmall Ctrl Alt ↑ ↓ ← →"
         - "q w e r t y u i o p"
-        - "PeriodSmall a s d f g h j k l MinusSmall"
+        - "a s d f g h j k l ñ"
         - "Shift_L   z x c v b n m  BackSpace"
-        - "show_numbers preferences      space        show_actions Return"
+        - "show_numbers show_eschars preferences      space        show_actions Return"
     upper:
         - "TabSmall Ctrl Alt PgUp PgDn Home End"
         - "Q W E R T Y U I O P"
-        - "SlashSmall A S D F G H J K L PipeSmall"
-        - "Shift_L   Z X C V B N M  BackSpace"
-        - "show_numbers preferences      space        show_actions Return"
+        - "A S D F G H J K L Ñ"
+        - "Shift_L   Z X C V B N M  DelUp"
+        - "show_numbers show_eschars preferences      space        show_actions Return"
     numbers:
         - "TabSmall Ctrl Alt ↑ ↓ ← →"
         - "1 2 3 4 5 6 7 8 9 0"
-        - "\\ * # $ / & - + ( ) _"
-        - "show_symbols   , \" ' colon ; ! ?  BackSpace"
-        - "show_letters preferences         space        period Return"
+        - "* # € / & - _ + ( )"
+        - "show_symbols , \" ' colon ; ! ?  BackSpace"
+        - "show_letters show_eschars preferences         space        . Return"
     symbols:
         - "TabSmall Ctrl Alt ↑ ↓ ← →"
-        - "~ ` · √ π τ ÷ × ¶ @"
-        - "© ® £ € ¥ ^ ° { }"
-        - "show_numbers_from_symbols   % | < > = [ ]  BackSpace"
-        - "show_letters preferences         space        period Return"
+        - "~ ` | · √ π τ ÷ × ¶"
+        - "© ® £ $ ¥ ^ ° @ { }"
+        - "show_numbers   \\ % < > = [ ]  BackSpace"
+        - "show_letters show_eschars preferences         space        . Return"
+    eschars:
+        - "TabSmall Ctrl Alt ↑ ↓ ← →"
+        - "á é í ó ú Á É Í Ó Ú"
+        - "à è ì ò ù À È Ì Ò Ù"
+        - "show_numbers , ü ç ï Ü Ç ï BackSpace"
+        - "show_letters show_symbols preferences        space        show_actions Return"
     actions:
         - "TabSmall Ctrl Alt PgUp PgDn Home End"
         - "F1  F2  F3  F4  F5  F6"
@@ -63,11 +68,6 @@ buttons:
             set_view: "numbers"
         outline: "altline"
         label: "123"
-    show_numbers_from_symbols:
-        action:
-            set_view: "numbers"
-        outline: "altline"
-        label: "123"
     show_letters:
         action:
             set_view: "base"
@@ -83,12 +83,17 @@ buttons:
             set_view: "symbols"
         outline: "altline"
         label: "τ=\\"
+    show_eschars:
+        action:
+            set_view: "eschars"
+        outline: "altline"
+        label: "áÁ"
     show_actions:
         action:
             set_view: "actions"
         outline: "altline"
         label: ">_"
-    period:
+    ".":
         outline: "large"
         text: "."
     space:
@@ -149,6 +154,10 @@ buttons:
     Del:
         outline: "action"
         keysym: "Delete"
+    DelUp:
+        outline: "altline"
+        keysym: "Delete"
+        label: "Del"
     Insert:
         outline: "action"
         keysym: "Insert"
@@ -209,19 +218,3 @@ buttons:
         modifier: "Alt"
         outline: "small"
         label: "Alt"
-    MinusSmall:
-        outline: "halfwidth"
-        text: "-"
-    SlashSmall:
-        outline: "halfwidth"
-        text: "/"
-    PipeSmall:
-        outline: "halfwidth"
-        text: "|"
-    PeriodSmall:
-        outline: "halfwidth"
-        text: "."
-    "\\":
-        outline: "halfwidth"
-    _:
-        outline: "halfwidth"

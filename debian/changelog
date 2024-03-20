@@ -1,3 +1,58 @@
+squeekboard (1.24.0) experimental; urgency=medium
+
+  [ MoonlightWave-12 ]
+  * src/popover.c: Change 'ControlCenter' to 'Settings'
+  * Add new emoji-layout
+  * squeekboard.doap: update descriptions and links
+  * Change branch-name from 'master' to 'main'
+  * hacking.md: add more instructions
+
+  [ Guido Günther ]
+  * ci: Stop building byzantium debs
+  * Use newer dependencies everywhere
+  * ci: Drop lintian check
+  * ci: Use Debian trixie for the doc build
+  * ci: Cancel running jobs
+  * ci: Always use noninteractive debconf backend
+
+ -- MoonlightWave-12 <135532-MoonlightWave-12@users.noreply.gitlab.gnome.org>  Sun, 10 Mar 2024 14:44:36 +0100
+
+squeekboard (1.23.0) experimental; urgency=medium
+
+  [ Vasil Pupkin ]
+  * Add Belarusian translation
+
+  [ Pierre Michel Augustin ]
+  * Add Haitian Creole translation
+  * Update Haitian Creole translation
+  * Update Haitian Creole translation
+
+  [ Luciano ]
+  * add french canadian layout (QWERTY + accented letters)
+
+  [ Danial Behzadi ]
+  * Fix Persian layout
+
+  [ uzanto uz ]
+  * Add Spanish terminal-keyboard-layouts
+
+  [ MoonlightWave-12 ]
+  * Improve Spanish terminal-keyboard-layouts
+  * Update links in the documentation
+  * doc/tutorial.md: Remove outdated information about translations
+  * Improve layouts of us-terminal-keyboards
+  * us.yaml and us_wide.yaml: Change outline of 123- and ABC-keys to altline
+  * us.yaml and us_wide.yaml: Change the outline of the period-key
+  * Fix Swiss layouts
+  * Add German terminal-keyboard-layout
+  * data/keyboards/email/us.yaml: fix styling of @-key
+  * data/keyboards/de*.yaml: Change äÄ-label to Ää
+  * data/keyboards/*.yaml: Change "abc" to "ABC"
+  * Add wide emoji-layout
+  * Update dependencies
+
+ -- MoonlightWave-12 <135532-MoonlightWave-12@users.noreply.gitlab.gnome.org>  Fri, 08 Mar 2024 10:46:37 +0100
+
 squeekboard (1.22.0-1) experimental; urgency=medium
 
   [ Asier Sarasua Garmendia ]
