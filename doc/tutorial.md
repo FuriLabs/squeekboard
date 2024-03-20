@@ -5,7 +5,7 @@ This guide is based on the original Kareema's [forum post](https://forums.puri.s
 
 It’s long overdue to write a comprehensive guide how to add a keyboard layout from start. But unfortunately, I don’t have much time left ATM. A lot of information can be found in [this](https://forums.puri.sm/t/using-non-latin-language-on-librem-5/7103/5) thread.
 
-So at least I will try to start writing a short how-to here and edit this post as I find the time. Hope this helps a bit - comments and corrections [welcome](https://source.puri.sm/Librem5/squeekboard/-/merge_requests/)
+So at least I will try to start writing a short how-to here and edit this post as I find the time. Hope this helps a bit - comments and corrections [welcome](https://gitlab.gnome.org/World/Phosh/squeekboard/-/merge_requests/)
 
 ## Creating a new layout
 
@@ -13,8 +13,8 @@ Creating a layout is easy. You don't need to recompile things, just edit and tes
 
 ### Get one of the existing keyboard layouts
 
-* You can get one of the keyboards from the squeekboard git repository : [https://source.puri.sm/Librem5/squeekboard](https://source.puri.sm/Librem5/squeekboard)
-* The keyboard layouts are located in the subdirectory [`data/keyboards/`](https://source.puri.sm/Librem5/squeekboard/-/tree/master/data/keyboards) in the `.yaml` files
+* You can get one of the keyboards from the squeekboard git repository : [https://gitlab.gnome.org/World/Phosh/squeekboard](https://gitlab.gnome.org/World/Phosh/squeekboard)
+* The keyboard layouts are located in the subdirectory [`data/keyboards/`](data/keyboards) in the `.yaml` files
 
 ### Creating the keyboard layout
 
@@ -52,7 +52,7 @@ Above all, your layout should be working, be tested, not break anything, and mak
 
 ### Fork your own copy of squeekboard
 
-* Best way would be to start with a fork of the squeekboard repository: Create a user account at https://source.puri.sm/, go the the squeekboard git repository, press “Fork” in the web interface. You can find further instructions [here](https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html#creating-a-fork).
+* Best way would be to start with a fork of the squeekboard repository: Create a user account at https://gitlab.gnome.org/, go the the squeekboard git repository, press “Fork” in the web interface. You can find further instructions [here](https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html#creating-a-fork).
 * Clone your fork locally with `git clone` and use the uri of your forked repo there
 
 ### Edit your keyboard and get it merged
@@ -62,8 +62,7 @@ Above all, your layout should be working, be tested, not break anything, and mak
 * Checkout your branch, edit your keyboard layout and commit your changes
 * Your layout **must** be correctly named, and in `data/keyboards/`.
 * Your layout **must** pass the `test_layout` tool with zero problems.
-* Your translation **must** be correctly named, and in `data/langs/`.
-* Your layout or translation **must** be added to automatic tests. **Don’t forget to add it** to `src/resources.rs` and the layout to `tests/meson.build` (that’s for me, because I always forget it).
+* Your layout **must** be added to automatic tests. **Remember to add the layout** to `src/resources.rs` and `tests/meson.build`.
 
 ### Get it merged
 
@@ -80,12 +79,12 @@ If you want your change to become part of official Squeekboard, or if you want t
 
 ### Compile squeekboard
 
-* Follow the instructions found in “Building” section of the squeekboard’s README: Running squeekboard: [https://source.puri.sm/Librem5/squeekboard/blob/master/README.md#building](https://source.puri.sm/Librem5/squeekboard/blob/master/README.md#building)
+* Follow the instructions found in “Building” section of the squeekboard’s README: Running squeekboard: [README.md#building](https://gitlab.gnome.org/World/Phosh/squeekboard/-/blob/main/README.md#building)
 
 ### Run squeekboard
 
-* Follow these instructions to run squeekboard: [https://source.puri.sm/Librem5/squeekboard/blob/master/README.md#running](https://source.puri.sm/Librem5/squeekboard/blob/master/README.md#running)
-* Additionally take a look at the contribution document for [testing info](HACKING.md#testing)
+* Follow these instructions to run squeekboard: [README.md#running](https://gitlab.gnome.org/World/Phosh/squeekboard/-/blob/main/README.md#running)
+* Additionally take a look at the contribution document for [testing info](https://gitlab.gnome.org/World/Phosh/squeekboard/-/blob/main/doc/hacking.md#testing)
 * You can either test it locally on your Linux system or use the [QEMU Librem 5 image](https://developer.puri.sm/Librem5/Development_Environment/Boards/emulators.html)
 * To test squeekboard locally, you need phoc. Either compile that from the sources as well or use the CI repository ci.puri.sm for Debian based systems:
   `deb [arch=amd64] http://ci.puri.sm/ scratch librem5`

@@ -1,9 +1,9 @@
 ---
 outlines:
-    default: { width: 52,   height: 52 }
-    special: { width: 52,   height: 52 }
-    altline: { width: 36.4, height: 56 }
-    infobar: { width: 260,  height: 52 }
+    default: { width: 104,  height: 52 }
+    special: { width: 104,  height: 52 }
+    altline: { width: 72.8, height: 56 }
+    infobar: { width: 520,  height: 52 }
 
 views:
     base:
@@ -862,52 +862,52 @@ buttons:
         action:
             set_view: "base"
         outline: "altline"
-#        label: "🙂"
+        label: "1 🙂"
     2:
         action:
             set_view: "people-and-body"
         outline: "altline"
-#        label: "👋"
+        label: "2 👋"
     3:
         action:
             set_view: "component"
         outline: "altline"
-#        label: " 🏽"
+        label: "3  🏽"
     4:
         action:
             set_view: "animals-and-nature"
         outline: "altline"
-#        label: "🐱"
+        label: "4 🐱"
     5:
         action:
             set_view: "food-and-drink"
         outline: "altline"
-#        label: "🍐"
+        label: "5 🍐"
     6:
         action:
             set_view: "travel-and-places"
         outline: "altline"
-#        label: "🌐"
+        label: "6 🌐"
     7:
         action:
             set_view: "activities"
         outline: "altline"
-#        label: "✨"
+        label: "7 ✨"
     8:
         action:
             set_view: "objects"
         outline: "altline"
-#        label: "👒"
+        label: "8 👒"
     9:
         action:
             set_view: "symbols"
         outline: "altline"
-#        label: "*️⃣"
+        label: "9 *️⃣"
     10:
         action:
             set_view: "flags"
         outline: "altline"
-#        label: "🏁"
+        label: "10 🏁"
     😄+:
         action:
             set_view: "face-smiling"

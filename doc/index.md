@@ -4,7 +4,7 @@ Welcome to squeekboard's documentation!
 Introduction
 ------------
 
-Squeekboard is the on-screen keyboard for the Librem 5 phone. For information about building, look at the [README](https://source.puri.sm/Librem5/squeekboard/blob/master/README.md).
+Squeekboard is the on-screen keyboard for the Librem 5 phone. For information about building, look at the [README](README.md).
 
 Layouts
 -------
@@ -24,4 +24,4 @@ Anyone is free to modify *squeekboard*. See the [contributing document](hacking.
 
 ### Code documentation
 
-To expose the structure of Squeekboard in detail, there's a [code reference](doc/rs).
+To expose the structure of Squeekboard in detail, there's a [code reference](https://world.pages.gitlab.gnome.org/Phosh/squeekboard/doc/rs/).

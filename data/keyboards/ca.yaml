@@ -8,25 +8,30 @@ outlines:
 
 views:
     base:
-        - "ქ წ ე რ ტ ყ უ ი ო პ"
-        - "ა ს დ ფ გ ჰ ჯ კ ლ"
-        - "Shift_L ზ ხ ც ვ ბ ნ მ BackSpace"
-        - "show_numbers preferences         space        period Return"
+        - "q w e r t y u i o p"
+        - "a s d f g h j k l"
+        - "Shift_L   z x c v b n m  BackSpace"
+        - "show_numbers preferences         space        show_eschars Return"
     upper:
-        - "ქ ჭ ე ღ თ ყ უ ი ო პ"
-        - "ა შ დ ფ გ ჰ ჟ კ ლ"
-        - "Shift_L ძ ხ ჩ ვ ბ ნ მ BackSpace"
-        - "show_numbers preferences         space        period Return"
+        - "Q W E R T Y U I O P"
+        - "A S D F G H J K L"
+        - "Shift_L   Z X C V B N M  BackSpace"
+        - "show_numbers preferences         space        show_eschars Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
-        - "! @ # $ % ^ & * ( )"
-        - "show_symbols   - ' \" colon ; , ?   BackSpace"
-        - "show_letters preferences         space        period Return"
+        - "@ # $ % & - _ + ( )"
+        - "show_symbols   , \" ' colon ; ! ?  BackSpace"
+        - "show_letters preferences         space        show_eschars Return"
     symbols:
-        - "+ ⨯ ÷ = / _ € £ ¥ ₾"
-        - "~ ` | · √ π τ ° { }"
+        - "~ ` | · √ π τ ÷ × ¶"
+        - "© ® £ € ¥ ^ ° * { }"
         - "show_numbers_from_symbols   \\ / < > = [ ]  BackSpace"
-        - "show_letters preferences         space        period Return"
+        - "show_letters preferences         space        show_eschars Return"
+    eschars:
+        - "à â ç é è ê ë î ï ô"
+        - "ù û À Â Ç É È Ê Î Ô"
+        - "show_numbers_from_symbols  ' ! ? . ,   BackSpace"
+        - "show_letters preferences         space        show_eschars Return"
 
 buttons:
     Shift_L:
@@ -39,9 +44,9 @@ buttons:
     BackSpace:
         outline: "altline"
         icon: "edit-clear-symbolic"
-        action: "erase"
+        action: erase
     preferences:
-        action: "show_prefs"
+        action: show_prefs
         outline: "special"
         icon: "keyboard-mode-symbolic"
     show_numbers:
@@ -64,6 +69,13 @@ buttons:
             set_view: "symbols"
         outline: "altline"
         label: "*/="
+    show_eschars:
+        action:
+            locking:
+                lock_view: "eschars"
+                unlock_view: "base"
+        outline: "altline"
+        label: "âÂ"
     period:
         outline: "special"
         text: "."
@@ -76,3 +88,6 @@ buttons:
         keysym: "Return"
     colon:
         text: ":"
+
+
+

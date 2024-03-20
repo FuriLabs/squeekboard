@@ -27,6 +27,8 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
 
     ("br", include_str!("../data/keyboards/br.yaml")),
     
+    ("ca", include_str!("../data/keyboards/ca.yaml")),
+    
     ("ch+fr", include_str!("../data/keyboards/ch+fr.yaml")),
     ("ch+de", include_str!("../data/keyboards/ch+de.yaml")),
     ("ch", include_str!("../data/keyboards/ch.yaml")),
@@ -109,6 +111,12 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
     ("pin/us", include_str!("../data/keyboards/pin/us.yaml")),
 
     // Terminal
+    ("terminal/de", include_str!("../data/keyboards/terminal/de.yaml")),
+    ("terminal/de_wide",   include_str!("../data/keyboards/terminal/de_wide.yaml")),
+
+    ("terminal/es", include_str!("../data/keyboards/terminal/es.yaml")),
+    ("terminal/es_wide",   include_str!("../data/keyboards/terminal/es_wide.yaml")),
+
     ("terminal/fr", include_str!("../data/keyboards/terminal/fr.yaml")),
     ("terminal/fr_wide", include_str!("../data/keyboards/terminal/fr_wide.yaml")),
 
@@ -119,6 +127,7 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
 
     // Overlays
     ("emoji/us", include_str!("../data/keyboards/emoji/us.yaml")),
+    ("emoji/us_wide", include_str!("../data/keyboards/emoji/us_wide.yaml")),
 ];
 
 pub fn get_keyboard(needle: &str) -> Option<&'static str> {
