@@ -1,37 +1,37 @@
 ---
 outlines:
-    default:   { width: 35.33, height: 52 }
-    altline:   { width: 52.67, height: 52 }
-    wide:      { width: 62,    height: 52 }
-    spaceline: { width: 99.67, height: 52 }
-    special:   { width: 35.33, height: 52 }
+    default:   { width: 52,     height: 42 }
+    altline:   { width: 77.51,  height: 42 }
+    wide:      { width: 91.25,  height: 42 }
+    spaceline: { width: 146.69, height: 42 }
+    special:   { width: 64.75,  height: 42 }
 
 views:
     base:
         - "q w e r t y u i o p"
-        - "a s d f g h j k l"
+        - "a s d f g h j k l ç"
         - "Shift_L   z x c v b n m  BackSpace"
-        - "show_numbers show_eschars preferences         space        , . Return"
+        - "show_numbers show_eschars preferences         space        ? . Return"
     upper:
         - "Q W E R T Y U I O P"
-        - "A S D F G H J K L"
+        - "A S D F G H J K L Ç"
         - "Shift_L   Z X C V B N M  BackSpace"
-        - "show_numbers show_eschars preferences         space        ! ? Return"
+        - "show_numbers show_eschars preferences         space        ¿ . Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
-        - "@ # $ % & - _ + ( )"
-        - "show_symbols   , \" ' : ; ! ?  BackSpace"
-        - "show_letters preferences         space        . Return"
+        - "@ # € % & - _ + ( )"
+        - "show_symbols   , \" ' : ; ! = BackSpace"
+        - "show_letters show_eschars preferences         space        ? . Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
-        - "© ® £ € ¥ ^ ° * { }"
+        - "© ® £ $ ¥ ^ ° * { }"
         - "show_numbers   \\ / < > = [ ]  BackSpace"
-        - "show_letters preferences         space        . Return"
+        - "show_letters show_eschars preferences         space        ? . Return"
     eschars:
-        - "ĉ ĝ ĥ ĵ ŝ ŭ ?"
-        - "Ĉ Ĝ Ĥ Ĵ Ŝ Ŭ !"
-        - "show_numbers ' - 🐊 💚 🌐 . BackSpace"
-        - "show_letters show_eschars preferences         space        „ “ Return"
+        - "á é í ó ú Á É Í Ó Ú"
+        - "à è ì ò ù À È Ì Ò Ù"
+        - "show_numbers ü ç ï Ü Ç Ï ¡  BackSpace"
+        - "show_letters show_eschars preferences         space        « » Return"
 
 buttons:
     Shift_L:
@@ -47,7 +47,7 @@ buttons:
         action: "erase"
     preferences:
         action: "show_prefs"
-        outline: "special"
+        outline: "default"
         icon: "keyboard-mode-symbolic"
     show_numbers:
         action:
@@ -70,10 +70,9 @@ buttons:
                 lock_view: "eschars"
                 unlock_view: "base"
         outline: "altline"
-        label: "ŭŜ"
+        label: "àÀ"
     space:
         outline: "spaceline"
-        label: " "
         text: " "
     Return:
         outline: "altline"

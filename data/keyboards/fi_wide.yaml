@@ -1,37 +1,31 @@
 ---
 outlines:
-    default:   { width: 35.33, height: 52 }
-    altline:   { width: 52.67, height: 52 }
-    wide:      { width: 62,    height: 52 }
-    spaceline: { width: 99.67, height: 52 }
-    special:   { width: 35.33, height: 52 }
+    default:   { width: 48,     height: 42 }
+    altline:   { width: 72.59,  height: 42 }
+    wide:      { width: 93,     height: 42 }
+    spaceline: { width: 225.88, height: 42 }
 
 views:
     base:
-        - "q w e r t y u i o p"
-        - "a s d f g h j k l"
+        - "q w e r t y u i o p å"
+        - "a s d f g h j k l ö ä"
         - "Shift_L   z x c v b n m  BackSpace"
-        - "show_numbers show_eschars preferences         space        , . Return"
+        - "show_numbers preferences         space        .    Return"
     upper:
-        - "Q W E R T Y U I O P"
-        - "A S D F G H J K L"
+        - "Q W E R T Y U I O P Å"
+        - "A S D F G H J K L Ö Ä"
         - "Shift_L   Z X C V B N M  BackSpace"
-        - "show_numbers show_eschars preferences         space        ! ? Return"
+        - "show_numbers preferences         space        .    Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # $ % & - _ + ( )"
         - "show_symbols   , \" ' : ; ! ?  BackSpace"
-        - "show_letters preferences         space        . Return"
+        - "show_letters preferences         space        .    Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
         - "show_numbers   \\ / < > = [ ]  BackSpace"
-        - "show_letters preferences         space        . Return"
-    eschars:
-        - "ĉ ĝ ĥ ĵ ŝ ŭ ?"
-        - "Ĉ Ĝ Ĥ Ĵ Ŝ Ŭ !"
-        - "show_numbers ' - 🐊 💚 🌐 . BackSpace"
-        - "show_letters show_eschars preferences         space        „ “ Return"
+        - "show_letters preferences         space        .    Return"
 
 buttons:
     Shift_L:
@@ -47,7 +41,7 @@ buttons:
         action: "erase"
     preferences:
         action: "show_prefs"
-        outline: "special"
+        outline: "altline"
         icon: "keyboard-mode-symbolic"
     show_numbers:
         action:
@@ -64,18 +58,12 @@ buttons:
             set_view: "symbols"
         outline: "altline"
         label: "*/="
-    show_eschars:
-        action:
-            locking:
-                lock_view: "eschars"
-                unlock_view: "base"
-        outline: "altline"
-        label: "ŭŜ"
+    ".":
+        outline: altline
     space:
-        outline: "spaceline"
-        label: " "
+        outline: spaceline
         text: " "
     Return:
-        outline: "altline"
+        outline: "wide"
         icon: "key-enter"
         keysym: "Return"
