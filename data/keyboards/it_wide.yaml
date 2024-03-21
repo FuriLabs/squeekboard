@@ -1,10 +1,12 @@
+# Italian layout created by Antonio Pandolfo
+# 03 october 2019
 ---
 outlines:
-    default:   { width: 35.33, height: 52 }
-    altline:   { width: 52.67, height: 52 }
-    wide:      { width: 62,    height: 52 }
-    spaceline: { width: 99.67, height: 52 }
-    special:   { width: 35.33, height: 52 }
+    default:   { width: 52,    height: 42 }
+    altline:   { width: 77.52, height: 42 }
+    wide:      { width: 91.26, height: 42 }
+    spaceline: { width: 146.7, height: 42 }
+    special:   { width: 64.76, height: 42 }
 
 views:
     base:
@@ -16,22 +18,22 @@ views:
         - "Q W E R T Y U I O P"
         - "A S D F G H J K L"
         - "Shift_L   Z X C V B N M  BackSpace"
-        - "show_numbers show_eschars preferences         space        ! ? Return"
+        - "show_numbers show_eschars preferences         space        ? . Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
-        - "@ # $ % & - _ + ( )"
+        - "@ # € % & - _ + ( )"
         - "show_symbols   , \" ' : ; ! ?  BackSpace"
-        - "show_letters preferences         space        . Return"
+        - "show_letters show_eschars preferences         space        ? . Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
-        - "© ® £ € ¥ ^ ° * { }"
+        - "© ® £ $ ¥ ^ ° * { }"
         - "show_numbers   \\ / < > = [ ]  BackSpace"
-        - "show_letters preferences         space        . Return"
+        - "show_letters show_eschars preferences         space        ? . Return"
     eschars:
-        - "ĉ ĝ ĥ ĵ ŝ ŭ ?"
-        - "Ĉ Ĝ Ĥ Ĵ Ŝ Ŭ !"
-        - "show_numbers ' - 🐊 💚 🌐 . BackSpace"
-        - "show_letters show_eschars preferences         space        „ “ Return"
+        - "è é È É ù ú Ù Ú ò ó"
+        - "à á À Á ì í Ì Í Ò Ó"
+        - "show_numbers   “ ” « » ≈ ≠ ‽  BackSpace"
+        - "show_letters show_eschars preferences         space        , . Return"
 
 buttons:
     Shift_L:
@@ -47,9 +49,14 @@ buttons:
         action: "erase"
     preferences:
         action: "show_prefs"
-        outline: "special"
+        outline: "default"
         icon: "keyboard-mode-symbolic"
     show_numbers:
+        action:
+            set_view: "numbers"
+        outline: "altline"
+        label: "123"
+    show_numbers_from_symbols:
         action:
             set_view: "numbers"
         outline: "altline"
@@ -66,11 +73,9 @@ buttons:
         label: "*/="
     show_eschars:
         action:
-            locking:
-                lock_view: "eschars"
-                unlock_view: "base"
+            set_view: "eschars"
         outline: "altline"
-        label: "ŭŜ"
+        label: "àè"
     space:
         outline: "spaceline"
         label: " "
@@ -79,3 +84,4 @@ buttons:
         outline: "altline"
         icon: "key-enter"
         keysym: "Return"
+
