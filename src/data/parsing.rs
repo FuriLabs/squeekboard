@@ -62,6 +62,7 @@ struct ButtonMeta {
     // to detect conflicts and missing values at compile time
     /// Special action to perform on activation.
     /// Conflicts with keysym, text, modifier.
+#[serde(with = "serde_yaml::with::singleton_map", default)]
     action: Option<Action>,
     /// The name of the XKB keysym to emit on activation.
     /// Conflicts with action, text, modifier.
