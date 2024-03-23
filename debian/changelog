@@ -1,3 +1,48 @@
+squeekboard (1.38.0) experimental; urgency=medium
+
+  [ Arnaud Ferraris ]
+  * Cargo.deps.newer: update for gtk-rs 0.17
+  * src: popover: fix build with newer gtk-rs
+  * src: style: fix build with newer gtk-rs
+  * Cargo.*: use xkbcommon v0.5 for "newer" builds
+
+  [ Peter Michael Green ]
+  * Replace "Continue" with "ControlFlow"
+  * "Priority" constants for glib-rs 0.18
+
+  [ Guido Günther ]
+  * build: Fix typo
+  * ci: Switch to Debian trixie
+  * build: Do away with older and newer deps
+  * packaging: Bump dependencies
+  * packaging: Keep Cargo.lock
+  * cargo: Be more strict with clap
+  * ci: Add features to reference build
+  * Switch to glib v2_58
+  * popover: Ignore return value
+  * drawing: Unwrap errors
+  * test-layout: Drop unneeded `macro use`
+
+  [ MoonlightWave-12 ]
+  * Simplify build-system further
+  * Update dependencies
+  * Change label of "PgUp" and "PgDn", to "Page ↑" and "Page ↓"
+  * data/keyboards/terminal/*.yaml: Update terminal-layouts
+  * Improve German layout
+  * Update Spanish terminal-layout
+  * Translate keys on French terminal-layouts
+  * Clean up layout-files
+  * Add the remaining, wide shapes for layouts
+  * Update to serde_yaml 0.9.*
+  * CI: Install build-dependencies in 'build_reference'-CI-job
+  * CI: Install 'serde-yaml 0.9' from experimental
+  * Update dependencies
+
+  [ Vittorio Monti ]
+  * Update Italian translation
+
+ -- MoonlightWave-12 <135532-MoonlightWave-12@users.noreply.gitlab.gnome.org>  Sat, 23 Mar 2024 17:22:45 +0100
+
 squeekboard (1.24.0) experimental; urgency=medium
 
   [ MoonlightWave-12 ]
