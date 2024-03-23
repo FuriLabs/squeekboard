@@ -1,3 +1,21 @@
+1.38.0
+------------------
+
+Changes:
+- 25 wide shapes have been added, so that every available layout now has a wide shape
+- "PgUp" and "PgDn" on the terminal-layouts have been relabeled to "Page ↑" and "Page ↓"
+- The Spanish and French terminal-layouts now have translated key-names
+- The Spanish terminal-layout has been updated with the additional keys that are already available on the US-terminal-layout.
+- The wide and base shapes of the German layout had a different key-arrangement and the wide shape did not have a button to access additional characters; this has been fixed.
+
+Development:
+- Squeekboard's versioning now follows Phosh's versioning (for example: Squeekboard 1.38 was released in time for Phosh 0.38)
+- The build-system has been simplified
+  - A single Cargo.toml file is used, instead of assembling it from multiple parts
+  - Newer dependencies are now used for building Squeekboard by default
+- Squeekboard's main development-platform is now Debian Testing
+- The layout-files have been cleaned up, so that those are easier to understand and edit
+
 1.24.0
 ------------------
 
