@@ -1,14 +1,15 @@
 ---
 outlines:
-    default:     { width: 48,   height: 42 }
-    halfwidth:   { width: 24,   height: 42 }
-    thin:        { width: 30,   height: 42 }
-    narrow:      { width: 40.5, height: 42 }
-    altline:     { width: 81,   height: 42 }
-    change-view: { width: 81,   height: 42 }
-    wide:        { width: 108,  height: 42 }
-    spaceline:   { width: 156,  height: 42 }
-    special:     { width: 48,   height: 42 }
+    default:          { width: 48,   height: 42 }
+    subtle-highlight: { width: 48,   height: 42 }
+    halfwidth:        { width: 24,   height: 42 }
+    thin:             { width: 30,   height: 42 }
+    narrow:           { width: 40.5, height: 42 }
+    altline:          { width: 81,   height: 42 }
+    change-view:      { width: 81,   height: 42 }
+    wide:             { width: 108,  height: 42 }
+    spaceline:        { width: 156,  height: 42 }
+    special:          { width: 48,   height: 42 }
 
 views:
     base:
@@ -32,9 +33,9 @@ views:
         - "show_numbers   \\ / § π τ [ ]  BackSpace"
         - "show_letters show_eschars preferences         space        ,-narrow .-narrow Return"
     eschars:
-        - "ä è é ö ü Ä È É Ö Ü"
+        - "ä-subtle-highlight è é ö-subtle-highlight ü-subtle-highlight Ä-subtle-highlight È É Ö-subtle-highlight Ü-subtle-highlight"
         - "à â ê î ô À Â È Î Ô"
-        - "show_numbers  « » ç Ç æ œ ß  BackSpace"
+        - "show_numbers  « » ç Ç æ œ ß-subtle-highlight  BackSpace"
         - "show_letters show_eschars preferences         space        „ “ Return"
 
 buttons:
@@ -103,4 +104,25 @@ buttons:
         text: "-"
     ß-thin:
         outline: "thin"
+        text: "ß"
+    ä-subtle-highlight:
+        outline: "subtle-highlight"
+        text: "ä"
+    ö-subtle-highlight:
+        outline: "subtle-highlight"
+        text: "ö"
+    ü-subtle-highlight:
+        outline: "subtle-highlight"
+        text: "ü"
+    Ä-subtle-highlight:
+        outline: "subtle-highlight"
+        text: "Ä"
+    Ö-subtle-highlight:
+        outline: "subtle-highlight"
+        text: "Ö"
+    Ü-subtle-highlight:
+        outline: "subtle-highlight"
+        text: "Ü"
+    ß-subtle-highlight:
+        outline: "subtle-highlight"
         text: "ß"

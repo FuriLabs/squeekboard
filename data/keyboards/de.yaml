@@ -1,11 +1,12 @@
 ---
 outlines:
-    default:     { width: 35.33, height: 52 }
-    altline:     { width: 52.67, height: 52 }
-    change-view: { width: 52.67, height: 52 }
-    wide:        { width: 62,    height: 52 }
-    spaceline:   { width: 89.3,  height: 52 }
-    special:     { width: 35.33, height: 52 }
+    default:          { width: 35.33, height: 52 }
+    subtle-highlight: { width: 35.33, height: 52 }
+    altline:          { width: 52.67, height: 52 }
+    change-view:      { width: 52.67, height: 52 }
+    wide:             { width: 62,    height: 52 }
+    spaceline:        { width: 89.3,  height: 52 }
+    special:          { width: 35.33, height: 52 }
 
 views:
     base:
@@ -31,7 +32,7 @@ views:
     eschars:
         - "ä è é ö ü Ä È É Ö Ü"
         - "à â ê î ô À Â È Î Ô"
-        - "show_numbers  « » ç Ç æ œ ß  BackSpace"
+        - "show_numbers  « » ç Ç æ œ ß-subtle-highlight  BackSpace"
         - "show_letters show_eschars preferences         space        „ “ Return"
 
 buttons:
@@ -79,3 +80,18 @@ buttons:
         outline: "altline"
         icon: "key-enter"
         keysym: "Return"
+    ä:
+        outline: "subtle-highlight"
+    ö:
+        outline: "subtle-highlight"
+    ü:
+        outline: "subtle-highlight"
+    Ä:
+        outline: "subtle-highlight"
+    Ö:
+        outline: "subtle-highlight"
+    Ü:
+        outline: "subtle-highlight"
+    ß-subtle-highlight:
+        outline: "subtle-highlight"
+        text: "ß"
