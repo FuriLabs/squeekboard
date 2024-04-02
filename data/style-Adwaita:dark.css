@@ -19,6 +19,12 @@ sq_button.wide {
     background: #2b292f;
 }
 
+sq_button.altline:active,
+sq_button.special:active,
+sq_button.wide:active {
+    background: #37353c;
+}
+
 sq_button.latched {
     background: #ffffff;
     color: #2b292f;
@@ -34,7 +40,8 @@ sq_button.locked {
 }
 
 #Return:active {
-    background: #1c71d8;
+    background: mix(#1c71d8, black, 0.2);
+    color: mix(#1c71d8, black, 0.2);
 }
 
 @import url("resource:///sm/puri/squeekboard/common.css");
