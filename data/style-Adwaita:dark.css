@@ -43,6 +43,17 @@ sq_button.change-view-2:active {
     border-color: alpha(white, 0.5);
 }
 
+sq_button.placeholder,
+sq_button.placeholder-2 {
+    background: #171618;
+}
+
+sq_button.placeholder:active,
+sq_button.placeholder-2:active {
+    background: initial;
+    box-shadow: initial;
+}
+
 sq_button.altline,
 sq_button.special,
 sq_button.wide {
