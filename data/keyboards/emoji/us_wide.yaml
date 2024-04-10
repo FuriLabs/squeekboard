@@ -1,11 +1,12 @@
 ---
 outlines:
     default:       { width: 104,  height: 52 }
+    placeholder:   { width: 104,  height: 52 }
     special:       { width: 104,  height: 52 }
     change-view:   { width: 104,  height: 52 }
     change-view-2: { width: 72.8, height: 56 }
     emoji-group:   { width: 104,  height: 52 }
-    infobar:       { width: 520,  height: 52 }
+    placeholder-2: { width: 520,  height: 52 }
 
 views:
     base:
@@ -854,10 +855,11 @@ buttons:
         icon: "edit-clear-symbolic"
         keysym: BackSpace
     InfoBar:
-        outline: "infobar"
+        outline: "placeholder-2"
         text: ""
         label: "🧘 + 🏾 = 🧘🏾"
     0:
+       outline: "placeholder"
        text: ""
        label: ""
     1:
