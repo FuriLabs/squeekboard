@@ -13,6 +13,36 @@ sq_button:active {
     background: #747077;
 }
 
+sq_button.emoji-group {
+    background: #3f3e41;
+    border-bottom: 0.4999px;
+    border-style: solid;
+    border-color: alpha(white, 0.25);
+}
+
+sq_button.emoji-group:active {
+    background: #747077;
+    border-bottom: 0.4999px;
+    border-style: solid;
+    border-color: alpha(white, 0.5);
+}
+
+sq_button.change-view,
+sq_button.change-view-2 {
+    background: #2b292f;
+    border-bottom: 0.4999px;
+    border-style: solid;
+    border-color: alpha(white, 0.25);
+}
+
+sq_button.change-view:active,
+sq_button.change-view-2:active {
+    background: #747077;
+    border-bottom: 0.4999px;
+    border-style: solid;
+    border-color: alpha(white, 0.5);
+}
+
 sq_button.altline,
 sq_button.special,
 sq_button.wide {
