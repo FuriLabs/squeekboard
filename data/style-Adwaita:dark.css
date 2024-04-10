@@ -13,6 +13,14 @@ sq_button:active {
     background: #747077;
 }
 
+sq_button.subtle-highlight {
+    background: #3f3e41;
+}
+
+sq_button.subtle-highlight:active {
+    background: #676669;
+}
+
 sq_button.emoji-group {
     background: #3f3e41;
     border-bottom: 0.4999px;

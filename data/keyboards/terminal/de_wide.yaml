@@ -1,15 +1,16 @@
 ---
 outlines:
-    default:   { width: 54,   height: 37 }
-    halfwidth: { width: 27,   height: 37 }
-    narrow:    { width: 40.5, height: 37 }
-    special:   { width: 54,   height: 37 }
-    altline:   { width: 81,   height: 37 }
-    large:     { width: 81,   height: 37 }
-    action:    { width: 90,   height: 37 }
-    wide:      { width: 90,   height: 37 }
-    spaceline: { width: 153,  height: 37 }
-    small:     { width: 67.4, height: 22 }
+    default:          { width: 54,   height: 37 }
+    subtle-highlight: { width: 54,   height: 37 }
+    halfwidth:        { width: 27,   height: 37 }
+    narrow:           { width: 40.5, height: 37 }
+    special:          { width: 54,   height: 37 }
+    altline:          { width: 81,   height: 37 }
+    large:            { width: 81,   height: 37 }
+    action:           { width: 90,   height: 37 }
+    wide:             { width: 90,   height: 37 }
+    spaceline:        { width: 153,  height: 37 }
+    small:            { width: 67.4, height: 22 }
 
 views:
     base:
@@ -249,3 +250,17 @@ buttons:
         outline: "halfwidth"
     _:
         outline: "halfwidth"
+    ä:
+        outline: "subtle-highlight"
+    ö:
+        outline: "subtle-highlight"
+    ü:
+        outline: "subtle-highlight"
+    Ä:
+        outline: "subtle-highlight"
+    Ö:
+        outline: "subtle-highlight"
+    Ü:
+        outline: "subtle-highlight"
+    ß:
+        outline: "subtle-highlight"
