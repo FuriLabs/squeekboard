@@ -385,6 +385,7 @@ Outcome:
                 let ideal_height = IDEAL_TARGET_SIZE * ROW_COUNT as i32;
                 let ideal_height_px = (ideal_height * density).ceil().0 as u32;
 
+                // Changes the point at which the layout-shape is changed to the wide shape
                 let max_wide_height = Rational {
                     numerator: 172,
                     denominator: 540,
@@ -726,60 +727,257 @@ pub mod test {
 
     }
 
-    #[test]
-    fn size_l5() {
+// scaling-tests
+    fn scaling_test_base(pixel_width: i32, pixel_height: i32, physical_width: i32, physical_height: i32, scale: i32, expected_pixel_height: u32) {
         use crate::outputs::{Mode, Geometry, c, Size};
         assert_eq!(
             Application::get_preferred_height_and_arrangement(&OutputState {
                 current_mode: Some(Mode {
-                    width: 720,
-                    height: 1440,
+                    width: pixel_width,
+                    height: pixel_height,
                 }),
                 geometry: Some(Geometry{
                     transform: c::Transform::Normal,
                     phys_size: Size {
-                        width: Some(Millimeter(65)),
-                        height: Some(Millimeter(130)),
+                        width: Some(Millimeter(physical_width)),
+                        height: Some(Millimeter(physical_height)),
                     },
                 }),
-                scale: 2,
+                scale,
             }),
             Some((
                 PixelSize {
-                    scale_factor: 2,
-                    pixels: 420,
+                    scale_factor: scale as u32,
+                    pixels: expected_pixel_height,
                 },
                 ArrangementKind::Base,
             )),
         );
     }
-    
-    
-    #[test]
-    fn size_l5_scale1() {
+
+    fn scaling_test_wide(pixel_width: i32, pixel_height: i32, physical_width: i32, physical_height: i32, scale: i32, expected_pixel_height: u32) {
         use crate::outputs::{Mode, Geometry, c, Size};
         assert_eq!(
             Application::get_preferred_height_and_arrangement(&OutputState {
                 current_mode: Some(Mode {
-                    width: 720,
-                    height: 1440,
+                    width: pixel_width,
+                    height: pixel_height,
                 }),
                 geometry: Some(Geometry{
                     transform: c::Transform::Normal,
                     phys_size: Size {
-                        width: Some(Millimeter(65)),
-                        height: Some(Millimeter(130)),
+                        width: Some(Millimeter(physical_width)),
+                        height: Some(Millimeter(physical_height)),
                     },
                 }),
-                scale: 1,
+                scale,
             }),
             Some((
                 PixelSize {
-                    scale_factor: 1,
-                    pixels: 420,
+                    scale_factor: scale as u32,
+                    pixels: expected_pixel_height,
                 },
-                ArrangementKind::Base,
+                ArrangementKind::Wide,
             )),
         );
     }
+
+    // TODO: Many of the values for expected_pixel_height and ArrangementKind for the devices in this list
+    // are not optimal (or close to that) yet.
+    // When the scaling-behaviour will be improved, those tests should be adjusted to check for
+    // more appropriate values.
+
+// Smartphones
+
+    #[test]
+    fn size_galaxy_xcover_2() {scaling_test_base(480, 800, 52, 87, 1, 280)}
+    #[test]
+    fn size_galaxy_xcover_2_horizontal() {scaling_test_base(800, 480, 87, 52, 1, 240)}
+
+    #[test]
+    fn size_xperia_xz1_compact() {scaling_test_base(720, 1280, 57, 102, 2, 420)}
+    #[test]
+    fn size_xperia_xz1_compact_horizontal() {scaling_test_base(1280, 720, 102, 57, 2, 360)}
+
+    #[test]
+    fn size_librem_5() {scaling_test_base(720, 1440, 65, 130, 2, 420)}
+    #[test]
+    fn size_librem_5_horizontal() {scaling_test_wide(1440, 720, 130, 65, 2, 360)}
+
+    #[test]
+    fn size_librem_5_scale1() {scaling_test_base(720, 1440, 65, 130, 1, 420)}
+    #[test]
+    fn size_librem_5_scale1_horizontal() {scaling_test_wide(1440, 720, 130, 65, 1, 360)}
+
+    #[test]
+    fn size_pinephone_pro() {scaling_test_base(720, 1440, 68, 136, 2, 402)}
+    #[test]
+    fn size_pinephone_pro_horizontal() {scaling_test_wide(1440, 720, 136, 68, 2, 360)}
+
+    #[test]
+    fn size_xperia_xa2() {scaling_test_base(1920, 1080, 65, 115, 3, 540)}
+    #[test]
+    fn size_xperia_xa2_horizontal() {scaling_test_base(1080, 1920, 115, 65, 3, 357)}
+
+    #[test]
+    fn size_fairphone_2() {scaling_test_base(1080, 1920, 62, 111, 3, 630)}
+    #[test]
+    fn size_fairphone_2_horizontal() {scaling_test_base(1920, 1080, 111, 62, 3, 540)}
+
+    #[test]
+    fn size_fairphone_4() {scaling_test_base(1080, 2340, 67, 145, 3, 612)}
+    #[test]
+    fn size_fairphone_4_horizontal() {scaling_test_wide(2340, 1080, 145, 67, 3, 540)}
+
+    #[test]
+    fn size_fairphone_5() {scaling_test_base(1224, 2720, 67, 150, 3, 693)}
+    #[test]
+    fn size_fairphone_5_horizontal() {scaling_test_wide(2720, 1224, 150, 67, 3, 612)}
+
+    #[test]
+    fn size_shift6mq() {scaling_test_base(1080, 2160, 68, 136, 3, 603)}
+    #[test]
+    fn size_shift6mq_horizontal() {scaling_test_wide(2160, 1080, 136, 68, 3, 540)}
+
+    #[test]
+    fn size_oneplus_6() {scaling_test_base(1080, 2280, 68, 144, 3, 603)}
+    #[test]
+    fn size_oneplus_6_horizontal() {scaling_test_wide(2280, 1080, 144, 68, 3, 540)}
+
+    #[test]
+    fn size_oneplus_6t() {scaling_test_base(1080, 2340, 68, 148, 3, 603)}
+    #[test]
+    fn size_oneplus_6t_horizontal() {scaling_test_wide(2340, 1080, 148, 68, 3, 540)}
+
+    #[test]
+    fn size_oneplus_8t() {scaling_test_base(1080, 2400, 70, 155, 3, 586)}
+    #[test]
+    fn size_oneplus_8t_horizontal() {scaling_test_wide(2400, 1080, 155, 70, 3, 540)}
+
+// Handheld gaming-devices
+
+    #[test]
+    fn size_nintendo_3ds_upper() {scaling_test_base(240, 400, 46, 77, 1, 140)}
+    #[test]
+    fn size_nintendo_3ds_upper_horizontal() {scaling_test_base(400, 240, 77, 46, 1, 120)}
+    #[test]
+    fn size_nintendo_3ds_lower() {scaling_test_base(240, 320, 46, 61, 1, 140)}
+    #[test]
+    fn size_nintendo_3ds_lower_horizontal() {scaling_test_base(320, 240, 61, 46, 1, 120)}
+
+    #[test]
+    fn size_steam_deck_lcd() {scaling_test_base(800, 1280, 94, 151, 1, 323)}
+    #[test]
+    fn size_steam_deck_lcd_horizontal() {scaling_test_wide(1280, 800, 151, 94, 1, 322)}
+
+    #[test]
+    fn size_steam_deck_oled() {scaling_test_base(800, 1280, 100, 159, 1, 304)}
+    #[test]
+    fn size_steam_deck_oled_horizontal() {scaling_test_wide(1280, 800, 159, 100, 1, 306)}
+
+    #[test]
+    fn size_rog_ally() {scaling_test_base(1080, 1920, 87, 155, 1, 471)}
+    #[test]
+    fn size_rog_ally_horizontal() {scaling_test_wide(1920, 1080, 155, 87, 1, 470)}
+
+    #[test]
+    fn size_legion_go() {scaling_test_base(1600, 2560, 119, 190, 1, 510)}
+    #[test]
+    fn size_legion_go_horizontal() {scaling_test_wide(2560, 1600, 190, 119, 1, 511)}
+
+// Tablet-PCs
+
+    #[test]
+    fn size_galaxy_tab_3_8_0() {scaling_test_base(800, 1280, 108, 172, 1, 281)}
+    #[test]
+    fn size_galaxy_tab_3_8_0_horizontal() {scaling_test_wide(1280, 800, 172, 108, 1, 283)}
+
+    #[test]
+    fn size_pinetab2() {scaling_test_wide(800, 1280, 136, 218, 1, 224)}
+    #[test]
+    fn size_pinetab2_horizontal() {scaling_test_wide(1280, 800, 218, 136, 1, 223)}
+
+    #[test]
+    fn size_librem_11() {scaling_test_wide(1600, 2560, 155, 248, 1, 392)}
+    #[test]
+    fn size_librem_11_horizontal() {scaling_test_wide(2560, 1600, 248, 155, 1, 392)}
+
+// Notebook-PCs
+
+    #[test]
+    fn size_macbook_air_m1() {scaling_test_wide(1600, 2560, 179, 287, 2, 339)}
+    #[test]
+    fn size_macbook_air_m1_horizontal() {scaling_test_wide(2560, 1600, 287, 179, 2, 339)}
+
+    #[test]
+    fn size_notebook_pc_15() {scaling_test_wide(768, 1366, 194, 345, 1, 151)}
+    #[test]
+    fn size_notebook_pc_15_horizontal() {scaling_test_wide(1366, 768, 345, 194, 1, 151)}
+
+    #[test]
+    fn size_notebook_pc_15_1080() {scaling_test_wide(1080, 1920, 194, 345, 1, 212)}
+    #[test]
+    fn size_notebook_pc_15_1080_horizontal() {scaling_test_wide(1920, 1080, 345, 194, 1, 212)}
+
+    #[test]
+    fn size_notebook_pc_17() {scaling_test_wide(768, 1366, 215, 383, 1, 136)}
+    #[test]
+    fn size_notebook_pc_17_horizontal() {scaling_test_wide(1366, 768, 383, 215, 1, 136)}
+
+    #[test]
+    fn size_notebook_pc_17_1440() {scaling_test_wide(1080, 1920, 215, 383, 1, 191)}
+    #[test]
+    fn size_notebook_pc_17_1440_horizontal() {scaling_test_wide(1920, 1080, 383, 215, 1, 191)}
+
+// Monitors
+
+    #[test]
+    fn size_crt_monitor() {scaling_test_wide(768, 1024, 229, 305, 1, 128)}
+    #[test]
+    fn size_crt_monitor_horizontal() {scaling_test_wide(1024, 768, 305, 229, 1, 128)}
+
+    #[test]
+    fn size_ntsc_monitor() {scaling_test_wide(480, 640, 305, 406, 1, 60)}
+    #[test]
+    fn size_ntsc_monitor_horizontal() {scaling_test_wide(640, 480, 406, 305, 1, 60)}
+
+    #[test]
+    fn size_pal_monitor() {scaling_test_wide(576, 768, 305, 406, 1, 72)}
+    #[test]
+    fn size_pal_monitor_horizontal() {scaling_test_wide(768, 576, 406, 305, 1, 72)}
+
+    #[test]
+    fn size_large_monitor() {scaling_test_wide(2160, 3840, 336, 598, 1, 244)}
+    #[test]
+    fn size_large_monitor_horizontal() {scaling_test_wide(3840, 2160, 598, 336, 1, 244)}
+
+    #[test]
+    fn size_very_large_monitor() {scaling_test_wide(2160, 3840, 473, 841, 1, 174)}
+    #[test]
+    fn size_very_large_monitor_horizontal() {scaling_test_wide(3840, 2160, 841, 473, 1, 174)}
+
+    #[test]
+    fn size_huge_monitor() {scaling_test_wide(2160, 3840, 598, 1063, 2, 137)}
+    #[test]
+    fn size_huge_monitor_horizontal() {scaling_test_wide(3840, 2160, 1063, 598, 2, 137)}
+
+    #[test]
+    fn size_very_wide_monitor() {scaling_test_wide(1440, 3440, 334, 797, 1, 164)}
+    #[test]
+    fn size_very_wide_monitor_horizontal() {scaling_test_wide(3440, 1440, 797, 334, 1, 164)}
+
+    #[test]
+    fn size_ultrawide_monitor() {scaling_test_wide(1440, 5120, 337, 1198, 1, 163)}
+    #[test]
+    fn size_ultrawide_monitor_horizontal() {scaling_test_wide(5120, 1440, 1198, 337, 1, 163)}
+
+    #[test]
+    fn size_uhd_2_monitor() {scaling_test_wide(4320, 7680, 685, 1218, 3, 240)}
+    #[test]
+    fn size_uhd_2_monitor_horizontal() {scaling_test_wide(7680, 4320, 1218, 685, 3, 240)}
+
+    #[test]
+    fn size_huge_uhd_2_monitor() {scaling_test_wide(4320, 7680, 1059, 1882, 4, 155)}
+    #[test]
+    fn size_huge_uhd_2_monitor_horizontal() {scaling_test_wide(7680, 4320, 1882, 1059, 4, 155)}
 }
