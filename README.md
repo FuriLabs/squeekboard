@@ -1,7 +1,7 @@
 *squeekboard* - a Wayland on-screen keyboard
 ========================================
 
-*Squeekboard* is a keyboard-shaped input method supporting Wayland, built primarily for the *Librem 5* phone.
+*Squeekboard* is the on-screen keyboard for Phosh. It is primarily designed for smartphones, tablet-PCs, and other devices with touchscreens.
 
 It squeaks because some Rust got inside.
 
@@ -19,7 +19,8 @@ Features
 
 ### TODO
 
-- Text prediction/correction
+- [Port to GTK4 / GTK4-Layer-Shell](https://gitlab.gnome.org/World/Phosh/squeekboard/-/issues/64)
+- [Text prediction/correction](https://gitlab.gnome.org/World/Phosh/squeekboard/-/issues/54)
 - Use preedit
 - Submit actions like "next field" using a future Wayland protocol
 - Pick up DBus interface files from /usr/share

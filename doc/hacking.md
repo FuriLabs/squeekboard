@@ -43,9 +43,9 @@ By submitting a change to this project, you agree to license it under the [GPL l
 Development environment
 -----------------------
 
-*Squeekboard* is regularly built and tested on [the development environment](https://developer.puri.sm/Librem5/Development_Environment.html).
+*Squeekboard* is regularly built and tested on [Debian Testing](https://www.debian.org/releases/testing/) and [Mobian Testing](https://mobian.org/).
 
-Recent Fedora releases are likely to be tested as well.
+For testing Squeekboard on a PC as if it was used on a smartphone, one can use an emulator. Instructions for that can be found in the [documentation for setting up a development-environment for the Librem 5](https://developer.puri.sm/Librem5/Development_Environment/Boards/emulators.html).
 
 ### Dependencies
 
@@ -91,6 +91,8 @@ $ busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b false
 
 Available Layouts can be selected by using the GNOME Settings application.
 
+Those can also be set with `gsettings`:
+
 ```sh
 # define all available layouts. First one is currently selected.
 $ gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'de')]"
@@ -112,6 +114,12 @@ contain a comma separated list of:
 
 - `force-show` : Show squeekboard on startup independent of any gsettings or compositor requests
 - `gtk-inspector`: Spawn [gtk-inspector](https://wiki.gnome.org/Projects/GTK/Inspector)
+
+
+`GTK_THEME=` can be used to choose a theme other than the default theme for Squeekboard:
+
+  - `Adwaita:dark` is used for Squeekboard on Phosh.
+  - Other values that are not the name of an available theme (for example: `HighContrast`) will use the theme that is used while "High Contrast" is enabled in Phosh.
 
 Coding
 ------
@@ -215,14 +223,17 @@ $ sh /source_path/cargo.sh test
 
 ### Cargo dependencies
 
-All Cargo dependencies must be selected in the version available in PureOS, and added to the file `debian/control`. Please check with https://software.pureos.net/search_pkg?term=librust .
+All Cargo dependencies must be selected in the version available in Debian Testing, and added to the file `debian/control`. Please check with the [Debian package search](https://www.debian.org/distrib/packages).
 
 Dependencies must be specified in `Cargo.toml` with 2 numbers: "major.minor". Since bugfix version number is meant to not affect the interface, this allows for safe updates.
 
 Releases
-----------
+--------
 
-Squeekboard should get a new release every time something interesting comes in. Preferably when there are no known bugs too. People will rely on theose releases, after all.
+Feature-releases should me made in time for new [Phosh releases](https://gitlab.gnome.org/World/Phosh/phosh/-/wikis/Releases) (which is currently about once a month), so that the release-notes can contain the news about Squeekboard.
+However, it is not necessary to make a new release of Squeekboard for every release of Phosh.
+
+Bug-fix-releases should be made more often, preferably directly after important bug-fixes have been made.
 
 ### 1. Update `Cargo.lock`.
 
@@ -240,8 +251,7 @@ Then commit the updated `Cargo.lock`.
 ### 2. Choose the version number
 
 Squeekboard follows [Phosh's versioning](https://gitlab.gnome.org/World/Phosh/phosh/-/wikis/Releases).
-For example: The first Squeekboard-release for Phosh 0.38 should have the version-number 1.38.0. The last part of the version number (1.38.x) may be incremented independently of Phosh's version for bug-fix-releases. 
-Feature-releases should me made before the release of the new version of Phosh, so that the release-notes can contain the news about Squeekboard.
+For example: The first Squeekboard-release for Phosh 0.38 should have the version-number 1.38.0. The last part of the version number (1.38.x) may be incremented independently of Phosh's version for bug-fix-releases.
 
 ### 3. Update the number in `meson.build`
 

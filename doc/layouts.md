@@ -6,14 +6,14 @@ Squeekboard is composed of multiple layouts, several for each language, multipli
 Layouts live in the "keyboards" directory.
 
 Hints
--------
+-----
 
 The currently supported hints are: default, "email", "emoji", "number', "pin", "terminal", and "url".
 
 Each directory in "keyboards" is named after a hint, with the "keyboards" directory itself taking the role of default.
 
 Languages/scripts
------------------------
+-----------------
 
 Each hint directory contains multiple layout files. A single language will be composed of multiple files, with names starting with the same text. The language names are taken from iso639-3. An example is "gr".
 
@@ -27,8 +27,15 @@ Finally, the file name ends with ".yaml", e.g. "jp+kana_wide.yaml".
 
 Together with hint information, this gives a complete path to the layout like this: "keyboards/terminal/fr_wide.yaml" or "keyboards/cz+qwerty.yaml".
 
+Using custom layouts
+--------------------
+
+Custom layouts will be loaded from `~/.local/share/squeekboard/keyboards/`.
+In addition to loading customised layouts for languages (for example: from `~/.local/share/squeekboard/keyboards/de.yaml`, for a custom layout for the German language), Squeekboard will also load layouts for "A user-defined custom layout" from `custom.yaml`, which can be added as a keyboard-layout in the keyboard-settings of GNOME Settings.
+The included (and replaceable) layouts are in: `data/keyboards/`.
+
 Layout syntax
-------------------
+-------------
 
 The layout file follows the YAML syntax, with specific meanings given to sections.
 
@@ -44,9 +51,13 @@ outlines:
 The width and height numbers are not in pixels, but rather they are proportionally scaled to fit the panel size.
 
 There may be any number of outlines, but there are some special names:
-- "default" applies to every button unless explicitly changed. It should be used for buttons that emit text
-- "altline", "wide" have own color scheme, should be used for buttons which cause view changes
-- "special" has own color scheme, to be used for confirmations like enter.
+
+- `default` applies to every button unless explicitly changed. It should be used for buttons that emit text.
+- `change-view` has its own color scheme and a border at the bottom, it should be used for buttons which switch to a different view.
+- `altline`, `wide` and `special` have their own color scheme, to be used for buttons with functionality other than entering text (for example: `Return` and `Backspace`).
+- `subtle-highlight` has a slightly different colour than the `default`-buttons, to make commonly used buttons easier to find in views that are otherwise full of generally rarely used buttons (for example `ä`, `ö`, `ü`, and `ß`, in the `eschars`-view of the German layout).
+
+Read `style.css`, `style-Adwaita:dark.css` and `common.css`, which are in the `data`-folder, for a complete list of outline-names with special styling.
 
 ### Views
 
@@ -73,7 +84,7 @@ Each row is a single string, and button names are separated by spaces. In left-t
 
 #### Button names in rows
 
-Unicode characters are supported in the row string, so it's easy to use the correct name for most of them. However, the layout code is still YAML, which excludes certain characters: the space " ", the backslash "\", the double quote `"`. Those must use a replacement name.
+Unicode characters are supported in the row string, so it's easy to use the correct name for most of them. However, the layout code is still YAML, which excludes certain characters: the space " ", the backslash "\", the double quote `"`. Those must either use a replacement name, or be written as `\\`, `\"`, or `"\""`, where required.
 
 Similarly, buttons that do not emit characters must have some names.
 
@@ -117,6 +128,7 @@ The "action" property has multiple forms.
 The two switching modes are better described in the [views](views.md) document.
 
 Sources
-----------
+-------
 
 The sources, where all this is documented and up to date are in "src/data/parsing.rs". The reference documentation for the `rs::data::parsing::Layout` structure is the main place to look at.
+

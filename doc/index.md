@@ -4,12 +4,17 @@ Welcome to squeekboard's documentation!
 Introduction
 ------------
 
-Squeekboard is the on-screen keyboard for the Librem 5 phone. For information about building, look at the [README](README.md).
+*Squeekboard* is the on-screen keyboard for Phosh. It is primarily designed for smartphones, tablet-PCs, and other devices with touchscreens.
+
+Building
+--------
+
+For information about building Squeekboard, read the [README](README.md).
 
 Layouts
 -------
 
-Squeekboard allows user-provided keyboard layouts. They can be created without recompiling the keyboard code. The [tutorial](tutorial.md) explains the process in detail.
+Squeekboard can [load user-provided keyboard-layouts](layouts.md#Using-custom-layouts). Those can be created and used without recompiling the keyboard code. The [tutorial](tutorial.md) explains the process in detail.
 
 Layouts are created using a [text-based format, based on YAML](layouts.md).
 

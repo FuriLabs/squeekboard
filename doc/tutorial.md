@@ -86,7 +86,4 @@ If you want your change to become part of official Squeekboard, or if you want t
 * Follow these instructions to run squeekboard: [README.md#running](https://gitlab.gnome.org/World/Phosh/squeekboard/-/blob/main/README.md#running)
 * Additionally take a look at the contribution document for [testing info](https://gitlab.gnome.org/World/Phosh/squeekboard/-/blob/main/doc/hacking.md#testing)
 * You can either test it locally on your Linux system or use the [QEMU Librem 5 image](https://developer.puri.sm/Librem5/Development_Environment/Boards/emulators.html)
-* To test squeekboard locally, you need phoc. Either compile that from the sources as well or use the CI repository ci.puri.sm for Debian based systems:
-  `deb [arch=amd64] http://ci.puri.sm/ scratch librem5`
-
-Squeekboard can be installed from there as a Debian package, too (that’s what I often do). But beware - there be dragons! You could bork your system with these packages and you should probably disable this repository again after installing what you need - these packages are not meant for production systems (or so I heard :wink: )
+* To test squeekboard locally, you need [phoc](https://gitlab.gnome.org/World/Phosh/phoc). Either install it from a package for your distribution, for example with `sudo apt install phoc` for Debian based distributions, or compile it from the sources.
