@@ -1,8 +1,9 @@
-_build
+_build/
 po/squeekboard.pot
 po/*.mo
 TAGS
 tags
+target/
 vgdump
 *.swp
 *~
