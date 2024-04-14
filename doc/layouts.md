@@ -19,7 +19,7 @@ Each hint directory contains multiple layout files. A single language will be co
 
 After the language name optionally comes a "+" and an indication of the variant. For example, "it+fur".
 
-Squeekboard will look for those based on the currently selected layout in Gnome Control Center.
+Squeekboard will look for those based on the currently selected layout in GNOME Settings.
 
 Then, there's an optional part "_wide", which Squeekboard will try to use if the current display is rather wide. Example: "us+colemak_wide" or "us_wide".
 
@@ -40,6 +40,7 @@ The "outlines" dictionary controls the widths and heights of buttons.
 outlines:
     default: { width: 32, height: 52 }
 ```
+
 The width and height numbers are not in pixels, but rather they are proportionally scaled to fit the panel size.
 
 There may be any number of outlines, but there are some special names:

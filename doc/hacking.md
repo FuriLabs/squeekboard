@@ -27,7 +27,7 @@ To give an idea of what it means in practice, those are some examples of what ha
 - storing resources and config as editable, standard files,
 - having complete, up to date documentation of interfaces,
 - having an easy process of sending contributions,
-- adapting to to user's settings and constrains without overriding them,
+- adapting to the user's settings and constraints without overriding them,
 - avoiding compiling whenever possible,
 - making it easy to build,
 - having code that is [simple and obvious](https://www.python.org/dev/peps/pep-0020/),
@@ -52,8 +52,8 @@ Recent Fedora releases are likely to be tested as well.
 On a Debian based system run
 
 ```sh
-sudo apt-get -y install build-essential
-sudo apt-get -y build-dep .
+$ sudo apt-get -y install build-essential
+$ sudo apt-get -y build-dep .
 ```
 
 For an explicit list of dependencies check the `Build-Depends` entry in the [`debian/control`](debian/control) file.
@@ -74,22 +74,22 @@ Most common testing is done in CI. Occasionally, and for each release, do perfor
 - it changes layouts
 - it changes views
 
-Testing with an application:
+#### Testing with an application
 
 ```
-python3 tools/entry.py
+$ python3 tools/entry.py
 ```
 
-Testing visibility:
+#### Testing visibility
 
 ```
 $ busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b true
 $ busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b false
 ```
 
-Testing layouts:
+#### Testing layouts
 
-Layouts can be selected using the GNOME Settings application.
+Available Layouts can be selected by using the GNOME Settings application.
 
 ```
 # define all available layouts. First one is currently selected.
@@ -101,7 +101,7 @@ $ gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb',
 Squeekboard prints some information on standard output by default. To get deep debugging information, it can also print all changes in (some of) its internal state. Those logs are most useful when reporting hard to catch issues, and can be enabled using the following command:
 
 ```
-busctl set-property --user sm.puri.SqueekDebug /sm/puri/SqueekDebug sm.puri.SqueekDebug Enabled b true
+$ busctl set-property --user sm.puri.SqueekDebug /sm/puri/SqueekDebug sm.puri.SqueekDebug Enabled b true
 ```
 
 ### Environment Variables
@@ -121,8 +121,8 @@ Coding
 Reference documentation can be generated using:
 
 ```
-cd squeekboard_build/ 
-../squeekboard_source/cargo.sh doc --no-deps --document-private-items
+$ cd squeekboard_build/
+$ .../squeekboard_source/cargo.sh doc --no-deps --document-private-items
 ```
 
 as well as found [online](https://world.pages.gitlab.gnome.org/Phosh/squeekboard/doc/rs/).
@@ -150,7 +150,7 @@ Note that some portions, like the .gitlab-ci.yml file have accummulated enough s
 To fix your contributions before submitting a change, use:
 
 ```
-./tools/style-check_source --apply
+$ ./tools/style-check_source --apply
 ```
 
 * * *
@@ -209,8 +209,8 @@ Squeekboard uses Rust & Cargo for some of its dependencies.
 Use the `cargo.sh` script for maintaining the Cargo part of the build. The script takes the usual Cargo commands, after the first 2 positional arguments: source directory, and output artifact. So, `cargo test` becomes:
 
 ```
-cd build_dir
-sh /source_path/cargo.sh test
+$ cd build_dir
+$ sh /source_path/cargo.sh test
 ```
 
 ### Cargo dependencies
@@ -224,15 +224,15 @@ Releases
 
 Squeekboard should get a new release every time something interesting comes in. Preferably when there are no known bugs too. People will rely on theose releases, after all.
 
-### 1. Update `Cargo.toml`.
+### 1. Update `Cargo.lock`.
 
 While the file is not actually used, it's a good idea to save the config in case some rare bug appears in dependencies.
 
 ```
-cd squeekboard-build
-.../squeekboard-source/cargo.sh update
-ninja test
-cp ./Cargo.lock .../squeekboard-source
+$ cd squeekboard-build
+$ .../squeekboard-source/cargo.sh update
+$ ninja test
+$ cp ./Cargo.lock .../squeekboard-source
 ```
 
 Then commit the updated `Cargo.lock`.
@@ -252,8 +252,8 @@ It's in the `project(version: xxx)` statement.
 Packaging is in the `debian/` directory, and creates builds that can be quickly tested.
 
 ```
-cd squeekboard-source
-EMAIL=my_address@example.com gbp dch --multimaint-merge  --ignore-branch --git-author --distribution=experimental --new-version=x.y.z
+$ cd squeekboard-source
+$ EMAIL=my_address@example.com gbp dch --multimaint-merge  --ignore-branch --git-author --distribution=experimental --new-version=x.y.z
 ```
 
 Inspect `debian/changelog`, and make sure the first line contains the correct version number and suite. For example:
@@ -264,7 +264,7 @@ squeekboard (1.22.0) experimental; urgency=medium
 
 Add the updated `debian/changelog` to the commit. The commit message should contain the release version and a description of changes.
 
-(`gbp` can be installed with `sudo apt install git-buildpackage`)
+(`gbp` can be installed on Debian based systems with `sudo apt install git-buildpackage`)
 
 ### 5. Update the NEWS file
 
@@ -284,7 +284,7 @@ Changes:
 Generate a commit message from the NEWS file:
 
 ```
-tools/make_message | git commit --file=- ...
+$ tools/make_message | git commit --file=- ...
 ```
 
 If the commit message looks wrong, fix the NEWS file, and do `git commit --amend`.
@@ -294,8 +294,8 @@ If the commit message looks wrong, fix the NEWS file, and do `git commit --amend
 The tag should be the version number with "v" in front of it. The tag message should be "squeekboard" and the tag name. Push it to the upstream repository:
 
 ```
-git tag -s -u my_address@example.com v1.22.0 -m "squeekboard v1.22.0"
-git push origin v1.22.0
+$ git tag -s -u my_address@example.com v1.22.0 -m "squeekboard v1.22.0"
+$ git push origin v1.22.0
 ```
 
 ### 8. Rejoice

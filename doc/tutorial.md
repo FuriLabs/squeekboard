@@ -23,7 +23,7 @@ Creating a layout is easy. You don't need to recompile things, just edit and tes
 * Find the correct name of the .yaml file associated with that input source. This can be found with the command 
 
 ```
-gsettings get org.gnome.desktop.input-sources sources
+$ gsettings get org.gnome.desktop.input-sources sources
 ```
 
 The output should be something like this: `[('xkb', 'us'), ('xkb', 'de')]`
@@ -40,13 +40,13 @@ The yaml file will overwrite the default settings for that layout. If you want t
 You can also use the `test_layout` tool from the -devel package to check it for errors:
 
 ```
-# squeekboard_test_layout ./mylayout.yaml
+$ squeekboard_test_layout ./mylayout.yaml
 Test result: OK
 ```
 
 ## Contributing your changes
 
-If you want to share your layout with the world, the best way is to submit it to the Squeekboard project. The workflow is similar to any other Gitlab-based project.
+If you want to share your layout with the world, the best way is to submit it to the Squeekboard project. The workflow is similar to any other GitLab-based project.
 
 Above all, your layout should be working, be tested, not break anything, and make sense.
 

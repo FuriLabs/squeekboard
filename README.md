@@ -69,7 +69,7 @@ $ gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true
 Alternatively, force panel visibility manually with:
 
 ```bash
-busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b true
+$ busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b true
 ```
 
 ### What the compositor has to support
