@@ -1,5 +1,5 @@
 /* Copyright (C) 2021,2022 Purism SPC
- * SPDX-License-Identifier: GPL-3.0+
+ * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 /*! Application-wide state is stored here.

@@ -2,7 +2,7 @@
  * Copyright (C) 2010-2011 Daiki Ueno <ueno@unixuser.org>
  * Copyright (C) 2010-2011 Red Hat, Inc.
  * Copyright (C) 2018-2019 Purism SPC
- * SPDX-License-Identifier: GPL-3.0+
+ * SPDX-License-Identifier: GPL-3.0-or-later
  * Author: Guido Günther <agx@sigxcpu.org>
  *
  * This program is free software: you can redistribute it and/or modify
