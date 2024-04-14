@@ -22,7 +22,7 @@ Creating a layout is easy. You don't need to recompile things, just edit and tes
 * Select and enable the input source you would like to change from the Region & Language section of the device settings. Perhaps use "A user-defined custom layout" listed under Other.
 * Find the correct name of the .yaml file associated with that input source. This can be found with the command 
 
-```
+```sh
 $ gsettings get org.gnome.desktop.input-sources sources
 ```
 
@@ -39,7 +39,7 @@ The yaml file will overwrite the default settings for that layout. If you want t
 
 You can also use the `test_layout` tool from the -devel package to check it for errors:
 
-```
+```sh
 $ squeekboard_test_layout ./mylayout.yaml
 Test result: OK
 ```

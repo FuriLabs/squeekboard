@@ -38,7 +38,7 @@ See `.gitlab-ci.yml` or run `apt-get build-dep .`
 
 ### Build from git repo
 
-```bash
+```sh
 $ git clone https://gitlab.gnome.org/World/Phosh/squeekboard.git
 $ cd squeekboard
 $ mkdir _build
@@ -52,7 +52,7 @@ To run tests use `ninja test`. To install squeekboard run `ninja install`.
 Running
 -------
 
-```bash
+```sh
 $ phoc # if no compatible Wayland compositor is running yet
 $ cd ../build/
 $ src/squeekboard
@@ -62,13 +62,13 @@ Squeekboard's panel will appear whenever a compatible application requests an in
 
 Squeekboard honors the gnome "screen-keyboard-enabled" setting. Either enable this through gnome-settings under accessibility or run:
 
-```bash
+```sh
 $ gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true
 ```
 
 Alternatively, force panel visibility manually with:
 
-```bash
+```sh
 $ busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b true
 ```
 

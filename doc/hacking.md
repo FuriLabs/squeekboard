@@ -76,13 +76,13 @@ Most common testing is done in CI. Occasionally, and for each release, do perfor
 
 #### Testing with an application
 
-```
+```sh
 $ python3 tools/entry.py
 ```
 
 #### Testing visibility
 
-```
+```sh
 $ busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b true
 $ busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b false
 ```
@@ -91,7 +91,7 @@ $ busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b false
 
 Available Layouts can be selected by using the GNOME Settings application.
 
-```
+```sh
 # define all available layouts. First one is currently selected.
 $ gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'de')]"
 ```
@@ -100,7 +100,7 @@ $ gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb',
 
 Squeekboard prints some information on standard output by default. To get deep debugging information, it can also print all changes in (some of) its internal state. Those logs are most useful when reporting hard to catch issues, and can be enabled using the following command:
 
-```
+```sh
 $ busctl set-property --user sm.puri.SqueekDebug /sm/puri/SqueekDebug sm.puri.SqueekDebug Enabled b true
 ```
 
@@ -120,7 +120,7 @@ Coding
 
 Reference documentation can be generated using:
 
-```
+```sh
 $ cd squeekboard_build/
 $ .../squeekboard_source/cargo.sh doc --no-deps --document-private-items
 ```
@@ -149,7 +149,7 @@ Note that some portions, like the .gitlab-ci.yml file have accummulated enough s
 
 To fix your contributions before submitting a change, use:
 
-```
+```sh
 $ ./tools/style-check_source --apply
 ```
 
@@ -208,7 +208,7 @@ Squeekboard uses Rust & Cargo for some of its dependencies.
 
 Use the `cargo.sh` script for maintaining the Cargo part of the build. The script takes the usual Cargo commands, after the first 2 positional arguments: source directory, and output artifact. So, `cargo test` becomes:
 
-```
+```sh
 $ cd build_dir
 $ sh /source_path/cargo.sh test
 ```
@@ -228,7 +228,7 @@ Squeekboard should get a new release every time something interesting comes in. 
 
 While the file is not actually used, it's a good idea to save the config in case some rare bug appears in dependencies.
 
-```
+```sh
 $ cd squeekboard-build
 $ .../squeekboard-source/cargo.sh update
 $ ninja test
@@ -251,7 +251,7 @@ It's in the `project(version: xxx)` statement.
 
 Packaging is in the `debian/` directory, and creates builds that can be quickly tested.
 
-```
+```sh
 $ cd squeekboard-source
 $ EMAIL=my_address@example.com gbp dch --multimaint-merge  --ignore-branch --git-author --distribution=experimental --new-version=x.y.z
 ```
@@ -283,7 +283,7 @@ Changes:
 
 Generate a commit message from the NEWS file:
 
-```
+```sh
 $ tools/make_message | git commit --file=- ...
 ```
 
@@ -293,7 +293,7 @@ If the commit message looks wrong, fix the NEWS file, and do `git commit --amend
 
 The tag should be the version number with "v" in front of it. The tag message should be "squeekboard" and the tag name. Push it to the upstream repository:
 
-```
+```sh
 $ git tag -s -u my_address@example.com v1.22.0 -m "squeekboard v1.22.0"
 $ git push origin v1.22.0
 ```

@@ -36,7 +36,7 @@ The layout file follows the YAML syntax, with specific meanings given to section
 
 The "outlines" dictionary controls the widths and heights of buttons. 
 
-```
+```yaml
 outlines:
     default: { width: 32, height: 52 }
 ```
@@ -52,7 +52,7 @@ There may be any number of outlines, but there are some special names:
 
 The "views" dictionary contains the actual views and positions of buttons.
 
-```
+```yaml
 views:
     base:
         - "q w e r t y u i o p å"
@@ -64,7 +64,7 @@ There is only one special view "base". Views and view switching are described in
 
 Views in Squeekboard are based on rows. The first row comes near the top of the panel, the next one below, and so on.
 
-```
+```yaml
 - "Q W E R T Y U I O P Å"
 - "upper   z x c v b n m  BackSpace"
 ```
@@ -81,7 +81,7 @@ Similarly, buttons that do not emit characters must have some names.
 
 The buttons section describes what the button looks like and what it does.
 
-```
+```yaml
     BackSpace:
         outline: altline
         icon: "edit-clear-symbolic"
@@ -102,7 +102,7 @@ The button description can have a number of components, each optional. For detai
 
 #### Action
 
-```
+```yaml
         action:
             set_view: "numbers"
 ```
