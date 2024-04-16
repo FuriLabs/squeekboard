@@ -39,7 +39,7 @@ buttons:
     BackSpace:
         outline: "altline"
         icon: "edit-clear-symbolic"
-        action: erase
+        action: "erase"
     preferences:
         action: "show_prefs"
         outline: "change-view"
@@ -59,8 +59,8 @@ buttons:
             set_view: "symbols"
         outline: "change-view"
         label: "*/="
-    ".":
-        outline: altline
+    .:
+        outline: "altline"
     space:
         outline: "spaceline"
         text: " "

@@ -89,7 +89,7 @@ buttons:
         keysym: "Return"
     °:
         outline: "large"
-    ".":
+    .:
         outline: "narrow"
     ",":
         outline: "narrow"

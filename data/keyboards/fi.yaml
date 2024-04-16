@@ -60,10 +60,10 @@ buttons:
             set_view: "symbols"
         outline: "change-view"
         label: "*/="
-    ".":
-        outline: altline
+    .:
+        outline: "altline"
     space:
-        outline: spaceline
+        outline: "spaceline"
         text: " "
     Return:
         outline: "wide"

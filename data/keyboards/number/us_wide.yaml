@@ -16,12 +16,12 @@ buttons:
     BackSpace:
         outline: "altline"
         icon: "edit-clear-symbolic"
-        action: erase
+        action: "erase"
     space:
-        outline: spaceline
+        outline: "spaceline"
         text: " "
     Return:
-        outline: outline7
+        outline: "outline7"
         icon: "key-enter"
         keysym: "Return"
     asterisk:

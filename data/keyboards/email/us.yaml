@@ -42,7 +42,7 @@ buttons:
     BackSpace:
         outline: "altline"
         icon: "edit-clear-symbolic"
-        action: erase
+        action: "erase"
     "@":
         outline: "large"
     preferences:

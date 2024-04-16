@@ -40,9 +40,9 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: altline
+        outline: "altline"
         icon: "edit-clear-symbolic"
-        action: erase
+        action: "erase"
     preferences:
         action: "show_prefs"
         outline: "special"
@@ -67,10 +67,10 @@ buttons:
             set_view: "symbols"
         outline: "change-view"
         label: "*/="
-    ".":
+    .:
         outline: "special"
     space:
-        outline: spaceline
+        outline: "spaceline"
         text: " "
     Return:
         outline: "wide"
