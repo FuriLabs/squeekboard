@@ -3,13 +3,13 @@
 # Oct 2021
 ---
 outlines:
-    default:   { width: 50,     height: 42 }
-    altline:   { width: 74.54,  height: 42 }
-    wide:      { width: 45.29,  height: 32 }
+    default:       { width: 50,     height: 42 }
+    altline:       { width: 74.54,  height: 42 }
+    wide:          { width: 45.29,  height: 32 }
     change-view:   { width: 74.54,  height: 42 }
-    change-view-2:      { width: 45.29,  height: 32 }
-    spaceline: { width: 200.96, height: 42 }
-    special:   { width: 62.27,  height: 42 }
+    change-view-2: { width: 45.29,  height: 32 }
+    spaceline:     { width: 200.96, height: 42 }
+    special:       { width: 62.27,  height: 42 }
 
 views:
     base:

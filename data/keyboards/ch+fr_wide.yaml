@@ -1,13 +1,13 @@
 # Maintained by: Jordi Bossy <jordi@bossy.space>. No Copyright, enjoy!
 ---
 outlines:
-    default:   { width: 52,     height: 42 }
-    altline:   { width: 70.65,  height: 42 }
-    wide:      { width: 86.84,  height: 42 }
+    default:       { width: 52,     height: 42 }
+    altline:       { width: 70.65,  height: 42 }
+    wide:          { width: 86.84,  height: 42 }
     change-view:   { width: 70.65,  height: 42 }
-    change-view-2:      { width: 86.84,  height: 42 }
-    spaceline: { width: 103.03, height: 42 }
-    special:   { width: 41.21,  height: 42 }
+    change-view-2: { width: 86.84,  height: 42 }
+    spaceline:     { width: 103.03, height: 42 }
+    special:       { width: 41.21,  height: 42 }
 
 views:
     base:

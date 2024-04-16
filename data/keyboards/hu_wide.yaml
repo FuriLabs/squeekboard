@@ -1,12 +1,12 @@
 # Maintained by: soyer <soyer@irl.hu>
 ---
 outlines:
-    default:   { width: 48,  height: 42 }
-    altline:   { width: 81,  height: 42 }
+    default:       { width: 48,  height: 42 }
+    altline:       { width: 81,  height: 42 }
     change-view:   { width: 81,  height: 42 }
-    change-view-2:      { width: 108, height: 42 }
-    spaceline: { width: 216, height: 42 }
-    special:   { width: 48,  height: 42 }
+    change-view-2: { width: 108, height: 42 }
+    spaceline:     { width: 216, height: 42 }
+    special:       { width: 48,  height: 42 }
 
 views:
     base:

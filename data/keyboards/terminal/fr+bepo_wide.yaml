@@ -1,16 +1,16 @@
 ---
 outlines:
-    default:   { width: 54,   height: 37 }
-    halfwidth: { width: 27,   height: 37 }
-    narrow:    { width: 40.5, height: 37 }
-    special:   { width: 54,   height: 37 }
+    default:       { width: 54,   height: 37 }
+    halfwidth:     { width: 27,   height: 37 }
+    narrow:        { width: 40.5, height: 37 }
+    special:       { width: 54,   height: 37 }
     change-view:   { width: 81,   height: 37 }
-    large:     { width: 81,   height: 37 }
-    action:    { width: 90,   height: 37 }
-    wide:      { width: 90,   height: 37 }
-    change-view-2:      { width: 90,   height: 37 }
-    spaceline: { width: 153,  height: 37 }
-    small:     { width: 67.4, height: 22 }
+    large:         { width: 81,   height: 37 }
+    action:        { width: 90,   height: 37 }
+    wide:          { width: 90,   height: 37 }
+    change-view-2: { width: 90,   height: 37 }
+    spaceline:     { width: 153,  height: 37 }
+    small:         { width: 67.4, height: 22 }
 
 views:
     base:

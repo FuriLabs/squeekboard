@@ -1,12 +1,12 @@
 ---
 outlines:
-    default:   { width: 52,     height: 42 }
-    altline:   { width: 77.51,  height: 42 }
-    wide:      { width: 91.25,  height: 42 }
+    default:       { width: 52,     height: 42 }
+    altline:       { width: 77.51,  height: 42 }
+    wide:          { width: 91.25,  height: 42 }
     change-view:   { width: 77.51,  height: 42 }
-    change-view-2:      { width: 91.25,  height: 42 }
-    spaceline: { width: 146.69, height: 42 }
-    special:   { width: 52,  height: 42 }
+    change-view-2: { width: 91.25,  height: 42 }
+    spaceline:     { width: 146.69, height: 42 }
+    special:       { width: 52,  height: 42 }
 
 views:
     base:

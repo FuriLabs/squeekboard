@@ -1,14 +1,14 @@
 ---
 outlines:
-    default:   { width: 32,  height: 52 }
-    altline:   { width: 32,  height: 52 }
-    wide:      { width: 57,  height: 52 }
+    default:       { width: 32,  height: 52 }
+    altline:       { width: 32,  height: 52 }
+    wide:          { width: 57,  height: 52 }
     change-view:   { width: 32,  height: 52 }
-    change-view-2:      { width: 57,  height: 52 }
-    narrow:    { width: 26,  height: 52 }
-    spaceline: { width: 107, height: 52 }
-    fill:      { width: 159, height: 52 }
-    special:   { width: 42,  height: 52 }
+    change-view-2: { width: 57,  height: 52 }
+    narrow:        { width: 26,  height: 52 }
+    spaceline:     { width: 107, height: 52 }
+    fill:          { width: 159, height: 52 }
+    special:       { width: 42,  height: 52 }
 
 views:
     base:

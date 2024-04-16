@@ -6,11 +6,11 @@ outlines:
     narrow:           { width: 26.335, height: 46 }
     special:          { width: 44,     height: 46 }
     altline:          { width: 52.67,  height: 46 }
-    change-view:          { width: 52.67,  height: 46 }
+    change-view:      { width: 52.67,  height: 46 }
     large:            { width: 52.67,  height: 46 }
     action:           { width: 59,     height: 46 }
     wide:             { width: 59,     height: 46 }
-    change-view-2:             { width: 59,     height: 46 }
+    change-view-2:    { width: 59,     height: 46 }
     spaceline:        { width: 92.29,  height: 46 }
     small:            { width: 50.471, height: 22 }
 

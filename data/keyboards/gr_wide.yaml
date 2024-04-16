@@ -1,13 +1,13 @@
 # Created by Sotiris Papadopoulos, sotirios.papadopoulos@inserm.fr
 ---
 outlines:
-    default:   { width: 80,  height: 60 }
-    altline:   { width: 110, height: 60 }
-    wide:      { width: 120, height: 60 }
+    default:       { width: 80,  height: 60 }
+    altline:       { width: 110, height: 60 }
+    wide:          { width: 120, height: 60 }
     change-view:   { width: 110, height: 60 }
-    change-view-2:      { width: 120, height: 60 }
-    spaceline: { width: 250, height: 60 }
-    special:   { width: 75,  height: 60 }
+    change-view-2: { width: 120, height: 60 }
+    spaceline:     { width: 250, height: 60 }
+    special:       { width: 75,  height: 60 }
 
 views:
     base:
