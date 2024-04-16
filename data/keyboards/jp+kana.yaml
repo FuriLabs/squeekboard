@@ -1,12 +1,12 @@
-# Maintained by: Mark Müller <markmueller86@gmail.com>
+# Based on work by: Mark Müller <markmueller86@gmail.com>
 ---
 outlines:
-    default:       { width: 62, height: 52 }
-    default-wide:  { width: 62, height: 52 }
-    wide:          { width: 62, height: 52 }
-    change-view:   { width: 62, height: 52 }
-    change-view-2: { width: 62, height: 52 }
-    special:       { width: 62, height: 52 }
+    default:         { width: 71.33, height: 52 }
+    wide:            { width: 71.33, height: 52 }
+    character-group: { width: 71.33, height: 52 }
+    change-view:     { width: 71.33, height: 52 }
+    special:         { width: 71.33, height: 52 }
+    placeholder:     { width: 71.33, height: 52 }
 
 views:
     base: # hiragana
@@ -15,66 +15,74 @@ views:
         - "カタカナ ma ya ra space"
         - "switch2roman symbols wa punct Return"
     _a:
-        - "preferences dummykey _a dummykey BackSpace"
+        - "preferences _A _a -- BackSpace"
         - "あ い う え お"
         - "ぁ ぃ ぅ ぇ ぉ" # 2 code points each
-        - "dummykey dummykey ゔ dummykey dummykey"
+        - "-- -- ゔ -- --"
     ka:
-        - "preferences dummykey ka dummykey BackSpace"
+        - "preferences KA ka -- BackSpace"
         - "か き く け こ"
         - "が ぎ ぐ げ ご"
-        - "ゕ dummykey dummykey ゖ dummykey"
+        - "ゕ -- -- ゖ --"
     sa:
-        - "preferences dummykey sa dummykey BackSpace"
+        - "preferences SA sa -- BackSpace"
         - "さ し す せ そ"
         - "ざ じ ず ぜ ぞ"
+        - "-- -- -- -- --"
     ta:
-        - "preferences dummykey ta dummykey BackSpace"
+        - "preferences TA ta -- BackSpace"
         - "た ち つ て と"
         - "だ ぢ づ で ど"
-        - "dummykey dummykey っ dummykey dummykey"
+        - "-- -- っ -- --"
     na:
-        - "preferences dummykey na dummykey BackSpace"
+        - "preferences NA na -- BackSpace"
         - "な に ぬ ね の"
+        - "-- -- -- -- --"
+        - "-- -- -- -- --"
     ha:
-        - "preferences dummykey ha dummykey BackSpace"
+        - "preferences HA ha -- BackSpace"
         - "は ひ ふ へ ほ"
         - "ば び ぶ べ ぼ"
         - "ぱ ぴ ぷ ぺ ぽ"
     ma:
-        - "preferences dummykey ma dummykey BackSpace"
+        - "preferences MA ma -- BackSpace"
         - "ま み む め も"
+        - "-- -- -- -- --"
+        - "-- -- -- -- --"
     ya:
-        - "preferences dummykey ya dummykey BackSpace"
-        - "や dummykey ゆ dummykey よ"
-        - "ゃ dummykey ゅ dummykey ょ"
+        - "preferences YA ya -- BackSpace"
+        - "や -- ゆ -- よ"
+        - "ゃ -- ゅ -- ょ"
+        - "-- -- -- -- --"
     ra:
-        - "preferences dummykey ra dummykey BackSpace"
+        - "preferences RA ra -- BackSpace"
         - "ら り る れ ろ"
+        - "-- -- -- -- --"
+        - "-- -- -- -- --"
     wa:
-        - "preferences dummykey wa dummykey BackSpace"
-        - "わ ゐ dummykey ゑ を"
-        - "ゎ dummykey ん dummykey dummykey"
+        - "preferences WA wa -- BackSpace"
+        - "わ ゐ -- ゑ を"
+        - "ゎ -- -- -- --"
+        - "-- -- ん -- --"
     symbols:
-        - "preferences dummykey symbols dummykey BackSpace"
+        - "preferences punct symbols -- BackSpace"
         - "「 」 （ ） §"
         - "【 】 ＜ ＞ ＝"
         - "＋ ＊ ＆ ％ ＄ "
     punct:
-        - "preferences dummykey punct dummykey BackSpace"
+        - "preferences symbols punct -- BackSpace"
         - "。 、 ？ ！ ー"
-
         - "： ； ・ 〜 …"
-        - "♪ ” ’ ゙ ゚"
-        
-#a 	あア 	かカ 	さサ 	たタ 	なナ 	はハ 	まマ 	やヤ 	らラ 	わワ
-#i 	いイ 	きキ 	しシ 	ちチ 	にニ 	ひヒ 	みミ 	※      りリ 	ゐヰ
-#u 	うウ 	くク 	すス 	つツ 	ぬヌ 	ふフ 	むム 	ゆユ 	るル 	※
-#e 	えエ 	けケ 	せセ 	てテ 	ねネ 	へヘ 	めメ 	※      れレ 	ゑヱ
-#o 	おオ 	こコ 	そソ 	とト 	のノ 	ほホ 	もモ 	よヨ 	ろロ 	をヲ
+        - "♪ ” ’  ゙  ゚"
+#              k       s       t       n       h       m       y       r       w
+#a 	あア 	かカ 	さサ 	たタ 	なナ 	はハ 	まマ 	やヤ	らラ 	わワ
+#i 	いイ 	きキ 	しシ 	ちチ 	にニ 	ひヒ 	みミ 	※	りリ 	ゐヰ
+#u 	うウ 	くク 	すス 	つツ 	ぬヌ 	ふフ 	むム 	ゆユ	るル 	※
+#e 	えエ 	けケ 	せセ 	てテ 	ねネ 	へヘ 	めメ 	※	れレ 	ゑヱ
+#o 	おオ 	こコ 	そソ 	とト 	のノ 	ほホ 	もモ 	よヨ	ろロ 	をヲ
 
-#      g       z       d       b       p      n
-#a 	が ガ 	ざ ザ 	だ ダ 	ば バ 	ぱ パ   ん ン
+#      g       z       d       b       p       n
+#a 	が ガ 	ざ ザ 	だ ダ 	ば バ 	ぱ パ	ん ン
 #i 	ぎ ギ 	じ ジ 	ぢ ヂ 	び ビ 	ぴ ピ 
 #u 	ぐ グ 	ず ズ 	づ ヅ 	ぶ ブ 	ぷ プ 
 #e 	げ ゲ 	ぜ ゼ 	で デ 	べ ベ 	ぺ ペ 
@@ -86,50 +94,65 @@ views:
         - "ひらがな MA YA RA space"
         - "switch2roman SYMBOLS WA PUNCT Return"
     _A:
-        - "preferences DUMMYKEY _A DUMMYKEY BackSpace"
+        - "preferences _a _A -- BackSpace"
         - "ア イ ウ エ オ"
         - "ァ ィ ゥ ェ ォ"
-        - "DUMMYKEY DUMMYKEY ヴ DUMMYKEY DUMMYKEY"
+        - "-- -- ヴ -- --"
     KA:
-        - "preferences DUMMYKEY KA DUMMYKEY BackSpace"
+        - "preferences ka KA -- BackSpace"
         - "カ キ ク ケ コ"
         - "ガ ギ グ ゲ ゴ"
-        - "ヵ DUMMYKEY ㇰ ヶ DUMMYKEY"
+        - "ヵ -- ㇰ ヶ --"
     SA:
-        - "preferences DUMMYKEY SA DUMMYKEY BackSpace"
+        - "preferences sa SA -- BackSpace"
         - "サ シ ス セ ソ"
         - "ザ ジ ズ ゼ ゾ"
-        - "DUMMYKEY ㇱ ㇲ DUMMYKEY DUMMYKEY"
+        - "-- ㇱ ㇲ -- --"
     TA:
-        - "preferences DUMMYKEY TA DUMMYKEY BackSpace"
+        - "preferences ta TA -- BackSpace"
         - "タ チ ツ テ ト"
         - "ダ ヂ ヅ デ ド"
-        - "DUMMYKEY DUMMYKEY ッ DUMMYKEY ㇳ"
+        - "-- -- ッ -- ㇳ"
     NA: 
-        - "preferences DUMMYKEY NA DUMMYKEY BackSpace"
+        - "preferences na NA -- BackSpace"
         - "ナ ニ ヌ ネ ノ"
-        - "DUMMYKEY DUMMYKEY ㇴ DUMMYKEY DUMMYKEY"
+        - "-- -- ㇴ -- --"
+        - "-- -- -- -- --"
     HA:
-        - "preferences DUMMYKEY HA DUMMYKEY BackSpace"
+        - "preferences ha HA -- BackSpace"
         - "ハ ヒ フ ヘ ホ"
         - "バ ビ ブ ベ ボ"
         - "パ ピ プ ペ ポ"
     MA:
-        - "preferences DUMMYKEY MA DUMMYKEY BackSpace"
+        - "preferences ma MA -- BackSpace"
         - "マ ミ ム メ モ"
-        - "DUMMYKEY DUMMYKEY ㇺ DUMMYKEY DUMMYKEY"
+        - "-- -- ㇺ -- --"
+        - "-- -- -- -- --"
     YA:
-        - "preferences DUMMYKEY YA DUMMYKEY BackSpace"
-        - "ヤ DUMMYKEY ユ DUMMYKEY ヨ"
-        - "ャ DUMMYKEY ュ DUMMYKEY ョ"
+        - "preferences ya YA -- BackSpace"
+        - "ヤ -- ユ -- ヨ"
+        - "ャ -- ュ -- ョ"
+        - "-- -- -- -- --"
     RA:
-        - "preferences DUMMYKEY RA DUMMYKEY BackSpace"
+        - "preferences ra RA -- BackSpace"
         - "ラ リ ル レ ロ"
         - "ㇻ ㇼ ㇽ ㇾ ㇿ"
+        - "-- -- -- -- --"
     WA:
-        - "preferences DUMMYKEY WA DUMMYKEY BackSpace"
-        - "ワ ヰ DUMMYKEY ヱ ヲ"
-        - "ヮ ヸ ン ヹ ヺ"
+        - "preferences wa WA -- BackSpace"
+        - "ワ ヰ -- ヱ ヲ"
+        - "ヮ ヸ -- ヹ ヺ"
+        - "-- -- ン -- --"
+    SYMBOLS:
+        - "preferences PUNCT SYMBOLS -- BackSpace"
+        - "「 」 （ ） §"
+        - "【 】 ＜ ＞ ＝"
+        - "＋ ＊ ＆ ％ ＄ "
+    PUNCT:
+        - "preferences SYMBOLS PUNCT -- BackSpace"
+        - "。 、 ？ ！ ー"
+        - "： ； ・ 〜 …"
+        - "♪ ” ’ ゙  ゚"
     # numbers view
     numbers:
         - "preferences 1 2 3 BackSpace"
@@ -143,53 +166,65 @@ views:
         - "ひらがな PQRS TUV WXYZ space"
         - "switch2num RSYM2 RSYM3 RSYM4 Return"
     RSYM1:
-        - "preferences dummykey RSYM1 dummykey BackSpace"
+        - "preferences -- RSYM1 -- BackSpace"
         - "@ # $ § :"
-        - "| € ¥ £ 1"
+        - "| € ¥ £ --"
+        - "1 -- -- -- --"
     ABC:
-        - "preferences dummykey ABC dummykey BackSpace"
+        - "preferences -- ABC -- BackSpace"
         - "A B C Ä ç"
-        - "a b c ä 2"
+        - "a b c ä --"
+        - "2 -- -- -- --"
     DEF:
-        - "preferences dummykey DEF dummykey BackSpace"
-        - "D E F dummykey"
-        - "d e f 3"
+        - "preferences -- DEF -- BackSpace"
+        - "D E F -- --"
+        - "d e f -- --"
+        - "3 -- -- -- --"
     GHI:
-        - "preferences dummykey GHI dummykey BackSpace"
-        - "G H I dummykey"
-        - "g h i 4"
+        - "preferences -- GHI -- BackSpace"
+        - "G H I -- --"
+        - "g h i -- --"
+        - "4 -- -- -- --"
     JKL:
-        - "preferences dummykey JKL dummykey BackSpace"
-        - "J K L dummykey"
-        - "j k l 5"
+        - "preferences -- JKL -- BackSpace"
+        - "J K L -- --"
+        - "j k l -- --"
+        - "5 -- -- -- --"
     MNO:
-        - "preferences dummykey MNO dummykey BackSpace"
-        - "M N O Ö dummykey"
-        - "m n o ö 6"
+        - "preferences -- MNO -- BackSpace"
+        - "M N O Ö --"
+        - "m n o ö --"
+        - "6 -- -- -- --"
     PQRS:
-        - "preferences dummykey PQRS dummykey BackSpace"
-        - "P Q R S ß"
-        - "p q r s 7"
+        - "preferences -- PQRS -- BackSpace"
+        - "P Q R S --"
+        - "p q r s ß"
+        - "7 -- -- -- --"
     TUV:
-        - "preferences dummykey TUV dummykey BackSpace"
-        - "T U V Ü dummykey"
-        - "t u v ü 8"
+        - "preferences -- TUV -- BackSpace"
+        - "T U V Ü --"
+        - "t u v ü --"
+        - "8 -- -- -- --"
     WXYZ:
-        - "preferences dummykey WXYZ dummykey BackSpace"
-        - "W X Y Z dummykey"
-        - "w x y z 9"
+        - "preferences -- WXYZ -- BackSpace"
+        - "W X Y Z --"
+        - "w x y z --"
+        - "9 -- -- -- --"
     RSYM2:
-        - "preferences dummykey RSYM2 dummykey BackSpace"
+        - "preferences -- RSYM2 -- BackSpace"
         - "( ) ' \" ~"
         - "[ ] { } _"
+        - "-- -- -- -- --"
     RSYM3:
-        - "preferences dummykey RSYM3 dummykey BackSpace"
+        - "preferences -- RSYM3 -- BackSpace"
         - "+ - * / ="
-        - "< > ^ ° 0"
+        - "< > ^ ° --"
+        - "0 -- -- -- --"
     RSYM4:
-        - "preferences dummykey RSYM4 dummykey BackSpace"
+        - "preferences -- RSYM4 -- BackSpace"
         - ", . ? ! ;"
-        - "\\ ´ ` · ¶" 
+        - "\\ ´ ` · ¶"
+        - "-- -- -- -- --"
 
 buttons:
     # following 4 buttons use the corresponding xkb name as keysym
@@ -216,118 +251,115 @@ buttons:
         icon: "keyboard-mode-symbolic"
     # space button using text tag for ideographic space
     space:
-        outline: "default-wide"
         label: "␣"
         text: "　"
     # switch to number view
     numbers:
         action:
             set_view: "numbers"
-        outline: "change-view-2"
+        outline: "change-view"
         label: "123"
     # switch to latin characters
     roman:
         action:
             set_view: "roman"
-        outline: "change-view-2"
+        outline: "change-view"
         label: "ᴀʙᴄ"
     # toggle button with 3 different states
     switch2roman: # switch from kana to latin characters view
         action:
             set_view: "roman"
-        outline: "change-view-2"
+        outline: "change-view"
         label: "あᴀ₁"
     switch2num: # switch from latin characters to numbers view
         action:
             set_view: "numbers"
-        outline: "change-view-2"
+        outline: "change-view"
         label: "ぁA₁"
     switch2kana: # switch from numbers to hiragana view
         action:
             set_view: "base"
-        outline: "change-view-2"
+        outline: "change-view"
         label: "ぁᴀ1"
     # Buttons for katakana and symbols
     ひらがな:
         action:
             set_view: "base"
-        outline: "change-view-2"
+        outline: "change-view"
         label: "あさ"
     _a:
         action:
             locking:
                 lock_view: "_a"
                 unlock_view: "base"
-        outline: "change-view"
+        outline: "character-group"
         label: "あ"
     ka:
         action:
             locking:
                 lock_view: "ka"
                 unlock_view: "base"
-        outline: "change-view"
+        outline: "character-group"
         label: "か"
     sa:
         action:
             locking:
                 lock_view: "sa"
                 unlock_view: "base"
-        outline: "change-view"
+        outline: "character-group"
         label: "さ"
     ta:
         action:
             locking:
                 lock_view: "ta"
                 unlock_view: "base"
-        outline: "change-view"
+        outline: "character-group"
         label: "た"
     na:
         action:
             locking:
                 lock_view: "na"
                 unlock_view: "base"
-        outline: "change-view"
+        outline: "character-group"
         label: "な"
     ha:
         action:
             locking:
                 lock_view: "ha"
                 unlock_view: "base"
-        outline: "change-view"
+        outline: "character-group"
         label: "は"
     ma:
         action:
             locking:
                 lock_view: "ma"
                 unlock_view: "base"
-        outline: "change-view"
+        outline: "character-group"
         label: "ま"
     ya:
         action:
             locking:
                 lock_view: "ya"
                 unlock_view: "base"
-        outline: "change-view"
+        outline: "character-group"
         label: "や"
     ra:
         action:
             locking:
                 lock_view: "ra"
                 unlock_view: "base"
-        outline: "change-view"
+        outline: "character-group"
         label: "ら"
     wa:
         action:
             locking:
                 lock_view: "wa"
                 unlock_view: "base"
-        outline: "change-view"
+        outline: "character-group"
         label: "わ"
-    dummykey:
-        action:
-            set_view: "base"
-        outline: "change-view"
-        label: ""
+    --:
+        outline: "placeholder"
+        text: ""
     # buttons available on different views like symbols and punct should go
     # back to their corresponding view
     symbols:
@@ -335,109 +367,104 @@ buttons:
             locking:
                 lock_view: "symbols"
                 unlock_view: "base"
-        outline: "change-view"
+        outline: "character-group"
         label: "（）"
     punct:
         action:
             locking:
                 lock_view: "punct"
                 unlock_view: "base"
-        outline: "change-view"
+        outline: "character-group"
         label: "。"
     # Buttons for katakana and symbols
     カタカナ:
         action:
             set_view: "カタカナ"
-        outline: "change-view-2"
+        outline: "change-view"
         label: "アサ"
     _A:
         action:
             locking:
                 lock_view: "_A"
                 unlock_view: "カタカナ"
-        outline: "change-view"
+        outline: "character-group"
         label: "ア"
     KA:
         action:
             locking:
                 lock_view: "KA"
                 unlock_view: "カタカナ"
-        outline: "change-view"
+        outline: "character-group"
         label: "カ"
     SA:
         action:
             locking:
                 lock_view: "SA"
                 unlock_view: "カタカナ"
-        outline: "change-view"
+        outline: "character-group"
         label: "サ"
     TA:
         action:
             locking:
                 lock_view: "TA"
                 unlock_view: "カタカナ"
-        outline: "change-view"
+        outline: "character-group"
         label: "タ"
     NA:
         action:
             locking:
                 lock_view: "NA"
                 unlock_view: "カタカナ"
-        outline: "change-view"
+        outline: "character-group"
         label: "ナ"
     HA:
         action:
             locking:
                 lock_view: "HA"
                 unlock_view: "カタカナ"
-        outline: "change-view"
+        outline: "character-group"
         label: "ハ"
     MA:
         action:
             locking:
                 lock_view: "MA"
                 unlock_view: "カタカナ"
-        outline: "change-view"
+        outline: "character-group"
         label: "マ"
     YA:
         action:
             locking:
                 lock_view: "YA"
                 unlock_view: "カタカナ"
-        outline: "change-view"
+        outline: "character-group"
         label: "ヤ"
     RA:
         action:
             locking:
                 lock_view: "RA"
                 unlock_view: "カタカナ"
-        outline: "change-view"
+        outline: "character-group"
         label: "ラ"
     WA:
         action:
             locking:
                 lock_view: "WA"
                 unlock_view: "カタカナ"
-        outline: "change-view"
+        outline: "character-group"
         label: "ワ"
-    DUMMYKEY:
-        action:
-            set_view: "カタカナ"
-        outline: "change-view"
-        label: ""
     SYMBOLS:
         action:
             locking:
-                lock_view: "symbols"
+                lock_view: "SYMBOLS"
                 unlock_view: "カタカナ"
-        outline: "change-view"
+        outline: "character-group"
         label: "（）"
     PUNCT:
         action:
             locking:
-                lock_view: "punct"
+                lock_view: "PUNCT"
                 unlock_view: "カタカナ"
-        outline: "change-view"
+        outline: "character-group"
         label: "。"
     # Buttons for Latin characters
     RSYM1:
@@ -445,82 +472,82 @@ buttons:
             locking:
                 lock_view: "RSYM1"
                 unlock_view: "roman"
-        outline: "change-view"
+        outline: "character-group"
         label: "@#"
     ABC:
         action:
             locking:
                 lock_view: "ABC"
                 unlock_view: "roman"
-        outline: "change-view"
+        outline: "character-group"
         label: "ᴀʙᴄ"
     DEF:
         action:
             locking:
                 lock_view: "DEF"
                 unlock_view: "roman"
-        outline: "change-view"
+        outline: "character-group"
         label: "ᴅᴇꜰ"
     GHI:
         action:
             locking:
                 lock_view: "GHI"
                 unlock_view: "roman"
-        outline: "change-view"
+        outline: "character-group"
         label: "ɢʜɪ"
     JKL:
         action:
             locking:
                 lock_view: "JKL"
                 unlock_view: "roman"
-        outline: "change-view"
+        outline: "character-group"
         label: "ᴊᴋʟ"
     MNO:
         action:
             locking:
                 lock_view: "MNO"
                 unlock_view: "roman"
-        outline: "change-view"
+        outline: "character-group"
         label: "ᴍɴᴏ"
     PQRS:
         action:
             locking:
                 lock_view: "PQRS"
                 unlock_view: "roman"
-        outline: "change-view"
+        outline: "character-group"
         label: "ᴘǫʀs"
     TUV:
         action:
             locking:
                 lock_view: "TUV"
                 unlock_view: "roman"
-        outline: "change-view"
+        outline: "character-group"
         label: "ᴛᴜᴠ"
     WXYZ:
         action:
             locking:
                 lock_view: "WXYZ"
                 unlock_view: "roman"
-        outline: "change-view"
+        outline: "character-group"
         label: "ᴡxʏᴢ"
     RSYM2:
         action:
             locking:
                 lock_view: "RSYM2"
                 unlock_view: "roman"
-        outline: "change-view"
+        outline: "character-group"
         label: "()"
     RSYM3:
         action:
             locking:
                 lock_view: "RSYM3"
                 unlock_view: "roman"
-        outline: "change-view"
+        outline: "character-group"
         label: "+-"
     RSYM4:
         action:
             locking:
                 lock_view: "RSYM4"
                 unlock_view: "roman"
-        outline: "change-view"
+        outline: "character-group"
         label: ",.?"

@@ -21,14 +21,16 @@ sq_button.subtle-highlight:active {
     background: #676669;
 }
 
-sq_button.emoji-group {
+sq_button.emoji-group,
+sq_button.character-group {
     background: #3f3e41;
     border-bottom: 0.4999px;
     border-style: solid;
     border-color: alpha(white, 0.25);
 }
 
-sq_button.emoji-group:active {
+sq_button.emoji-group:active,
+sq_button.character-group:active {
     background: #747077;
     border-bottom: 0.4999px;
     border-style: solid;
