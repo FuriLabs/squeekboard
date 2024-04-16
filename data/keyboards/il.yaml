@@ -1,7 +1,7 @@
 ---
 outlines:
     default:   { width: 40,  height: 60 }
-    altline:   { width: 56,  height: 60 }
+    altline:   { width: 40,  height: 60 }
     wide:      { width: 62,  height: 60 }
     change-view:   { width: 56,  height: 60 }
     change-view-2:      { width: 62,  height: 60 }
@@ -27,7 +27,7 @@ views:
 
 buttons:
     BackSpace:
-        outline: "default"
+        outline: "altline"
         icon: "edit-clear-symbolic"
         action: erase
     CommaLarge:

@@ -6,7 +6,7 @@ outlines:
     change-view:   { width: 77.51,  height: 42 }
     change-view-2:      { width: 91.25,  height: 42 }
     spaceline: { width: 146.69, height: 42 }
-    special:   { width: 64.75,  height: 42 }
+    special:   { width: 52,  height: 42 }
 
 views:
     base:
@@ -49,7 +49,7 @@ buttons:
         action: "erase"
     preferences:
         action: "show_prefs"
-        outline: "default"
+        outline: "special"
         icon: "keyboard-mode-symbolic"
     show_numbers:
         action:
