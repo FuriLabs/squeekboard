@@ -27,7 +27,7 @@ views:
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
-        - "show_numbers_from_symbols   \\ / < > = [ ]  BackSpace"
+        - "show_numbers   \\ / < > = [ ]  BackSpace"
         - "show_letters preferences         space_fill   . Return"
 
 buttons:
@@ -47,11 +47,6 @@ buttons:
         outline: "special"
         icon: "keyboard-mode-symbolic"
     show_numbers:
-        action:
-            set_view: "numbers"
-        outline: "wide"
-        label: "123"
-    show_numbers_from_symbols:
         action:
             set_view: "numbers"
         outline: "wide"

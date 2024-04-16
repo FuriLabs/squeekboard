@@ -25,7 +25,7 @@ views:
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
-        - "show_numbers_from_symbols    \\ / < > = [ ]    BackSpace"
+        - "show_numbers    \\ / < > = [ ]    BackSpace"
         - "show_letters preferences show_accents    space    , . Return"
     accents:
         - "ä ě é ř ť ý ů í ó ö"
@@ -65,11 +65,6 @@ buttons:
         action:
             set_view: "numbers"
         outline: "wide"
-        label: "123"
-    show_numbers_from_symbols:
-        action:
-            set_view: "numbers"
-        outline: "altline"
         label: "123"
     show_letters:
         action:
