@@ -3,8 +3,10 @@ outlines:
     default:   { width: 54,  height: 42 }
     altline:   { width: 81,  height: 42 }
     wide:      { width: 81,  height: 42 }
+    change-view:   { width: 81,  height: 42 }
     spaceline: { width: 162, height: 42 }
     special:   { width: 54,  height: 42 }
+    change-view-2:   { width: 54,  height: 42 }
 
 views:
     base:
@@ -44,14 +46,14 @@ buttons:
             locking:
                 lock_view: "upper"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         icon: "key-shift"
     accents_Shift_L:
         action:
             locking:
                 lock_view: "upper_accents"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         icon: "key-shift"
     BackSpace:
         outline: "altline"
@@ -64,31 +66,31 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "wide"
+        outline: "change-view"
         label: "123"
     show_letters:
         action:
             set_view: "base"
-        outline: "wide"
+        outline: "change-view"
         label: "ABC"
     show_symbols:
         action:
             set_view: "symbols"
-        outline: "altline"
+        outline: "change-view"
         label: "*/="
     show_accents:
         action:
             locking:
                 lock_view: "accents"
                 unlock_view: "base"
-        outline: "special"
+        outline: "change-view-2"
         label: "á"
     show_upper_accents:
         action:
             locking:
                 lock_view: "upper_accents"
                 unlock_view: "base"
-        outline: "special"
+        outline: "change-view-2"
         label: "Á"
     space:
         outline: "spaceline"

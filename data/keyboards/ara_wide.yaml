@@ -4,6 +4,8 @@ outlines:
     default:   { width: 49,   height: 42 }
     altline:   { width: 73.5, height: 42 }
     wide:      { width: 108,  height: 42 }
+    change-view:   { width: 73.5, height: 42 }
+    change-view-2:      { width: 108,  height: 42 }
     spaceline: { width: 324,  height: 42 }
     special:   { width: 49,   height: 42 }
 
@@ -35,7 +37,7 @@ buttons:
             locking:
                 lock_view: "extra"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         icon: "key-shift"
     BackSpace:
         outline: "altline"
@@ -48,17 +50,17 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "altline"
+        outline: "change-view"
         label: "123"
     show_letters:
         action:
             set_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "ض"
     show_symbols:
         action:
             set_view: "symbols"
-        outline: "altline"
+        outline: "change-view"
         label: "*/="
     space:
         outline: "spaceline"

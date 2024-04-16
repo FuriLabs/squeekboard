@@ -3,6 +3,8 @@ outlines:
     default:   { width: 35.33, height: 52 }
     altline:   { width: 52.67, height: 52 }
     wide:      { width: 59,    height: 52 }
+    change-view:   { width: 52.67, height: 52 }
+    change-view-2:      { width: 59,    height: 52 }
     spaceline: { width: 140,   height: 52 }
     special:   { width: 44,    height: 52 }
 
@@ -38,14 +40,13 @@ views:
         - "accents_show_upper   Ż Ź Ć V B Ń M  BackSpace"
         - "show_numbers preferences         space        show_upper_accents Return"
 
-
 buttons:
     Shift_L:
         action:
             locking:
                 lock_view: "upper"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         icon: "key-shift"
     accents_show_upper:
         action:
@@ -54,7 +55,7 @@ buttons:
                 unlock_view: "accents"
                 looks_locked_from:
                     - "upper"
-        outline: "altline"
+        outline: "change-view"
         icon: "key-shift"
     BackSpace:
         outline: "altline"
@@ -67,29 +68,29 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "wide"
+        outline: "change-view-2"
         label: "123"
     show_numbers_from_symbols:
         action:
             set_view: "numbers"
-        outline: "altline"
+        outline: "change-view"
         label: "123"
     show_letters:
         action:
             set_view: "base"
-        outline: "wide"
+        outline: "change-view-2"
         label: "ABC"
     show_symbols:
         action:
             set_view: "symbols"
-        outline: "altline"
+        outline: "change-view"
         label: "*/="
     show_accents:
         action:
             locking:
                 lock_view: "accents"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "ąę"
     show_upper_accents:
         action:
@@ -98,7 +99,7 @@ buttons:
                 unlock_view: "upper"
                 looks_locked_from:
                     - "accents"
-        outline: "altline"
+        outline: "change-view"
         label: "ĄĘ"
     .:
         outline: "altline"

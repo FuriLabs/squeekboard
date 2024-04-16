@@ -3,6 +3,8 @@ outlines:
     default:   { width: 48,     height: 42 }
     altline:   { width: 72.59,  height: 42 }
     wide:      { width: 93,     height: 42 }
+    change-view:   { width: 72.59,  height: 42 }
+    change-view-2:      { width: 93,     height: 42 }
     spaceline: { width: 225.88, height: 42 }
 
 views:
@@ -33,7 +35,7 @@ buttons:
             locking:
                 lock_view: "upper"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         icon: "key-shift"
     BackSpace:
         outline: "altline"
@@ -41,22 +43,22 @@ buttons:
         action: "erase"
     preferences:
         action: "show_prefs"
-        outline: "altline"
+        outline: "change-view"
         icon: "keyboard-mode-symbolic"
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "altline"
+        outline: "change-view"
         label: "123"
     show_letters:
         action:
             set_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "ABC"
     show_symbols:
         action:
             set_view: "symbols"
-        outline: "altline"
+        outline: "change-view"
         label: "*/="
     ".":
         outline: altline

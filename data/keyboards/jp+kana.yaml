@@ -5,6 +5,8 @@ outlines:
     default-wide: { width: 62, height: 52 }
     altline:      { width: 62, height: 52 }
     wide:         { width: 62, height: 52 }
+    change-view:      { width: 62, height: 52 }
+    change-view-2:         { width: 62, height: 52 }
     special:      { width: 62, height: 52 }
 
 views:
@@ -222,110 +224,110 @@ buttons:
     numbers:
         action:
             set_view: "numbers"
-        outline: "wide"
+        outline: "change-view-2"
         label: "123"
     # switch to latin characters
     roman:
         action:
             set_view: "roman"
-        outline: "wide"
+        outline: "change-view-2"
         label: "ᴀʙᴄ"
     # toggle button with 3 different states
     switch2roman: # switch from kana to latin characters view
         action:
             set_view: "roman"
-        outline: "wide"
+        outline: "change-view-2"
         label: "あᴀ₁"
     switch2num: # switch from latin characters to numbers view
         action:
             set_view: "numbers"
-        outline: "wide"
+        outline: "change-view-2"
         label: "ぁA₁"
     switch2kana: # switch from numbers to hiragana view
         action:
             set_view: "base"
-        outline: "wide"
+        outline: "change-view-2"
         label: "ぁᴀ1"
     # Buttons for katakana and symbols
     ひらがな:
         action:
             set_view: "base"
-        outline: "wide"
+        outline: "change-view-2"
         label: "あさ"
     _a:
         action:
             locking:
                 lock_view: "_a"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "あ"
     ka:
         action:
             locking:
                 lock_view: "ka"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "か"
     sa:
         action:
             locking:
                 lock_view: "sa"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "さ"
     ta:
         action:
             locking:
                 lock_view: "ta"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "た"
     na:
         action:
             locking:
                 lock_view: "na"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "な"
     ha:
         action:
             locking:
                 lock_view: "ha"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "は"
     ma:
         action:
             locking:
                 lock_view: "ma"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "ま"
     ya:
         action:
             locking:
                 lock_view: "ya"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "や"
     ra:
         action:
             locking:
                 lock_view: "ra"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "ら"
     wa:
         action:
             locking:
                 lock_view: "wa"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "わ"
     dummykey:
         action:
             set_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: ""
     # buttons available on different views like symbols and punct should go
     # back to their corresponding view
@@ -334,109 +336,109 @@ buttons:
             locking:
                 lock_view: "symbols"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "（）"
     punct:
         action:
             locking:
                 lock_view: "punct"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "。"
     # Buttons for katakana and symbols
     カタカナ:
         action:
             set_view: "カタカナ"
-        outline: "wide"
+        outline: "change-view-2"
         label: "アサ"
     _A:
         action:
             locking:
                 lock_view: "_A"
                 unlock_view: "カタカナ"
-        outline: "altline"
+        outline: "change-view"
         label: "ア"
     KA:
         action:
             locking:
                 lock_view: "KA"
                 unlock_view: "カタカナ"
-        outline: "altline"
+        outline: "change-view"
         label: "カ"
     SA:
         action:
             locking:
                 lock_view: "SA"
                 unlock_view: "カタカナ"
-        outline: "altline"
+        outline: "change-view"
         label: "サ"
     TA:
         action:
             locking:
                 lock_view: "TA"
                 unlock_view: "カタカナ"
-        outline: "altline"
+        outline: "change-view"
         label: "タ"
     NA:
         action:
             locking:
                 lock_view: "NA"
                 unlock_view: "カタカナ"
-        outline: "altline"
+        outline: "change-view"
         label: "ナ"
     HA:
         action:
             locking:
                 lock_view: "HA"
                 unlock_view: "カタカナ"
-        outline: "altline"
+        outline: "change-view"
         label: "ハ"
     MA:
         action:
             locking:
                 lock_view: "MA"
                 unlock_view: "カタカナ"
-        outline: "altline"
+        outline: "change-view"
         label: "マ"
     YA:
         action:
             locking:
                 lock_view: "YA"
                 unlock_view: "カタカナ"
-        outline: "altline"
+        outline: "change-view"
         label: "ヤ"
     RA:
         action:
             locking:
                 lock_view: "RA"
                 unlock_view: "カタカナ"
-        outline: "altline"
+        outline: "change-view"
         label: "ラ"
     WA:
         action:
             locking:
                 lock_view: "WA"
                 unlock_view: "カタカナ"
-        outline: "altline"
+        outline: "change-view"
         label: "ワ"
     DUMMYKEY:
         action:
             set_view: "カタカナ"
-        outline: "altline"
+        outline: "change-view"
         label: ""
     SYMBOLS:
         action:
             locking:
                 lock_view: "symbols"
                 unlock_view: "カタカナ"
-        outline: "altline"
+        outline: "change-view"
         label: "（）"
     PUNCT:
         action:
             locking:
                 lock_view: "punct"
                 unlock_view: "カタカナ"
-        outline: "altline"
+        outline: "change-view"
         label: "。"
     # Buttons for Latin characters
     RSYM1:
@@ -444,82 +446,82 @@ buttons:
             locking:
                 lock_view: "RSYM1"
                 unlock_view: "roman"
-        outline: "altline"
+        outline: "change-view"
         label: "@#"
     ABC:
         action:
             locking:
                 lock_view: "ABC"
                 unlock_view: "roman"
-        outline: "altline"
+        outline: "change-view"
         label: "ᴀʙᴄ"
     DEF:
         action:
             locking:
                 lock_view: "DEF"
                 unlock_view: "roman"
-        outline: "altline"
+        outline: "change-view"
         label: "ᴅᴇꜰ"
     GHI:
         action:
             locking:
                 lock_view: "GHI"
                 unlock_view: "roman"
-        outline: "altline"
+        outline: "change-view"
         label: "ɢʜɪ"
     JKL:
         action:
             locking:
                 lock_view: "JKL"
                 unlock_view: "roman"
-        outline: "altline"
+        outline: "change-view"
         label: "ᴊᴋʟ"
     MNO:
         action:
             locking:
                 lock_view: "MNO"
                 unlock_view: "roman"
-        outline: "altline"
+        outline: "change-view"
         label: "ᴍɴᴏ"
     PQRS:
         action:
             locking:
                 lock_view: "PQRS"
                 unlock_view: "roman"
-        outline: "altline"
+        outline: "change-view"
         label: "ᴘǫʀs"
     TUV:
         action:
             locking:
                 lock_view: "TUV"
                 unlock_view: "roman"
-        outline: "altline"
+        outline: "change-view"
         label: "ᴛᴜᴠ"
     WXYZ:
         action:
             locking:
                 lock_view: "WXYZ"
                 unlock_view: "roman"
-        outline: "altline"
+        outline: "change-view"
         label: "ᴡxʏᴢ"
     RSYM2:
         action:
             locking:
                 lock_view: "RSYM2"
                 unlock_view: "roman"
-        outline: "altline"
+        outline: "change-view"
         label: "()"
     RSYM3:
         action:
             locking:
                 lock_view: "RSYM3"
                 unlock_view: "roman"
-        outline: "altline"
+        outline: "change-view"
         label: "+-"
     RSYM4:
         action:
             locking:
                 lock_view: "RSYM4"
                 unlock_view: "roman"
-        outline: "altline"
+        outline: "change-view"
         label: ",.?"
