@@ -70,7 +70,9 @@ buttons:
         label: "*/="
     show_eschars:
         action:
-            set_view: "eschars"
+            locking:
+                lock_view: "eschars"
+                unlock_view: "base"
         outline: "change-view"
         label: "àè"
     space:
