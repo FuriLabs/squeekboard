@@ -2,7 +2,7 @@
 outlines:
     default:   { width: 37.46341, height: 42 }
     altline:   { width: 48.39024, height: 42 }
-    outline7:  { width: 88.97561, height: 42 }
+    wide:      { width: 88.97561, height: 42 }
     spaceline: { width: 120.5853, height: 42 }
 
 views:
@@ -21,7 +21,7 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "outline7"
+        outline: "wide"
         icon: "key-enter"
         keysym: "Return"
     asterisk:

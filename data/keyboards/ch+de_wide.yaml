@@ -65,7 +65,6 @@ buttons:
         label: "*/="
     space:
         outline: "spaceline"
-        label: " "
         text: " "
     Return:
         outline: "wide"

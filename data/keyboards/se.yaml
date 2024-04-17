@@ -48,9 +48,9 @@ buttons:
         outline: "special"
         icon: "keyboard-mode-symbolic"
     show_numbers:
-        outline: "change-view-2"
         action:
             set_view: "numbers"
+        outline: "change-view-2"
         label: "123"
     show_numbers_from_symbols:
         action:

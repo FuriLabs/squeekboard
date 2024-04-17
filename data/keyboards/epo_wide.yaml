@@ -72,10 +72,9 @@ buttons:
                 lock_view: "eschars"
                 unlock_view: "base"
         outline: "change-view"
-        label: "ŭŜ"
+        label: "Ŝŭ"
     space:
         outline: "spaceline"
-        label: " "
         text: " "
     Return:
         outline: "altline"

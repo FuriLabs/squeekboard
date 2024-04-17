@@ -79,7 +79,6 @@ buttons:
         label: "Ââ"
     Space:
         outline: "spaceline"
-        label: " "
         text: " "
     Return:
         outline: "wide"

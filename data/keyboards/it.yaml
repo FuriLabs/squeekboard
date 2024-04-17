@@ -77,7 +77,6 @@ buttons:
         label: "àè"
     space:
         outline: "spaceline"
-        label: " "
         text: " "
     Return:
         outline: "altline"

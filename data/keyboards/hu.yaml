@@ -3,7 +3,6 @@
 outlines:
     default:   { width: 35.33, height: 52 }
     altline:   { width: 52.67, height: 52 }
-    wide:      { width: 62,    height: 52 }
     change-view:   { width: 52.67, height: 52 }
     change-view-2:      { width: 62,    height: 52 }
     spaceline: { width: 99.67, height: 52 }
@@ -76,7 +75,6 @@ buttons:
         label: "éá"
     space:
         outline: "spaceline"
-        label: " "
         text: " "
     Return:
         outline: "altline"
