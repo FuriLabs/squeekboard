@@ -14,7 +14,7 @@ For information about building Squeekboard, read the [README](README.md).
 Layouts
 -------
 
-Squeekboard can [load user-provided keyboard-layouts](layouts.md#Using-custom-layouts). Those can be created and used without recompiling the keyboard code. The [tutorial](tutorial.md) explains the process in detail.
+Squeekboard can [load user-provided keyboard-layouts](layouts.md#using-custom-layouts). Those can be created and used without recompiling the keyboard code. The [tutorial](tutorial.md) explains the process in detail.
 
 Layouts are created using a [text-based format, based on YAML](layouts.md).
 
