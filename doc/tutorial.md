@@ -22,8 +22,8 @@ Creating a layout is easy. You don't need to recompile things, just edit and tes
 * Select and enable the input source you would like to change from the Region & Language section of the device settings. Perhaps use "A user-defined custom layout" listed under Other.
 * Find the correct name of the .yaml file associated with that input source. This can be found with the command 
 
-```
-gsettings get org.gnome.desktop.input-sources sources
+```sh
+$ gsettings get org.gnome.desktop.input-sources sources
 ```
 
 The output should be something like this: `[('xkb', 'us'), ('xkb', 'de')]`
@@ -39,14 +39,14 @@ The yaml file will overwrite the default settings for that layout. If you want t
 
 You can also use the `test_layout` tool from the -devel package to check it for errors:
 
-```
-# squeekboard_test_layout ./mylayout.yaml
+```sh
+$ squeekboard_test_layout ./mylayout.yaml
 Test result: OK
 ```
 
 ## Contributing your changes
 
-If you want to share your layout with the world, the best way is to submit it to the Squeekboard project. The workflow is similar to any other Gitlab-based project.
+If you want to share your layout with the world, the best way is to submit it to the Squeekboard project. The workflow is similar to any other GitLab-based project.
 
 Above all, your layout should be working, be tested, not break anything, and make sense.
 
@@ -86,7 +86,4 @@ If you want your change to become part of official Squeekboard, or if you want t
 * Follow these instructions to run squeekboard: [README.md#running](https://gitlab.gnome.org/World/Phosh/squeekboard/-/blob/main/README.md#running)
 * Additionally take a look at the contribution document for [testing info](https://gitlab.gnome.org/World/Phosh/squeekboard/-/blob/main/doc/hacking.md#testing)
 * You can either test it locally on your Linux system or use the [QEMU Librem 5 image](https://developer.puri.sm/Librem5/Development_Environment/Boards/emulators.html)
-* To test squeekboard locally, you need phoc. Either compile that from the sources as well or use the CI repository ci.puri.sm for Debian based systems:
-  `deb [arch=amd64] http://ci.puri.sm/ scratch librem5`
-
-Squeekboard can be installed from there as a Debian package, too (that’s what I often do). But beware - there be dragons! You could bork your system with these packages and you should probably disable this repository again after installing what you need - these packages are not meant for production systems (or so I heard :wink: )
+* To test squeekboard locally, you need [phoc](https://gitlab.gnome.org/World/Phosh/phoc). Either install it from a package for your distribution, for example with `sudo apt install phoc` for Debian based distributions, or compile it from the sources.

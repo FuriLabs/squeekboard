@@ -1,7 +1,7 @@
 *squeekboard* - a Wayland on-screen keyboard
 ========================================
 
-*Squeekboard* is a keyboard-shaped input method supporting Wayland, built primarily for the *Librem 5* phone.
+*Squeekboard* is the on-screen keyboard for Phosh. It is primarily designed for smartphones, tablet-PCs, and other devices with touchscreens.
 
 It squeaks because some Rust got inside.
 
@@ -19,7 +19,8 @@ Features
 
 ### TODO
 
-- Text prediction/correction
+- [Port to GTK4 / GTK4-Layer-Shell](https://gitlab.gnome.org/World/Phosh/squeekboard/-/issues/64)
+- [Text prediction/correction](https://gitlab.gnome.org/World/Phosh/squeekboard/-/issues/54)
 - Use preedit
 - Submit actions like "next field" using a future Wayland protocol
 - Pick up DBus interface files from /usr/share
@@ -38,7 +39,7 @@ See `.gitlab-ci.yml` or run `apt-get build-dep .`
 
 ### Build from git repo
 
-```bash
+```sh
 $ git clone https://gitlab.gnome.org/World/Phosh/squeekboard.git
 $ cd squeekboard
 $ mkdir _build
@@ -52,7 +53,7 @@ To run tests use `ninja test`. To install squeekboard run `ninja install`.
 Running
 -------
 
-```bash
+```sh
 $ phoc # if no compatible Wayland compositor is running yet
 $ cd ../build/
 $ src/squeekboard
@@ -62,14 +63,14 @@ Squeekboard's panel will appear whenever a compatible application requests an in
 
 Squeekboard honors the gnome "screen-keyboard-enabled" setting. Either enable this through gnome-settings under accessibility or run:
 
-```bash
+```sh
 $ gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true
 ```
 
 Alternatively, force panel visibility manually with:
 
-```bash
-busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b true
+```sh
+$ busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b true
 ```
 
 ### What the compositor has to support
