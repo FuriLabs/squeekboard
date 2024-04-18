@@ -2,11 +2,13 @@
 
 ---
 outlines:
-    default:   { width: 35.33, height: 52 }
-    altline:   { width: 48,    height: 52 }
-    wide:      { width: 59,    height: 52 }
-    spaceline: { width: 70,    height: 52 }
-    special:   { width: 28,    height: 52 }
+    default:       { width: 35.33, height: 52 }
+    altline:       { width: 48,    height: 52 }
+    wide:          { width: 59,    height: 52 }
+    change-view:   { width: 48,    height: 52 }
+    change-view-2: { width: 59,    height: 52 }
+    spaceline:     { width: 70,    height: 52 }
+    special:       { width: 28,    height: 52 }
 
 views:
     base:
@@ -36,12 +38,12 @@ buttons:
             locking:
                 lock_view: "upper"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         icon: "key-shift"
     BackSpace:
         outline: "altline"
         icon: "edit-clear-symbolic"
-        action: erase
+        action: "erase"
     preferences:
         action: "show_prefs"
         outline: "special"
@@ -49,21 +51,20 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "altline"
+        outline: "change-view"
         label: "123"
     show_letters:
         action:
             set_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "ABC"
     show_symbols:
         action:
             set_view: "symbols"
-        outline: "altline"
+        outline: "change-view"
         label: "*/="
     space:
         outline: "spaceline"
-        label: " "
         text: " "
     Return:
         outline: "wide"

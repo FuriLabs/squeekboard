@@ -13,7 +13,7 @@ views:
 buttons:
     BackSpace:
         icon: "edit-clear-symbolic"
-        action: erase
+        action: "erase"
     Return:
         icon: "key-enter"
         keysym: "Return"

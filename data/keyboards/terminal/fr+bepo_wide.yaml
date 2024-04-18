@@ -1,15 +1,16 @@
 ---
 outlines:
-    default:   { width: 54,   height: 37 }
-    halfwidth: { width: 27,   height: 37 }
-    narrow:    { width: 40.5, height: 37 }
-    special:   { width: 54,   height: 37 }
-    altline:   { width: 81,   height: 37 }
-    large:     { width: 81,   height: 37 }
-    action:    { width: 90,   height: 37 }
-    wide:      { width: 90,   height: 37 }
-    spaceline: { width: 153,  height: 37 }
-    small:     { width: 67.4, height: 22 }
+    default:       { width: 54,   height: 37 }
+    halfwidth:     { width: 27,   height: 37 }
+    narrow:        { width: 40.5, height: 37 }
+    special:       { width: 54,   height: 37 }
+    change-view:   { width: 81,   height: 37 }
+    large:         { width: 81,   height: 37 }
+    action:        { width: 90,   height: 37 }
+    wide:          { width: 90,   height: 37 }
+    change-view-2: { width: 90,   height: 37 }
+    spaceline:     { width: 153,  height: 37 }
+    small:         { width: 67.4, height: 22 }
 
 views:
     base:
@@ -175,19 +176,19 @@ buttons:
     show_actions:
         action:
             set_view: "actions"
-        outline: "altline"
+        outline: "change-view"
         label: ">_"
     Shift_L:
         action:
             locking:
                 lock_view: "upper"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         icon: "key-shift"
     BackSpace:
         outline: "altline"
         icon: "edit-clear-symbolic"
-        action: erase
+        action: "erase"
     preferences:
         action: "show_prefs"
         outline: "special"
@@ -195,29 +196,29 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "altline"
+        outline: "change-view"
         label: "123"
     show_letters:
         action:
             set_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "ABC"
     show_letters_actions:
         action:
             set_view: "base"
-        outline: "wide"
+        outline: "change-view-2"
         label: "ABC"
     show_symbols:
         action:
             set_view: "symbols"
-        outline: "altline"
+        outline: "change-view"
         label: "*/="
     show_eschars:
         action:
             locking:
                 lock_view: "eschars"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "Ââ"
     space:
         outline: "spaceline"

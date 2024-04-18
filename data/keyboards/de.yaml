@@ -4,7 +4,6 @@ outlines:
     subtle-highlight: { width: 35.33, height: 52 }
     altline:          { width: 52.67, height: 52 }
     change-view:      { width: 52.67, height: 52 }
-    wide:             { width: 62,    height: 52 }
     spaceline:        { width: 89.3,  height: 52 }
     special:          { width: 35.33, height: 52 }
 

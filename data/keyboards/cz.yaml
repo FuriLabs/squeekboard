@@ -1,10 +1,12 @@
 ---
 outlines:
-    default:   { width: 35.33, height: 52 }
-    altline:   { width: 52.67, height: 52 }
-    wide:      { width: 52.67, height: 52 }
-    spaceline: { width: 106,   height: 52 }
-    special:   { width: 35.33, height: 52 }
+    default:       { width: 35.33, height: 52 }
+    altline:       { width: 52.67, height: 52 }
+    wide:          { width: 52.67, height: 52 }
+    change-view:   { width: 52.67, height: 52 }
+    spaceline:     { width: 106,   height: 52 }
+    special:       { width: 35.33, height: 52 }
+    change-view-2: { width: 35.33, height: 52 }
 
 views:
     base:
@@ -25,7 +27,7 @@ views:
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
-        - "show_numbers_from_symbols    \\ / < > = [ ]    BackSpace"
+        - "show_numbers    \\ / < > = [ ]    BackSpace"
         - "show_letters preferences show_accents    space    , . Return"
     accents:
         - "ä ě é ř ť ž ů í ó ö"
@@ -44,56 +46,51 @@ buttons:
             locking:
                 lock_view: "upper"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         icon: "key-shift"
     accents_Shift_L:
         action:
             locking:
                 lock_view: "upper_accents"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         icon: "key-shift"
     BackSpace:
         outline: "altline"
         icon: "edit-clear-symbolic"
-        action: erase
+        action: "erase"
     preferences:
-        action: show_prefs
+        action: "show_prefs"
         outline: "special"
         icon: "keyboard-mode-symbolic"
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "wide"
-        label: "123"
-    show_numbers_from_symbols:
-        action:
-            set_view: "numbers"
-        outline: "altline"
+        outline: "change-view"
         label: "123"
     show_letters:
         action:
             set_view: "base"
-        outline: "wide"
+        outline: "change-view"
         label: "ABC"
     show_symbols:
         action:
             set_view: "symbols"
-        outline: "altline"
+        outline: "change-view"
         label: "*/="
     show_accents:
         action:
             locking:
                 lock_view: "accents"
                 unlock_view: "base"
-        outline: "special"
+        outline: "change-view-2"
         label: "á"
     show_upper_accents:
         action:
             locking:
                 lock_view: "upper_accents"
                 unlock_view: "base"
-        outline: "special"
+        outline: "change-view-2"
         label: "Á"
     space:
         outline: "spaceline"

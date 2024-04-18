@@ -2,7 +2,7 @@
 outlines:
     default:   { width: 37.46341, height: 52 }
     altline:   { width: 48.39024, height: 52 }
-    outline7:  { width: 88.97561, height: 52 }
+    wide:      { width: 88.97561, height: 52 }
     spaceline: { width: 120.5853, height: 52 }
 
 views:
@@ -16,12 +16,12 @@ buttons:
     BackSpace:
         outline: "altline"
         icon: "edit-clear-symbolic"
-        action: erase
+        action: "erase"
     space:
-        outline: spaceline
+        outline: "spaceline"
         text: " "
     Return:
-        outline: outline7
+        outline: "wide"
         icon: "key-enter"
         keysym: "Return"
     asterisk:

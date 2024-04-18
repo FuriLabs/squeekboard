@@ -7,7 +7,6 @@ outlines:
     narrow:           { width: 40.5, height: 42 }
     altline:          { width: 81,   height: 42 }
     change-view:      { width: 81,   height: 42 }
-    wide:             { width: 108,  height: 42 }
     spaceline:        { width: 156,  height: 42 }
     special:          { width: 48,   height: 42 }
 

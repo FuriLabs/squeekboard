@@ -1,11 +1,13 @@
 # Maintained by: Jordi Bossy <jordi@bossy.space>. No Copyright, enjoy!
 ---
 outlines:
-    default:   { width: 52,     height: 42 }
-    altline:   { width: 70.65,  height: 42 }
-    wide:      { width: 86.84,  height: 42 }
-    spaceline: { width: 103.03, height: 42 }
-    special:   { width: 41.21,  height: 42 }
+    default:       { width: 52,     height: 42 }
+    altline:       { width: 70.65,  height: 42 }
+    wide:          { width: 86.84,  height: 42 }
+    change-view:   { width: 70.65,  height: 42 }
+    change-view-2: { width: 86.84,  height: 42 }
+    spaceline:     { width: 103.03, height: 42 }
+    special:       { width: 41.21,  height: 42 }
 
 views:
     base:
@@ -40,12 +42,12 @@ buttons:
             locking:
                 lock_view: "upper"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         icon: "key-shift"
     BackSpace:
         outline: "altline"
         icon: "edit-clear-symbolic"
-        action: erase
+        action: "erase"
     preferences:
         action: "show_prefs"
         outline: "special"
@@ -53,28 +55,27 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "altline"
+        outline: "change-view"
         label: "123"
     show_letters:
         action:
             set_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "ABC"
     show_symbols:
         action:
             set_view: "symbols"
-        outline: "altline"
+        outline: "change-view"
         label: "*/="
     show_eschars:
         action:
             locking:
                 lock_view: "eschars"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "Ââ"
     space:
         outline: "spaceline"
-        label: " "
         text: " "
     Return:
         outline: "wide"

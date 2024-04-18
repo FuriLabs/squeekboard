@@ -1,12 +1,14 @@
 ---
 outlines:
-    default:   { width: 48,    height: 42 }
-    altline:   { width: 48,    height: 42 }
-    wide:      { width: 85.5,  height: 42 }
-    narrow:    { width: 39,    height: 42 }
-    spaceline: { width: 160.5, height: 42 }
-    fill:      { width: 238.5, height: 42 }
-    special:   { width: 63,    height: 42 }
+    default:       { width: 48,    height: 42 }
+    altline:       { width: 48,    height: 42 }
+    wide:          { width: 85.5,  height: 42 }
+    change-view:   { width: 48,    height: 42 }
+    change-view-2: { width: 85.5,  height: 42 }
+    narrow:        { width: 39,    height: 42 }
+    spaceline:     { width: 160.5, height: 42 }
+    fill:          { width: 238.5, height: 42 }
+    special:       { width: 63,    height: 42 }
 
 views:
     base:
@@ -27,7 +29,7 @@ views:
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
-        - "show_numbers_from_symbols   \\ / < > = [ ]  BackSpace"
+        - "show_numbers   \\ / < > = [ ]  BackSpace"
         - "show_letters preferences         space_fill   . Return"
 
 buttons:
@@ -36,35 +38,30 @@ buttons:
             locking:
                 lock_view: "upper"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         icon: "key-shift"
     BackSpace:
         outline: "altline"
         icon: "edit-clear-symbolic"
-        action: erase
+        action: "erase"
     preferences:
-        action: show_prefs
+        action: "show_prefs"
         outline: "special"
         icon: "keyboard-mode-symbolic"
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "wide"
-        label: "123"
-    show_numbers_from_symbols:
-        action:
-            set_view: "numbers"
-        outline: "wide"
+        outline: "change-view-2"
         label: "123"
     show_letters:
         action:
             set_view: "base"
-        outline: "wide"
+        outline: "change-view-2"
         label: "АБВ"
     show_symbols:
         action:
             set_view: "symbols"
-        outline: "wide"
+        outline: "change-view-2"
         label: "*/="
     .:
         outline: "special"
