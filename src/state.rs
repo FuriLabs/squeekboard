@@ -385,7 +385,9 @@ Outcome:
                 let ideal_height = IDEAL_TARGET_SIZE * ROW_COUNT as i32;
                 let ideal_height_px = (ideal_height * density).ceil().0 as u32;
 
-                // Changes the point at which the layout-shape is changed to the wide shape
+                // Changes the point at which the layout-shape is changed to the wide shape.
+                // Slightly higher aspect-ratio (16:5.1) than the expected aspect-ratio of the wide shape (16:5).
+                // 5.1/16 = 1/3.14 = 172/540 (rounded, height / width)
                 let max_wide_height = Rational {
                     numerator: 172,
                     denominator: 540,
@@ -396,6 +398,8 @@ Outcome:
                 };
                 // Reduce height to match what the layout can fill.
                 // For this, we need to guess if normal or wide will be picked.
+                // Example: When the height of Squeekboard is 172 pixels and the width of the display
+                // is at least 540 pixels, then the wide shape will be chosen.
                 // This must match `eek_gtk_keyboard.c::get_type`.
                 // TODO: query layout database and choose one directly
                 let (arrangement, height_as_widths) = {
@@ -410,7 +414,7 @@ Outcome:
                         max_wide_height,
                     )}
                 };
-
+                // Set the height of the space available for Squeekboard
                 let height
                     = cmp::min(
                         ideal_height_px,
