@@ -1,4 +1,4 @@
-image: debian:bookworm
+image: debian:trixie
 
 variables:
   DEBIAN_FRONTEND: noninteractive
@@ -23,11 +23,11 @@ stages:
   - deploy
 
 before_script:
+  - echo "deb http://deb.debian.org/debian/ experimental main" > /etc/apt/sources.list.d/experimental.list
   - apt-get -y update
   - apt-get -y install ca-certificates
 
 build_docs:
-  image: debian:trixie
   stage: build
   artifacts:
     paths:
@@ -46,6 +46,7 @@ build_meson:
       - _build
     expire_in: 3h
   script:
+    - apt-get -y install -t experimental librust-serde-yaml-dev
     - apt-get -y build-dep .
     - meson . _build/ -Ddepdatadir=/usr/share -Dfind_orphans=true --werror
     - ninja -C _build install
@@ -54,7 +55,6 @@ build_meson:
       - $PKG_ONLY == "1"
 
 build_deb:
-  image: debian:bookworm
   tags:
     - aarch64
   stage: build
@@ -63,6 +63,7 @@ build_deb:
       - '*.deb'
   script:
     - rm -f ../*.deb
+    - apt-get -y install -t experimental librust-serde-yaml-dev
     - apt-get -y build-dep .
     - apt-get -y install devscripts
     - REV=$(git log -1 --format=%h)
@@ -82,9 +83,11 @@ build_reference:
     paths:
       - _build/doc
   script:
+    - apt-get -y install -t experimental librust-serde-yaml-dev
+    - apt-get -y build-dep .
     - apt-get -y install cargo
     - cd _build
-    - ../cargo.sh doc --no-deps --document-private-items
+    - ../cargo.sh doc --no-deps --document-private-items --features 'zbus_v1_5,clap_v4'
   except:
     variables:
       - $PKG_ONLY == "1"
@@ -95,6 +98,7 @@ test:
     - job: build_meson
       artifacts: true
   script:
+    - apt-get -y install -t experimental librust-serde-yaml-dev
     - apt-get -y build-dep .
     - apt-get -y install clang-tidy
     - ninja -C _build test
@@ -107,6 +111,7 @@ test_style:
   stage: test
   needs: []
   script:
+    - apt-get -y install -t experimental librust-serde-yaml-dev
     - apt-get -y build-dep .
     - tools/style-check_source
   except:

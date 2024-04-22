@@ -233,7 +233,9 @@ Then commit the updated `Cargo.lock`.
 
 ### 2. Choose the version number
 
-Squeekboard tries to use semantic versioning. It's 3 numbers separated by dots: "a.b.c". Releases which only fix bugs and nothing else are "a.b.c+1". Releases which add user-visible features in addition to bug fixes are "a.b+1.0". Releases which, in addition to the previous, change *the user contract* in incompatible ways are "a+1.0.0". "The user contract" means plugin APIs that are deemed stable, or the way language switching works, etc. In other words, incompatible changes to developers, or big changes to users bump "a" to the next natural number.
+Squeekboard follows [Phosh's versioning](https://gitlab.gnome.org/World/Phosh/phosh/-/wikis/Releases).
+For example: The first Squeekboard-release for Phosh 0.38 should have the version-number 1.38.0. The last part of the version number (1.38.x) may be incremented independently of Phosh's version for bug-fix-releases. 
+Feature-releases should me made before the release of the new version of Phosh, so that the release-notes can contain the news about Squeekboard.
 
 ### 3. Update the number in `meson.build`
 
@@ -255,6 +257,8 @@ squeekboard (1.22.0) experimental; urgency=medium
 ```
 
 Add the updated `debian/changelog` to the commit. The commit message should contain the release version and a description of changes.
+
+(`gbp` can be installed with `sudo apt install git-buildpackage`)
 
 ### 5. Update the NEWS file
 
