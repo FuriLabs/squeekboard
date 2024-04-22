@@ -34,6 +34,13 @@ Custom layouts will be loaded from `~/.local/share/squeekboard/keyboards/`.
 In addition to loading customised layouts for languages (for example: from `~/.local/share/squeekboard/keyboards/de.yaml`, for a custom layout for the German language), Squeekboard will also load layouts for "A user-defined custom layout" from `custom.yaml`, which can be added as a keyboard-layout in the keyboard-settings of GNOME Settings.
 The included (and replaceable) layouts are in: `data/keyboards/`.
 
+Layout-size
+-----------
+
+### Aspect-ratios
+- Basic/compact shape: 12:7
+- Wide shape: 16:5
+
 Layout syntax
 -------------
 
