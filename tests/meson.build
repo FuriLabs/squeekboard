@@ -94,6 +94,7 @@ foreach layout : [
     'ro', 'ro_wide',
     'ru', 'ru_wide',
     'se', 'se_wide',
+    'si', 'si_wide',
     'th', 'th_wide',
     'tr', 'tr_wide',
     'tr+f', 'tr+f_wide',
