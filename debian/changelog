@@ -1,8 +1,12 @@
-squeekboard (1.38.0-1) UNRELEASED; urgency=medium
+squeekboard (1.38.0-1) experimental; urgency=medium
 
   * New upstream version (Closes: #1069577)
+  * d/patches: drop upstreamed patches
+  * d/control: drop unneeded versioned constaints on build-deps
+  * d/rules: drop usage of removed meson options
+  * d/control: bump serde-yaml build-dep to 0.9 (Closes: #1042405)
 
- -- Arnaud Ferraris <aferraris@debian.org>  Mon, 22 Apr 2024 21:12:29 +0200
+ -- Arnaud Ferraris <aferraris@debian.org>  Mon, 22 Apr 2024 22:32:40 +0200
 
 squeekboard (1.24.0-1) unstable; urgency=medium
 
