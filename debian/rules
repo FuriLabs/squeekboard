@@ -19,11 +19,5 @@ build-arch:
 	rm -f Cargo.lock
 	dh $@ --builddirectory=_build --buildsystem=meson
 
-# Debian has newer Rust crates than what is used by upstream, make
-# sure we build with the relevant dependencies and code paths for
-# our case
-override_dh_auto_configure:
-	dh_auto_configure -- -Dnewer=true -Donline=false
-
 override_dh_auto_test:
 	dh_auto_test --no-parallel -- --timeout-multiplier 3
