@@ -1,15 +1,15 @@
 ---
 outlines:
-    default:       { width: 35.33,  height: 46 }
-    action:        { width: 59,     height: 46 }
-    small:         { width: 50.471, height: 22 }
-    altline:       { width: 52.67,  height: 46 }
-    change-view:   { width: 52.67,  height: 46 }
-    large:         { width: 52.67,  height: 46 }
-    wide:          { width: 59,     height: 46 }
-    change-view-2: { width: 59,     height: 46 }
-    spaceline:     { width: 92.29,  height: 46 }
-    special:       { width: 44,     height: 46 }
+    default:       { width: 35.33,  height: 45.5 }
+    action:        { width: 59,     height: 45.5 }
+    small:         { width: 50.471, height: 24 }
+    altline:       { width: 52.67,  height: 45.5 }
+    change-view:   { width: 52.67,  height: 45.5 }
+    large:         { width: 52.67,  height: 45.5 }
+    wide:          { width: 59,     height: 45.5 }
+    change-view-2: { width: 59,     height: 45.5 }
+    spaceline:     { width: 92.29,  height: 45.5 }
+    special:       { width: 44,     height: 45.5 }
 
 views:
     base:
