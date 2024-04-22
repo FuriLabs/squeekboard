@@ -69,5 +69,3 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
-    "\"":
-        keysym: "quotedbl"

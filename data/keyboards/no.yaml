@@ -23,8 +23,8 @@ views:
         - "show_symbols   , \" ' : ; ! ?  BackSpace"
         - "show_letters preferences         space        .    Return"
     symbols:
-        - "~ ` | U00B7 squareroot Greek_pi Greek_tau division multiply paragraph"
-        - "copyright U00AE U00A3 EuroSign U00A5 asciicircum degree * { }"
+        - "~ ` | · √ π τ ÷ × ¶"
+        - "© ® £ € ¥ ^ ° * { }"
         - "show_numbers_from_symbols   \\ / < > = [ ]  BackSpace"
         - "show_letters preferences         space        .    Return"
 
@@ -73,32 +73,3 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
-    U00B7:
-        text: "·"
-    squareroot:
-        text: "√"
-    Greek_pi:
-        text: "π"
-    division:
-        text: "÷"
-    multiply:
-        text: "×"
-    paragraph:
-        text: "¶"
-    Greek_tau:
-        text: "τ"
-    copyright:
-        text: "©"
-    U00AE:
-        text: "®"
-    U00A3:
-        text: "£"
-    EuroSign:
-        text: "€"
-    U00A5:
-        text: "¥"
-    asciicircum:
-        text: "^"
-    degree:
-        text: "°"
-

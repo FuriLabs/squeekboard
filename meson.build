@@ -1,7 +1,7 @@
 project(
     'squeekboard',
     'c', 'rust',
-    version: '1.24.0',
+    version: '1.38.0',
     license: 'GPLv3',
     meson_version: '>=0.51.0',
     default_options: [
@@ -85,52 +85,15 @@ summary = [
 ]
 message('\n'.join(summary))
 
-# Rust deps are changing, depending on compile flags. Cargo can't handle it alone.
-# As a side effect, Cargo.toml never gets used.
-cargo_toml_in = files('Cargo.toml.in')
 path_data = configuration_data()
 path_data.set('path', meson.source_root())
-cargo_toml_base = configure_file(
-    input: 'Cargo.toml.in',
-    output: 'Cargo.toml.base',
+cargo_toml = configure_file(
+    input: 'Cargo.toml',
+    output: 'Cargo.toml',
     configuration: path_data,
 )
 
-cargo_patch = []
-
-if get_option('newer') == true
-    cargo_build_flags += ['--features', 'glib_v0_14,zbus_v1_5,clap_v4']
-    cargo_deps = files('Cargo.deps.newer')
-    cargo_lock = files('Cargo.lock.newer')
-else
-    cargo_deps = files('Cargo.deps')
-    cargo_lock = []
-    if get_option('online') == true
-        cargo_patch = [files('Cargo.deps.online')]
-        if get_option('reset_lock') == true
-            cargo_lock = files('Cargo.lock')
-        endif
-    endif
-endif
-
-cat = find_program('cat')
-cargo_toml = custom_target(
-    'Cargo.toml',
-    output: 'Cargo.toml',
-    command: [cat, cargo_toml_base, cargo_deps] + cargo_patch,
-    capture: true,
-)
-
-cargo_deps = [cargo_toml]
-if get_option('online') == true and get_option('reset_lock') == true
-    cargo_lock = custom_target(
-        'Cargo.lock',
-        output: 'Cargo.lock',
-        command: [cat, cargo_lock],
-        capture: true,
-    )
-    cargo_deps += [cargo_lock]
-endif
+cargo_build_flags += ['--features', 'zbus_v1_5,clap_v4']
 
 dep_cargo = find_program('cargo')
 cargo_script = find_program('cargo.sh')

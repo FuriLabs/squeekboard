@@ -20,13 +20,13 @@ views:
         - "show_numbers preferences         space        .    Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
-        - "at numbersign dollar percent ampersand minus underscore plus parenleft parenright"
-        - "show_symbols   comma quotedbl quoteright colon semicolon exclam question  BackSpace"
+        - "@ # $ % & - _ + ( )"
+        - "show_symbols   , \" ' : ; ! ?  BackSpace"
         - "show_letters preferences         space        .    Return"
     symbols:
-        - "asciitilde quoteleft bar U00B7 squareroot Greek_pi Greek_tau division multiply paragraph"
-        - "copyright U00AE U00A3 EuroSign U00A5 asciicircum degree asterisk braceleft braceright"
-        - "show_numbers_from_symbols   backslash slash less greater equal bracketleft bracketright  BackSpace"
+        - "~ ` | · √ π τ ÷ × ¶"
+        - "© ® £ € ¥ ^ ° * { }"
+        - "show_numbers_from_symbols   \\ / < > = [ ]  BackSpace"
         - "show_letters preferences         space        .    Return"
 
 buttons:
@@ -74,91 +74,3 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
-    asterisk:
-        text: "*"
-    asciitilde:
-        text: "~"
-    quoteleft:
-        text: "`"
-    bar:
-        text: "|"
-    U00B7:
-        text: "·"
-    squareroot:
-        text: "√"
-    Greek_pi:
-        text: "π"
-    division:
-        text: "÷"
-    multiply:
-        text: "×"
-    paragraph:
-        text: "¶"
-    Greek_tau:
-        text: "τ"
-    copyright:
-        text: "©"
-    numbersign:
-        text: "#"
-    U00AE:
-        text: "®"
-    at:
-        text: "@"
-    dollar:
-        text: "$"
-    U00A3:
-        text: "£"
-    percent:
-        text: "%"
-    EuroSign:
-        text: "€"
-    ampersand:
-        text: "&"
-    U00A5:
-        text: "¥"
-    minus:
-        text: "-"
-    asciicircum:
-        text: "^"
-    underscore:
-        text: "_"
-    degree:
-        text: "°"
-    plus:
-        text: "+"
-    equal:
-        text: "="
-    parenleft:
-        text: "("
-    parenright:
-        text: ")"
-    braceleft:
-        text: "{"
-    braceright:
-        text: "}"
-    comma:
-        text: ","
-    backslash:
-        text: "\\"
-    slash:
-        text: "/"
-    quotedbl:
-        text: "\""
-    quoteright:
-        text: "'"
-    less:
-        text: "<"
-    greater:
-        text: ">"
-    colon:
-        text: ":"
-    semicolon:
-        text: ";"
-    exclam:
-        text: "!"
-    question:
-        text: "?"
-    bracketleft:
-        text: "["
-    bracketright:
-        text: "]"
