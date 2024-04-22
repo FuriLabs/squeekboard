@@ -1,34 +1,36 @@
 ---
 outlines:
-    default:       { width: 32,       height: 52 }
-    altline:       { width: 48.39024, height: 52 }
-    wide:          { width: 64,       height: 52 }
-    change-view:   { width: 48.39024, height: 52 }
-    change-view-2: { width: 64,       height: 52 }
-    spaceline:     { width: 142,      height: 52 }
-    special:       { width: 44,       height: 52 }
+    default:     { width: 32.4,   height: 52 }
+    altline:     { width: 48.39,  height: 52 }
+    large:       { width: 48.39,  height: 52 }
+    wide:        { width: 62,     height: 52 }
+    change-view: { width: 48.39,  height: 52 }
+    spaceline:   { width: 150,    height: 52 }
+    special:     { width: 48,     height: 52 }
+    placeholder: { width: 32,     height: 52 }
+    fill:        { width: 64,     height: 52 }
  
 
 views:
     base:
         - "q w e r t y u i o p å"
         - "a s d f g h j k l ö ä"
-        - "Shift_L   z x c v b n m  BackSpace"
+        - "Shift_L   z x c v b n m , BackSpace"
         - "show_numbers preferences         space        .    Return"
     upper:
         - "Q W E R T Y U I O P Å"
         - "A S D F G H J K L Ö Ä"
-        - "Shift_L   Z X C V B N M  BackSpace"
+        - "Shift_L   Z X C V B N M , BackSpace"
         - "show_numbers preferences         space        .    Return"
     numbers:
-        - "1 2 3 4 5 6 7 8 9 0"
-        - "@ # $ % & - _ + ( )"
-        - "show_symbols   , \" ' : ; ! ?  BackSpace"
+        - "§ 1 2 3 4 5 6 7 8 9 0"
+        - "@ # € $ % & - _ + ( )"
+        - "show_symbols -- , \" ' : ; ! ? BackSpace"
         - "show_letters preferences         space        .    Return"
     symbols:
-        - "~ ` | · √ π τ ÷ × ¶"
-        - "© ® £ € ¥ ^ ° * { }"
-        - "show_numbers_from_symbols   \\ / < > = [ ]  BackSpace"
+        - "µ ~ ` | · √ π τ ÷ × ¶"
+        - "½ ¤ © ® £ ¥ ^ ° * { }"
+        - "show_numbers -- \\ / < > = [ ] BackSpace"
         - "show_letters preferences         space        .    Return"
 
 buttons:
@@ -50,15 +52,10 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "change-view-2"
-        label: "123"
-    show_numbers_from_symbols:
-        action:
-            set_view: "numbers"
         outline: "change-view"
         label: "123"
     show_letters:
-        outline: "change-view-2"
+        outline: "change-view"
         action:
             set_view: "base"
         label: "ABC"
@@ -68,7 +65,7 @@ buttons:
         outline: "change-view"
         label: "*/="
     .:
-        outline: "special"
+        outline: "large"
     space:
         outline: "spaceline"
         text: " "
@@ -76,3 +73,6 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
+    --:
+        outline: "placeholder"
+        text: ""

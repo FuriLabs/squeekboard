@@ -2,6 +2,7 @@
 outlines:
     default:       { width: 54,    height: 37 }
     halfwidth:     { width: 27,    height: 37 }
+    placeholder:   { width: 27,    height: 37 }
     thin:          { width: 47.25, height: 37 }
     action:        { width: 90,    height: 37 }
     altline:       { width: 81,    height: 37 }
@@ -35,7 +36,7 @@ views:
     symbols:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
         - "~ ` · √ π τ ÷ × ¶ @"
-        - "© ® £ € ¥ ^ ° { }"
+        - "-- © ® £ € ¥ ^ ° { } --"
         - "show_numbers  % | < > = [ ]  BackSpace"
         - "show_letters show_eschars preferences         space        . Return"
     eschars:
@@ -101,7 +102,6 @@ buttons:
         label: ">_"
     .:
         outline: "large"
-        text: "."
     space:
         outline: "spaceline"
         text: " "
@@ -262,3 +262,6 @@ buttons:
         outline: "halfwidth"
     _:
         outline: "halfwidth"
+    --:
+        outline: "placeholder"
+        text: ""

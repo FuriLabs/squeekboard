@@ -13,11 +13,13 @@ sq_button:active {
     background: #747077;
 }
 
-sq_button.subtle-highlight {
+sq_button.subtle-highlight,
+sq_button.subtle-highlight-2 {
     background: #3f3e41;
 }
 
-sq_button.subtle-highlight:active {
+sq_button.subtle-highlight:active,
+sq_button.subtle-highlight-2:active {
     background: #676669;
 }
 

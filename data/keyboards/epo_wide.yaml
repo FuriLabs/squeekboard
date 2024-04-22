@@ -1,38 +1,41 @@
 ---
 outlines:
-    default:       { width: 52,    height: 42 }
-    altline:       { width: 77.52, height: 42 }
+    default:       { width: 53.75, height: 42 }
+    thin:          { width: 40,    height: 42 }
+    altline:       { width: 80.5,  height: 42 }
     wide:          { width: 91.25, height: 42 }
-    change-view:   { width: 77.52, height: 42 }
+    change-view:   { width: 80.5,  height: 42 }
     change-view-2: { width: 91.25, height: 42 }
-    spaceline:     { width: 146.7, height: 42 }
+    spaceline:     { width: 164,   height: 42 }
     special:       { width: 52,    height: 42 }
+    placeholder:   { width: 53.75, height: 42 }
+    large:         { width: 80,    height: 42 }
 
 views:
     base:
         - "q w e r t y u i o p"
         - "a s d f g h j k l"
         - "Shift_L   z x c v b n m  BackSpace"
-        - "show_numbers show_eschars preferences         space        , . Return"
+        - "show_numbers show_eschars preferences         space        .-large Return"
     upper:
         - "Q W E R T Y U I O P"
         - "A S D F G H J K L"
         - "Shift_L   Z X C V B N M  BackSpace"
-        - "show_numbers show_eschars preferences         space        ! ? Return"
+        - "show_numbers show_eschars preferences         space        !-thin ?-thin Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # $ % & - _ + ( )"
         - "show_symbols   , \" ' : ; ! ?  BackSpace"
-        - "show_letters preferences         space        . Return"
+        - "show_letters show_eschars preferences         space       .-large Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
         - "show_numbers   \\ / < > = [ ]  BackSpace"
-        - "show_letters preferences         space        . Return"
+        - "show_letters show_eschars preferences         space       ,-thin .-thin Return"
     eschars:
-        - "ĉ ĝ ĥ ĵ ŝ ŭ ?"
-        - "Ĉ Ĝ Ĥ Ĵ Ŝ Ŭ !"
-        - "show_numbers ' - 🐊 💚 🌐 . BackSpace"
+        - "-- -- ĉ ĝ ĥ ĵ ŝ ŭ ? --"
+        - "-- -- Ĉ Ĝ Ĥ Ĵ Ŝ Ŭ ! --"
+        - "show_numbers ' \" - – , . … BackSpace"
         - "show_letters show_eschars preferences         space        „ “ Return"
 
 buttons:
@@ -80,3 +83,25 @@ buttons:
         outline: "altline"
         icon: "key-enter"
         keysym: "Return"
+    --:
+        outline: "placeholder"
+        text: ""
+    .-large:
+        outline: "large"
+        text: "."
+    "!-thin":
+        outline: "thin"
+        text: "!"
+    ?-thin:
+        outline: "thin"
+        text: "?"
+    ",-thin":
+        outline: "thin"
+        text: ","
+    .-thin:
+        outline: "thin"
+        text: "."
+    „:
+        outline: "thin"
+    “:
+        outline: "thin"

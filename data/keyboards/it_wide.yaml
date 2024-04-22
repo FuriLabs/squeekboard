@@ -2,13 +2,14 @@
 # 03 october 2019
 ---
 outlines:
-    default:       { width: 52,    height: 42 }
-    altline:       { width: 77.52, height: 42 }
+    default:       { width: 53.5,  height: 42 }
+    altline:       { width: 80.25, height: 42 }
     wide:          { width: 91.26, height: 42 }
-    change-view:   { width: 77.52, height: 42 }
+    change-view:   { width: 80.25, height: 42 }
     change-view-2: { width: 91.26, height: 42 }
-    spaceline:     { width: 146.7, height: 42 }
-    special:       { width: 52, height: 42 }
+    spaceline:     { width: 134,   height: 42 }
+    special:       { width: 53.5,  height: 42 }
+    placeholder:   { width: 53.5,  height: 42 }
 
 views:
     base:
@@ -82,4 +83,6 @@ buttons:
         outline: "altline"
         icon: "key-enter"
         keysym: "Return"
-
+    --:
+        outline: "placeholder"
+        text: ""

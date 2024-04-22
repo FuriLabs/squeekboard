@@ -2,6 +2,7 @@
 outlines:
     default:       { width: 35.33,  height: 46 }
     halfwidth:     { width: 17.665, height: 46 }
+    placeholder:   { width: 17.665, height: 46 }
     narrow:        { width: 26.335, height: 46 }
     special:       { width: 44,     height: 46 }
     altline:       { width: 52.67,  height: 46 }
@@ -35,7 +36,7 @@ views:
     symbols:
         - "TabSmall Ctrl Alt ↑ ↓ ← →"
         - "~ ` · √ π τ ÷ × ¶ @"
-        - "© ® £ € ¥ ^ ° { }"
+        - "-- © ® £ € ¥ ^ ° { } --"
         - "show_numbers  % | < > = [ ]  BackSpace"
         - "show_letters preferences         space        . Return"
     actions:
@@ -222,3 +223,6 @@ buttons:
         outline: "halfwidth"
     _:
         outline: "halfwidth"
+    --:
+        outline: "placeholder"
+        text: ""

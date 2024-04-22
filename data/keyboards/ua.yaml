@@ -1,14 +1,17 @@
 ---
 outlines:
-    default:       { width: 32,  height: 52 }
-    altline:       { width: 32,  height: 52 }
-    wide:          { width: 57,  height: 52 }
-    change-view:   { width: 32,  height: 52 }
-    change-view-2: { width: 57,  height: 52 }
-    narrow:        { width: 26,  height: 52 }
-    spaceline:     { width: 107, height: 52 }
-    fill:          { width: 159, height: 52 }
-    special:       { width: 42,  height: 52 }
+    default:       { width: 32.45, height: 52 }
+    altline:       { width: 32,    height: 52 }
+    wide:          { width: 57,    height: 52 }
+    change-view:   { width: 32,    height: 52 }
+    change-view-2: { width: 57,    height: 52 }
+    narrow:        { width: 26,    height: 52 }
+    spaceline:     { width: 107,   height: 52 }
+    fill:          { width: 159,   height: 52 }
+    fill-2:        { width: 64.9,  height: 52 }
+    special:       { width: 42,    height: 52 }
+    large:         { width: 42,    height: 52 }
+    placeholder:   { width: 40,    height: 52 }
 
 views:
     base:
@@ -20,16 +23,16 @@ views:
         - "Й Ц У К Е Н Г Ш Щ З Х"
         - "Ф І В А П Р О Л Д Ж Є"
         - "Shift_L   Я Ч С М И Т Ь Б Ю  BackSpace"
-        - "show_numbers preferences    Ґ  space  Ї  CommaLarge Return"
+        - "show_numbers preferences    Ґ  space  Ї  ,-large Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # $ % & - _ + ( )"
-        - "show_symbols   , \" ' : ; ! ?  BackSpace"
+        - "show_symbols , \" ' : ; ! ? -- BackSpace"
         - "show_letters preferences         space_fill   . Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
-        - "show_numbers   \\ / < > = [ ]  BackSpace"
+        - "show_numbers \\ / < > = [ ] -- BackSpace"
         - "show_letters preferences         space_fill   . Return"
 
 buttons:
@@ -64,9 +67,9 @@ buttons:
         outline: "change-view-2"
         label: "*/="
     .:
-        outline: "special"
-    CommaLarge:
-        outline: "special"
+        outline: "large"
+    ",-large":
+        outline: "large"
         text: ","
     space:
         outline: "spaceline"
@@ -86,3 +89,14 @@ buttons:
         outline: "narrow"
     Ї:
         outline: "narrow"
+    --:
+        outline: "placeholder"
+        text: ""
+    5:
+        outline: "fill-2"
+    "&":
+        outline: "fill-2"
+    √:
+        outline: "fill-2"
+    ¥:
+        outline: "fill-2"

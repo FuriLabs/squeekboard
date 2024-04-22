@@ -1,14 +1,16 @@
 ---
 outlines:
-    default:       { width: 48,    height: 42 }
-    altline:       { width: 48,    height: 42 }
+    default:       { width: 48.75, height: 42 }
+    altline:       { width: 48.75, height: 42 }
     wide:          { width: 85.5,  height: 42 }
-    change-view:   { width: 48,    height: 42 }
+    change-view:   { width: 48.75, height: 42 }
     change-view-2: { width: 85.5,  height: 42 }
     narrow:        { width: 39,    height: 42 }
-    spaceline:     { width: 160.5, height: 42 }
-    fill:          { width: 238.5, height: 42 }
-    special:       { width: 63,    height: 42 }
+    spaceline:     { width: 190,   height: 42 }
+    fill:          { width: 268,   height: 42 }
+    fill-2:        { width: 97.5,  height: 42 }
+    special:       { width: 48.75, height: 42 }
+    placeholder:   { width: 60.75, height: 42 }
 
 views:
     base:
@@ -20,17 +22,17 @@ views:
         - "Й Ц У К Е Н Г Ш Щ З Х"
         - "Ф Ы В А П Р О Л Д Ж Э"
         - "Shift_L   Я Ч С М И Т Ь Б Ю  BackSpace"
-        - "show_numbers preferences    Ё  space  Ъ  comma Return"
+        - "show_numbers preferences    Ё  space  Ъ  , Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # $ % & - _ + ( )"
-        - "show_symbols   , \" ' : ; ! ?  BackSpace"
-        - "show_letters preferences         space_fill   . Return"
+        - "show_symbols , \" ' : ; ! ? -- BackSpace"
+        - "show_letters preferences         space-fill   . Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
-        - "show_numbers   \\ / < > = [ ]  BackSpace"
-        - "show_letters preferences         space_fill   . Return"
+        - "show_numbers \\ / < > = [ ] -- BackSpace"
+        - "show_letters preferences         space-fill   . Return"
 
 buttons:
     Shift_L:
@@ -63,15 +65,10 @@ buttons:
             set_view: "symbols"
         outline: "change-view-2"
         label: "*/="
-    .:
-        outline: "special"
-    comma:
-        outline: "special"
-        text: ","
     space:
         outline: "spaceline"
         text: " "
-    space_fill:
+    space-fill:
         outline: "fill"
         text: " "
     Return:
@@ -86,3 +83,14 @@ buttons:
         outline: "narrow"
     Ъ:
         outline: "narrow"
+    --:
+        outline: "placeholder"
+        text: ""
+    5:
+        outline: "fill-2"
+    "&":
+        outline: "fill-2"
+    √:
+        outline: "fill-2"
+    ¥:
+        outline: "fill-2"

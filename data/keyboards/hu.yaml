@@ -1,12 +1,14 @@
-# Maintained by: soyer <soyer@irl.hu>
+# Based on work by: soyer <soyer@irl.hu>
 ---
 outlines:
-    default:       { width: 35.33, height: 52 }
-    altline:       { width: 52.67, height: 52 }
-    change-view:   { width: 52.67, height: 52 }
+    default:       { width: 35.67, height: 52 }
+    altline:       { width: 53,    height: 52 }
+    change-view:   { width: 53,    height: 52 }
     change-view-2: { width: 62,    height: 52 }
-    spaceline:     { width: 99.67, height: 52 }
-    special:       { width: 35.33, height: 52 }
+    spaceline:     { width: 53.5,  height: 52 }
+    special:       { width: 35.67, height: 52 }
+    placeholder:   { width: 35.67, height: 52 }
+    placeholder-2: { width: 17.83, height: 52 }
 
 views:
     base:
@@ -30,10 +32,10 @@ views:
         - "show_numbers   \\ / § π τ [ ]  BackSpace"
         - "show_letters show_eschars preferences         space        , . - Return"
     eschars:
-        - "ö ü ó Ö Ü Ó"
-        - "í ő ú Í Ő Ú"
-        - "show_numbers é á ű É Á Ű BackSpace"
-        - "show_letters show_eschars preferences         space        „ “ Return"
+        - "-- -- ö ü ó Ö Ü Ó -- --"
+        - "-- -- í ő ú Í Ő Ú -- --"
+        - "show_numbers --- é á ű É Á Ű --- BackSpace"
+        - "show_letters show_eschars preferences         space       , „ “ Return"
 
 buttons:
     Shift_L:
@@ -80,3 +82,9 @@ buttons:
         outline: "altline"
         icon: "key-enter"
         keysym: "Return"
+    --:
+        outline: "placeholder"
+        text: ""
+    ---:
+        outline: "placeholder-2"
+        text: ""

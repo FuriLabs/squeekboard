@@ -6,6 +6,7 @@ outlines:
     change-view-2: { width: 62,     height: 52 }
     spaceline:     { width: 106.67, height: 52 }
     special:       { width: 44,     height: 52 }
+    large:         { width: 44,     height: 52 }
 
 views:
     base:
@@ -66,9 +67,9 @@ buttons:
         outline: "change-view"
         label: "*/="
     .:
-        outline: "special"
+        outline: "large"
     SlashLarge:
-        outline: "special"
+        outline: "large"
         text: "/"
     space:
         outline: "spaceline"
