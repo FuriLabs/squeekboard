@@ -35,7 +35,7 @@ build_docs:
     paths:
       - _build
   script:
-    - apt-get -y install --on-install-recommends python3-pip python3-sphinx python3-recommonmark
+    - apt-get -y install --no-install-recommends python3-pip python3-sphinx python3-recommonmark
     - ./doc/build.sh _build
   except:
     variables:
