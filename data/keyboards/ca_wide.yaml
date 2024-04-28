@@ -1,12 +1,13 @@
 ---
 outlines:
-    default:       { width: 52,    height: 42 }
-    altline:       { width: 77.52, height: 42 }
-    wide:          { width: 91.25, height: 42 }
-    change-view:   { width: 77.52, height: 42 }
-    change-view-2: { width: 91.25, height: 42 }
-    spaceline:     { width: 209,   height: 42 }
-    special:       { width: 64.76, height: 42 }
+    default:       { width: 53.7,  height: 42 }
+    altline:       { width: 80.5,  height: 42 }
+    wide:          { width: 92,    height: 42 }
+    change-view:   { width: 80.5,  height: 42 }
+    change-view-2: { width: 92,    height: 42 }
+    spaceline:     { width: 219.5,   height: 42 }
+    special:       { width: 53.7, height: 42 }
+    placeholder:   { width: 53.7,  height: 42 }
 
 views:
     base:
@@ -32,7 +33,7 @@ views:
     eschars:
         - "à â ç é è ê ë î ï ô"
         - "ù û À Â Ç É È Ê Î Ô"
-        - "show_numbers_from_symbols  ' ! ? . ,   BackSpace"
+        - "show_numbers_from_symbols -- ' ! ? . , -- BackSpace"
         - "show_letters preferences         space        show_eschars Return"
 
 buttons:
@@ -85,6 +86,6 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
-
-
-
+    --:
+        outline: "placeholder"
+        text: ""

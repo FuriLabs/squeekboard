@@ -1,13 +1,14 @@
 # Maintained by: Jordi Bossy <jordi@bossy.space>. No Copyright, enjoy!
 ---
 outlines:
-    default:       { width: 52,     height: 42 }
-    altline:       { width: 70.65,  height: 42 }
-    wide:          { width: 86.84,  height: 42 }
-    change-view:   { width: 70.65,  height: 42 }
-    change-view-2: { width: 86.84,  height: 42 }
-    spaceline:     { width: 103.03, height: 42 }
-    special:       { width: 41.21,  height: 42 }
+    default:       { width: 53.5,  height: 42 }
+    thin:          { width: 40,    height: 42 }
+    altline:       { width: 80,    height: 42 }
+    wide:          { width: 86.84, height: 42 }
+    change-view:   { width: 80,    height: 42 }
+    change-view-2: { width: 86.84, height: 42 }
+    spaceline:     { width: 126,   height: 42 }
+    special:       { width: 41.21, height: 42 }
 
 views:
     base:
@@ -29,12 +30,12 @@ views:
         - "€ $ £ ¥ % | § µ [ ]"
         - "© ® § ` ^ { } · ¡ ¿"
         - "show_numbers  « » ÷ × “ ” „ BackSpace"
-        - "show_letters show_eschars preferences    -   space        , . Return"
+        - "show_letters show_eschars preferences    --thin   space        , . Return"
     eschars:
         - "à â ç é è ê î ô ù û"
         - "À Â Ç É È Ê Î Ô Ù Û"
         - "show_numbers  æ œ ä ë ï ö ü  BackSpace"
-        - "show_letters show_eschars preferences  ñ Ñ   space        ° ß Return"
+        - "show_letters show_eschars preferences ' space        ° ß Return"
 
 buttons:
     Shift_L:
@@ -81,3 +82,20 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
+    "'":
+        outline: "thin"
+    "\"":
+        outline: "thin"
+    _:
+        outline: "thin"
+    --thin:
+        outline: "thin"
+        text: "-"
+    .:
+        outline: "thin"
+    ",":
+        outline: "thin"
+    ß:
+        outline: "thin"
+    °:
+        outline: "thin"

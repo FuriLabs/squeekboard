@@ -1,19 +1,21 @@
 ---
 outlines:
-    default:       { width: 35.33, height: 52 }
-    altline:       { width: 52.67, height: 52 }
-    wide:          { width: 62,    height: 52 }
-    change-view:   { width: 52.67, height: 52 }
+    default:       { width: 35.67, height: 52 }
+    altline:       { width: 54,    height: 52 }
+    wide:          { width: 54,    height: 52 }
+    change-view:   { width: 54,    height: 52 }
     change-view-2: { width: 62,    height: 52 }
-    spaceline:     { width: 99.67, height: 52 }
-    special:       { width: 35.33, height: 52 }
+    spaceline:     { width: 88.75, height: 52 }
+    special:       { width: 35.67, height: 52 }
+    placeholder:   { width: 35.67, height: 52 }
+    large:         { width: 71.34, height: 52 }
 
 views:
     base:
         - "q w e r t y u i o p"
         - "a s d f g h j k l"
         - "Shift_L   z x c v b n m  BackSpace"
-        - "show_numbers show_eschars preferences         space        , . Return"
+        - "show_numbers show_eschars preferences         space        .-large Return"
     upper:
         - "Q W E R T Y U I O P"
         - "A S D F G H J K L"
@@ -23,16 +25,16 @@ views:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # $ % & - _ + ( )"
         - "show_symbols   , \" ' : ; ! ?  BackSpace"
-        - "show_letters preferences         space        . Return"
+        - "show_letters show_eschars preferences         space       .-large Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
         - "show_numbers   \\ / < > = [ ]  BackSpace"
-        - "show_letters preferences         space        . Return"
+        - "show_letters show_eschars preferences         space       , . Return"
     eschars:
-        - "ĉ ĝ ĥ ĵ ŝ ŭ ?"
-        - "Ĉ Ĝ Ĥ Ĵ Ŝ Ŭ !"
-        - "show_numbers ' - 🐊 💚 🌐 . BackSpace"
+        - "-- -- ĉ ĝ ĥ ĵ ŝ ŭ ? --"
+        - "-- -- Ĉ Ĝ Ĥ Ĵ Ŝ Ŭ ! --"
+        - "show_numbers ' \" - – , . … BackSpace"
         - "show_letters show_eschars preferences         space        „ “ Return"
 
 buttons:
@@ -77,6 +79,12 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "altline"
+        outline: "wide"
         icon: "key-enter"
         keysym: "Return"
+    --:
+        outline: "placeholder"
+        text: ""
+    .-large:
+        outline: "large"
+        text: "."

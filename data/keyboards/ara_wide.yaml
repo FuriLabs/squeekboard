@@ -6,8 +6,9 @@ outlines:
     wide:          { width: 108,  height: 42 }
     change-view:   { width: 73.5, height: 42 }
     change-view-2: { width: 108,  height: 42 }
-    spaceline:     { width: 324,  height: 42 }
+    spaceline:     { width: 295,  height: 42 }
     special:       { width: 49,   height: 42 }
+    fill:          { width: 98,   height: 42 }
 
 views:
     base:
@@ -69,3 +70,21 @@ buttons:
         outline: "altline"
         icon: "key-enter"
         keysym: "Return"
+    5:
+        outline: "fill"
+        text: "5"
+    "&":
+        outline: "fill"
+        text: "&"
+    ":":
+        outline: "fill"
+        text: ":"
+    √:
+        outline: "fill"
+        text: "√"
+    ¥:
+        outline: "fill"
+        text: "¥"
+    ">":
+        outline: "fill"
+        text: ">"

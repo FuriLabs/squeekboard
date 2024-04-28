@@ -1,34 +1,35 @@
 ---
 outlines:
-    default:       { width: 35.33, height: 52 }
-    altline:       { width: 52.67, height: 52 }
+    default:       { width: 35.67, height: 52 }
+    altline:       { width: 53,    height: 52 }
     wide:          { width: 62,    height: 52 }
-    change-view:   { width: 52.67, height: 52 }
+    change-view:   { width: 53,    height: 52 }
     change-view-2: { width: 62,    height: 52 }
     spaceline:     { width: 142,   height: 52 }
     special:       { width: 44,    height: 52 }
+    large:         { width: 44,    height: 52 }
 
 views:
     base:
         - "ქ წ ე რ ტ ყ უ ი ო პ"
         - "ა ს დ ფ გ ჰ ჯ კ ლ"
         - "Shift_L ზ ხ ც ვ ბ ნ მ BackSpace"
-        - "show_numbers preferences         space        . Return"
+        - "show_numbers preferences         space    .     Return"
     upper:
         - "ქ ჭ ე ღ თ ყ უ ი ო პ"
         - "ა შ დ ფ გ ჰ ჟ კ ლ"
         - "Shift_L ძ ხ ჩ ვ ბ ნ მ BackSpace"
-        - "show_numbers preferences         space        . Return"
+        - "show_numbers preferences         space    .     Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "! @ # $ % ^ & * ( )"
         - "show_symbols   - ' \" : ; , ?   BackSpace"
-        - "show_letters preferences         space        . Return"
+        - "show_letters preferences         space    .     Return"
     symbols:
         - "+ ⨯ ÷ = / _ € £ ¥ ₾"
         - "~ ` | · √ π τ ° { }"
         - "show_numbers_from_symbols   \\ / < > = [ ]  BackSpace"
-        - "show_letters preferences         space        . Return"
+        - "show_letters preferences         space    .     Return"
 
 buttons:
     Shift_L:
@@ -66,11 +67,11 @@ buttons:
             set_view: "symbols"
         outline: "change-view"
         label: "*/="
-    .:
-        outline: "special"
     space:
         outline: "spaceline"
         text: " "
+    .:
+        outline: "large"
     Return:
         outline: "wide"
         icon: "key-enter"

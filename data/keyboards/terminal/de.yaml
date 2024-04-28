@@ -13,6 +13,7 @@ outlines:
     change-view-2:    { width: 59,     height: 46 }
     spaceline:        { width: 92.29,  height: 46 }
     small:            { width: 50.471, height: 22 }
+    placeholder:      { width: 17.665, height: 46 }
 
 views:
     base:
@@ -36,7 +37,7 @@ views:
     symbols:
         - "TabSmall Ctrl Alt ↑ ↓ ← →"
         - "~ ` · √ π τ ÷ × ¶ @"
-        - "© ® £ € ¥ ^ ° { }"
+        - "-- © ® £ € ¥ ^ ° { } --"
         - "show_numbers   % | < > = [ ]  BackSpace"
         - "show_letters show_eschars preferences         space        . Return"
     eschars:
@@ -262,3 +263,6 @@ buttons:
         outline: "subtle-highlight"
     ß:
         outline: "subtle-highlight"
+    --:
+        outline: "placeholder"
+        text: ""

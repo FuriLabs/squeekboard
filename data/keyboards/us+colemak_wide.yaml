@@ -7,15 +7,17 @@ outlines:
     change-view-2: { width: 108, height: 42 }
     spaceline:     { width: 216, height: 42 }
     special:       { width: 54,  height: 42 }
+    large:         { width: 54,  height: 42 }
+    placeholder:   { width: 54,  height: 42 }
 
 views:
     base:
-        - "q w f p g j l u y"
+        - "q w f p g j l u y --"
         - "a r s t d h n e i o"
         - "Shift_L   z x c v b k m  BackSpace"
         - "show_numbers preferences         space        . Return"
     upper:
-        - "Q W F P G J L U Y"
+        - "Q W F P G J L U Y --"
         - "A R S T D H N E I O"
         - "Shift_L   Z X C V B K M  BackSpace"
         - "show_numbers preferences         space        . Return"
@@ -67,7 +69,7 @@ buttons:
         outline: "change-view"
         label: "*/="
     .:
-        outline: "special"
+        outline: "large"
     space:
         outline: "spaceline"
         text: " "
@@ -75,3 +77,6 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
+    --:
+        outline: "placeholder"
+        text: ""

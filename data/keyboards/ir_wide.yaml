@@ -1,34 +1,36 @@
 ---
 outlines:
-    default:       { width: 54,  height: 42 }
-    altline:       { width: 81,  height: 42 }
-    wide:          { width: 108, height: 42 }
-    change-view:   { width: 81,  height: 42 }
-    change-view-2: { width: 108, height: 42 }
-    spaceline:     { width: 216, height: 42 }
-    special:       { width: 54,  height: 42 }
+    default:       { width: 44.75, height: 42 }
+    altline:       { width: 67.25, height: 42 }
+    wide:          { width: 80,    height: 42 }
+    change-view:   { width: 67.25, height: 42 }
+    change-view-2: { width: 80,    height: 42 }
+    spaceline:     { width: 198,   height: 42 }
+    special:       { width: 44.75, height: 42 }
+    placeholder:   { width: 44.75, height: 42 }
+    fill:          { width: 89.5,  height: 42 }
 
 views:
     base:
-        - "ض ص ث ق ف غ ع ه خ ح ج چ \\"
-        - "ش س ی ب ل ا ت ن م ک گ"
-        - "Shift_L ظ ط ز ر ذ د پ و ، / BackSpace"
-        - "show_numbers preferences         space     zwnj ؟ ! . Return"
+        - "ض ص ث ق ف غ ع ه خ ح ج چ"
+        - "ش س ی ب ل ا ت ن م ک گ /"
+        - "Shift_L ظ ط ز ر ذ د پ و ، BackSpace"
+        - "show_numbers preferences         space     zwnj ؟ . Return"
     upper:
-        - " ْ  ٌ  ٍ  ً  ُ  ِ  َ  ّ  ] [ @ # _"
-        - "ؤ ئ ي إ أ آ ة » « : ؛"
-        - "Shift_L ك  ٓ ژ ٰ  ‌  ٔ  ء  >  <  ؟ BackSpace"
-        - "show_numbers preferences         space        ، ؟ ! . Return"
+        - " ْ  ٌ  ٍ  ً  ُ  ِ  َ  ّ  ] [ @ #"
+        - "ؤ ئ ي إ أ آ ة » « : ؛ \\"
+        - "Shift_L ك  ٓ ژ ٰ  ‌  ٔ  ء  >  <  BackSpace"
+        - "show_numbers preferences         space        ، ؟ ! Return"
     numbers:
-        - "۱ ۲ ۳ ۴ ۵ ۶ ۷ ۸ ۹ ۰ | ="
-        - "… ٬ ٫ ﷼ ٪ ، * ) ( − _"
-        - "show_symbols + - × ÷ = ^ % / BackSpace"
-        - "show_letters preferences         space        ، ؟ ! . Return"
+        - "-- ۱ ۲ ۳ ۴ ۵ ۶ ۷ ۸ ۹ ۰ |"
+        - "… ٬ ٫ ﷼ ٪ ^ * ° ) ( − _"
+        - "show_symbols + - × ÷ = / % > <  BackSpace"
+        - "show_letters preferences         space        ، ؟ . Return"
     symbols:
-        - "& ` | · • % π τ ÷ × ¶"
-        - "© ® £ € ¥ ^ ° * { }"
-        - "show_numbers_from_symbols   \\ / < > = [ ]  BackSpace"
-        - "show_letters preferences         space        ، ؟ ! . Return"
+        - "-- & ` | · • % π τ ¶ [ ]"
+        - "© ® £ € ¥ ^ * ° { } -- --"
+        - "show_numbers_from_symbols + - × ÷ = \\ % < > BackSpace"
+        - "show_letters preferences         space        ، ! . Return"
 
 buttons:
     Shift_L:
@@ -66,8 +68,6 @@ buttons:
             set_view: "symbols"
         outline: "change-view"
         label: "*/="
-    .:
-        outline: "special"
     space:
         outline: "spaceline"
         text: " "
@@ -78,3 +78,6 @@ buttons:
     zwnj:
         icon: "zwnj"
         text: "‌"
+    --:
+        outline: "placeholder"
+        text: ""

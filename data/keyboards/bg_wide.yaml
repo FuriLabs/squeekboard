@@ -1,12 +1,13 @@
 ---
 outlines:
-    default:       { width: 48,     height: 42 }
-    altline:       { width: 68.95,  height: 42 }
-    wide:          { width: 72.01,  height: 42 }
-    change-view:   { width: 68.95,  height: 42 }
-    change-view-2: { width: 72.01,  height: 42 }
-    spaceline:     { width: 271.39, height: 42 }
-    special:       { width: 64.55,  height: 42 }
+    default:       { width: 48.75, height: 42 }
+    altline:       { width: 73.5,  height: 42 }
+    wide:          { width: 73.5,  height: 42 }
+    change-view:   { width: 73.5,  height: 42 }
+    spaceline:     { width: 292.5, height: 42 }
+    special:       { width: 48.75, height: 42 }
+    placeholder:   { width: 48.75, height: 42 }
+    fill:          { width: 97.5,  height: 42 }
 
 views:
     base:
@@ -23,12 +24,12 @@ views:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # € % & - _ + ( )"
         - "show_symbols , \" ' : ; ! ? ѝ BackSpace"
-        - "show_letters preferences         space        Return"
+        - "show_letters preferences         space    .    Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ $ ¥ ^ ° * { }"
-        - "show_numbers_from_symbols   \\ / < > = [ ]  BackSpace"
-        - "show_letters preferences         space        Return"
+        - "show_numbers -- \\ / < > = [ ]  BackSpace"
+        - "show_letters preferences         space    ,    Return"
 
 
 buttons:
@@ -50,17 +51,12 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "change-view-2"
-        label: "123"
-    show_numbers_from_symbols:
-        action:
-            set_view: "numbers"
         outline: "change-view"
         label: "123"
     show_letters:
         action:
             set_view: "base"
-        outline: "change-view-2"
+        outline: "change-view"
         label: "ABC"
     show_symbols:
         action:
@@ -74,3 +70,14 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
+    --:
+        outline: "placeholder"
+        text: ""
+    5:
+        outline: "fill"
+    "&":
+        outline: "fill"
+    √:
+        outline: "fill"
+    ¥:
+        outline: "fill"

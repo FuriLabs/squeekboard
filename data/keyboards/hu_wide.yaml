@@ -1,12 +1,13 @@
-# Maintained by: soyer <soyer@irl.hu>
+# Based on work by: soyer <soyer@irl.hu>
 ---
 outlines:
-    default:       { width: 48,  height: 42 }
-    altline:       { width: 81,  height: 42 }
-    change-view:   { width: 81,  height: 42 }
-    change-view-2: { width: 108, height: 42 }
-    spaceline:     { width: 216, height: 42 }
-    special:       { width: 48,  height: 42 }
+    default:       { width: 44.75, height: 42 }
+    altline:       { width: 81,    height: 42 }
+    change-view:   { width: 81,    height: 42 }
+    change-view-2: { width: 108,   height: 42 }
+    spaceline:     { width: 100,   height: 42 }
+    special:       { width: 44.75, height: 42 }
+    placeholder:   { width: 44.75, height: 42 }
 
 views:
     base:
@@ -20,20 +21,20 @@ views:
         - "Shift_L Í Y X C V B N M  BackSpace"
         - "show_numbers show_eschars preferences         space        ? : ! Return"
     numbers:
-        - "1 2 3 4 5 6 7 8 9 0"
-        - "@ # € % & - _ + ( )"
-        - "show_symbols   ; \" ' : = < >  BackSpace"
+        - "-- 1 2 3 4 5 6 7 8 9 0 --"
+        - "-- @ # € % & - _ + ( ) --"
+        - "show_symbols   ; \" ' : = < > -- BackSpace"
         - "show_letters show_eschars preferences         space        , . - Return"
     symbols:
-        - "~ ` ´ | · √ µ ÷ × ¶"
-        - "© ® £ $ ¥ ^ ° * { }"
-        - "show_numbers   \\ / § π τ [ ]  BackSpace"
+        - "-- ~ ` ´ | · √ µ ÷ × ¶ --"
+        - "-- © ® £ $ ¥ ^ ° * { } --"
+        - "show_numbers   \\ / § π τ [ ] -- BackSpace"
         - "show_letters show_eschars preferences         space        , . - Return"
     eschars:
-        - "ö ü ó Ö Ü Ó"
-        - "í ő ú Í Ő Ú"
-        - "show_numbers é á ű É Á Ű BackSpace"
-        - "show_letters show_eschars preferences         space        „ “ Return"
+        - "-- -- -- ö ü ó Ö Ü Ó -- -- --"
+        - "-- -- -- í ő ú Í Ő Ú -- -- --"
+        - "show_numbers -- é á ű É Á Ű -- BackSpace"
+        - "show_letters show_eschars preferences         space       , „ “ Return"
 
 buttons:
     Shift_L:
@@ -80,3 +81,6 @@ buttons:
         outline: "altline"
         icon: "key-enter"
         keysym: "Return"
+    --:
+        outline: "placeholder"
+        text: ""

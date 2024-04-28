@@ -7,38 +7,39 @@ outlines:
     spaceline:     { width: 106,   height: 52 }
     special:       { width: 35.33, height: 52 }
     change-view-2: { width: 35.33, height: 52 }
+    placeholder:   { width: 35.33, height: 52 }
 
 views:
     base:
         - "q w e r t z u i o p"
         - "a s d f g h j k l"
         - "Shift_L    y x c v b n m    BackSpace"
-        - "show_numbers preferences show_accents    space    , . Return"
+        - "show_numbers show_accents preferences     space    , . Return"
     upper:
         - "Q W E R T Z U I O P"
         - "A S D F G H J K L"
         - "Shift_L    Y X C V B N M    BackSpace"
-        - "show_numbers preferences show_upper_accents    space    ! ? Return"
+        - "show_numbers show_upper_accents preferences     space    ! ? Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # $ % & - _ + ( )"
         - "show_symbols    , \" ' : ; ! ?    BackSpace"
-        - "show_letters preferences show_accents    space    , . Return"
+        - "show_letters show_accents preferences     space    , . Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
         - "show_numbers    \\ / < > = [ ]    BackSpace"
-        - "show_letters preferences show_accents    space    , . Return"
+        - "show_letters show_accents preferences     space    , . Return"
     accents:
         - "ä ě é ř ť ž ů í ó ö"
-        - "á š ď ë ŕ ú ü ô ľ"
+        - "á š ď ë ŕ ú ü ô ľ --"
         - "accents_Shift_L    ý ß č ç ñ ň ĺ    BackSpace"
-        - "show_letters preferences show_accents    space    , . Return"
+        - "show_letters show_accents preferences     space    , . Return"
     upper_accents:
         - "Ä Ě É Ř Ť Ž Ů Í Ó Ö"
-        - "Á Š Ď Ë Ŕ Ú Ü Ô Ľ"
+        - "Á Š Ď Ë Ŕ Ú Ü Ô Ľ --"
         - "accents_Shift_L    Ý ẞ Č Ç Ñ Ň Ĺ    BackSpace"
-        - "show_letters preferences show_upper_accents    space    , . Return"
+        - "show_letters show_upper_accents preferences     space    , . Return"
 
 buttons:
     Shift_L:
@@ -99,3 +100,6 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
+    --:
+        outline: "placeholder"
+        text: ""

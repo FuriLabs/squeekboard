@@ -7,6 +7,7 @@ outlines:
     wide:          { width: 62,    height: 52 }
     spaceline:     { width: 141.3, height: 52 }
     special:       { width: 44,    height: 52 }
+    large:         { width: 44,    height: 52 }
 
 views:
     base:
@@ -67,7 +68,7 @@ buttons:
         outline: "change-view"
         label: "*/="
     .:
-        outline: "special"
+        outline: "large"
     space:
         outline: "spaceline"
         text: " "

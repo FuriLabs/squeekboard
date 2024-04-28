@@ -1,14 +1,16 @@
 ---
 outlines:
-    default:       { width: 48,    height: 42 }
-    altline:       { width: 48,    height: 42 }
+    default:       { width: 48.75, height: 42 }
+    altline:       { width: 48.75, height: 42 }
     wide:          { width: 85.5,  height: 42 }
-    change-view:   { width: 48,    height: 42 }
+    change-view:   { width: 48.75, height: 42 }
     change-view-2: { width: 85.5,  height: 42 }
     narrow:        { width: 39,    height: 42 }
-    spaceline:     { width: 160.5, height: 42 }
-    fill:          { width: 238.5, height: 42 }
-    special:       { width: 63,    height: 42 }
+    spaceline:     { width: 190,   height: 42 }
+    fill:          { width: 268,   height: 42 }
+    fill-2:        { width: 97.5,  height: 42 }
+    special:       { width: 48.75, height: 42 }
+    placeholder:   { width: 60.75, height: 42 }
 
 views:
     base:
@@ -20,16 +22,16 @@ views:
         - "Й Ц У К Е Н Г Ш Щ З Х"
         - "Ф І В А П Р О Л Д Ж Є"
         - "Shift_L   Я Ч С М И Т Ь Б Ю  BackSpace"
-        - "show_numbers preferences    Ґ  space  Ї  CommaLarge Return"
+        - "show_numbers preferences    Ґ  space  Ї  , Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # $ % & - _ + ( )"
-        - "show_symbols   , \" ' : ; ! ?  BackSpace"
+        - "show_symbols , \" ' : ; ! ? -- BackSpace"
         - "show_letters preferences         space_fill   . Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
-        - "show_numbers   \\ / < > = [ ]  BackSpace"
+        - "show_numbers \\ / < > = [ ] -- BackSpace"
         - "show_letters preferences         space_fill   . Return"
 
 buttons:
@@ -63,11 +65,6 @@ buttons:
             set_view: "symbols"
         outline: "change-view-2"
         label: "*/="
-    .:
-        outline: "special"
-    CommaLarge:
-        outline: "special"
-        text: ","
     space:
         outline: "spaceline"
         text: " "
@@ -86,3 +83,14 @@ buttons:
         outline: "narrow"
     Ї:
         outline: "narrow"
+    --:
+        outline: "placeholder"
+        text: ""
+    5:
+        outline: "fill-2"
+    "&":
+        outline: "fill-2"
+    √:
+        outline: "fill-2"
+    ¥:
+        outline: "fill-2"
