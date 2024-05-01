@@ -388,8 +388,10 @@ Outcome:
                 // Changes the point at which the layout-shape is changed to the wide shape.
                 // Slightly higher aspect-ratio (16:5.1) than the expected aspect-ratio of the wide shape (16:5).
                 // 5.1/16 = 1/3.14 = 172/540 (rounded, height / width)
+                // FIXME: This should be 172/540, but it is currently used as a workaround to improve shape-selection.
+                // For more information about that, read https://gitlab.gnome.org/World/Phosh/squeekboard/-/merge_requests/639 .
                 let max_wide_height = Rational {
-                    numerator: 172,
+                    numerator: 188,
                     denominator: 540,
                 };
                 let ideal_panel_height = Rational {
@@ -398,8 +400,6 @@ Outcome:
                 };
                 // Reduce height to match what the layout can fill.
                 // For this, we need to guess if normal or wide will be picked.
-                // Example: When the height of Squeekboard is 172 pixels and the width of the display
-                // is at least 540 pixels, then the wide shape will be chosen.
                 // This must match `eek_gtk_keyboard.c::get_type`.
                 // TODO: query layout database and choose one directly
                 let (arrangement, height_as_widths) = {
@@ -826,12 +826,12 @@ pub mod test {
     #[test]
     fn size_fairphone_2() {scaling_test_base(1080, 1920, 62, 111, 3, 630)}
     #[test]
-    fn size_fairphone_2_horizontal() {scaling_test_base(1920, 1080, 111, 62, 3, 540)}
+    fn size_fairphone_2_horizontal() {scaling_test_wide(1920, 1080, 111, 62, 3, 540)}
 
     #[test]
     fn size_xperia_xa2() {scaling_test_base(1080, 1920, 65, 115, 3, 630)}
     #[test]
-    fn size_xperia_xa2_horizontal() {scaling_test_base(1920, 1080, 115, 65, 3, 540)}
+    fn size_xperia_xa2_horizontal() {scaling_test_wide(1920, 1080, 115, 65, 3, 540)}
 
     #[test]
     fn size_galaxy_e7() {scaling_test_base(720, 1280, 69, 122, 2, 396)}
@@ -925,7 +925,7 @@ pub mod test {
     fn size_steam_deck_oled_horizontal() {scaling_test_wide(1280, 800, 159, 100, 1, 306)}
 
     #[test]
-    fn size_legion_go() {scaling_test_base(1600, 2560, 119, 190, 1, 510)}
+    fn size_legion_go() {scaling_test_wide(1600, 2560, 119, 190, 1, 510)}
     #[test]
     fn size_legion_go_horizontal() {scaling_test_wide(2560, 1600, 190, 119, 1, 511)}
 
