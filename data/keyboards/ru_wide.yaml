@@ -2,15 +2,14 @@
 outlines:
     default:       { width: 48.75, height: 42 }
     altline:       { width: 48.75, height: 42 }
-    wide:          { width: 85.5,  height: 42 }
+    wide:          { width: 97.5,  height: 42 }
     change-view:   { width: 48.75, height: 42 }
-    change-view-2: { width: 85.5,  height: 42 }
-    narrow:        { width: 39,    height: 42 }
-    spaceline:     { width: 190,   height: 42 }
-    fill:          { width: 268,   height: 42 }
+    change-view-2: { width: 97.5,  height: 42 }
+    spaceline:     { width: 146.5, height: 42 }
+    fill:          { width: 244,   height: 42 }
     fill-2:        { width: 97.5,  height: 42 }
     special:       { width: 48.75, height: 42 }
-    placeholder:   { width: 60.75, height: 42 }
+    placeholder:   { width: 48.75, height: 42 }
 
 views:
     base:
@@ -26,12 +25,12 @@ views:
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # $ % & - _ + ( )"
-        - "show_symbols , \" ' : ; ! ? -- BackSpace"
+        - "show_symbols , \" ' : ; ! ? BackSpace-wide"
         - "show_letters preferences         space-fill   . Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
-        - "show_numbers \\ / < > = [ ] -- BackSpace"
+        - "show_numbers \\ / < > = [ ] BackSpace-wide"
         - "show_letters preferences         space-fill   . Return"
 
 buttons:
@@ -44,6 +43,10 @@ buttons:
         icon: "key-shift"
     BackSpace:
         outline: "altline"
+        icon: "edit-clear-symbolic"
+        action: "erase"
+    BackSpace-wide:
+        outline: "wide"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -75,14 +78,6 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
-    ё:
-        outline: "narrow"
-    Ё:
-        outline: "narrow"
-    ъ:
-        outline: "narrow"
-    Ъ:
-        outline: "narrow"
     --:
         outline: "placeholder"
         text: ""

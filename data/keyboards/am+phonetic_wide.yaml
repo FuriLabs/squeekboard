@@ -5,9 +5,10 @@
 outlines:
     default:       { width: 51.7,   height: 42 }
     altline:       { width: 77.5,   height: 42 }
-    wide:          { width: 77.5,   height: 42 }
+    wide:          { width: 103.35, height: 42 }
     change-view:   { width: 77.5,   height: 42 }
-    spaceline:     { width: 392,    height: 42 }
+    change-view-2: { width: 103.35, height: 42 }
+    spaceline:     { width: 340.3,  height: 42 }
     special:       { width: 62.27,  height: 42 }
     large:         { width: 62.27,  height: 42 }
     placeholder:   { width: 51.7,   height: 42 }
@@ -35,7 +36,7 @@ views:
         - "* # \\ % < > = [ ]"
         - "© $ / & - _ + ( )"
         - "® £ € ¥ ^ ° @ { }"
-        - "show_numbers ~ ` | · √ π τ ÷ × ¶ BackSpace"
+        - "show_numbers_from_symbols ~ ` | · √ π τ ÷ × ¶ BackSpace"
         - "show_letters preferences         space        . Return"
 
 buttons:
@@ -57,12 +58,17 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
+        outline: "change-view-2"
+        label: "123"
+    show_numbers_from_symbols:
+        action:
+            set_view: "numbers"
         outline: "change-view"
         label: "123"
     show_letters:
         action:
             set_view: "base"
-        outline: "change-view"
+        outline: "change-view-2"
         label: "ԱԲԳ"
     show_symbols:
         action:

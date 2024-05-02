@@ -32,12 +32,12 @@ views:
         - "show_letters show_accents preferences     space    , . Return"
     accents:
         - "ä ě é ř ť ž ů í ó ö"
-        - "á š ď ë ŕ ú ü ô ľ --"
+        - "á š ď ë ŕ ú ü ô ľ"
         - "accents_Shift_L    ý ß č ç ñ ň ĺ    BackSpace"
         - "show_letters show_accents preferences     space    , . Return"
     upper_accents:
         - "Ä Ě É Ř Ť Ž Ů Í Ó Ö"
-        - "Á Š Ď Ë Ŕ Ú Ü Ô Ľ --"
+        - "Á Š Ď Ë Ŕ Ú Ü Ô Ľ"
         - "accents_Shift_L    Ý ẞ Č Ç Ñ Ň Ĺ    BackSpace"
         - "show_letters show_upper_accents preferences     space    , . Return"
 
