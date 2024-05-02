@@ -1,3 +1,56 @@
+squeekboard (1.39.0) experimental; urgency=medium
+
+  [ MoonlightWave-12 ]
+  * Add "debian/control.debian-testing" to work around removed dependencies
+  * CI: Add workaround for dependencies removed from Debian Testing
+  * Document workaround for installing build-dependencies on Debian Testing
+  * Adwaita:dark: Add visual feedback when pressing highlighted buttons
+  * data/style.css: Highlight "wide"-outline
+  * Add border at the bottom of view-changing buttons
+  * Add placeholder-buttons to emoji-layout
+  * Add a button-style for subtle highlighting
+  * Add more scaling-tests
+  * .gitignore: Add "target"-folder
+  * COPYING: Update links to match the current revision of the GPLv3
+  * Change "http://" to "https://"
+  * Change "GPL-3.0+" to "GPL-3.0-or-later"
+  * doc/*: Fix typos and add a few small improvements
+  * Add syntax-highlighting in the documentation
+  * Improve Documentation
+  * Layouts: Remove "show_numbers_from_symbols" where it is not used
+  * Layouts: Use "change-view"-outline for all view-changing buttons
+  * Layouts: Fix styling of "preferences"- and "BackSpace"-buttons
+  * Layouts: Make the "pl_wide"-layout identical to the "pl"-layout
+  * Layouts: Use double-quotes more consistently
+  * it.yaml and it_wide.yaml: Make `show_eschars` behave like on other layouts
+  * Layouts: Fix some small inconsistencies and remove unused outlines
+  * Layouts: Fix indentation
+  * doc/index.md: Fix link
+  * Improve Japanese layout
+  * Add even more scaling-tests
+  * src/state.rs: Add comments related to shape-selection
+  * doc/layouts.md: Mention the expected aspect-ratios for layouts
+  * ci: Fix typo to actually not install recommended packages in `build_docs`
+  * debian/control: Add `Rules-Requires-Root: no`
+  * Reduce layout-changes when switching views and make layouts more consistent
+  * Increase the height of small buttons on top of the terminal-layouts
+  * ci: Allow failure of the `build_deb`-CI-job
+  * Add an additional view for the accents on the Portuguese (Brazil) layout
+  * Add Turkish [tr] and [tr+f] layouts
+  * Add a Slovenian [si] layout
+  * Improve shape-selection with a workaround
+  * Layouts: Add various small size-improvements and fixes for some layouts
+  * Layouts: Optimise the size of some buttons on some layouts
+  * Reduce the contrast of the border at the bottom of `change-view`-buttons
+  * debian/control.debian-testing: Add `Rules-Requires-Root: no`
+  * Cargo.lock: Update dependencies
+  * Release 1.39.0
+
+  [ Daniel Șerbănescu ]
+  * Update Romanian translation
+
+ -- MoonlightWave-12 <135532-MoonlightWave-12@users.noreply.gitlab.gnome.org>  Sun, 05 May 2024 00:32:42 +0200
+
 squeekboard (1.38.0) experimental; urgency=medium
 
   [ Arnaud Ferraris ]

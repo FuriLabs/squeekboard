@@ -1,3 +1,32 @@
+1.39.0
+------------------
+
+New button-styles:
+ - `change-view`: Highlighted like `special`, but with a border at the bottom.
+ - `character-group`: Like `change-view`, but with less highlighting.
+ - `placeholder`: Less contrast to the background and does not visually change when pressed.
+ - `subtle-highlight`: For highlighting commonly used characters in accent-views, for example.
+
+New layouts:
+ - Portuguese
+ - Slovenian
+ - Turkish (F-layout)
+ - Turkish (Q-layout)
+
+Remade layout:
+ - Portuguese (Brazil): A view for accents has been added.
+
+Changes:
+ - The new button-styles are used in the available layouts, where appropriate.
+ - The top rows of the terminal-layouts are a little taller.
+ - Squeekboard will choose the wide shape of layouts, for more displays in horizontal orientation.
+ - Highlighted buttons now show visual feedback too, when pressed.
+ - Many layouts have been adjusted, so that those change their form less when switching views.
+ - Various small issues have been fixed, to make layouts more consistent.
+
+Development:
+ - Scaling-tests for many display-types have been added.
+
 1.38.0
 ------------------
 

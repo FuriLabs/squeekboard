@@ -235,7 +235,7 @@ However, it is not necessary to make a new release of Squeekboard for every rele
 
 Bug-fix-releases should be made more often, preferably directly after important bug-fixes have been made.
 
-### 1. Update `Cargo.lock`.
+### 1. Update `Cargo.lock`
 
 While the file is not actually used, it's a good idea to save the config in case some rare bug appears in dependencies.
 
@@ -263,7 +263,7 @@ Packaging is in the `debian/` directory, and creates builds that can be quickly 
 
 ```sh
 $ cd squeekboard-source
-$ EMAIL=my_address@example.com gbp dch --multimaint-merge  --ignore-branch --git-author --distribution=experimental --new-version=x.y.z
+$ EMAIL=my_address@example.com gbp dch --multimaint-merge --ignore-branch --git-author --distribution=experimental --new-version=x.y.z
 ```
 
 Inspect `debian/changelog`, and make sure the first line contains the correct version number and suite. For example:
@@ -294,7 +294,7 @@ Changes:
 Generate a commit message from the NEWS file:
 
 ```sh
-$ tools/make_message | git commit --file=- ...
+$ ./tools/make_message | git commit --file=- ...
 ```
 
 If the commit message looks wrong, fix the NEWS file, and do `git commit --amend`.
