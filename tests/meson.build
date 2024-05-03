@@ -95,6 +95,8 @@ foreach layout : [
     'ru', 'ru_wide',
     'se', 'se_wide',
     'th', 'th_wide',
+    'tr', 'tr_wide',
+    'tr+f', 'tr+f_wide',
     'ua', 'ua_wide',
     'us+colemak', 'us+colemak_wide',
     'us+dvorak', 'us+dvorak_wide',
