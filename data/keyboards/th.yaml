@@ -1,14 +1,14 @@
 ---
 outlines:
-    default:       { width: 34,     height: 52 }
-    large:         { width: 44,     height: 52 }
-    altline:       { width: 52.67,  height: 52 }
-    wide:          { width: 62,     height: 52 }
-    change-view:   { width: 52.67,  height: 52 }
-    change-view-2: { width: 62,     height: 52 }
-    spaceline:     { width: 233.34, height: 52 }
-    special:       { width: 44,     height: 52 }
-    placeholder:   { width: 34,     height: 52 }
+    default:       { width: 34,    height: 52 }
+    large:         { width: 44,    height: 52 }
+    altline:       { width: 52.67, height: 52 }
+    wide:          { width: 86.67, height: 52 }
+    change-view:   { width: 52.67, height: 52 }
+    change-view-2: { width: 86.67, height: 52 }
+    spaceline:     { width: 184,   height: 52 }
+    special:       { width: 44,    height: 52 }
+    placeholder:   { width: 34,    height: 52 }
 
 views:
     base:

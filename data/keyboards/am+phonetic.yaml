@@ -3,14 +3,15 @@
 # Oct 2021
 ---
 outlines:
-    default:       { width: 34.3, height: 52 }
-    altline:       { width: 52,   height: 52 }
-    wide:          { width: 52,   height: 52 }
-    change-view:   { width: 52,   height: 52 }
-    spaceline:     { width: 255,  height: 52 }
-    special:       { width: 44,   height: 52 }
-    large:         { width: 44,   height: 52 }
-    placeholder:   { width: 34.3, height: 52 }
+    default:       { width: 34.3,   height: 52 }
+    altline:       { width: 52,     height: 52 }
+    wide:          { width: 104,    height: 52 }
+    change-view:   { width: 52,     height: 52 }
+    change-view-2: { width: 104,    height: 52 }
+    spaceline:     { width: 150.99, height: 52 }
+    special:       { width: 44,     height: 52 }
+    large:         { width: 44,     height: 52 }
+    placeholder:   { width: 34.3,   height: 52 }
 
 views:
     base:
@@ -35,7 +36,7 @@ views:
         - "* # \\ % < > = [ ]"
         - "© $ / & - _ + ( )"
         - "® £ € ¥ ^ ° @ { }"
-        - "show_numbers ~ ` | · √ π τ ÷ × ¶ BackSpace"
+        - "show_numbers_from_symbols ~ ` | · √ π τ ÷ × ¶ BackSpace"
         - "show_letters preferences         space        . Return"
 
 buttons:
@@ -57,12 +58,17 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
+        outline: "change-view-2"
+        label: "123"
+    show_numbers_from_symbols:
+        action:
+            set_view: "numbers"
         outline: "change-view"
         label: "123"
     show_letters:
         action:
             set_view: "base"
-        outline: "change-view"
+        outline: "change-view-2"
         label: "ԱԲԳ"
     show_symbols:
         action:
