@@ -1,34 +1,40 @@
 ---
 outlines:
-    default:       { width: 52,    height: 42 }
-    altline:       { width: 77.52, height: 42 }
-    wide:          { width: 91.25, height: 42 }
-    change-view:   { width: 77.52, height: 42 }
-    change-view-2: { width: 91.25, height: 42 }
-    spaceline:     { width: 209,   height: 42 }
-    special:       { width: 64.76, height: 42 }
+    default:     { width: 53.75, height: 42 }
+    thin:        { width: 40.5,  height: 42 }
+    altline:     { width: 81,    height: 42 }
+    wide:        { width: 92,    height: 42 }
+    change-view: { width: 81,    height: 42 }
+    spaceline:   { width: 149.5, height: 42 }
+    special:     { width: 53.75, height: 42 }
+    large:       { width: 81,    height: 42 }
 
 views:
     base:
         - "q w e r t y u i o p"
         - "a s d f g h j k l ç"
         - "Shift_L   z x c v b n m  BackSpace"
-        - "show_numbers preferences         space     , Return"
+        - "show_numbers show_eschars preferences         space     .-large Return"
     upper:
         - "Q W E R T Y U I O P"
         - "A S D F G H J K L Ç"
         - "Shift_L   Z X C V B N M  BackSpace"
-        - "show_numbers preferences         space     . Return"
+        - "show_numbers show_eschars preferences         space     ,-large Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
-        - "à À á Á ã Ã â Â é É"
-        - "show_symbols   ê Ê í Í ó Ó ô Ô"
-        - "show_letters        õ Õ ú Ú ü Ü . BackSpace"
+        - "@ # $ % & - _ + ( )"
+        - "show_symbols   , \" ' : ; ! ?  BackSpace"
+        - "show_letters show_eschars preferences space º .-thin Return"
     symbols:
-        - "@ # $ % - + ÷ × = ≠"
-        - "( ) § & < > / * { }"
-        - "show_numbers_from_symbols     º \" ' : ; ! ?  BackSpace"
-        - "show_letters preferences         space        . Return"
+        - "~ ` | · √ π τ ÷ × ¶"
+        - "© ® £ € ¥ ^ ° * { }"
+        - "show_numbers   \\ / < > = [ ]  BackSpace"
+        - "show_letters show_eschars preferences         space       ≠ § Return"
+    eschars:
+        - "À Á Ã Â É Ê Í Ó Ô Õ"
+        - "à á ã â é ê í ó ô õ "
+        - "show_numbers Ú Ü ú ü ! ? . BackSpace"
+        - "show_letters show_eschars preferences         space    « »    Return"
 
 buttons:
     Shift_L:
@@ -49,25 +55,31 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "change-view-2"
-        label: "1ã"
-    show_numbers_from_symbols:
-        action:
-            set_view: "numbers"
         outline: "change-view"
-        label: "1ã"
+        label: "123"
     show_letters:
         action:
             set_view: "base"
-        outline: "change-view-2"
+        outline: "change-view"
         label: "ABC"
     show_symbols:
         action:
             set_view: "symbols"
         outline: "change-view"
         label: "*/="
-    .:
-        outline: "special"
+    show_eschars:
+        action:
+            locking:
+                lock_view: "eschars"
+                unlock_view: "base"
+        outline: "change-view"
+        label: "Ãã"
+    .-large:
+        outline: "large"
+        text: "."
+    ",-large":
+        outline: "large"
+        text: ","
     space:
         outline: "spaceline"
         text: " "
@@ -75,3 +87,16 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
+    «:
+        outline: "thin"
+    »:
+        outline: "thin"
+    º:
+        outline: "thin"
+    .-thin:
+        outline: "thin"
+        text: "."
+    ≠:
+        outline: "thin"
+    §:
+        outline: "thin"

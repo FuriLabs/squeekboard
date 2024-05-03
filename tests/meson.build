@@ -89,6 +89,7 @@ foreach layout : [
     'it+fur', 'it+fur_wide',
     'jp+kana','jp+kana_wide',
     'no', 'no_wide',
+    'pt', 'pt_wide',
     'pl', 'pl_wide',
     'ro', 'ro_wide',
     'ru', 'ru_wide',
@@ -99,16 +100,11 @@ foreach layout : [
     'us+dvorak', 'us+dvorak_wide',
 
     # Terminal keyboards
-    'terminal/de',
-    'terminal/de_wide',
-    'terminal/es',
-    'terminal/es_wide',
-    'terminal/fr', 
-    'terminal/fr_wide', 
-    'terminal/us',
-    'terminal/us_wide',
-    'terminal/us+dvorak',
-    'terminal/us+dvorak_wide',
+    'terminal/de', 'terminal/de_wide',
+    'terminal/es', 'terminal/es_wide',
+    'terminal/fr', 'terminal/fr_wide',
+    'terminal/us', 'terminal/us_wide',
+    'terminal/us+dvorak', 'terminal/us+dvorak_wide',
     
     # Block: Not languages.
     'emoji/us', 'emoji/us_wide',
