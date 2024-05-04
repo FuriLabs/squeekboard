@@ -3,15 +3,17 @@
 outlines:
     default:          { width: 73,  height: 60 }
     special:          { width: 73,  height: 60 }
-    altline:          { width: 110, height: 60 }
-    wide:             { width: 110, height: 60 }
-    change-view:      { width: 110, height: 60 }
-    spaceline:        { width: 291, height: 60 }
     subtle-highlight: { width: 73,  height: 60 }
+    fill:             { width: 110, height: 60 }
+    altline:          { width: 110, height: 60 }
+    change-view:      { width: 110, height: 60 }
+    wide:             { width: 146, height: 60 }
+    change-view-2:    { width: 146, height: 60 }
+    spaceline:        { width: 256, height: 60 }
 
 views:
     base:
-        - "; ς ε ρ τ υ θ ι ο π"
+        - "; ς ε ρ τ υ θ ι ο π-fill"
         - "α σ δ φ γ η ξ κ λ show_accented"
         - "Shift_L ζ χ ψ ω β ν μ BackSpace"
         - "show_numbers preferences space . ,-subtle-highlight Return"
@@ -21,7 +23,7 @@ views:
         - "Shift_L Ζ Χ Ψ Ω Β Ν Μ BackSpace"
         - "show_numbers preferences space ·-subtle-highlight ᾿ Return"
     accented:
-        - "ά έ ή ί ϊ ΐ ό ύ ϋ ώ "
+        - "ά έ ή ί ϊ ΐ ό ύ ϋ ώ"
         - "Ά Έ Ή Ί Ϊ Ό Ύ Ϋ Ώ show_accented"
         - "Ϗ ϐ ϑ ϗ ϖ ΰ ϕ – — BackSpace"
         - "show_numbers preferences space « » Return"
@@ -41,7 +43,7 @@ buttons:
             locking:
                 lock_view: "upper"
                 unlock_view: "base"
-        outline: "change-view"
+        outline: "change-view-2"
         icon: "key-shift"
     BackSpace:
         outline: "altline"
@@ -54,17 +56,17 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "change-view"
+        outline: "change-view-2"
         label: "123"
     show_letters:
         action:
             set_view: "base"
-        outline: "change-view"
+        outline: "change-view-2"
         label: "ΑΒΓ"
     show_symbols:
         action:
             set_view: "symbols"
-        outline: "change-view"
+        outline: "change-view-2"
         label: "*/="
     show_accented:
         action:
@@ -100,3 +102,18 @@ buttons:
         outline: "subtle-highlight"
     »:
         outline: "subtle-highlight"
+    π-fill:
+        outline: "fill"
+        text: "π"
+    Π:
+        outline: "fill"
+    ώ:
+        outline: "fill"
+    0:
+        outline: "fill"
+    ):
+        outline: "fill"
+    ¶:
+        outline: "fill"
+    "}":
+        outline: "fill"

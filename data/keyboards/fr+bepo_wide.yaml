@@ -5,7 +5,7 @@ outlines:
     wide:          { width: 80,  height: 42 }
     change-view:   { width: 54,  height: 42 }
     change-view-2: { width: 80,  height: 42 }
-    spaceline:     { width: 272, height: 42 }
+    spaceline:     { width: 246, height: 42 }
     special:       { width: 54,  height: 42 }
     placeholder:   { width: 54,  height: 42 }
 
@@ -77,7 +77,7 @@ buttons:
             locking:
                 lock_view: "eschars"
                 unlock_view: "base"
-        outline: "change-view"
+        outline: "change-view-2"
         label: "âÂ"
     space:
         outline: "spaceline"

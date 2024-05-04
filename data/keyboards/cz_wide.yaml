@@ -7,7 +7,6 @@ outlines:
     spaceline:     { width: 162, height: 42 }
     special:       { width: 54,  height: 42 }
     change-view-2: { width: 54,  height: 42 }
-    placeholder:   { width: 54,  height: 42 }
 
 views:
     base:
@@ -100,6 +99,3 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
-    --:
-        outline: "placeholder"
-        text: ""
