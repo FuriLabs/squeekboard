@@ -7,8 +7,8 @@ outlines:
     wide:          { width: 62,    height: 52 }
     change-view:   { width: 52.75, height: 52 }
     change-view-2: { width: 62,    height: 52 }
-    spaceline:     { width: 82.75, height: 52 }
-    special:       { width: 44,    height: 52 }
+    spaceline:     { width: 91.08, height: 52 }
+    special:       { width: 35.67, height: 52 }
     placeholder:   { width: 35.67, height: 52 }
 
 views:

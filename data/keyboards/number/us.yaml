@@ -1,15 +1,15 @@
 ---
 outlines:
-    default:   { width: 37.46341, height: 52 }
-    altline:   { width: 48.39024, height: 52 }
-    wide:      { width: 88.97561, height: 52 }
-    spaceline: { width: 120.5853, height: 52 }
+    default:   { width: 37.46,  height: 52 }
+    altline:   { width: 48.39,  height: 52 }
+    wide:      { width: 88.98,  height: 52 }
+    spaceline: { width: 120.58, height: 52 }
 
 views:
     base:
-        - "1 2 3 parenleft parenright"
-        - "4 5 6 numbersign asterisk"
-        - "7 8 9 plus minus"
+        - "1 2 3 ( )"
+        - "4 5 6 # *"
+        - "7 8 9 + -"
         - "BackSpace 0 space Return"
 
 buttons:
@@ -24,16 +24,3 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
-    asterisk:
-        text: "*"
-    numbersign:
-        text: "#"
-    minus:
-        text: "-"
-    plus:
-        text: "+"
-    parenleft:
-        text: "("
-    parenright:
-        text: ")"
-

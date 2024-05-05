@@ -28,7 +28,7 @@ sq_button.character-group {
     background: #3f3e41;
     border-bottom: 0.4999px;
     border-style: solid;
-    border-color: alpha(white, 0.25);
+    border-color: alpha(white, 0.175);
 }
 
 sq_button.emoji-group:active,
@@ -36,7 +36,7 @@ sq_button.character-group:active {
     background: #747077;
     border-bottom: 0.4999px;
     border-style: solid;
-    border-color: alpha(white, 0.5);
+    border-color: alpha(white, 0.225);
 }
 
 sq_button.change-view,
@@ -44,7 +44,7 @@ sq_button.change-view-2 {
     background: #2b292f;
     border-bottom: 0.4999px;
     border-style: solid;
-    border-color: alpha(white, 0.25);
+    border-color: alpha(white, 0.175);
 }
 
 sq_button.change-view:active,
@@ -52,7 +52,7 @@ sq_button.change-view-2:active {
     background: #747077;
     border-bottom: 0.4999px;
     border-style: solid;
-    border-color: alpha(white, 0.5);
+    border-color: alpha(white, 0.225);
 }
 
 sq_button.placeholder,

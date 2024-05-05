@@ -6,21 +6,22 @@
 outlines:
     default:          { width: 74,    height: 60 }
     special:          { width: 74,    height: 60 }
+    placeholder:      { width: 74,    height: 60 }
+    subtle-highlight: { width: 74,    height: 60 }
+    fill:             { width: 97.44, height: 60 }
     altline:          { width: 97.44, height: 60 }
     large:            { width: 97.44, height: 60 }
-    wide:             { width: 114.7, height: 60 }
     change-view:      { width: 97.44, height: 60 }
-    change-view-2:    { width: 114.7, height: 60 }
-    character-group:  { width: 122.1, height: 60 }
+    wide:             { width: 114.7, height: 60 }
+    character-group:  { width: 133.2, height: 60 }
+    placeholder-2:    { width: 133.2, height: 60 }
+    change-view-2:    { width: 148,   height: 60 }
     spaceline:        { width: 279,   height: 60 }
     spaceline-2:      { width: 427,   height: 60 }
-    subtle-highlight: { width: 74,    height: 60 }
-    placeholder:      { width: 74,    height: 60 }
-    placeholder-2:    { width: 122.1, height: 60 }
 
 views:
     base:
-        - "; ς ε ρ τ υ θ ι ο π"
+        - "; ς ε ρ τ υ θ ι ο π-fill"
         - "α σ δ φ γ η ξ κ λ show_accents"
         - "Shift_L ζ χ ψ ω β ν μ BackSpace"
         - "show_numbers preferences space . ,-subtle-highlight Return"
@@ -246,3 +247,26 @@ buttons:
         text: ""
     ᾿:
         outline: "large"
+    π-fill:
+        outline: "fill"
+        text: "π"
+    Π:
+        outline: "fill"
+    0:
+        outline: "fill"
+    ):
+        outline: "fill"
+    ¶:
+        outline: "fill"
+    "}":
+        outline: "fill"
+    ώ:
+        outline: "fill"
+    ῑ:
+        outline: "fill"
+    ᾠ:
+        outline: "fill"
+    ᾤ:
+        outline: "fill"
+    ᾢ:
+        outline: "fill"

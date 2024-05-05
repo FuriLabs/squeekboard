@@ -5,16 +5,17 @@
 ---
 outlines:
     default:          { width: 40,    height: 60 }
-    altline:          { width: 52.67, height: 60 }
-    wide:             { width: 62,    height: 60 }
-    change-view:      { width: 52.67, height: 60 }
-    change-view-2:    { width: 62,    height: 60 }
-    spaceline:        { width: 138,   height: 60 }
     subtle-highlight: { width: 40,    height: 60 }
+    fill:             { width: 52.67, height: 60 }
+    altline:          { width: 52.67, height: 60 }
+    change-view:      { width: 52.67, height: 60 }
+    wide:             { width: 80,    height: 60 }
+    change-view-2:    { width: 80,    height: 60 }
+    spaceline:        { width: 120,   height: 60 }
 
 views:
     base:
-        - "; ς ε ρ τ υ θ ι ο π"
+        - "; ς ε ρ τ υ θ ι ο π-fill"
         - "α σ δ φ γ η ξ κ λ show_accented"
         - "Shift_L ζ χ ψ ω β ν μ BackSpace"
         - "show_numbers preferences space . ,-subtle-highlight Return"
@@ -24,7 +25,7 @@ views:
         - "Shift_L Ζ Χ Ψ Ω Β Ν Μ BackSpace"
         - "show_numbers preferences space ·-subtle-highlight ᾿ Return"
     accented:
-        - "ά έ ή ί ϊ ΐ ό ύ ϋ ώ "
+        - "ά έ ή ί ϊ ΐ ό ύ ϋ ώ"
         - "Ά Έ Ή Ί Ϊ Ό Ύ Ϋ Ώ show_accented"
         - "Ϗ ϐ ϑ ϗ ϖ ΰ ϕ – — BackSpace"
         - "show_numbers preferences space « » Return"
@@ -103,3 +104,18 @@ buttons:
         outline: "subtle-highlight"
     »:
         outline: "subtle-highlight"
+    π-fill:
+        outline: "fill"
+        text: "π"
+    Π:
+        outline: "fill"
+    ώ:
+        outline: "fill"
+    0:
+        outline: "fill"
+    ):
+        outline: "fill"
+    ¶:
+        outline: "fill"
+    "}":
+        outline: "fill"
