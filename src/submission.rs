@@ -112,6 +112,25 @@ impl Submission {
         keycodes: &Vec<KeyCode>,
         time: Timestamp,
     ) {
+        let should_submit_on_down = match data {
+            SubmitData::Erase => true,
+            _ => false,
+        };
+        
+        if !should_submit_on_down {
+            return;
+        }
+
+        self.handle_press_internal(key_id, data, keycodes, time);
+    }
+
+    fn handle_press_internal(
+        &mut self,
+        key_id: KeyStateId,
+        data: SubmitData,
+        keycodes: &Vec<KeyCode>,
+        time: Timestamp,
+    ) {
         let mods_are_on = !self.modifiers_active.is_empty();
 
         let was_committed_as_text = match (&mut self.imservice, mods_are_on) {
@@ -187,7 +206,23 @@ impl Submission {
         self.pressed.push((key_id, submit_action));
     }
     
-    pub fn handle_release(&mut self, key_id: KeyStateId, time: Timestamp) {
+    pub fn handle_release(
+        &mut self,
+        key_id: KeyStateId,
+        data: SubmitData,
+        keycodes: &Vec<KeyCode>,
+        time: Timestamp,
+        is_drag: bool,
+    ) {
+        let should_submit_on_down = match data {
+            SubmitData::Erase => true,
+            _ => false,
+        };
+
+        if !should_submit_on_down && !is_drag {
+            self.handle_press_internal(key_id.clone(), data, keycodes, time);
+        }
+
         let index = self.pressed.iter().position(|(id, _)| *id == key_id);
         if let Some(index) = index {
             let (_id, action) = self.pressed.remove(index);
@@ -212,6 +247,26 @@ impl Submission {
                         // and do nothing at release time.
                         _ => {},
                     };
+                },
+            }
+        };
+    }
+
+    fn force_release_internal(&mut self, key_id: KeyStateId, time: Timestamp) {
+        let index = self.pressed.iter().position(|(id, _)| *id == key_id);
+        if let Some(index) = index {
+            let (_id, action) = self.pressed.remove(index);
+            match action {
+                SubmittedAction::IMService => {},
+                SubmittedAction::VirtualKeyboard(keycodes) => {
+                    for keycode in keycodes {
+                        self.select_keymap(keycode.keymap_idx, time);
+                        self.virtual_keyboard.switch(
+                            keycode.code,
+                            PressType::Released,
+                            time,
+                        );
+                    }
                 },
             }
         };
@@ -279,7 +334,7 @@ impl Submission {
                 }
             });
         for id in virtual_pressed {
-            self.handle_release(id, time);
+            self.force_release_internal(id, time);
         }
     }
 

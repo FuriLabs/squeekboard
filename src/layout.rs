@@ -243,6 +243,7 @@ pub mod c {
                     time,
                     Some((&popover_state, app_state.clone())),
                     button,
+                    false,
                 );
             }
             drawing::queue_redraw(ui_keyboard);
@@ -270,6 +271,7 @@ pub mod c {
                     Timestamp(time),
                     None, // don't switch layouts
                     button,
+                    true,
                 );
             }
         }
@@ -366,6 +368,7 @@ pub mod c {
                             time,
                             Some((&popover_state, app_state.clone())),
                             button,
+                            true,
                         );
                     }
                 }
@@ -395,6 +398,7 @@ pub mod c {
                         time,
                         Some((&popover_state, app_state.clone())),
                         button,
+                        false,
                     );
                 }
             }
@@ -1132,17 +1136,40 @@ mod seat {
         // and passed always.
         manager: Option<(&actors::popover::State, receiver::State)>,
         button_pos: &ButtonPosition,
+        is_drag: bool,
     ) -> Action{
         let button = shape.get_button(&button_pos).unwrap();
         let action = button.action.clone();
 
         // process non-view switching
         match action.clone() {
-            Action::Submit { text: _, keys: _ }
-                | Action::Erase
-            => {
-                submission.handle_release(button_pos.into(), time);
-            },
+            Action::Submit {
+                text: Some(text),
+                keys: _,
+            } => submission.handle_release(
+                button_pos.into(),
+                SubmitData::Text(&text),
+                &button.keycodes,
+                time,
+                is_drag,
+            ),
+            Action::Submit {
+                text: None,
+                keys: _,
+            } => submission.handle_release(
+                button_pos.into(),
+                SubmitData::Keycodes,
+                &button.keycodes,
+                time,
+                is_drag,
+            ),
+            Action::Erase => submission.handle_release(
+                button_pos.into(),
+                SubmitData::Erase,
+                &button.keycodes,
+                time,
+                is_drag,
+            ),
             Action::ApplyModifier(modifier) => {
                 // FIXME: key id is unneeded with stateless locks
                 let key_id = button_pos.into();
@@ -1199,6 +1226,7 @@ mod seat {
         // and passed always.
         manager: Option<(&actors::popover::State, receiver::State)>,
         button_pos: &ButtonPosition,
+        is_drag: bool,
     ) {
         // Send events
         let action = handle_release_key_cleaner(
@@ -1208,6 +1236,7 @@ mod seat {
             time,
             manager,
             button_pos,
+            is_drag,
         );
         
         // Apply state changes
