@@ -17,7 +17,6 @@
  * and let the renderer scale and center it within the widget.
  */
 
-use std::cmp;
 use std::collections::HashMap;
 use std::ffi::CString;
 use std::fmt;
@@ -26,7 +25,6 @@ use std::vec::Vec;
 use crate::action::Action;
 use crate::actors;
 use crate::drawing;
-use crate::float_ord::FloatOrd;
 use crate::keyboard::{KeyState, KeyCode, PressType};
 use crate::logging;
 use crate::popover;
@@ -812,21 +810,13 @@ impl LayoutData {
         let size = self.calculate_size();
         let h_scale = available.width / size.width;
         let v_scale = available.height / size.height;
-        // Allow up to 5% (and a bit more) horizontal stretching for filling up available space
-        let scale_x = if (h_scale / v_scale) < 1.055 { h_scale } else { v_scale };
-        let scale_y = cmp::min(FloatOrd(h_scale), FloatOrd(v_scale)).0;
-        let outside_margins = c::Transformation {
-            origin_x: (available.width - (scale_x * size.width)) / 2.0,
-            origin_y: (available.height - (scale_y * size.height)) / 2.0,
-            scale_x: scale_x,
-            scale_y: scale_y,
-        };
-        outside_margins.chain(c::Transformation {
+
+        c::Transformation {
             origin_x: self.margins.left,
             origin_y: self.margins.top,
-            scale_x: 1.0,
-            scale_y: 1.0,
-        })
+            scale_x: h_scale,
+            scale_y: v_scale,
+        }
     }
 }
 
