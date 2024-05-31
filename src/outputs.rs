@@ -27,6 +27,12 @@ pub mod c {
     #[repr(transparent)]
     #[derive(Clone, PartialEq, Copy, Debug, Eq, Hash)]
     pub struct WlOutput(*const c_void);
+    #[repr(transparent)]
+    #[derive(Clone, PartialEq, Copy, Debug, Eq, Hash)]
+    pub struct WlrOutputHead(*const c_void);
+    #[repr(transparent)]
+    #[derive(Clone, PartialEq, Copy, Debug, Eq, Hash)]
+    pub struct WlrOutputMode(*const c_void);
 
     impl WlOutput {
         const fn null() -> Self {
@@ -69,6 +75,76 @@ pub mod c {
             T, // data
             WlOutput,
             i32, // factor
+        ),
+    }
+
+    #[repr(C)]
+    struct WlrOutputHeadListener<T: COpaquePtr> {
+        name: extern fn(
+            T, // data
+            WlrOutputHead,
+            *const c_char, // name
+        ),
+        description: extern fn(
+            T, // data
+            WlrOutputHead,
+            *const c_char, // description
+        ),
+        physical_size: extern fn(
+            T, // data
+            WlrOutputHead,
+            i32, // width
+            i32, // height
+        ),
+        mode: extern fn(
+            T, // data
+            WlrOutputHead,
+            WlrOutputMode, // zwlr_output_mode_v1
+        ),
+        enabled: extern fn(
+            T, // data
+            WlrOutputHead,
+            bool, // enabled
+        ),
+        current_mode: extern fn(
+            T, // data
+            WlrOutputHead,
+            WlrOutputMode, // zwlr_output_mode_v1
+        ),
+        position: extern fn(
+            T, // data
+            WlrOutputHead,
+            i32, // x
+            i32, // y
+        ),
+        transform: extern fn(
+            T, // data
+            WlrOutputHead,
+            i32, // transform
+        ),
+        scale: extern fn(
+            T, // data
+            WlrOutputHead,
+            i32, // factor (wl fixed point)
+        ),
+        finished: extern fn(
+            T, // data
+            WlrOutputHead,
+        ),
+        make: extern fn(
+            T, // data
+            WlrOutputHead,
+            *const c_char, // make
+        ),
+        model: extern fn(
+            T, // data
+            WlrOutputHead,
+            *const c_char, // model
+        ),
+        serial_number: extern fn(
+            T, // data
+            WlrOutputHead,
+            u32, // serial_number
         ),
     }
     
@@ -118,6 +194,13 @@ pub mod c {
         fn squeek_output_add_listener(
             wl_output: WlOutput,
             listener: *const WlOutputListener<COutputs>,
+            data: COutputs,
+        ) -> i32;
+
+        #[allow(improper_ctypes)]
+        fn squeek_wlr_output_head_add_listener(
+            wl_output_head: WlrOutputHead,
+            listener: *const WlrOutputHeadListener<COutputs>,
             data: COutputs,
         ) -> i32;
     }
@@ -245,12 +328,105 @@ pub mod c {
                 .find_output_mut(wl_output)
                 .map(|o| &mut o.pending);
         match output_state {
-            Some(state) => { state.scale = factor; }
+            Some(state) => {
+                if state.has_fractional_scale {
+                    log_print!(
+                        logging::Level::Warning,
+                        "Got scale after fractional scale; ignoring",
+                    );
+                } else {
+                    state.scale = factor as f32;
+                }
+            },
             None => log_print!(
                 logging::Level::Warning,
                 "Got scale on unknown output",
             ),
         };
+    }
+
+    extern fn wlr_outputs_handle_scale(
+        outputs: COutputs,
+        _output_head: WlrOutputHead,
+        factor: i32,
+    ) {
+        let outputs = outputs.clone_ref();
+        let mut collection = outputs.borrow_mut();
+        // HACK: We don't know which output this belongs to, so for now...
+        // just pick the first one.
+        let output_state: Option<&mut OutputState>
+            = collection
+                .outputs
+                .first_mut()
+                .map(|(o, _id)| &mut o.pending);
+
+                match output_state {
+            Some(state) => {
+                state.scale = (factor as f32) / 256.0;
+                state.has_fractional_scale = true;
+            }
+            None => log_print!(
+                logging::Level::Warning,
+                "Got scale without any output",
+            ),
+        };
+    }
+
+    // PITA: gotta define callbacks for each listener even if I don't give a crap about them
+    extern fn wlr_outputs_handle_nothing_str(
+        _outputs: COutputs,
+        _output_head: WlrOutputHead,
+        _string: *const c_char,
+    ) {
+        // do nothing
+    }
+
+    extern fn wlr_outputs_handle_nothing_u32(
+        _outputs: COutputs,
+        _output_head: WlrOutputHead,
+        _u32: u32,
+    ) {
+        // do nothing
+    }
+
+    extern fn wlr_outputs_handle_nothing_bool(
+        _outputs: COutputs,
+        _output_head: WlrOutputHead,
+        _bool: bool,
+    ) {
+        // do nothing
+    }
+
+    extern fn wlr_outputs_handle_nothing_mode(
+        _outputs: COutputs,
+        _output_head: WlrOutputHead,
+        _mode: WlrOutputMode,
+    ) {
+        // do nothing
+    }
+
+    extern fn wlr_outputs_handle_nothing_position(
+        _outputs: COutputs,
+        _output_head: WlrOutputHead,
+        _x: i32,
+        _y: i32,
+    ) {
+        // do nothing
+    }
+
+    extern fn wlr_outputs_handle_nothing_transform(
+        _outputs: COutputs,
+        _output_head: WlrOutputHead,
+        _transform: i32,
+    ) {
+        // do nothing
+    }
+
+    extern fn wlr_outputs_handle_nothing(
+        _outputs: COutputs,
+        _output_head: WlrOutputHead,
+    ) {
+        // do nothing
     }
 
     // End callbacks
@@ -283,6 +459,30 @@ pub mod c {
                 done: outputs_handle_done,
                 scale: outputs_handle_scale,
             } as *const WlOutputListener<COutputs>,
+            raw_collection,
+        )};
+    }
+
+    #[no_mangle]
+    pub extern "C"
+    fn squeek_wlr_output_head_register(raw_collection: COutputs, output_head: WlrOutputHead) {
+        unsafe { squeek_wlr_output_head_add_listener(
+            output_head,
+            &WlrOutputHeadListener {
+                scale: wlr_outputs_handle_scale,
+                name: wlr_outputs_handle_nothing_str,
+                description: wlr_outputs_handle_nothing_str,
+                physical_size: wlr_outputs_handle_nothing_position,
+                mode: wlr_outputs_handle_nothing_mode,
+                enabled: wlr_outputs_handle_nothing_bool,
+                current_mode: wlr_outputs_handle_nothing_mode,
+                position: wlr_outputs_handle_nothing_position,
+                transform: wlr_outputs_handle_nothing_transform,
+                finished: wlr_outputs_handle_nothing,
+                make: wlr_outputs_handle_nothing_str,
+                model: wlr_outputs_handle_nothing_str,
+                serial_number: wlr_outputs_handle_nothing_u32,
+            } as *const WlrOutputHeadListener<COutputs>,
             raw_collection,
         )};
     }
@@ -350,7 +550,8 @@ pub struct Geometry {
 pub struct OutputState {
     pub current_mode: Option<Mode>,
     pub geometry: Option<Geometry>,
-    pub scale: i32,
+    pub scale: f32,
+    pub has_fractional_scale: bool,
 }
 
 impl OutputState {
@@ -364,7 +565,8 @@ impl OutputState {
         OutputState {
             current_mode: None,
             geometry: None,
-            scale: 1,
+            scale: 1.0,
+            has_fractional_scale: false,
         }
     }
 
@@ -397,6 +599,7 @@ impl OutputState {
                 current_mode: Some(Mode { width, height } ),
                 geometry: Some(Geometry { transform, .. } ),
                 scale: _,
+                has_fractional_scale: _,
             } => Some(Self::transform_size(*width as u32, *height as u32, *transform)),
             OutputState {
                 current_mode: Some(Mode { width, height } ),

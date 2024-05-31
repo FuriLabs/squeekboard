@@ -6,6 +6,7 @@
 #include "wlr-layer-shell-unstable-v1-client-protocol.h"
 #include "virtual-keyboard-unstable-v1-client-protocol.h"
 #include "input-method-unstable-v2-client-protocol.h"
+#include "wlr-output-management-unstable-v1-client-protocol.h"
 
 #include "outputs.h"
 
@@ -19,6 +20,7 @@ struct squeek_wayland {
     // objects
     struct zwp_input_method_v2 *input_method;
     struct zwp_virtual_keyboard_v1 *virtual_keyboard;
+    struct zwlr_output_manager_v1 *wlr_output_manager;
 };
 
 

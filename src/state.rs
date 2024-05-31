@@ -546,7 +546,8 @@ pub mod test {
             OutputState {
                 current_mode: None,
                 geometry: None,
-                scale: 1,
+                scale: 1.0,
+                has_fractional_scale: false,
             },
         );
         Application {
@@ -747,7 +748,8 @@ pub mod test {
                         height: Some(Millimeter(physical_height)),
                     },
                 }),
-                scale,
+                scale: scale as f32,
+                has_fractional_scale: false,
             }),
             Some((
                 PixelSize {
@@ -774,7 +776,8 @@ pub mod test {
                         height: Some(Millimeter(physical_height)),
                     },
                 }),
-                scale,
+                scale: scale as f32,
+                has_fractional_scale: false,
             }),
             Some((
                 PixelSize {

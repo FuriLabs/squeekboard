@@ -14,7 +14,8 @@ wl_protos = [
   'wlr-layer-shell-unstable-v1.xml',
   'virtual-keyboard-unstable-v1.xml',
   'input-method-unstable-v2.xml',
-  'text-input-unstable-v3.xml'
+  'text-input-unstable-v3.xml',
+  'wlr-output-management-unstable-v1.xml',
 ]
 wl_proto_sources = []
 foreach proto: wl_protos

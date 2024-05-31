@@ -98,6 +98,29 @@ on_name_lost (GDBusConnection *connection,
 
 // Wayland
 
+static void output_manager_head(void *data, struct zwlr_output_manager_v1 *manager, struct zwlr_output_head_v1 *head) {
+    (void)manager;
+    struct squeek_wayland *wayland = data;
+    squeek_wlr_output_head_register(wayland->outputs, head);
+}
+
+static void output_manager_done(void *data, struct zwlr_output_manager_v1 *manager, uint32_t serial) {
+    (void)data;
+    (void)manager;
+    (void)serial;
+}
+
+static void output_manager_finished(void *data, struct zwlr_output_manager_v1 *manager) {
+    (void)data;
+    (void)manager;
+}
+
+static const struct zwlr_output_manager_v1_listener output_manager_listener = {
+    .head = output_manager_head,
+    .done = output_manager_done,
+    .finished = output_manager_finished,
+};
+
 static void
 registry_handle_global (void *data,
                         struct wl_registry *registry,
@@ -125,6 +148,11 @@ registry_handle_global (void *data,
         struct wl_output *output = wl_registry_bind (registry, name,
             &wl_output_interface, 2);
         squeek_outputs_register(wayland->outputs, output, name);
+    } else if (!strcmp (interface, "zwlr_output_manager_v1")) {
+        wayland->wlr_output_manager = wl_registry_bind(registry, name,
+            &zwlr_output_manager_v1_interface, 1);
+        zwlr_output_manager_v1_add_listener(wayland->wlr_output_manager,
+            &output_manager_listener, wayland);
     } else if (!strcmp(interface, "wl_seat")) {
         wayland->seat = wl_registry_bind(registry, name,
             &wl_seat_interface, 1);

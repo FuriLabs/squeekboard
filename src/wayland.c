@@ -30,3 +30,8 @@ int squeek_output_add_listener(struct wl_output *wl_output,
                                 const struct wl_output_listener *listener, void *data) {
     return wl_output_add_listener(wl_output, listener, data);
 }
+
+int squeek_wlr_output_head_add_listener(struct zwlr_output_head_v1 *wlr_output_head,
+                                        const struct zwlr_output_head_v1_listener *listener, void *data) {
+    return zwlr_output_head_v1_add_listener(wlr_output_head, listener, data);
+}
