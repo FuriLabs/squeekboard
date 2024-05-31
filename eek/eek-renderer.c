@@ -30,7 +30,7 @@
 
 
 /* eek-keyboard-drawing.c */
-static void render_button_label (cairo_t *cr, GtkStyleContext *ctx,
+static void render_button_label (cairo_t *cr, double x_offset, double y_offset, double x_scale, double y_scale, GtkStyleContext *ctx,
                                                 const gchar *label, EekBounds bounds);
 
 static void
@@ -66,10 +66,14 @@ float get_scale(cairo_t *cr) {
 /// Rust interface
 void eek_render_button_in_context(uint32_t scale_factor,
                                      cairo_t     *cr,
+                                     double x_offset, double y_offset,
+                                     double x_scale, double y_scale,
                                      GtkStyleContext *ctx,
                                      EekBounds bounds,
                                      const char *icon_name,
                                      const gchar *label) {
+    double scale_val = MIN(x_scale, y_scale);
+
     /* blank background */
     cairo_set_source_rgba (cr, 0.0, 0.0, 0.0, 0.0);
     cairo_paint (cr);
@@ -81,7 +85,7 @@ void eek_render_button_in_context(uint32_t scale_factor,
     if (icon_name) {
         int context_scale = ceil (get_scale (cr));
         cairo_surface_t *icon_surface =
-            eek_renderer_get_icon_surface (icon_name, 16, scale_factor * context_scale);
+            eek_renderer_get_icon_surface (icon_name, 16 * scale_val, scale_factor * context_scale);
         if (icon_surface) {
             double width = cairo_image_surface_get_width (icon_surface);
             double height = cairo_image_surface_get_height (icon_surface);
@@ -109,7 +113,7 @@ void eek_render_button_in_context(uint32_t scale_factor,
     }
 
     if (label) {
-        render_button_label (cr, ctx, label, bounds);
+        render_button_label (cr, x_offset, y_offset, x_scale, y_scale, ctx, label, bounds);
     }
 }
 
@@ -158,15 +162,19 @@ void eek_put_style_context_for_button(GtkStyleContext *ctx,
 
 static void
 render_button_label (cairo_t     *cr,
+                     double x_offset, double y_offset,
+                     double x_scale, double y_scale,
                      GtkStyleContext *ctx,
                      const gchar *label,
                      EekBounds bounds)
 {
+    double final_pango_scale = PANGO_SCALE * MIN(x_scale, y_scale);
     PangoFontDescription *font;
     gtk_style_context_get(ctx,
                           gtk_style_context_get_state(ctx),
                           "font", &font,
                           NULL);
+    pango_font_description_set_size (font, pango_font_description_get_size(font) * MIN(x_scale, y_scale));
     PangoLayout *layout = pango_cairo_create_layout (cr);
     pango_layout_set_font_description (layout, font);
     pango_font_description_free (font);
@@ -176,7 +184,7 @@ render_button_label (cairo_t     *cr,
     if (line->resolved_dir == PANGO_DIRECTION_RTL) {
         pango_layout_set_alignment (layout, PANGO_ALIGN_RIGHT);
     }
-    pango_layout_set_width (layout, PANGO_SCALE * bounds.width);
+    pango_layout_set_width (layout, final_pango_scale * bounds.width);
 
     PangoRectangle extents = { 0, };
     pango_layout_get_extents (layout, NULL, &extents);
@@ -186,6 +194,7 @@ render_button_label (cairo_t     *cr,
         (cr,
          (bounds.width - (double)extents.width / PANGO_SCALE) / 2,
          (bounds.height - (double)extents.height / PANGO_SCALE) / 2);
+    cairo_translate (cr, x_offset, y_offset);
 
     GdkRGBA color = {0};
     gtk_style_context_get_color (ctx, GTK_STATE_FLAG_NORMAL, &color);
@@ -217,13 +226,12 @@ eek_renderer_render_keyboard (EekRenderer *self,
                            0, 0,
                            geometry.allocation_width, geometry.allocation_height);
 
-    cairo_save(cr);
-    cairo_translate (cr, geometry.widget_to_layout.origin_x, geometry.widget_to_layout.origin_y);
-    cairo_scale (cr, geometry.widget_to_layout.scale_x, geometry.widget_to_layout.scale_y);
-
-    squeek_draw_layout_base_view(keyboard->layout, self, cr);
-    squeek_layout_draw_all_changed(keyboard->layout, self, cr, submission);
-    cairo_restore (cr);
+    squeek_draw_layout_base_view(keyboard->layout, self, cr,
+        geometry.widget_to_layout.origin_x, geometry.widget_to_layout.origin_y,
+        geometry.widget_to_layout.scale_x, geometry.widget_to_layout.scale_y);
+    squeek_layout_draw_all_changed(keyboard->layout, self, cr, submission,
+        geometry.widget_to_layout.origin_x, geometry.widget_to_layout.origin_y,
+        geometry.widget_to_layout.scale_x, geometry.widget_to_layout.scale_y);
 }
 
 void

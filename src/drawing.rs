@@ -45,6 +45,8 @@ mod c {
         pub fn eek_render_button_in_context(
             scale_factor: u32,
             cr: *mut cairo_sys::cairo_t,
+            x_offset: f64, y_offset: f64,
+            x_scale: f64, y_scale: f64,
             ctx: GtkStyleContext,
             bounds: Bounds,
             icon_name: *const c_char,
@@ -75,6 +77,8 @@ mod c {
         layout: *mut Layout,
         renderer: EekRenderer,
         cr: *mut cairo_sys::cairo_t,
+        x_offset: f64, y_offset: f64,
+        x_scale: f64, y_scale: f64,
         submission: CSubmission,
     ) {
         let layout = unsafe { &mut *layout };
@@ -104,6 +108,8 @@ mod c {
             {
                 render_button_at_position(
                     renderer, &cr,
+                    x_offset, y_offset,
+                    x_scale, y_scale,
                     offset,
                     button,
                     state.pressed, locked,
@@ -118,6 +124,8 @@ mod c {
         layout: *mut Layout,
         renderer: EekRenderer,
         cr: *mut cairo_sys::cairo_t,
+        x_offset: f64, y_offset: f64,
+        x_scale: f64, y_scale: f64,
     ) {
         let layout = unsafe { &mut *layout };
         let cr = unsafe { cairo::Context::from_raw_none(cr) };
@@ -125,6 +133,8 @@ mod c {
         layout.foreach_visible_button(|offset, button, _index| {
             render_button_at_position(
                 renderer, &cr,
+                x_offset, y_offset,
+                x_scale, y_scale,
                 offset,
                 button,
                 keyboard::PressType::Released,
@@ -172,16 +182,19 @@ impl LockedStyle {
 fn render_button_at_position(
     renderer: c::EekRenderer,
     cr: &cairo::Context,
+    x_offset: f64, y_offset: f64,
+    x_scale: f64, y_scale: f64,
     position: Point,
     button: &Button,
     pressed: keyboard::PressType,
     locked: LockedStyle,
 ) {
     cr.save().unwrap();
-    cr.translate(position.x, position.y);
+    cr.translate(position.x * x_scale + x_offset, position.y * y_scale + y_offset);
     cr.rectangle(
         0.0, 0.0,
-        button.size.width, button.size.height
+        button.size.width * x_scale,
+        button.size.height * y_scale,
     );
     cr.clip();
 
@@ -189,6 +202,13 @@ fn render_button_at_position(
         c::eek_renderer_get_scale_factor(renderer)
     };
     let bounds = button.get_bounds();
+    let scaled_and_offset_bounds = Bounds {
+        x: bounds.x * x_scale + x_offset,
+        y: bounds.y * y_scale + y_offset,
+        width: bounds.width * x_scale,
+        height: bounds.height * y_scale,
+    };
+
     let (label_c, icon_name_c) = match &button.label {
         Label::Text(text) => (text.as_ptr(), ptr::null()),
         Label::IconName(name) => {
@@ -212,8 +232,10 @@ fn render_button_at_position(
             c::eek_render_button_in_context(
                 scale_factor,
                 cairo::Context::to_raw_none(&cr),
+                x_offset, y_offset,
+                x_scale, y_scale,
                 *ctx,
-                bounds,
+                scaled_and_offset_bounds,
                 icon_name_c,
                 label_c,
             )

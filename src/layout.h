@@ -59,6 +59,8 @@ void squeek_layout_drag(struct squeek_layout *layout,
                         uint32_t timestamp, struct squeek_popover *popover,
                         struct squeek_state_manager *state,
                         EekGtkKeyboard *ui_keyboard);
-void squeek_layout_draw_all_changed(struct squeek_layout *layout, EekRenderer* renderer, cairo_t     *cr, struct submission *submission);
-void squeek_draw_layout_base_view(struct squeek_layout *layout, EekRenderer* renderer, cairo_t     *cr);
+void squeek_layout_draw_all_changed(struct squeek_layout *layout, EekRenderer* renderer, cairo_t     *cr, struct submission *submission,
+                                    double x_origin, double y_origin, double x_scale, double y_scale);
+void squeek_draw_layout_base_view(struct squeek_layout *layout, EekRenderer* renderer, cairo_t     *cr,
+                                  double x_origin, double y_origin, double x_scale, double y_scale);
 #endif
