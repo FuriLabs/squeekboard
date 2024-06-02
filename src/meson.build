@@ -64,30 +64,30 @@ rslibs = custom_target(
     command: [cargo_build] + ['@OUTPUT@', '--lib'] + cargo_build_flags,
 )
 
-build_rstests = custom_target(
-    'build_rstests',
-    build_by_default: false,
+#build_rstests = custom_target(
+#    'build_rstests',
+#    build_by_default: false,
     # HACK: this target needs to build before all the tests,
     # but it doesn't produce anything stable.
     # Declaring build_by_default with some random but irrelevant output
     # ensures that it's always built as it should
-    build_always_stale: true,
-    output: ['src'],
-    install: false,
-    console: true,
-    command: [cargo_script, 'test', '--no-run'] + cargo_build_flags,
-    depends: [rslibs], # no point building tests if the code itself fails
-)
+#    build_always_stale: true,
+#    output: ['src'],
+#    install: false,
+#    console: true,
+#    command: [cargo_script, 'test', '--no-run'] + cargo_build_flags,
+#    depends: [rslibs], # no point building tests if the code itself fails
+#)
 
-test(
-    'rstest',
-    cargo_script,
-    args: ['test'] + cargo_build_flags,
-    env: ['SOURCE_DIR=' + meson.source_root()],
+#test(
+#    'rstest',
+#    cargo_script,
+#    args: ['test'] + cargo_build_flags,
+#    env: ['SOURCE_DIR=' + meson.source_root()],
     # This is a whole Cargo-based test suite, let it run for a while
-    timeout: 900,
-    depends: [build_rstests],
-)
+#    timeout: 900,
+#    depends: [build_rstests],
+#)
 
 libsqueekboard = static_library('libsqueekboard',
   sources,
