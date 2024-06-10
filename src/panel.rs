@@ -242,7 +242,7 @@ impl State {
                 State::Hidden, vec![Update::Hide],
             ),
             (Command::Show{output, height}, State::Hidden) => {
-                let height = height.as_scaled_ceiling();
+                let height = (height.as_scaled_ceiling() as f32 * 0.7) as u32;
                 (
                     State::SizeRequested{output, height},
                     vec![Update::RequestWidget{ output, height }],
@@ -252,7 +252,7 @@ impl State {
                 Command::Show{output, height},
                 State::SizeRequested{output: req_output, height: req_height},
             ) => {
-                let height = height.as_scaled_ceiling();
+                let height = (height.as_scaled_ceiling() as f32 * 0.7) as u32;
                 if output == req_output && height == req_height {(
                     State::SizeRequested{output: req_output, height: req_height},
                     Vec::new(),
@@ -286,7 +286,7 @@ impl State {
                 Command::Show{output, height},
                 State::SizeAllocated{output: alloc_output, allocated, wanted_height},
             ) => {
-                let height = height.as_scaled_ceiling();
+                let height = (height.as_scaled_ceiling() as f32 * 0.7) as u32;
                 if output == alloc_output && height == wanted_height {(
                     State::SizeAllocated{output: alloc_output, wanted_height, allocated},
                     Vec::new(),
