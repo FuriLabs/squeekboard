@@ -295,6 +295,7 @@ impl Submission {
             .map(|(_id, m)| match m {
                 Modifier::Control => Modifiers::CONTROL,
                 Modifier::Alt => Modifiers::MOD1,
+                Modifier::Shift => Modifiers::SHIFT,
                 Modifier::Mod4 => Modifiers::MOD4,
             })
             .fold(Modifiers::empty(), |m, n| m | n);
