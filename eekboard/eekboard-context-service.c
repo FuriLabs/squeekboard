@@ -123,6 +123,7 @@ settings_get_layout(GSettings *settings, char **type, char **layout)
         // current layout is always first
         g_variant_get_child(inputs, 0, "(ss)", type, layout);
     }
+    g_variant_unref(inputs);
 }
 
 void eekboard_context_service_set_layout(EekboardContextService *context, char *style_name, struct squeek_layout *layout, uint32_t timestamp) {
