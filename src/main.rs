@@ -68,6 +68,7 @@ mod c {
         seat: *const c_void,
         input_method: InputMethod,
         virtual_keyboard: ZwpVirtualKeyboardV1,
+        wlr_output_manager: *const c_void,
     }
 
     impl Wayland {
@@ -80,6 +81,7 @@ mod c {
                 seat: ptr::null(),
                 input_method: InputMethod::null(),
                 virtual_keyboard: ZwpVirtualKeyboardV1::null(),
+                wlr_output_manager: ptr::null(),
             }
         }
     }
