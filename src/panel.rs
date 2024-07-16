@@ -32,6 +32,14 @@ use crate::logging;
 use crate::outputs::OutputId;
 use crate::util::c::Wrapped;
 
+use gsettings_macro::gen_settings;
+use gio::glib;
+
+#[gen_settings(
+    file = "../data/sm.puri.Squeekboard.gschema.xml",
+    id = "sm.puri.Squeekboard"
+)]
+pub struct Settings;
 
 pub mod c {
     use super::*;
@@ -233,6 +241,8 @@ impl State {
     }
 
     fn update(self, cmd: Command) -> (Self, Vec<Update>) {
+        let settings = Settings::default();
+
         match (cmd, self) {
             (Command::Hide, State::Hidden) => (State::Hidden, Vec::new()),
             (Command::Hide, State::SizeAllocated{..}) => (
@@ -242,7 +252,7 @@ impl State {
                 State::Hidden, vec![Update::Hide],
             ),
             (Command::Show{output, height}, State::Hidden) => {
-                let height = (height.as_scaled_ceiling() as f32 * 0.7) as u32;
+                let height = (height.as_scaled_ceiling() as f32 * settings.keyboard_scale() as f32) as u32;
                 (
                     State::SizeRequested{output, height},
                     vec![Update::RequestWidget{ output, height }],
@@ -252,7 +262,7 @@ impl State {
                 Command::Show{output, height},
                 State::SizeRequested{output: req_output, height: req_height},
             ) => {
-                let height = (height.as_scaled_ceiling() as f32 * 0.7) as u32;
+                let height = (height.as_scaled_ceiling() as f32 * settings.keyboard_scale() as f32) as u32;
                 if output == req_output && height == req_height {(
                     State::SizeRequested{output: req_output, height: req_height},
                     Vec::new(),
@@ -286,7 +296,7 @@ impl State {
                 Command::Show{output, height},
                 State::SizeAllocated{output: alloc_output, allocated, wanted_height},
             ) => {
-                let height = (height.as_scaled_ceiling() as f32 * 0.7) as u32;
+                let height = (height.as_scaled_ceiling() as f32 * settings.keyboard_scale() as f32) as u32;
                 if output == alloc_output && height == wanted_height {(
                     State::SizeAllocated{output: alloc_output, wanted_height, allocated},
                     Vec::new(),
