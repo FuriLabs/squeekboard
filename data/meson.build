@@ -24,3 +24,8 @@ i18n.merge_file(
     install_dir: desktopdir,
     type: 'desktop'
 )
+
+gsettings_schema = 'sm.puri.Squeekboard.gschema.xml'
+gnome.compile_schemas(build_by_default: true, depend_files: gsettings_schema)
+install_data(gsettings_schema, install_dir: depdatadir + '/glib-2.0/schemas')
+gnome.post_install (glib_compile_schemas: true)
