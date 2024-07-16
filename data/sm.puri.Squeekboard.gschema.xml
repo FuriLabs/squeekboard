@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="sm.puri.Squeekboard" path="/sm/puri/Squeekboard/">
+    <key name="keyboard-scale" type="d">
+      <default>0.7</default>
+      <summary>Keyboard scale</summary>
+      <description>Scale factor for the keyboard</description>
+    </key>
+  </schema>
+</schemalist>
