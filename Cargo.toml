@@ -35,6 +35,7 @@ zbus = "1.9.*"
 zvariant = "2.10.*"
 zvariant_derive = "2.10.*"
 xkbcommon = { version = "0.5.*", features = ["wayland"] }
+gsettings-macro = "0.2.1"
 
 [dependencies.cairo-rs]
 version = "0.18.*"
