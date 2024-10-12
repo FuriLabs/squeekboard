@@ -1,3 +1,4 @@
 version=4
-opts=filenamemangle=s/.*\/archive\/(\d\S+)\/squeekboard.*\.tar\.gz/squeekboard-$1\.tar\.gz/g \
-  https://gitlab.gnome.org/World/Phosh/squeekboard/tags?sort=updated_desc .*/archive/v(\d\S+)/.*\.tar\.gz.*
+opts="searchmode=plain" \
+https://gitlab.gnome.org/World/Phosh/@PACKAGE@/-/tags?sort=updated_desc \
+	/World/Phosh/@PACKAGE@/-/archive/v[\d\.]+/@PACKAGE@@ANY_VERSION@@ARCHIVE_EXT@
