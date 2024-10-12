@@ -27,7 +27,7 @@ To give an idea of what it means in practice, those are some examples of what ha
 - storing resources and config as editable, standard files,
 - having complete, up to date documentation of interfaces,
 - having an easy process of sending contributions,
-- adapting to to user's settings and constrains without overriding them,
+- adapting to the user's settings and constraints without overriding them,
 - avoiding compiling whenever possible,
 - making it easy to build,
 - having code that is [simple and obvious](https://www.python.org/dev/peps/pep-0020/),
@@ -43,50 +43,97 @@ By submitting a change to this project, you agree to license it under the [GPL l
 Development environment
 -----------------------
 
-*Squeekboard* is regularly built and tested on [the development environment](https://developer.puri.sm/Librem5/Development_Environment.html).
-
-Recent Fedora releases are likely to be tested as well.
+*Squeekboard* is regularly built and tested on [Debian Testing](https://www.debian.org/releases/testing/) and [Mobian Testing](https://mobian.org/).
 
 ### Dependencies
 
 On a Debian based system run
 
 ```sh
-sudo apt-get -y install build-essential
-sudo apt-get -y build-dep .
+$ sudo apt-get -y install build-essential
+$ sudo apt-get -y build-dep .
 ```
 
 For an explicit list of dependencies check the `Build-Depends` entry in the [`debian/control`](debian/control) file.
 
+### Building Squeekboard
+
+```sh
+$ meson setup _build
+$ ninja -C _build
+```
+
+### Some recommended software for development
+
+- [rust-analyzer](https://rust-analyzer.github.io/) - Can offer additional information about code in an IDE (for example: in GNOME Builder).
+- [phoc](https://gitlab.gnome.org/World/Phosh/phoc) - To run Squeekboard in a [nested session](https://phosh.mobi/posts/phosh-dev-part-0/) (for example: while in a GNOME session).
+
+For testing Squeekboard on a PC as if it was used on a smartphone, one can also use an emulator. Instructions for that can be found in the [documentation for setting up a development-environment for the Librem 5](https://developer.puri.sm/Librem5/Development_Environment/Boards/emulators.html).
+
 Testing
 -------
 
-Most common testing is done in CI. Occasionally, and for each release, do perform manual tests to make sure that
+Most common testing is done in CI. Occasionally, and for each release, do perform manual tests to make sure that:
 
 - the application draws correctly
 - it shows when relevant
 - it changes layouts
 - it changes views
 
-Testing with an application:
+#### Setting up for manual testing
 
-```
-python3 tools/entry.py
+While one can simply use a computer which uses Squeekboard already, it may be necessary to restart the session for actually testing the changes.
+A more convenient way, is to use Phoc to run Squeekboard in a nested session ([more information](https://phosh.mobi/posts/phosh-dev-part-0/)), while in another session (for example: GNOME, or KDE Plasma):
+
+First, install Phoc, either with `sudo apt install phoc` (on Debian-based distributions), or from the [source-code](https://gitlab.gnome.org/World/Phosh/phoc).
+Then prepare a config-file (`phoc.ini`) for Phoc, to ensure that Squeekboard will be shown how it would be shown on an actual device (though, the size of the window will probably be different than the size of the display).
+
+Example of a `phoc.ini` matching the PinePhone Pro:
+
+```ini
+[output:WL-1]
+# Resolution in px. Swap the values to change between vertical or horizontal orientation.
+mode = 720x1440
+# Width and height in mm.
+phys_width = 68
+phys_height = 136
 ```
 
-Testing visibility:
+Then (after Squeekboard has been built) use a command like the following, to start `phoc` together with Squeekboard:
 
+```sh
+$ SQUEEKBOARD_DEBUG=force_show GTK_THEME=Adwaita:dark phoc --config 'path-to/phoc.ini' --exec '_build/src/squeekboard'
 ```
+You can move the window of Phoc, by pressing down the Super-key while clicking and dragging the window.
+It can also be set to be always on top, by pressing the Super-key, doing a right-click on the window, and then selecting the option for that.
+
+#### Testing with an application
+
+```sh
+$ python3 tools/entry.py
+```
+
+To test an application with Squeekboard in a nested session, one can use the environment-variable `WAYLAND_DISPLAY`, to open the application in that session. For example:
+
+```sh
+$ WAYLAND_DISPLAY=wayland-1 python3 tools/entry.py
+```
+
+#### Testing visibility
+
+```sh
 $ busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b true
 $ busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b false
 ```
 
-Testing layouts:
+#### Testing layouts
 
-Layouts can be selected using the GNOME Settings application.
+Available Layouts can be selected by using the GNOME Settings application.
 
-```
-# define all available layouts. First one is currently selected.
+Those can also be set with `gsettings`:
+
+```sh
+# Define all available layouts. First one is currently selected.
 $ gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'de')]"
 ```
 
@@ -94,8 +141,8 @@ $ gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb',
 
 Squeekboard prints some information on standard output by default. To get deep debugging information, it can also print all changes in (some of) its internal state. Those logs are most useful when reporting hard to catch issues, and can be enabled using the following command:
 
-```
-busctl set-property --user sm.puri.SqueekDebug /sm/puri/SqueekDebug sm.puri.SqueekDebug Enabled b true
+```sh
+$ busctl set-property --user sm.puri.SqueekDebug /sm/puri/SqueekDebug sm.puri.SqueekDebug Enabled b true
 ```
 
 ### Environment Variables
@@ -107,6 +154,12 @@ contain a comma separated list of:
 - `force-show` : Show squeekboard on startup independent of any gsettings or compositor requests
 - `gtk-inspector`: Spawn [gtk-inspector](https://wiki.gnome.org/Projects/GTK/Inspector)
 
+
+`GTK_THEME=` can be used to choose a theme other than the default theme for Squeekboard:
+
+  - `Adwaita:dark` is used for Squeekboard on Phosh.
+  - Other values that are not the name of an available theme (for example: `HighContrast`) will use the theme that is used while "High Contrast" is enabled in Phosh.
+
 Coding
 ------
 
@@ -114,9 +167,9 @@ Coding
 
 Reference documentation can be generated using:
 
-```
-cd squeekboard_build/ 
-../squeekboard_source/cargo.sh doc --no-deps --document-private-items
+```sh
+$ cd squeekboard_build/
+$ .../squeekboard_source/cargo.sh doc --no-deps --document-private-items
 ```
 
 as well as found [online](https://world.pages.gitlab.gnome.org/Phosh/squeekboard/doc/rs/).
@@ -143,8 +196,8 @@ Note that some portions, like the .gitlab-ci.yml file have accummulated enough s
 
 To fix your contributions before submitting a change, use:
 
-```
-./tools/style-check_source --apply
+```sh
+$ ./tools/style-check_source --apply
 ```
 
 * * *
@@ -202,31 +255,32 @@ Squeekboard uses Rust & Cargo for some of its dependencies.
 
 Use the `cargo.sh` script for maintaining the Cargo part of the build. The script takes the usual Cargo commands, after the first 2 positional arguments: source directory, and output artifact. So, `cargo test` becomes:
 
-```
-cd build_dir
-sh /source_path/cargo.sh test
+```sh
+$ cd build_dir
+$ sh /source_path/cargo.sh test
 ```
 
 ### Cargo dependencies
 
-All Cargo dependencies must be selected in the version available in PureOS, and added to the file `debian/control`. Please check with https://software.pureos.net/search_pkg?term=librust .
+All Cargo dependencies must be selected in the version available in Debian Testing, and added to the file `debian/control`. Please check with the [Debian package search](https://www.debian.org/distrib/packages).
 
-Dependencies must be specified in `Cargo.toml` with 2 numbers: "major.minor". Since bugfix version number is meant to not affect the interface, this allows for safe updates.
+Dependencies must be specified in `Cargo.toml` with 2 numbers: "major.minor". Since the bugfix version number is meant to not affect the interface, this allows for safe updates.
 
 Releases
-----------
+--------
 
-Squeekboard should get a new release every time something interesting comes in. Preferably when there are no known bugs too. People will rely on theose releases, after all.
+Feature-releases should me made in time for new [Phosh releases](https://gitlab.gnome.org/World/Phosh/phosh/-/wikis/Releases) (which is currently about once in one and a half months), so that the release-notes can contain the news about Squeekboard.
+However, it is not necessary to make a new release of Squeekboard for every release of Phosh.
 
-### 1. Update `Cargo.toml`.
+Bug-fix-releases should be made more often, preferably directly after important bug-fixes have been made.
 
-While the file is not actually used, it's a good idea to save the config in case some rare bug appears in dependencies.
+### 1. Update `Cargo.lock`
 
-```
-cd squeekboard-build
-.../squeekboard-source/cargo.sh update
-ninja test
-cp ./Cargo.lock .../squeekboard-source
+```sh
+$ cd squeekboard-build
+$ .../squeekboard-source/cargo.sh update
+$ ninja test
+$ cp ./Cargo.lock .../squeekboard-source
 ```
 
 Then commit the updated `Cargo.lock`.
@@ -234,8 +288,7 @@ Then commit the updated `Cargo.lock`.
 ### 2. Choose the version number
 
 Squeekboard follows [Phosh's versioning](https://gitlab.gnome.org/World/Phosh/phosh/-/wikis/Releases).
-For example: The first Squeekboard-release for Phosh 0.38 should have the version-number 1.38.0. The last part of the version number (1.38.x) may be incremented independently of Phosh's version for bug-fix-releases. 
-Feature-releases should me made before the release of the new version of Phosh, so that the release-notes can contain the news about Squeekboard.
+For example: The first Squeekboard-release for Phosh 0.38 should have the version-number 1.38.0. The last part of the version number (1.38.x) may be incremented independently of Phosh's version for bug-fix-releases.
 
 ### 3. Update the number in `meson.build`
 
@@ -245,9 +298,9 @@ It's in the `project(version: xxx)` statement.
 
 Packaging is in the `debian/` directory, and creates builds that can be quickly tested.
 
-```
-cd squeekboard-source
-EMAIL=my_address@example.com gbp dch --multimaint-merge  --ignore-branch --git-author --distribution=experimental --new-version=x.y.z
+```sh
+$ cd squeekboard-source
+$ EMAIL=my_address@example.com gbp dch --multimaint-merge --ignore-branch --git-author --release --new-version=x.y.z
 ```
 
 Inspect `debian/changelog`, and make sure the first line contains the correct version number and suite. For example:
@@ -258,18 +311,18 @@ squeekboard (1.22.0) experimental; urgency=medium
 
 Add the updated `debian/changelog` to the commit. The commit message should contain the release version and a description of changes.
 
-(`gbp` can be installed with `sudo apt install git-buildpackage`)
+(`gbp` can be installed on Debian based systems with `sudo apt install git-buildpackage`)
 
 ### 5. Update the NEWS file
 
 Summarize the changes since the last release in the NEWS file. Use the Markdown syntax, e.g.
 
 ```
-1.22.0 "Superposition"
+squeekboard 1.22.0 "Superposition"
 -----------------------------
 
-Changes:
-- Fixed panel sizing when scaling
+* Changes:
+    * Fixed panel sizing when scaling
 ...
 ```
 
@@ -277,8 +330,8 @@ Changes:
 
 Generate a commit message from the NEWS file:
 
-```
-tools/make_message | git commit --file=- ...
+```sh
+$ ./tools/make_message | git commit --file=- ...
 ```
 
 If the commit message looks wrong, fix the NEWS file, and do `git commit --amend`.
@@ -287,9 +340,9 @@ If the commit message looks wrong, fix the NEWS file, and do `git commit --amend
 
 The tag should be the version number with "v" in front of it. The tag message should be "squeekboard" and the tag name. Push it to the upstream repository:
 
-```
-git tag -s -u my_address@example.com v1.22.0 -m "squeekboard v1.22.0"
-git push origin v1.22.0
+```sh
+$ git tag -s -u my_address@example.com v1.22.0 -m "squeekboard v1.22.0"
+$ git push origin v1.22.0
 ```
 
 ### 8. Rejoice

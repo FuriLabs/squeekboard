@@ -1,5 +1,5 @@
 /* Copyright (C) 2019-2022 Purism SPC
- * SPDX-License-Identifier: GPL-3.0+
+ * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 /*! Managing Wayland outputs */
@@ -322,7 +322,7 @@ pub struct Mode {
     pub height: i32,
 }
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq, PartialOrd, Eq, Ord)]
 pub struct Millimeter(pub i32);
 
 impl DivCeil<i32> for Millimeter {

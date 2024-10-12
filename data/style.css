@@ -14,13 +14,74 @@ sq_button:active {
     background: alpha(@theme_fg_color, 0.11);
 }
 
+sq_button.subtle-highlight,
+sq_button.subtle-highlight-2 {
+    background: alpha(@theme_fg_color, 0.105);
+}
+
+sq_button.subtle-highlight:active,
+sq_button.subtle-highlight-2:active {
+    background: alpha(@theme_fg_color, 0.16);
+}
+
+sq_button.emoji-group,
+sq_button.character-group {
+    background: alpha(@theme_fg_color, 0.105);
+    border-bottom: 0.4999px;
+    border-style: solid;
+    border-color: alpha(@theme_fg_color, 0.175);
+}
+
+sq_button.emoji-group:active,
+sq_button.character-group:active {
+    background: alpha(@theme_fg_color, 0.16);
+    border-bottom: 0.4999px;
+    border-style: solid;
+    border-color: alpha(@theme_fg_color, 0.175);
+}
+
+sq_button.change-view,
+sq_button.change-view-2,
+sq_button.change-view-3 {
+    background: alpha(@theme_fg_color, 0.15);
+    border-bottom: 0.4999px;
+    border-style: solid;
+    border-color: alpha(@theme_fg_color, 0.175);
+}
+
+sq_button.change-view:active,
+sq_button.change-view-2:active,
+sq_button.change-view-3:active {
+    background: alpha(@theme_fg_color, 0.2);
+    border-bottom: 0.4999px;
+    border-style: solid;
+    border-color: alpha(@theme_fg_color, 0.175);
+}
+
+sq_button.placeholder,
+sq_button.placeholder-2 {
+    background: alpha(@theme_fg_color, 0.035);
+}
+
+sq_button.placeholder:active,
+sq_button.placeholder-2:active {
+    background: initial;
+    box-shadow: initial;
+}
+
 sq_button.altline,
-sq_button.special {
+sq_button.special,
+sq_button.special-2,
+sq_button.special-3,
+sq_button.wide {
     background: alpha(@theme_fg_color, 0.15); 
 }
 
 sq_button.altline:active,
-sq_button.special:active {
+sq_button.special:active,
+sq_button.special-2:active,
+sq_button.special-3:active,
+sq_button.wide:active {
     background: alpha(@theme_fg_color, 0.2);
 }
 

@@ -1,9 +1,12 @@
 ---
 outlines:
-    default: { width: 52,   height: 52 }
-    special: { width: 52,   height: 52 }
-    altline: { width: 36.4, height: 56 }
-    infobar: { width: 260,  height: 52 }
+    default:       { width: 52,   height: 52 }
+    placeholder:   { width: 52,   height: 52 }
+    special:       { width: 52,   height: 52 }
+    change-view:   { width: 52,   height: 52 }
+    change-view-2: { width: 36.4, height: 56 }
+    emoji-group:   { width: 52,   height: 52 }
+    placeholder-2: { width: 260,  height: 52 }
 
 views:
     base:
@@ -34,7 +37,7 @@ views:
     face-neutral-skeptical:
         - "🤐 🤨 😐 😑 😶 🫥 😶‍🌫️"
         - "😏 😒 🙄 😬 😮‍💨 🤥 🫨"
-        - "preferences 🙂‍↔️ 🙂‍↕️ 0 0 BackSpace"
+        - "preferences 🙂‍↔️ 🙂‍↕️ 0 0 0 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     face-sleepy:
         - "😌 😔 😪 🤤 😴 0 0"
@@ -852,946 +855,1045 @@ buttons:
         icon: "edit-clear-symbolic"
         keysym: BackSpace
     InfoBar:
-        outline: "infobar"
+        outline: "placeholder-2"
         text: ""
         label: "🧘 + 🏾 = 🧘🏾"
     0:
+       outline: "placeholder"
        text: ""
        label: ""
     1:
         action:
             set_view: "base"
-        outline: "altline"
+        outline: "change-view-2"
 #        label: "🙂"
     2:
         action:
             set_view: "people-and-body"
-        outline: "altline"
+        outline: "change-view-2"
 #        label: "👋"
     3:
         action:
             set_view: "component"
-        outline: "altline"
+        outline: "change-view-2"
 #        label: " 🏽"
     4:
         action:
             set_view: "animals-and-nature"
-        outline: "altline"
+        outline: "change-view-2"
 #        label: "🐱"
     5:
         action:
             set_view: "food-and-drink"
-        outline: "altline"
+        outline: "change-view-2"
 #        label: "🍐"
     6:
         action:
             set_view: "travel-and-places"
-        outline: "altline"
+        outline: "change-view-2"
 #        label: "🌐"
     7:
         action:
             set_view: "activities"
-        outline: "altline"
+        outline: "change-view-2"
 #        label: "✨"
     8:
         action:
             set_view: "objects"
-        outline: "altline"
+        outline: "change-view-2"
 #        label: "👒"
     9:
         action:
             set_view: "symbols"
-        outline: "altline"
+        outline: "change-view-2"
 #        label: "*️⃣"
     10:
         action:
             set_view: "flags"
-        outline: "altline"
+        outline: "change-view-2"
 #        label: "🏁"
     😄+:
+        outline: "emoji-group"
         action:
             set_view: "face-smiling"
     🥰+:
+        outline: "emoji-group"
         action:
             set_view: "face-affection"
     😋+:
+        outline: "emoji-group"
         action:
             set_view: "face-tongue"
     🤗+:
+        outline: "emoji-group"
         action:
             set_view: "face-hand"
     🤐+:
+        outline: "emoji-group"
         action:
             set_view: "face-neutral-skeptical"
     😌+:
+        outline: "emoji-group"
         action:
             set_view: "face-sleepy"
     🥶+:
+        outline: "emoji-group"
         action:
             set_view: "face-unwell"
     🤠+:
+        outline: "emoji-group"
         action:
             set_view: "face-hat"
     😎+:
+        outline: "emoji-group"
         action:
             set_view: "face-glasses"
     😕+:
+        outline: "emoji-group"
         action:
             set_view: "face-concerned"
     face-concerned-backwards:
         action:
             set_view: "face-concerned"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     face-concerned-2:
         action:
             set_view: "face-concerned-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     😤+:
+        outline: "emoji-group"
         action:
             set_view: "face-negative"
     👻+:
+        outline: "emoji-group"
         action:
             set_view: "face-costume"
     😺+:
+        outline: "emoji-group"
         action:
             set_view: "cat-face"
     🙉+:
+        outline: "emoji-group"
         action:
             set_view: "monkey-face"
     💕+:
+        outline: "emoji-group"
         action:
             set_view: "heart"
     heart-backwards:
         action:
             set_view: "heart"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     heart-2:
         action:
             set_view: "heart-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     💭+:
+        outline: "emoji-group"
         action:
             set_view: "emotion"
     🖐+:
+        outline: "emoji-group"
         action:
             set_view: "hand-fingers-open"
     👌+:
+        outline: "emoji-group"
         action:
             set_view: "hand-fingers-partial"
     👈+:
+        outline: "emoji-group"
         action:
             set_view: "hand-single-finger"
     👍+:
+        outline: "emoji-group"
         action:
             set_view: "hand-fingers-closed"
     🫶+:
+        outline: "emoji-group"
         action:
             set_view: "hands"
     ✍+:
+        outline: "emoji-group"
         action:
             set_view: "hand-prop"
     👀+:
+        outline: "emoji-group"
         action:
             set_view: "body-parts"
     👩+:
+        outline: "emoji-group"
         action:
             set_view: "person"
     person-backwards:
         action:
             set_view: "person"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     person-2:
         action:
             set_view: "person-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🙋+:
+        outline: "emoji-group"
         action:
             set_view: "person-gesture"
     person-gesture-backwards:
         action:
             set_view: "person-gesture"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     person-gesture-2:
         action:
             set_view: "person-gesture-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🧑‍💻+:
+        outline: "emoji-group"
         action:
             set_view: "person-role"
     person-role-backwards:
         action:
             set_view: "person-role"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     person-role-2:
         action:
             set_view: "person-role-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     person-role-2-backwards:
         action:
             set_view: "person-role-2"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     person-role-3:
         action:
             set_view: "person-role-3"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     person-role-3-backwards:
         action:
             set_view: "person-role-3"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     person-role-4:
         action:
             set_view: "person-role-4"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     person-role-4-backwards:
         action:
             set_view: "person-role-4"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     person-role-5:
         action:
             set_view: "person-role-5"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🧚+:
+        outline: "emoji-group"
         action:
             set_view: "person-fantasy"
     person-fantasy-backwards:
         action:
             set_view: "person-fantasy"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     person-fantasy-2:
         action:
             set_view: "person-fantasy-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     💃+:
+        outline: "emoji-group"
         action:
             set_view: "person-activity"
     person-activity-backwards:
         action:
             set_view: "person-activity"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     person-activity-2:
         action:
             set_view: "person-activity-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     person-activity-2-backwards:
         action:
             set_view: "person-activity-2"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     person-activity-3:
         action:
             set_view: "person-activity-3"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     person-activity-3-backwards:
         action:
             set_view: "person-activity-3"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     person-activity-4:
         action:
             set_view: "person-activity-4"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     ⛹️‍♂️+:
+        outline: "emoji-group"
         action:
             set_view: "person-sport"
     person-sport-backwards:
         action:
             set_view: "person-sport"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     person-sport-2:
         action:
             set_view: "person-sport-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     person-sport-2-backwards:
         action:
             set_view: "person-sport-2"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     person-sport-3:
         action:
             set_view: "person-sport-3"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🧘+:
+        outline: "emoji-group"
         action:
             set_view: "person-resting"
     👩‍❤️‍👨+:
+        outline: "emoji-group"
         action:
             set_view: "family"
     family-backwards:
         action:
             set_view: "family"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     family-2:
         action:
             set_view: "family-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     family-2-backwards:
         action:
             set_view: "family-2"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     family-3:
         action:
             set_view: "family-3"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     👤+:
+        outline: "emoji-group"
         action:
             set_view: "person-symbol"
     🐈+:
+        outline: "emoji-group"
         action:
             set_view: "animal-mammal"
     animal-mammal-backwards:
         action:
             set_view: "animal-mammal"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     animal-mammal-2:
         action:
             set_view: "animal-mammal-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     animal-mammal-2-backwards:
         action:
             set_view: "animal-mammal-2"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     animal-mammal-3:
         action:
             set_view: "animal-mammal-3"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     animal-mammal-3-backwards:
         action:
             set_view: "animal-mammal-3"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     animal-mammal-4:
         action:
             set_view: "animal-mammal-4"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🐤+:
+        outline: "emoji-group"
         action:
             set_view: "animal-bird"
     animal-bird-backwards:
         action:
             set_view: "animal-bird"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     animal-bird-2:
         action:
             set_view: "animal-bird-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🐸+:
+        outline: "emoji-group"
         action:
             set_view: "animal-amphibian"
     🦎+:
+        outline: "emoji-group"
         action:
             set_view: "animal-reptile"
     🐬+:
+        outline: "emoji-group"
         action:
             set_view: "animal-marine"
     🦋+:
+        outline: "emoji-group"
         action:
             set_view: "animal-bug"
     🌸+:
+        outline: "emoji-group"
         action:
             set_view: "plant-flower"
     🌳+:
+        outline: "emoji-group"
         action:
             set_view: "plant-other"
     🍒+:
+        outline: "emoji-group"
         action:
             set_view: "food-fruit"
     food-fruit-backwards:
         action:
             set_view: "food-fruit"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     food-fruit-2:
         action:
             set_view: "food-fruit-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🥕+:
+        outline: "emoji-group"
         action:
             set_view: "food-vegetable"
     🥐+:
+        outline: "emoji-group"
         action:
             set_view: "food-prepared"
     food-prepared-backwards:
         action:
             set_view: "food-prepared"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     food-prepared-2:
         action:
             set_view: "food-prepared-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🍱+:
+        outline: "emoji-group"
         action:
             set_view: "food-asian"
     🦐+:
+        outline: "emoji-group"
         action:
             set_view: "food-marine"
     🍰+:
+        outline: "emoji-group"
         action:
             set_view: "food-sweet"
     🍵+:
+        outline: "emoji-group"
         action:
             set_view: "drink"
     drink-backwards:
         action:
             set_view: "drink"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     drink-2:
         action:
             set_view: "drink-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🥄+:
+        outline: "emoji-group"
         action:
             set_view: "dishware"
     🌍+:
+        outline: "emoji-group"
         action:
             set_view: "place-map"
     🗻+:
+        outline: "emoji-group"
         action:
             set_view: "place-geographic"
     🏡+:
+        outline: "emoji-group"
         action:
             set_view: "place-building"
     place-building-backwards:
         action:
             set_view: "place-building"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     place-building-2:
         action:
             set_view: "place-building-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     ⛩+:
+        outline: "emoji-group"
         action:
             set_view: "place-religious"
     🌅+:
+        outline: "emoji-group"
         action:
             set_view: "place-other"
     🚲+:
+        outline: "emoji-group"
         action:
             set_view: "transport-ground"
     transport-ground-backwards:
         action:
             set_view: "transport-ground"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     transport-ground-2:
         action:
             set_view: "transport-ground-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     transport-ground-2-backwards:
         action:
             set_view: "transport-ground-2"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     transport-ground-3:
         action:
             set_view: "transport-ground-3"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     ⛵+:
+        outline: "emoji-group"
         action:
             set_view: "transport-water"
     🛫+:
+        outline: "emoji-group"
         action:
             set_view: "transport-air"
     🧳+:
+        outline: "emoji-group"
         action:
             set_view: "hotel"
     ⏳+:
+        outline: "emoji-group"
         action:
             set_view: "time"
     time-backwards:
         action:
             set_view: "time"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     time-2:
         action:
             set_view: "time-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🌈+:
+        outline: "emoji-group"
         action:
             set_view: "sky-and-weather"
     sky-and-weather-backwards:
         action:
             set_view: "sky-and-weather"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     sky-and-weather-2:
         action:
             set_view: "sky-and-weather-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     sky-and-weather-2-backwards:
         action:
             set_view: "sky-and-weather-2"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     sky-and-weather-3:
         action:
             set_view: "sky-and-weather-3"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🎆+:
+        outline: "emoji-group"
         action:
             set_view: "event"
     event-backwards:
         action:
             set_view: "event"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     event-2:
         action:
             set_view: "event-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🏅+:
+        outline: "emoji-group"
         action:
             set_view: "award-medal"
     🏐+:
+        outline: "emoji-group"
         action:
             set_view: "sport"
     sport-backwards:
         action:
             set_view: "sport"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     sport-2:
         action:
             set_view: "sport-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🎴+:
+        outline: "emoji-group"
         action:
             set_view: "game"
     game-backwards:
         action:
             set_view: "game"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     game-2:
         action:
             set_view: "game-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🎨+:
+        outline: "emoji-group"
         action:
             set_view: "arts-and-crafts"
     👗+:
+        outline: "emoji-group"
         action:
             set_view: "clothing"
     clothing-backwards:
         action:
             set_view: "clothing"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     clothing-2:
         action:
             set_view: "clothing-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     clothing-2-backwards:
         action:
             set_view: "clothing-2"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     clothing-3:
         action:
             set_view: "clothing-3"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🔊+:
+        outline: "emoji-group"
         action:
             set_view: "sound"
     🎶+:
+        outline: "emoji-group"
         action:
             set_view: "music"
     🎻+:
+        outline: "emoji-group"
         action:
             set_view: "musical-instrument"
     📱+:
+        outline: "emoji-group"
         action:
             set_view: "phone"
     💻+:
+        outline: "emoji-group"
         action:
             set_view: "computer"
     📹+:
+        outline: "emoji-group"
         action:
             set_view: "light-and-video"
     📚+:
+        outline: "emoji-group"
         action:
             set_view: "book-paper"
     💶+:
+        outline: "emoji-group"
         action:
             set_view: "money"
     📮+:
+        outline: "emoji-group"
         action:
             set_view: "mail"
     📝+:
+        outline: "emoji-group"
         action:
             set_view: "writing"
     📊+:
+        outline: "emoji-group"
         action:
             set_view: "office"
     office-backwards:
         action:
             set_view: "office"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     office-2:
         action:
             set_view: "office-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🔐+:
+        outline: "emoji-group"
         action:
             set_view: "lock"
     🧰+:
+        outline: "emoji-group"
         action:
             set_view: "tool"
     tool-backwards:
         action:
             set_view: "tool"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     tool-2:
         action:
             set_view: "tool-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🔭+:
+        outline: "emoji-group"
         action:
             set_view: "science"
     🩺+:
+        outline: "emoji-group"
         action:
             set_view: "medical"
     🚪+:
+        outline: "emoji-group"
         action:
             set_view: "household"
     household-backwards:
         action:
             set_view: "household"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     household-2:
         action:
             set_view: "household-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🪪+:
+        outline: "emoji-group"
         action:
             set_view: "other-object"
     🚻+:
+        outline: "emoji-group"
         action:
             set_view: "transport-sign"
     🚫+:
+        outline: "emoji-group"
         action:
             set_view: "warning"
     🔝+:
+        outline: "emoji-group"
         action:
             set_view: "arrow"
     arrow-backwards:
         action:
             set_view: "arrow"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     arrow-2:
         action:
             set_view: "arrow-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     ☯+:
+        outline: "emoji-group"
         action:
             set_view: "religion"
     ♋+:
+        outline: "emoji-group"
         action:
             set_view: "zodiac"
     ▶+:
+        outline: "emoji-group"
         action:
             set_view: "av-symbol"
     av-symbol-backwards:
         action:
             set_view: "av-symbol"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     av-symbol-2:
         action:
             set_view: "av-symbol-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     ⚧+:
+        outline: "emoji-group"
         action:
             set_view: "gender"
     ♾+:
+        outline: "emoji-group"
         action:
             set_view: "math"
     ❓+:
+        outline: "emoji-group"
         action:
             set_view: "punctuation"
     💱+:
+        outline: "emoji-group"
         action:
             set_view: "currency"
     ✔+:
+        outline: "emoji-group"
         action:
             set_view: "other-symbol"
     other-symbol-backwards:
         action:
             set_view: "other-symbol"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     other-symbol-2:
         action:
             set_view: "other-symbol-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     "#️⃣+":
         action:
             set_view: "keycap"
     🆓+:
+        outline: "emoji-group"
         action:
             set_view: "alphanum"
     alphanum-backwards:
         action:
             set_view: "alphanum"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     alphanum-2:
         action:
             set_view: "alphanum-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     alphanum-2-backwards:
         action:
             set_view: "alphanum-2"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     alphanum-3:
         action:
             set_view: "alphanum-3"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🔵+:
+        outline: "emoji-group"
         action:
             set_view: "geometric"
     geometric-backwards:
         action:
             set_view: "geometric"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     geometric-2:
         action:
             set_view: "geometric-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     geometric-2-backwards:
         action:
             set_view: "geometric-2"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     geometric-3:
         action:
             set_view: "geometric-3"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🏳️‍⚧️+:
+        outline: "emoji-group"
         action:
             set_view: "flag"
     🇪🇺+:
+        outline: "emoji-group"
         action:
             set_view: "country-flag"
     country-flag-backwards:
         action:
             set_view: "country-flag"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     country-flag-2:
         action:
             set_view: "country-flag-2"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     country-flag-2-backwards:
         action:
             set_view: "country-flag-2"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     country-flag-3:
         action:
             set_view: "country-flag-3"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     country-flag-3-backwards:
         action:
             set_view: "country-flag-3"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     country-flag-4:
         action:
             set_view: "country-flag-4"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     country-flag-4-backwards:
         action:
             set_view: "country-flag-4"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     country-flag-5:
         action:
             set_view: "country-flag-5"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     country-flag-5-backwards:
         action:
             set_view: "country-flag-5"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     country-flag-6:
         action:
             set_view: "country-flag-6"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     country-flag-6-backwards:
         action:
             set_view: "country-flag-6"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     country-flag-7:
         action:
             set_view: "country-flag-7"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     country-flag-7-backwards:
         action:
             set_view: "country-flag-7"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     country-flag-8:
         action:
             set_view: "country-flag-8"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     country-flag-8-backwards:
         action:
             set_view: "country-flag-8"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     country-flag-9:
         action:
             set_view: "country-flag-9"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     country-flag-9-backwards:
         action:
             set_view: "country-flag-9"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     country-flag-10:
         action:
             set_view: "country-flag-10"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     country-flag-10-backwards:
         action:
             set_view: "country-flag-10"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     country-flag-11:
         action:
             set_view: "country-flag-11"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     country-flag-11-backwards:
         action:
             set_view: "country-flag-11"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     country-flag-12:
         action:
             set_view: "country-flag-12"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     country-flag-12-backwards:
         action:
             set_view: "country-flag-12"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     country-flag-13:
         action:
             set_view: "country-flag-13"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     country-flag-13-backwards:
         action:
             set_view: "country-flag-13"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     country-flag-14:
         action:
             set_view: "country-flag-14"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     country-flag-14-backwards:
         action:
             set_view: "country-flag-14"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     country-flag-15:
         action:
             set_view: "country-flag-15"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     country-flag-15-backwards:
         action:
             set_view: "country-flag-15"
         label: "<"
-        outline: "special"
+        outline: "change-view"
     country-flag-16:
         action:
             set_view: "country-flag-16"
         label: ">"
-        outline: "special"
+        outline: "change-view"
     🏴󠁧󠁢󠁥󠁮󠁧󠁿+:
+        outline: "emoji-group"
         action:
             set_view: "subdivision-flag"
