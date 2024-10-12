@@ -1,8 +1,18 @@
-squeekboard (1.42.0-1) UNRELEASED; urgency=medium
+squeekboard (1.42.0-1) unstable; urgency=medium
 
   * New upstream version
+  * d/watch: fix for recent GitLab
+  * d/control: use versioned rust-g* deps.
+    Squeekboard uses GTK+ 3.0, which are now in Debian as versioned crates
+    in order to avoid colliding with newer GTK4 crates. Use those to fix
+    building this package.
+  * d/squeekboard: install gschema file
+  * debian: drop now-unneeded lintian overrides
+  * d/patches: disable flaky tests
+    Size calculation tests fail on (at least) i386 likely due to differences
+    in floating point precision, causing the package build to fail entirely.
 
- -- Arnaud Ferraris <aferraris@debian.org>  Sat, 12 Oct 2024 19:03:22 +0200
+ -- Arnaud Ferraris <aferraris@debian.org>  Sun, 13 Oct 2024 00:35:44 +0200
 
 squeekboard (1.38.0-1) experimental; urgency=medium
 
