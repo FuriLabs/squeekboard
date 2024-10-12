@@ -32,24 +32,30 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
     ("br", include_str!("../data/keyboards/br.yaml")),
     ("br_wide", include_str!("../data/keyboards/br_wide.yaml")),
     
+    ("by", include_str!("../data/keyboards/by.yaml")),
+    ("by_wide", include_str!("../data/keyboards/by_wide.yaml")),
+
     ("ca", include_str!("../data/keyboards/ca.yaml")),
     ("ca_wide", include_str!("../data/keyboards/ca_wide.yaml")),
     
-    ("ch+fr", include_str!("../data/keyboards/ch+fr.yaml")),
-    ("ch+fr_wide", include_str!("../data/keyboards/ch+fr_wide.yaml")),
-    ("ch+de", include_str!("../data/keyboards/ch+de.yaml")),
-    ("ch+de_wide", include_str!("../data/keyboards/ch+de_wide.yaml")),
     ("ch", include_str!("../data/keyboards/ch.yaml")),
     ("ch_wide", include_str!("../data/keyboards/ch_wide.yaml")),
-
-    ("de", include_str!("../data/keyboards/de.yaml")),
-    ("de_wide", include_str!("../data/keyboards/de_wide.yaml")),
+    ("ch+de", include_str!("../data/keyboards/ch+de.yaml")),
+    ("ch+de_wide", include_str!("../data/keyboards/ch+de_wide.yaml")),
+    ("ch+fr", include_str!("../data/keyboards/ch+fr.yaml")),
+    ("ch+fr_wide", include_str!("../data/keyboards/ch+fr_wide.yaml")),
 
     ("cz", include_str!("../data/keyboards/cz.yaml")),
     ("cz_wide", include_str!("../data/keyboards/cz_wide.yaml")),
-
     ("cz+qwerty", include_str!("../data/keyboards/cz+qwerty.yaml")),
     ("cz+qwerty_wide", include_str!("../data/keyboards/cz+qwerty_wide.yaml")),
+
+    ("de", include_str!("../data/keyboards/de.yaml")),
+    ("de_wide", include_str!("../data/keyboards/de_wide.yaml")),
+    ("de+bone", include_str!("../data/keyboards/de+bone.yaml")),
+    ("de+bone_wide", include_str!("../data/keyboards/de+bone_wide.yaml")),
+    ("de+neo", include_str!("../data/keyboards/de+neo.yaml")),
+    ("de+neo_wide", include_str!("../data/keyboards/de+neo_wide.yaml")),
 
     ("dk", include_str!("../data/keyboards/dk.yaml")),
     ("dk_wide", include_str!("../data/keyboards/dk_wide.yaml")),
@@ -84,6 +90,9 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
     ("il", include_str!("../data/keyboards/il.yaml")),
     ("il_wide", include_str!("../data/keyboards/il_wide.yaml")),
     
+    ("in+mal", include_str!("../data/keyboards/in+mal.yaml")),
+    ("in+mal_wide", include_str!("../data/keyboards/in+mal_wide.yaml")),
+
     ("ir", include_str!("../data/keyboards/ir.yaml")),
     ("ir_wide", include_str!("../data/keyboards/ir_wide.yaml")),
 
@@ -92,6 +101,8 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
     ("it+fur", include_str!("../data/keyboards/it+fur.yaml")),
     ("it+fur_wide", include_str!("../data/keyboards/it+fur_wide.yaml")),
 
+    ("jp", include_str!("../data/keyboards/jp.yaml")),
+    ("jp_wide", include_str!("../data/keyboards/jp_wide.yaml")),
     ("jp+kana", include_str!("../data/keyboards/jp+kana.yaml")),
     ("jp+kana_wide", include_str!("../data/keyboards/jp+kana_wide.yaml")),
 
@@ -101,8 +112,18 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
     ("pl", include_str!("../data/keyboards/pl.yaml")),
     ("pl_wide", include_str!("../data/keyboards/pl_wide.yaml")),
 
+    ("pt", include_str!("../data/keyboards/pt.yaml")),
+    ("pt_wide", include_str!("../data/keyboards/pt_wide.yaml")),
+
     ("ro", include_str!("../data/keyboards/ro.yaml")),
     ("ro_wide", include_str!("../data/keyboards/ro_wide.yaml")),
+
+    ("rs", include_str!("../data/keyboards/rs.yaml")),
+    ("rs_wide", include_str!("../data/keyboards/rs_wide.yaml")),
+    ("rs+latin", include_str!("../data/keyboards/rs+latin.yaml")),
+    ("rs+latin_wide", include_str!("../data/keyboards/rs+latin_wide.yaml")),
+    ("rs+latinunicode", include_str!("../data/keyboards/rs+latinunicode.yaml")),
+    ("rs+latinunicode_wide", include_str!("../data/keyboards/rs+latinunicode_wide.yaml")),
 
     ("ru", include_str!("../data/keyboards/ru.yaml")),
     ("ru_wide", include_str!("../data/keyboards/ru_wide.yaml")),
@@ -110,15 +131,22 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
     ("se", include_str!("../data/keyboards/se.yaml")),
     ("se_wide", include_str!("../data/keyboards/se_wide.yaml")),
 
+    ("si", include_str!("../data/keyboards/si.yaml")),
+    ("si_wide", include_str!("../data/keyboards/si_wide.yaml")),
+
     ("th", include_str!("../data/keyboards/th.yaml")),
     ("th_wide", include_str!("../data/keyboards/th_wide.yaml")),
+
+    ("tr", include_str!("../data/keyboards/tr.yaml")),
+    ("tr_wide", include_str!("../data/keyboards/tr_wide.yaml")),
+    ("tr+f", include_str!("../data/keyboards/tr+f.yaml")),
+    ("tr+f_wide", include_str!("../data/keyboards/tr+f_wide.yaml")),
 
     ("ua", include_str!("../data/keyboards/ua.yaml")),
     ("ua_wide", include_str!("../data/keyboards/ua_wide.yaml")),
 
     ("us+colemak", include_str!("../data/keyboards/us+colemak.yaml")),
     ("us+colemak_wide", include_str!("../data/keyboards/us+colemak_wide.yaml")),
-
     ("us+dvorak", include_str!("../data/keyboards/us+dvorak.yaml")),
     ("us+dvorak_wide", include_str!("../data/keyboards/us+dvorak_wide.yaml")),
 
@@ -145,6 +173,8 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
 
     ("terminal/fr", include_str!("../data/keyboards/terminal/fr.yaml")),
     ("terminal/fr_wide", include_str!("../data/keyboards/terminal/fr_wide.yaml")),
+    ("terminal/fr+bepo", include_str!("../data/keyboards/terminal/fr+bepo.yaml")),
+    ("terminal/fr+bepo_wide", include_str!("../data/keyboards/terminal/fr+bepo_wide.yaml")),
 
     ("terminal/us", include_str!("../data/keyboards/terminal/us.yaml")),
     ("terminal/us_wide",   include_str!("../data/keyboards/terminal/us_wide.yaml")),
@@ -154,6 +184,23 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
     // Overlays
     ("emoji/us", include_str!("../data/keyboards/emoji/us.yaml")),
     ("emoji/us_wide", include_str!("../data/keyboards/emoji/us_wide.yaml")),
+
+    // Workaround: Fallback to more appropriate layouts than US-English.
+    // TODO: Consider creating layouts for these, if these are supposed to be different.
+    ("at", include_str!("../data/keyboards/de.yaml")),
+    ("at_wide", include_str!("../data/keyboards/de_wide.yaml")),
+
+    ("latam", include_str!("../data/keyboards/es.yaml")),
+    ("latam_wide", include_str!("../data/keyboards/es_wide.yaml")),
+
+    ("terminal/at", include_str!("../data/keyboards/terminal/de.yaml")),
+    ("terminal/at_wide",   include_str!("../data/keyboards/terminal/de_wide.yaml")),
+
+    ("terminal/latam", include_str!("../data/keyboards/terminal/es.yaml")),
+    ("terminal/latam_wide",   include_str!("../data/keyboards/terminal/es_wide.yaml")),
+
+    ("terminal/ch+fr", include_str!("../data/keyboards/terminal/de.yaml")),
+    ("terminal/ch+fr_wide", include_str!("../data/keyboards/terminal/de_wide.yaml")),
 ];
 
 pub fn get_keyboard(needle: &str) -> Option<&'static str> {

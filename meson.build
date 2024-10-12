@@ -1,9 +1,9 @@
 project(
     'squeekboard',
     'c', 'rust',
-    version: '1.38.0',
+    version: '1.42.0',
     license: 'GPLv3',
-    meson_version: '>=0.51.0',
+    meson_version: '>=1.0.0',
     default_options: [
         'warning_level=1',
         'buildtype=debugoptimized',
@@ -70,6 +70,7 @@ else
   depdatadir = get_option('depdatadir')
 endif
 dbusdir = join_paths(depdatadir, 'dbus-1/interfaces')
+schemasdir = datadir / 'glib-2.0' / 'schemas'
 
 conf_data = configuration_data()
 conf_data.set_quoted('GETTEXT_PACKAGE', 'squeekboard')
@@ -85,10 +86,16 @@ summary = [
 ]
 message('\n'.join(summary))
 
+# 'rust-analyzer' does not work correctly, when the paths in 'Cargo.toml' have '@path@' in them.
+cp = find_program('cp')
+sed = find_program('sed')
+copy_cargo_toml = run_command('cp', 'Cargo.toml', 'meson_Cargo.toml.in', check: true)
+prepare_cargo_toml = run_command('sed', '-i', 's/path = "/path = "@path@\//', 'meson_Cargo.toml.in', check: true)
+
 path_data = configuration_data()
-path_data.set('path', meson.source_root())
+path_data.set('path', meson.project_source_root())
 cargo_toml = configure_file(
-    input: 'Cargo.toml',
+    input: 'meson_Cargo.toml.in',
     output: 'Cargo.toml',
     configuration: path_data,
 )
@@ -105,3 +112,7 @@ subdir('protocols')
 subdir('src')
 subdir('tools')
 subdir('tests')
+
+gnome.post_install(
+    glib_compile_schemas: true,
+)

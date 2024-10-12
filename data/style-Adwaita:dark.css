@@ -13,10 +13,75 @@ sq_button:active {
     background: #747077;
 }
 
+sq_button.subtle-highlight,
+sq_button.subtle-highlight-2 {
+    background: #3f3e41;
+}
+
+sq_button.subtle-highlight:active,
+sq_button.subtle-highlight-2:active {
+    background: #676669;
+}
+
+sq_button.emoji-group,
+sq_button.character-group {
+    background: #3f3e41;
+    border-bottom: 0.4999px;
+    border-style: solid;
+    border-color: alpha(white, 0.175);
+}
+
+sq_button.emoji-group:active,
+sq_button.character-group:active {
+    background: #747077;
+    border-bottom: 0.4999px;
+    border-style: solid;
+    border-color: alpha(white, 0.225);
+}
+
+sq_button.change-view,
+sq_button.change-view-2,
+sq_button.change-view-3 {
+    background: #2b292f;
+    border-bottom: 0.4999px;
+    border-style: solid;
+    border-color: alpha(white, 0.175);
+}
+
+sq_button.change-view:active,
+sq_button.change-view-2:active,
+sq_button.change-view-3:active {
+    background: #747077;
+    border-bottom: 0.4999px;
+    border-style: solid;
+    border-color: alpha(white, 0.225);
+}
+
+sq_button.placeholder,
+sq_button.placeholder-2 {
+    background: #171618;
+}
+
+sq_button.placeholder:active,
+sq_button.placeholder-2:active {
+    background: initial;
+    box-shadow: initial;
+}
+
 sq_button.altline,
 sq_button.special,
+sq_button.special-2,
+sq_button.special-3,
 sq_button.wide {
     background: #2b292f;
+}
+
+sq_button.altline:active,
+sq_button.special:active,
+sq_button.special-2:active,
+sq_button.special-3:active,
+sq_button.wide:active {
+    background: #37353c;
 }
 
 sq_button.latched {
@@ -34,7 +99,8 @@ sq_button.locked {
 }
 
 #Return:active {
-    background: #1c71d8;
+    background: mix(#1c71d8, black, 0.2);
+    color: mix(#1c71d8, black, 0.2);
 }
 
 @import url("resource:///sm/puri/squeekboard/common.css");

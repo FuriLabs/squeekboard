@@ -1,10 +1,15 @@
+# Language: Bulgarian
 ---
 outlines:
-    default:   { width: 32.72, height: 52 }
-    altline:   { width: 47,    height: 52 }
-    wide:      { width: 49.09, height: 52 }
-    spaceline: { width: 185,   height: 52 }
-    special:   { width: 44,    height: 52 }
+    default:       { width: 32.72,  height: 52 }
+    altline:       { width: 50.12,  height: 52 }
+    wide:          { width: 58.99,  height: 52 }
+    change-view:   { width: 50.12,  height: 52 }
+    change-view-2: { width: 58.99,  height: 52 }
+    spaceline:     { width: 167.26, height: 52 }
+    special:       { width: 44,     height: 52 }
+    placeholder:   { width: 32.72,  height: 52 }
+    fill:          { width: 65.44,  height: 52 }
 
 views:
     base:
@@ -21,12 +26,12 @@ views:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # € % & - _ + ( )"
         - "show_symbols , \" ' : ; ! ? ѝ BackSpace"
-        - "show_letters preferences         space        Return"
+        - "show_letters preferences         space    .    Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ $ ¥ ^ ° * { }"
-        - "show_numbers_from_symbols   \\ / < > = [ ]  BackSpace"
-        - "show_letters preferences         space        Return"
+        - "show_numbers_from_symbols -- \\ / < > = [ ] BackSpace"
+        - "show_letters preferences         space    ,    Return"
 
 
 buttons:
@@ -35,12 +40,12 @@ buttons:
             locking:
                 lock_view: "upper"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         icon: "key-shift"
     BackSpace:
         outline: "altline"
         icon: "edit-clear-symbolic"
-        action: erase
+        action: "erase"
     preferences:
         action: "show_prefs"
         outline: "special"
@@ -48,22 +53,22 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "wide"
+        outline: "change-view-2"
         label: "123"
     show_numbers_from_symbols:
         action:
             set_view: "numbers"
-        outline: "altline"
+        outline: "change-view"
         label: "123"
     show_letters:
         action:
             set_view: "base"
-        outline: "wide"
+        outline: "change-view-2"
         label: "ABC"
     show_symbols:
         action:
             set_view: "symbols"
-        outline: "altline"
+        outline: "change-view"
         label: "*/="
     space:
         outline: "spaceline"
@@ -72,3 +77,14 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
+    --:
+        outline: "placeholder"
+        text: ""
+    5:
+        outline: "fill"
+    "&":
+        outline: "fill"
+    √:
+        outline: "fill"
+    ¥:
+        outline: "fill"

@@ -1,16 +1,15 @@
 # Romanian translation for squeekboard.
 # Copyright (C) 2021 squeekboard's COPYRIGHT HOLDER
 # This file is distributed under the same license as the squeekboard package.
-# libre <eposta1@pm.me>, 2021.
+# Antonio Marin (libre) <gnmer.6qxyg@slmail.me>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: squeekboard master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/squeekboard/"
-"issues\n"
-"POT-Creation-Date: 2021-12-22 14:45+0000\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/squeekboard/issues\n"
+"POT-Creation-Date: 2024-03-09 17:23+0000\n"
 "PO-Revision-Date: 2021-12-22 20:05+0100\n"
-"Last-Translator: libre <eposta1@pm.me>\n"
+"Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"

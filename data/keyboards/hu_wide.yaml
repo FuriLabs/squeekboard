@@ -1,11 +1,14 @@
-# Maintained by: soyer <soyer@irl.hu>
+# Language: Hungarian
+# Based on work by: soyer <soyer@irl.hu>
 ---
 outlines:
-    default:   { width: 48,  height: 42 }
-    altline:   { width: 81,  height: 42 }
-    wide:      { width: 108, height: 42 }
-    spaceline: { width: 216, height: 42 }
-    special:   { width: 48,  height: 42 }
+    default:       { width: 44.75,   height: 42 }
+    altline:       { width: 89.5,    height: 42 }
+    change-view:   { width: 89.5,    height: 42 }
+    change-view-2: { width: 67.125,  height: 42 }
+    spaceline:     { width: 111.875, height: 42 }
+    special:       { width: 44.75,   height: 42 }
+    placeholder:   { width: 44.75,   height: 42 }
 
 views:
     base:
@@ -19,20 +22,20 @@ views:
         - "Shift_L Í Y X C V B N M  BackSpace"
         - "show_numbers show_eschars preferences         space        ? : ! Return"
     numbers:
-        - "1 2 3 4 5 6 7 8 9 0"
-        - "@ # € % & - _ + ( )"
-        - "show_symbols   ; \" ' : = < >  BackSpace"
+        - "-- 1 2 3 4 5 6 7 8 9 0 --"
+        - "-- @ # € % & - _ + ( ) --"
+        - "show_symbols   ; \" ' : = < > -- BackSpace"
         - "show_letters show_eschars preferences         space        , . - Return"
     symbols:
-        - "~ ` ´ | · √ µ ÷ × ¶"
-        - "© ® £ $ ¥ ^ ° * { }"
-        - "show_numbers   \\ / § π τ [ ]  BackSpace"
+        - "-- ~ ` ´ | · √ µ ÷ × ¶ --"
+        - "-- © ® £ $ ¥ ^ ° * { } --"
+        - "show_numbers   \\ / § π τ [ ] -- BackSpace"
         - "show_letters show_eschars preferences         space        , . - Return"
     eschars:
-        - "ö ü ó Ö Ü Ó"
-        - "í ő ú Í Ő Ú"
-        - "show_numbers é á ű É Á Ű BackSpace"
-        - "show_letters show_eschars preferences         space        „ “ Return"
+        - "-- -- -- ö ü ó Ö Ü Ó -- -- --"
+        - "-- -- -- í ő ú Í Ő Ú -- -- --"
+        - "show_numbers -- é á ű É Á Ű -- BackSpace"
+        - "show_letters show_eschars preferences         space       , „ “ Return"
 
 buttons:
     Shift_L:
@@ -40,7 +43,7 @@ buttons:
             locking:
                 lock_view: "upper"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         icon: "key-shift"
     BackSpace:
         outline: "altline"
@@ -53,30 +56,32 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "altline"
+        outline: "change-view"
         label: "123"
     show_letters:
         action:
             set_view: "base"
-        outline: "altline"
+        outline: "change-view"
         label: "ABC"
     show_symbols:
         action:
             set_view: "symbols"
-        outline: "altline"
+        outline: "change-view"
         label: "*/="
     show_eschars:
         action:
             locking:
                 lock_view: "eschars"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view-2"
         label: "éá"
     space:
         outline: "spaceline"
-        label: " "
         text: " "
     Return:
         outline: "altline"
         icon: "key-enter"
         keysym: "Return"
+    --:
+        outline: "placeholder"
+        text: ""

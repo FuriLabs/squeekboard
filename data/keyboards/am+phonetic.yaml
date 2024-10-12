@@ -1,37 +1,43 @@
-# Armenian layout created by Norayr Chilingarian
+# Language: Armenian (phonetic)
+# Armenian layout based on work by Norayr Chilingarian
 # Yerevan
 # Oct 2021
 ---
 outlines:
-    default:   { width: 35.33, height: 52 }
-    altline:   { width: 52.67, height: 52 }
-    wide:      { width: 32,    height: 32 }
-    spaceline: { width: 142,   height: 52 }
-    special:   { width: 44,    height: 52 }
+    default:       { width: 34.3,   height: 52 }
+    altline:       { width: 52,     height: 52 }
+    wide:          { width: 104,    height: 52 }
+    change-view:   { width: 52,     height: 52 }
+    change-view-2: { width: 104,    height: 52 }
+    spaceline:     { width: 150.99, height: 52 }
+    special:       { width: 44,     height: 52 }
+    large:         { width: 44,     height: 52 }
+    placeholder:   { width: 34.3,   height: 52 }
 
 views:
     base:
         - "՝ է թ փ ձ ջ ւ և ռ չ ճ ֊ ժ"
         - "ք ո ե ր տ ը ւ ի օ պ խ ծ շ"
-        - "ա ս դ ֆ գ հ յ կ լ ․"
-        - "Shift_L զ ղ ց վ բ ն մ ՛ BackSpace"
+        - "-- -- ա ս դ ֆ գ հ յ կ լ ․ --"
+        - "Shift_L -- զ ղ ց վ բ ն մ ՛ -- BackSpace"
         - "show_numbers preferences         space        . Return"
     upper:
         - "՝ Է Թ Փ Ձ Ջ Ւ և Ռ Չ Ճ — Ժ"
         - "Ք Ո Ե Ր Տ Ը Ւ Ի Օ Պ Խ Ծ Շ"
-        - "Ա Ս Դ Ֆ Գ Հ Յ Կ Լ ։"
-        - "Shift_L Զ Ղ Ց Վ Բ Ն Մ ՞ BackSpace"
+        - "-- -- Ա Ս Դ Ֆ Գ Հ Յ Կ Լ ։ --"
+        - "Shift_L -- Զ Ղ Ց Վ Բ Ն Մ ՞ -- BackSpace"
         - "show_numbers preferences         space        . Return"
     numbers:
-        - "show_symbols   , \" ' : ; ! ?  BackSpace"
-        - "ﬓ  ﬔ  ﬕ  ﬖ  ﬗ   ՟ և"
-        - "1 2 3 4 5 6 7 8 9 0"
+        - "-- -- -- -- -- -- -- -- --"
+        - "-- ﬓ  ﬔ  ﬕ  ﬖ  ﬗ   ՟ և --"
+        - "-- , \" ' : ; ! ? --"
+        - "show_symbols 1 2 3 4 5 6 7 8 9 0 BackSpace"
         - "show_letters preferences         space        . Return"
     symbols:
-        - "show_numbers_from_symbols   \\ % < > = [ ]  BackSpace"
-        - "* # $ / & - _ + ( )"
-        - "© ® £ € ¥ ^ ° @ { }"
-        - "~ ` | · √ π τ ÷ × ¶"
+        - "* # \\ % < > = [ ]"
+        - "© $ / & - _ + ( )"
+        - "® £ € ¥ ^ ° @ { }"
+        - "show_numbers_from_symbols ~ ` | · √ π τ ÷ × ¶ BackSpace"
         - "show_letters preferences         space        . Return"
 
 buttons:
@@ -40,7 +46,7 @@ buttons:
             locking:
                 lock_view: "upper"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "change-view"
         icon: "key-shift"
     BackSpace:
         outline: "altline"
@@ -53,25 +59,25 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "wide"
+        outline: "change-view-2"
         label: "123"
     show_numbers_from_symbols:
         action:
             set_view: "numbers"
-        outline: "altline"
+        outline: "change-view"
         label: "123"
     show_letters:
         action:
             set_view: "base"
-        outline: "wide"
+        outline: "change-view-2"
         label: "ԱԲԳ"
     show_symbols:
         action:
             set_view: "symbols"
-        outline: "altline"
+        outline: "change-view"
         label: "*/="
     .:
-        outline: "special"
+        outline: "large"
     space:
         outline: "spaceline"
         text: " "
@@ -79,3 +85,6 @@ buttons:
         outline: "wide"
         icon: "key-enter"
         keysym: "Return"
+    --:
+        outline: "placeholder"
+        text: ""
