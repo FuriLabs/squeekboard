@@ -22,7 +22,7 @@ Build-Depends:
  librust-serde-derive-1-dev,
  librust-serde-yaml-0.9-dev,
  librust-thread-local-dev,
- librust-xkbcommon-dev (>= 0.7),
+ librust-xkbcommon-0.8-dev,
  librust-zbus-1-dev (>= 1.9),
  librust-zvariant-2-dev (>= 2.10),
  librust-zvariant-derive-2-dev (>= 2.10),
