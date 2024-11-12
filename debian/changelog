@@ -1,3 +1,9 @@
+squeekboard (1.42.2-1) UNRELEASED; urgency=medium
+
+  * New upstream version
+
+ -- Arnaud Ferraris <aferraris@debian.org>  Tue, 12 Nov 2024 13:20:10 +0100
+
 squeekboard (1.42.1-2) unstable; urgency=medium
 
   * debian: update xkbcommon dependency to 0.8
