@@ -2,39 +2,39 @@
 # Maintained by: Khaled Eldoheiri <khalid@kdehairy.com>
 ---
 outlines:
-    default:       { width: 32.95,  height: 52 }
-    altline:       { width: 48.99,  height: 52 }
-    wide:          { width: 62,     height: 52 }
-    change-view:   { width: 48.99,  height: 52 }
-    change-view-2: { width: 62,     height: 52 }
-    spaceline:     { width: 169.63, height: 52 }
-    special:       { width: 35.66,  height: 52 }
-    fill:          { width: 65.32,  height: 52 }
+    default:       { width: 32.415,  height: 52 }
+    change-view:   { width: 48.622,  height: 52 }
+    change-view-2: { width: 56.726,  height: 52 }
+    fill:          { width: 64.83,   height: 52 }
+    spaceline:     { width: 178.283, height: 52 }
+    special:       { width: 32.415,  height: 52 }
+    special-2:     { width: 48.622,  height: 52 }
+    special-3:     { width: 56.726,  height: 52 }
 
 views:
     base:
         - "ذ ض ص ث ق ف غ ع خ ح ج"
         - "ش س ي ب ل ا ت ن م ك ط"
-        - "Shift_L ء ؤ ر ة و ز ظ د BackSpace"
-        - "show_numbers preferences         space        . Return"
+        - "show_upper ء ؤ ر ة و ز ظ د BackSpace"
+        - "show_numbers preferences space . Return"
     extra:
         - "ذ ض ص ث ق لإ إ ع خ ح ج"
         - "ش س ى ب لأ أ ت ن م ك ط"
-        - "Shift_L ئ لآ لا ه آ ز ظ د BackSpace"
-        - "show_numbers preferences         space        . Return"
+        - "show_upper ئ لآ لا ه آ ز ظ د BackSpace"
+        - "show_numbers preferences space . Return"
     numbers:
-        - "1 2 3 4 5 6 7 8 9 0"
-        - "@ # € % & - _ + ( )"
-        - "show_symbols   ، \" ' : ؛ ! ؟  BackSpace"
-        - "show_letters preferences         space        . Return"
+        - "1 2 3 4 5 6 7 8 9 0 ²"
+        - "@ # € % & - _ + ( ) ³"
+        - "show_symbols ، \" ' : ؛ ! ؟ BackSpace"
+        - "show_letters preferences space . Return"
     symbols:
-        - "~ ` | · √ π τ ÷ × ¶"
-        - "© ® £ € ¥ ^ ° * { }"
-        - "show_numbers_from_symbols   \\ / < > = [ ]  BackSpace"
-        - "show_letters preferences         space        . Return"
+        - "~ ` | · √ π τ ÷ × ¶ ²"
+        - "© ® £ € ¥ ^ ° * { } ³"
+        - "show_numbers_from_symbols \\ / < > = [ ] BackSpace"
+        - "show_letters preferences space . Return"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "extra"
@@ -42,7 +42,7 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -73,18 +73,10 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "wide"
+        outline: "special-3"
         icon: "key-enter"
         keysym: "Return"
-    5:
-        outline: "fill"
-    "&":
-        outline: "fill"
     ":":
-        outline: "fill"
-    √:
-        outline: "fill"
-    ¥:
         outline: "fill"
     ">":
         outline: "fill"

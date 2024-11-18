@@ -2,26 +2,26 @@
 # Created by Sotiris Papadopoulos, sotirios.papadopoulos@inserm.fr
 ---
 outlines:
-    default:          { width: 73,  height: 60 }
-    special:          { width: 73,  height: 60 }
-    subtle-highlight: { width: 73,  height: 60 }
-    fill:             { width: 110, height: 60 }
-    altline:          { width: 110, height: 60 }
-    change-view:      { width: 110, height: 60 }
-    wide:             { width: 146, height: 60 }
-    change-view-2:    { width: 146, height: 60 }
-    spaceline:        { width: 256, height: 60 }
+    default:          { width: 51.768,  height: 42 }
+    fill:             { width: 77.652,  height: 42 }
+    change-view:      { width: 77.652,  height: 42 }
+    change-view-2:    { width: 103.536, height: 42 }
+    spaceline:        { width: 181.188, height: 42 }
+    special:          { width: 51.768,  height: 42 }
+    special-2:        { width: 77.652,  height: 42 }
+    special-3:        { width: 103.536, height: 42 }
+    subtle-highlight: { width: 51.768,  height: 42 }
 
 views:
     base:
         - "; ς ε ρ τ υ θ ι ο π-fill"
         - "α σ δ φ γ η ξ κ λ show_accented"
-        - "Shift_L ζ χ ψ ω β ν μ BackSpace"
+        - "show_upper ζ χ ψ ω β ν μ BackSpace"
         - "show_numbers preferences space . ,-subtle-highlight Return"
     upper:
         - ": ! Ε Ρ Τ Υ Θ Ι Ο Π"
         - "Α Σ Δ Φ Γ Η Ξ Κ Λ show_accented"
-        - "Shift_L Ζ Χ Ψ Ω Β Ν Μ BackSpace"
+        - "show_upper Ζ Χ Ψ Ω Β Ν Μ BackSpace"
         - "show_numbers preferences space ·-subtle-highlight ᾿ Return"
     accented:
         - "ά έ ή ί ϊ ΐ ό ύ ϋ ώ"
@@ -36,10 +36,10 @@ views:
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
-        - "show_numbers \\ / < > = [ ]  BackSpace"
+        - "show_numbers \\ / < > = [ ] BackSpace"
         - "show_letters preferences space . ,-subtle-highlight Return"
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"
@@ -47,7 +47,7 @@ buttons:
         outline: "change-view-2"
         icon: "key-shift"
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -80,7 +80,7 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "wide"
+        outline: "special-3"
         icon: "key-enter"
         keysym: "Return"
     .:

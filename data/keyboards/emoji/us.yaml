@@ -1,12 +1,12 @@
 ---
 outlines:
-    default:       { width: 52,   height: 52 }
-    placeholder:   { width: 52,   height: 52 }
-    special:       { width: 52,   height: 52 }
-    change-view:   { width: 52,   height: 52 }
-    change-view-2: { width: 36.4, height: 56 }
-    emoji-group:   { width: 52,   height: 52 }
-    placeholder-2: { width: 260,  height: 52 }
+    default:       { width: 51.918, height: 52 }
+    change-view:   { width: 51.918, height: 52 }
+    change-view-2: { width: 36.341, height: 56 }
+    emoji-group:   { width: 51.918, height: 52 }
+    placeholder:   { width: 51.918, height: 52 }
+    placeholder-2: { width: 259.59, height: 52 }
+    special:       { width: 51.918, height: 52 }
 
 views:
     base:
@@ -40,7 +40,7 @@ views:
         - "preferences 🙂‍↔️ 🙂‍↕️ 0 0 0 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     face-sleepy:
-        - "😌 😔 😪 🤤 😴 0 0"
+        - "😌 😔 😪 🤤 😴 🫩 0"
         - "0 0 0 0 0 0 0"
         - "preferences 0 0 0 0 0 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
@@ -256,7 +256,7 @@ views:
         - "1 2 3 4 5 6 7 8 9 10"
     person-symbol:
         - "🗣 👤 👥 🫂 👪 🧑‍🧑‍🧒 🧑‍🧑‍🧒‍🧒"
-        - "🧑‍🧒 🧑‍🧒‍🧒 👣 0 0 0 0"
+        - "🧑‍🧒 🧑‍🧒‍🧒 👣 🫆 0 0 0"
         - "preferences 0 0 0 0 0 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     component:
@@ -327,7 +327,7 @@ views:
     plant-other:
         - "🌱 🪴 🌲 🌳 🌴 🌵 🌾"
         - "🌿 ☘ 🍀 🍁 🍂 🍃 🪹"
-        - "preferences 🪺 🍄 0 0 0 BackSpace"
+        - "preferences 🪺 🍄 🪾 0 0 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     food-and-drink:
         - "🍒+ 🥕+ 🥐+ 🍱+ 🦐+ 🍰+ 🍵+"
@@ -347,7 +347,7 @@ views:
     food-vegetable:
         - "🥑 🍆 🥔 🥕 🌽 🌶 🫑"
         - "🥒 🥬 🥦 🧄 🧅 🥜 🫘"
-        - "preferences 🌰 🫚 🫛 🍄‍🟫 0 BackSpace"
+        - "preferences 🌰 🫚 🫛 🍄‍🟫 🫜 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     food-prepared:
         - "🍞 🥐 🥖 🫓 🥨 🥯 🥞"
@@ -556,7 +556,7 @@ views:
         - "1 2 3 4 5 6 7 8 9 10"
     musical-instrument:
         - "🎷 🪗 🎸 🎹 🎺 🎻 🪕"
-        - "🥁 🪘 🪇 🪈 0 0 0"
+        - "🥁 🪘 🪇 🪈 🪉 0 0"
         - "preferences 0 0 0 0 0 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     phone:
@@ -616,7 +616,7 @@ views:
         - "1 2 3 4 5 6 7 8 9 10"
     tool-2:
         - "🦯 🔗 ⛓️‍💥 ⛓ 🪝 🧰 🧲"
-        - "tool-backwards  🪜 0 0 0 0 0"
+        - "tool-backwards  🪜 🪏 0 0 0 0"
         - "preferences 0 0 0 0 0 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     science:
@@ -715,7 +715,7 @@ views:
         - "preferences ➿ 〽 ✳ ✴ ❇ BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     other-symbol-2:
-        - "© ® ™ 0 0 0 0"
+        - "© ® ™ 🫟 0 0 0"
         - "other-symbol-backwards 0 0 0 0 0 0"
         - "preferences 0 0 0 0 0 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
@@ -772,70 +772,70 @@ views:
     country-flag-3:
         - "🇧🇼 🇧🇾 🇧🇿 🇨🇦 🇨🇨 🇨🇩 🇨🇫"
         - "country-flag-2-backwards 🇨🇬 🇨🇭 🇨🇮 🇨🇰 🇨🇱 country-flag-4"
-        - "preferences 🇨🇲 🇨🇳 🇨🇴 🇨🇵 🇨🇷 BackSpace"
+        - "preferences 🇨🇲 🇨🇳 🇨🇴 🇨🇵 🇨🇶 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     country-flag-4:
-        - "🇨🇺 🇨🇻 🇨🇼 🇨🇽 🇨🇾 🇨🇿 🇩🇪"
-        - "country-flag-3-backwards 🇩🇬 🇩🇯 🇩🇰 🇩🇲 🇩🇴 country-flag-5"
-        - "preferences 🇩🇿 🇪🇦 🇪🇨 🇪🇪 🇪🇬 BackSpace"
+        - "🇨🇷 🇨🇺 🇨🇻 🇨🇼 🇨🇽 🇨🇾 🇨🇿 "
+        - "country-flag-3-backwards 🇩🇪 🇩🇬 🇩🇯 🇩🇰 🇩🇲 country-flag-5"
+        - "preferences 🇩🇴 🇩🇿 🇪🇦 🇪🇨 🇪🇪 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     country-flag-5:
-        - "🇪🇭 🇪🇷 🇪🇸 🇪🇹 🇪🇺 🇫🇮 🇫🇯"
-        - "country-flag-4-backwards 🇫🇰 🇫🇲 🇫🇴 🇫🇷 🇬🇦 country-flag-6"
-        - "preferences 🇬🇧 🇬🇩 🇬🇪 🇬🇫 🇬🇬 BackSpace"
+        - "🇪🇬 🇪🇭 🇪🇷 🇪🇸 🇪🇹 🇪🇺 🇫🇮"
+        - "country-flag-4-backwards 🇫🇯 🇫🇰 🇫🇲 🇫🇴 🇫🇷 country-flag-6"
+        - "preferences 🇬🇦 🇬🇧 🇬🇩 🇬🇪 🇬🇫 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     country-flag-6:
-        - "🇬🇭 🇬🇮 🇬🇱 🇬🇲 🇬🇳 🇬🇵 🇬🇶"
-        - "country-flag-5-backwards 🇬🇷 🇬🇸 🇬🇹 🇬🇺 🇬🇼 country-flag-7"
-        - "preferences 🇬🇾 🇭🇰 🇭🇲 🇭🇳 🇭🇷 BackSpace"
+        - "🇬🇬 🇬🇭 🇬🇮 🇬🇱 🇬🇲 🇬🇳 🇬🇵"
+        - "country-flag-5-backwards 🇬🇶 🇬🇷 🇬🇸 🇬🇹 🇬🇺 country-flag-7"
+        - "preferences 🇬🇼 🇬🇾 🇭🇰 🇭🇲 🇭🇳 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     country-flag-7:
-        - "🇭🇹 🇭🇺 🇮🇨 🇮🇩 🇮🇪 🇮🇱 🇮🇲"
-        - "country-flag-6-backwards 🇮🇳 🇮🇴 🇮🇶 🇮🇷 🇮🇸 country-flag-8"
-        - "preferences 🇮🇹 🇯🇪 🇯🇲 🇯🇴 🇯🇵 BackSpace"
+        - "🇭🇷 🇭🇹 🇭🇺 🇮🇨 🇮🇩 🇮🇪 🇮🇱"
+        - "country-flag-6-backwards 🇮🇲 🇮🇳 🇮🇴 🇮🇶 🇮🇷 country-flag-8"
+        - "preferences 🇮🇸 🇮🇹 🇯🇪 🇯🇲 🇯🇴 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     country-flag-8:
-        - "🇰🇪 🇰🇬 🇰🇭 🇰🇮 🇰🇲 🇰🇳 🇰🇵"
-        - "country-flag-7-backwards 🇰🇷 🇰🇼 🇰🇾 🇰🇿 🇱🇦 country-flag-9"
-        - "preferences 🇱🇧 🇱🇨 🇱🇮 🇱🇰 🇱🇷 BackSpace"
+        - "🇯🇵 🇰🇪 🇰🇬 🇰🇭 🇰🇮 🇰🇲 🇰🇳"
+        - "country-flag-7-backwards 🇰🇵 🇰🇷 🇰🇼 🇰🇾 🇰🇿 country-flag-9"
+        - "preferences 🇱🇦 🇱🇧 🇱🇨 🇱🇮 🇱🇰 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     country-flag-9:
-        - "🇱🇸 🇱🇹 🇱🇺 🇱🇻 🇱🇾 🇲🇦 🇲🇨"
-        - "country-flag-8-backwards 🇲🇩 🇲🇪 🇲🇫 🇲🇬 🇲🇭 country-flag-10"
-        - "preferences 🇲🇰 🇲🇱 🇲🇲 🇲🇳 🇲🇴 BackSpace"
+        - "🇱🇷 🇱🇸 🇱🇹 🇱🇺 🇱🇻 🇱🇾 🇲🇦"
+        - "country-flag-8-backwards 🇲🇨 🇲🇩 🇲🇪 🇲🇫 🇲🇬 country-flag-10"
+        - "preferences 🇲🇭 🇲🇰 🇲🇱 🇲🇲 🇲🇳 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     country-flag-10:
-        - "🇲🇵 🇲🇶 🇲🇷 🇲🇸 🇲🇹 🇲🇺 🇲🇻"
-        - "country-flag-9-backwards 🇲🇼 🇲🇽 🇲🇾 🇲🇿 🇳🇦 country-flag-11"
-        - "preferences 🇳🇨 🇳🇪 🇳🇫 🇳🇬 🇳🇮 BackSpace"
+        - "🇲🇴 🇲🇵 🇲🇶 🇲🇷 🇲🇸 🇲🇹 🇲🇺"
+        - "country-flag-9-backwards 🇲🇻 🇲🇼 🇲🇽 🇲🇾 🇲🇿 country-flag-11"
+        - "preferences 🇳🇦 🇳🇨 🇳🇪 🇳🇫 🇳🇬 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     country-flag-11:
-        - "🇳🇱 🇳🇴 🇳🇵 🇳🇷 🇳🇺 🇳🇿 🇴🇲"
-        - "country-flag-10-backwards 🇵🇦 🇵🇪 🇵🇫 🇵🇬 🇵🇭 country-flag-12"
-        - "preferences 🇵🇰 🇵🇱 🇵🇲 🇵🇳 🇵🇷 BackSpace"
+        - "🇳🇮 🇳🇱 🇳🇴 🇳🇵 🇳🇷 🇳🇺 🇳🇿"
+        - "country-flag-10-backwards 🇴🇲 🇵🇦 🇵🇪 🇵🇫 🇵🇬 country-flag-12"
+        - "preferences 🇵🇭 🇵🇰 🇵🇱 🇵🇲 🇵🇳 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     country-flag-12:
-        - "🇵🇸 🇵🇹 🇵🇼 🇵🇾 🇶🇦 🇷🇪 🇷🇴"
-        - "country-flag-11-backwards 🇷🇸 🇷🇺 🇷🇼 🇸🇦 🇸🇧 country-flag-13"
-        - "preferences 🇸🇨 🇸🇩 🇸🇪 🇸🇬 🇸🇭 BackSpace"
+        - "🇵🇷 🇵🇸 🇵🇹 🇵🇼 🇵🇾 🇶🇦 🇷🇪"
+        - "country-flag-11-backwards 🇷🇴 🇷🇸 🇷🇺 🇷🇼 🇸🇦 country-flag-13"
+        - "preferences 🇸🇧 🇸🇨 🇸🇩 🇸🇪 🇸🇬 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     country-flag-13:
-        - "🇸🇮 🇸🇯 🇸🇰 🇸🇱 🇸🇲 🇸🇳 🇸🇴"
-        - "country-flag-12-backwards 🇸🇷 🇸🇸 🇸🇹 🇸🇻 🇸🇽 country-flag-14"
-        - "preferences 🇸🇾 🇸🇿 🇹🇦 🇹🇨 🇹🇩 BackSpace"
+        - "🇸🇭 🇸🇮 🇸🇯 🇸🇰 🇸🇱 🇸🇲 🇸🇳"
+        - "country-flag-12-backwards 🇸🇴 🇸🇷 🇸🇸 🇸🇹 🇸🇻 country-flag-14"
+        - "preferences 🇸🇽 🇸🇾 🇸🇿 🇹🇦 🇹🇨 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     country-flag-14:
-        - "🇹🇫 🇹🇬 🇹🇭 🇹🇯 🇹🇰 🇹🇱 🇹🇲"
-        - "country-flag-13-backwards 🇹🇳 🇹🇴 🇹🇷 🇹🇹 🇹🇻 country-flag-15"
-        - "preferences 🇹🇼 🇹🇿 🇺🇦 🇺🇬 🇺🇲 BackSpace"
+        - "🇹🇩 🇹🇫 🇹🇬 🇹🇭 🇹🇯 🇹🇰 🇹🇱"
+        - "country-flag-13-backwards 🇹🇲 🇹🇳 🇹🇴 🇹🇷 🇹🇹 country-flag-15"
+        - "preferences 🇹🇻 🇹🇼 🇹🇿 🇺🇦 🇺🇬 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     country-flag-15:
-        - "🇺🇳 🇺🇸 🇺🇾 🇺🇿 🇻🇦 🇻🇨 🇻🇪"
-        - "country-flag-14-backwards 🇻🇬 🇻🇮 🇻🇳 🇻🇺 🇼🇫 country-flag-16"
-        - "preferences 🇼🇸 🇽🇰 🇾🇪 🇾🇹 🇿🇦 BackSpace"
+        - "🇺🇲 🇺🇳 🇺🇸 🇺🇾 🇺🇿 🇻🇦 🇻🇨"
+        - "country-flag-14-backwards 🇻🇪 🇻🇬 🇻🇮 🇻🇳 🇻🇺 country-flag-16"
+        - "preferences 🇼🇫 🇼🇸 🇽🇰 🇾🇪 🇾🇹 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"
     country-flag-16:
-        - "🇿🇲 🇿🇼 0 0 0 0 0"
+        - "🇿🇦 🇿🇲 🇿🇼 0 0 0 0"
         - "country-flag-15-backwards 0 0 0 0 0 0"
         - "preferences 0 0 0 0 0 BackSpace"
         - "1 2 3 4 5 6 7 8 9 10"

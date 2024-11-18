@@ -420,6 +420,9 @@ fn create_action<H: logging::Handler>(
             }).collect(),
         },
         SubmitData::Modifier(modifier) => match modifier {
+            Modifier::Shift => action::Action::ApplyModifier(
+                action::Modifier::Shift,
+            ),
             Modifier::Control => action::Action::ApplyModifier(
                 action::Modifier::Control,
             ),
@@ -696,7 +699,7 @@ mod tests {
             xkb::KEYSYM_NO_FLAGS,
         );
         let keysym = xkb::keysym_to_utf8(keysym);
-        assert_eq!(keysym, "å\0");
+        assert_eq!(keysym, "å");
     }
     
     #[test]

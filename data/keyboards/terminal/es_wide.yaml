@@ -1,60 +1,59 @@
 # Language: Spanish
 ---
 outlines:
-    default:       { width: 54,    height: 37 }
-    halfwidth:     { width: 27,    height: 37 }
-    placeholder:   { width: 27,    height: 37 }
-    thin:          { width: 47.25, height: 37 }
-    action:        { width: 90,    height: 37 }
-    altline:       { width: 81,    height: 37 }
-    change-view:   { width: 81,    height: 37 }
-    large:         { width: 81,    height: 37 }
-    wide:          { width: 90,    height: 37 }
-    change-view-2: { width: 90,    height: 37 }
-    spaceline:     { width: 153,   height: 37 }
-    special:       { width: 54,    height: 37 }
-    small:         { width: 67.4,  height: 22 }
+    default:       { width: 61.824,  height: 42   }
+    action:        { width: 103.04,  height: 42   }
+    change-view:   { width: 92.736,  height: 42   }
+    change-view-2: { width: 103.04,  height: 42   }
+    halfwidth:     { width: 30.912,  height: 42   }
+    large:         { width: 92.736,  height: 42   }
+    small-row:     { width: 68.693,  height: 25.2 }
+    spaceline:     { width: 175.168, height: 42   }
+    special:       { width: 61.824,  height: 42   }
+    special-2:     { width: 92.736,  height: 42   }
+    special-3:     { width: 103.04,  height: 42   }
+    thin:          { width: 54.096,  height: 42   }
 
 views:
     base:
-        - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
+        - "Esc-small Tab-small Ctrl Alt Shift ↑ ↓ ← →"
         - "q w e r t y u i o p"
         - "PeriodSmall a s d f g h j k l MinusSmall"
-        - "Shift_L   z x c v b n m  BackSpace"
-        - "show_numbers show_eschars preferences    space    show_actions Return"
+        - "show_upper z x c v b n m BackSpace"
+        - "show_numbers show_eschars preferences space show_actions Return"
     upper:
-        - "EscSmall TabSmall Ctrl Alt PageUp PageDown Home End"
+        - "Esc-small Tab-small Ctrl Alt Shift PageUp PageDown Home End"
         - "Q W E R T Y U I O P"
         - "SlashSmall A S D F G H J K L PipeSmall"
-        - "Shift_L   Z X C V B N M  BackSpace"
-        - "show_numbers show_eschars preferences      space        show_actions Return"
+        - "show_upper Z X C V B N M BackSpace"
+        - "show_numbers show_eschars preferences space show_actions Return"
     numbers:
-        - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
+        - "Esc-small Tab-small Ctrl Alt Shift ↑ ↓ ← →"
         - "1 2 3 4 5 6 7 8 9 0"
         - "\\ * # $ / & - + ( ) _"
-        - "show_symbols , \" ' : ; ! ?  BackSpace"
-        - "show_letters show_eschars preferences         space        . Return"
+        - "show_symbols , \" ' : ; ! ? BackSpace"
+        - "show_letters show_eschars preferences space . Return"
     symbols:
-        - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
+        - "Esc-small Tab-small Ctrl Alt Shift ↑ ↓ ← →"
         - "~ ` · √ π τ ÷ × ¶ @"
-        - "-- © ® £ € ¥ ^ ° { } --"
-        - "show_numbers  % | < > = [ ]  BackSpace"
-        - "show_letters show_eschars preferences         space        . Return"
+        - "\\ © ® £ € ¥ ^ ° { } _"
+        - "show_numbers % | < > = [ ] BackSpace"
+        - "show_letters show_eschars preferences space . Return"
     eschars:
-        - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
+        - "Esc-small Tab-small Ctrl Alt Shift ↑ ↓ ← →"
         - "á é í ó ú Á É Í Ó Ú"
         - "à è ì ò ù À È Ì Ò Ù"
         - "show_numbers ü ç ï ñ Ü Ç Ï Ñ BackSpace"
-        - "show_letters show_eschars preferences        space        show_actions Return"
+        - "show_letters show_eschars preferences space . Return"
     actions:
-        - "EscSmall TabSmall Ctrl Alt PageUp PageDown Home End"
+        - "Esc-small Tab-small Ctrl Alt Shift PageUp PageDown Home End"
         - "F1  F2  F3  F4  F5  F6"
         - "F7  F8  F9  F10 F11 F12"
         - "Esc Tab Pause Insert Up Del"
         - "show_letters_actions Menu Break Left Down Right"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"
@@ -62,7 +61,7 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -107,7 +106,7 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "wide"
+        outline: "special-3"
         icon: "key-enter"
         keysym: "Return"
     F1:
@@ -149,15 +148,15 @@ buttons:
     Esc:
         outline: "action"
         keysym: "Escape"
-    EscSmall:
-        outline: "small"
+    Esc-small:
+        outline: "small-row"
         keysym: "Escape"
         label: "Esc"
     Tab:
         outline: "action"
         keysym: "Tab"
-    TabSmall:
-        outline: "small"
+    Tab-small:
+        outline: "small-row"
         keysym: "Tab"
         label: "Tab"
     Del:
@@ -180,32 +179,32 @@ buttons:
         keysym: "Break"
         label: "Inter"
     Home:
-        outline: "small"
+        outline: "small-row"
         keysym: "Home"
         label: "Inicio"
     End:
-        outline: "small"
+        outline: "small-row"
         keysym: "End"
         label: "Fin"
     PageUp:
-        outline: "small"
+        outline: "small-row"
         keysym: "Page_Up"
         label: "Pág ↑"
     PageDown:
-        outline: "small"
+        outline: "small-row"
         keysym: "Page_Down"
         label: "Pág ↓"
     "↑":
-        outline: "small"
+        outline: "small-row"
         keysym: "Up"
     "↓":
-        outline: "small"
+        outline: "small-row"
         keysym: "Down"
     "←":
-        outline: "small"
+        outline: "small-row"
         keysym: "Left"
     "→":
-        outline: "small"
+        outline: "small-row"
         keysym: "Right"
     Up:
         label: "↑"
@@ -225,12 +224,16 @@ buttons:
         keysym: "Right"
     Ctrl:
         modifier: "Control"
-        outline: "small"
+        outline: "small-row"
         label: "Ctrl"
     Alt:
         modifier: "Alt"
-        outline: "small"
+        outline: "small-row"
         label: "Alt"
+    Shift:
+        modifier: "Shift"
+        outline: "small-row"
+        label: "Mayús"
     ü:
         outline: "thin"
     ç:
@@ -263,6 +266,3 @@ buttons:
         outline: "halfwidth"
     _:
         outline: "halfwidth"
-    --:
-        outline: "placeholder"
-        text: ""
