@@ -1,8 +1,9 @@
-squeekboard (1.43.0-1) UNRELEASED; urgency=medium
+squeekboard (1.43.0-1) unstable; urgency=medium
 
   * New upstream version
+  * d/patches: drop upstreamed patches
 
- -- Arnaud Ferraris <aferraris@debian.org>  Mon, 18 Nov 2024 12:32:59 +0100
+ -- Arnaud Ferraris <aferraris@debian.org>  Mon, 18 Nov 2024 12:37:09 +0100
 
 squeekboard (1.42.2-1) unstable; urgency=medium
 
