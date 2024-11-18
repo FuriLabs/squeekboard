@@ -105,9 +105,8 @@ fn sorted<'a, I: Iterator<Item=String>>(
 pub fn generate_keycodes<'a, C: IntoIterator<Item=String>>(
     key_names: C,
 ) -> HashMap<String, KeyCode> {
-    // Some broken clients try to interpret keymaps as if they were input
-    // sequences coming from evdev. Workaround that by only using codes
-    // that directly produce characters.
+    // Some clients try to interpret keymaps as if they were input-sequences coming from evdev.
+    // Workaround: Only use keycodes which directly produce characters.
     let allowed = [KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8,
                    KEY_9, KEY_0, KEY_MINUS, KEY_EQUAL, KEY_Q, KEY_W, KEY_E,
                    KEY_R, KEY_T, KEY_Y, KEY_U, KEY_I, KEY_O, KEY_P, KEY_LEFTBRACE,
@@ -252,10 +251,8 @@ pub fn generate_keycodes<'a, C: IntoIterator<Item=String>>(
                 if name == "Pause"     { code = KEY_PAUSE       + keycode_offset; keymap_idx = 0 }
                 if name == "Return"    { code = KEY_ENTER       + keycode_offset; keymap_idx = 0 }
                 if name == "Tab"       { code = KEY_TAB         + keycode_offset; keymap_idx = 0 }
-            (
-                String::from(name),
-                KeyCode { code, keymap_idx },
-            )})
+                (String::from(name), KeyCode { code, keymap_idx })
+            }),
     );
     // Workaround: BackSpace does not work with `tools/entry.py` (made with GTK3),
     // if the keymap with BackSpace does not contain any other keycodes.
