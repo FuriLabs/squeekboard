@@ -1,3 +1,9 @@
+squeekboard (1.43.1-1) UNRELEASED; urgency=medium
+
+  * New upstream version
+
+ -- Arnaud Ferraris <aferraris@debian.org>  Fri, 29 Nov 2024 11:12:13 +0100
+
 squeekboard (1.43.0-1) unstable; urgency=medium
 
   * New upstream version
