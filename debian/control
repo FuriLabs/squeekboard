@@ -51,7 +51,6 @@ Depends:
 Recommends:
 # for Greek polytonic readability
  fonts-gfs-didot-classic,
-Conflicts: phosh-osk-stub (<< 0.22.1)
 Description: On-screen keyboard for Wayland
  Virtual keyboard for Wayland, supporting the 'input-method', 'text-input' and
  'virtual-keyboard' protocols. Squeekboard is built primarily for mobile
