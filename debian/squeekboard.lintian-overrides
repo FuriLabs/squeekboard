@@ -1,0 +1,2 @@
+# This is a false positive, we don't embed libyaml.
+squeekboard: embedded-library libyaml [usr/bin/squeekboard]
