@@ -1,0 +1,147 @@
+From: Sam Day <me@samcday.com>
+Date: Sun, 9 Feb 2025 21:39:35 +0100
+Subject: treewide: Upgrade zbus to 5.x
+
+Signed-off-by: Sam Day <me@samcday.com>
+
+Origin: https://gitlab.gnome.org/World/Phosh/squeekboard/-/merge_requests/709
+---
+ Cargo.toml                         |  6 +++---
+ src/actors/external/debug.rs       | 24 +++++++++---------------
+ src/actors/external/screensaver.rs | 29 ++++++++++++++---------------
+ 3 files changed, 26 insertions(+), 33 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index dee8cdc..934a4eb 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -31,9 +31,9 @@ serde = { version = "1.0", features = ["derive"] }
+ serde_yaml = "0.9"
+ bitflags = "1.3"
+ clap = { version = "4.4", features=["std"], default-features = false }
+-zbus = "1.9"
+-zvariant = "2.10"
+-zvariant_derive = "2.10"
++zbus = { version = "5", features = ["blocking"] }
++zvariant = "5"
++zvariant_derive = "5"
+ xkbcommon = { version = "0.8", features = ["wayland"] }
+ 
+ [dependencies.cairo-rs]
+diff --git a/src/actors/external/debug.rs b/src/actors/external/debug.rs
+index 253d1d0..d29462b 100644
+--- a/src/actors/external/debug.rs
++++ b/src/actors/external/debug.rs
+@@ -7,7 +7,7 @@ use crate::main;
+ use crate::state;
+ 
+ use std::thread;
+-use zbus::{Connection, ObjectServer, dbus_interface, fdo};
++use zbus::{blocking::Connection, ObjectServer};
+ 
+ use super::Void;
+ 
+@@ -20,13 +20,13 @@ struct Manager {
+     enabled: bool,
+ }
+ 
+-#[dbus_interface(name = "sm.puri.SqueekDebug")]
++#[zbus::interface(name = "sm.puri.SqueekDebug")]
+ impl Manager {
+-    #[dbus_interface(property, name = "Enabled")]
++    #[zbus(property, name = "Enabled")]
+     fn get_enabled(&self) -> bool {
+         self.enabled
+     }
+-    #[dbus_interface(property, name = "Enabled")]
++    #[zbus(property, name = "Enabled")]
+     fn set_enabled(&mut self, enabled: bool) {
+         self.enabled = enabled;
+         self.sender
+@@ -38,20 +38,14 @@ impl Manager {
+     }
+ }
+ 
+-fn start(mgr: Manager) -> Result<Void, Box<dyn std::error::Error>> {
+-    let connection = Connection::new_session()?;
+-    fdo::DBusProxy::new(&connection)?.request_name(
+-        "sm.puri.SqueekDebug",
+-        fdo::RequestNameFlags::ReplaceExisting.into(),
+-    )?;
++fn start(mgr: Manager) -> Result<(), Box<dyn std::error::Error>> {
++    let connection = Connection::session()?;
+ 
+-    let mut object_server = ObjectServer::new(&connection);
+-    object_server.at(&"/sm/puri/SqueekDebug".try_into()?, mgr)?;
++    connection.object_server().at("/sm/puri/SqueekDebug", mgr)?;
++    connection.request_name("sm.puri.SqueekDebug")?;
+ 
+     loop {
+-        if let Err(err) = object_server.try_handle_next() {
+-            eprintln!("{}", err);
+-        }
++        thread::park();
+     }
+ }
+ 
+diff --git a/src/actors/external/screensaver.rs b/src/actors/external/screensaver.rs
+index 7f5afe2..8a2bad6 100644
+--- a/src/actors/external/screensaver.rs
++++ b/src/actors/external/screensaver.rs
+@@ -7,18 +7,18 @@ use crate::actors::Destination;
+ use crate::actors::popover;
+ use crate::logging;
+ use std::thread;
+-use zbus::{Connection, dbus_proxy};
++use zbus::blocking::Connection;
+ 
+ use super::Void;
+ 
+ 
+-#[dbus_proxy(
++#[zbus::proxy(
+     interface = "org.freedesktop.ScreenSaver",
+     default_service = "org.freedesktop.ScreenSaver",
+     default_path = "/org/freedesktop/ScreenSaver"
+ )]
+ pub trait Manager {
+-    #[dbus_proxy(signal)]
++    #[zbus(signal)]
+     fn active_changed(&self, active: bool) -> fdo::Result<()>;
+ }
+ 
+@@ -36,22 +36,21 @@ pub fn init(destination: popover::Destination) {
+ }
+ 
+ fn start(destination: popover::Destination) -> Result<Void, zbus::Error> {
+-    let conn = Connection::new_session()?;
+-    let manager = ManagerProxy::new(&conn)?;
++    let conn = Connection::session()?;
++    let manager = ManagerProxyBlocking::new(&conn)?;
+ 
+-    manager.connect_active_changed(move |m| {
+-        destination.send(popover::Event::ScreensaverActive(m));
+-        Ok(())
+-    })?;
++    let mut active_changed = manager.receive_active_changed()?;
+ 
+-    loop {
+-        match manager.next_signal() {
+-            Ok(None) => {}
+-            other => log_print!(
++    for m in active_changed {
++        match m.args() {
++            Ok(args) => destination.send(popover::Event::ScreensaverActive(args.active)),
++            Err(err) => log_print!(
+                 logging::Level::Bug,
+                 "Encountered unhandled event: {:?}",
+-                other,
++                err,
+             ),
+         }
+     }
+-}
+\ No newline at end of file
++
++    unreachable!()
++}

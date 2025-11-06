@@ -23,9 +23,9 @@ Build-Depends:
  librust-serde-yaml-0.9-dev,
  librust-thread-local-dev,
  librust-xkbcommon-0.8-dev,
- librust-zbus-1-dev (>= 1.9),
- librust-zvariant-2-dev (>= 2.10),
- librust-zvariant-derive-2-dev (>= 2.10),
+ librust-zbus-5-dev,
+ librust-zvariant-5-dev,
+ librust-zvariant-derive-5-dev,
  libwayland-dev,
  lsb-release,
  meson (>= 0.51.0),
@@ -35,11 +35,10 @@ Build-Depends:
  python3-ruamel.yaml,
  rustc,
  wayland-protocols,
-Standards-Version: 4.7.0
+Standards-Version: 4.7.2
 Homepage: https://gitlab.gnome.org/World/Phosh/squeekboard
 Vcs-Browser: https://salsa.debian.org/DebianOnMobile-team/squeekboard
 Vcs-Git: https://salsa.debian.org/DebianOnMobile-team/squeekboard.git
-Rules-Requires-Root: no
 
 Package: squeekboard
 Architecture: linux-any
