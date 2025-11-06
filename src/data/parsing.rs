@@ -229,7 +229,7 @@ impl Layout {
                                 &self.buttons,
                                 &self.outlines,
                                 name,
-                                button_states_cache.get(name.into())
+                                button_states_cache.get(name)
                                     .expect("Button state not created")
                                     .clone(),
                                 &mut warning_handler,
