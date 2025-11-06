@@ -1,3 +1,26 @@
+squeekboard (1.43.1-2) unstable; urgency=medium
+
+  * debian: port to recent zbus.
+    Backport an upstream MR and update the build-dependencies accordingly.
+    Also bump `Standards-Version` as no other change is needed, and drop the
+    now-obsolete `Rules-Requires-Root`. (Closes: #1053635)
+  * debian: add systemd unit.
+    This allows squeekboard to still be used with gnome-session 49. Based on
+    https://gitlab.gnome.org/World/Phosh/squeekboard/-/merge_requests/712
+    Also lower the Squeekboard alternative priority as Stevia is now the
+    default and is more actively maintained. (Closes: #1118539)
+  * d/patches: fix build failure in current Debian
+  * d/watch: convert to version 5.
+    Add a `Version-Mangle` as otherwise it keeps the leading `v` as part of
+    the actual version.
+  * debian: override lintian false positives
+  * d/control: drop unneeded conflict.
+    The affected version is no longer part of the archive and users up to
+    date on current stable (trixie) will have versions of both packages that
+    no longer conflict, so we can now drop this restriction.
+
+ -- Arnaud Ferraris <aferraris@debian.org>  Thu, 06 Nov 2025 11:37:19 +0100
+
 squeekboard (1.43.1-1) unstable; urgency=medium
 
   * New upstream version
