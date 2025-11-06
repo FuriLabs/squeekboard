@@ -1,0 +1,23 @@
+From: Arnaud Ferraris <arnaud.ferraris@collabora.com>
+Date: Thu, 6 Nov 2025 10:02:54 +0100
+Subject: src: data: parsing: fix build with recent Rust
+
+`name.into()` isn't explicit enough, leading to build failures. Simply
+use `name` and the compiler will figure out the rest.
+---
+ src/data/parsing.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/data/parsing.rs b/src/data/parsing.rs
+index 7f0cb31..b4ae32a 100644
+--- a/src/data/parsing.rs
++++ b/src/data/parsing.rs
+@@ -229,7 +229,7 @@ impl Layout {
+                                 &self.buttons,
+                                 &self.outlines,
+                                 name,
+-                                button_states_cache.get(name.into())
++                                button_states_cache.get(name)
+                                     .expect("Button state not created")
+                                     .clone(),
+                                 &mut warning_handler,
