@@ -1,0 +1,97 @@
+From: =?utf-8?q?Guido_G=C3=BCnther?= <agx@sigxcpu.org>
+Date: Sun, 5 Oct 2025 17:49:03 +0200
+Subject: data: Add systemd unit file
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Closes: https://gitlab.gnome.org/World/Phosh/squeekboard/-/issues/440
+Signed-off-by: Guido Günther <agx@sigxcpu.org>
+
+Origin: https://gitlab.gnome.org/World/Phosh/squeekboard/-/merge_requests/712
+---
+ data/meson.build                    |  8 ++++++++
+ data/sm.puri.Squeekboard.service.in | 16 ++++++++++++++++
+ meson.build                         | 12 +++++++++++-
+ meson_options.txt                   |  4 ++++
+ 4 files changed, 39 insertions(+), 1 deletion(-)
+ create mode 100644 data/sm.puri.Squeekboard.service.in
+
+diff --git a/data/meson.build b/data/meson.build
+index 5d0a087..f971119 100644
+--- a/data/meson.build
++++ b/data/meson.build
+@@ -56,3 +56,11 @@ i18n.merge_file(
+     install_dir: desktopdir,
+     type: 'desktop'
+ )
++
++configure_file(
++  input: 'sm.puri.Squeekboard.service.in',
++  output: 'mobi.phosh.OSK.service',
++  configuration: desktopconf,
++  install: true,
++  install_dir: systemd_user_unit_dir,
++)
+diff --git a/data/sm.puri.Squeekboard.service.in b/data/sm.puri.Squeekboard.service.in
+new file mode 100644
+index 0000000..600f43f
+--- /dev/null
++++ b/data/sm.puri.Squeekboard.service.in
+@@ -0,0 +1,16 @@
++# This is a systemd user unit intended to be started with gnome-session.
++
++[Unit]
++Description=Squeekboard, an on-screen-keyboard input-method for Phosh
++Documentation=https://gitlab.gnome.org/World/Phosh/squeekboard
++CollectMode=inactive-or-failed
++
++After=gnome-session-initialized.target
++
++[Service]
++Slice=session.slice
++Type=simple
++BusName=sm.puri.OSK0
++ExecStart=@bindir@/squeekboard
++Restart=on-failure
++TimeoutStopSec=5
+diff --git a/meson.build b/meson.build
+index fef30ef..52e85df 100644
+--- a/meson.build
++++ b/meson.build
+@@ -72,6 +72,16 @@ endif
+ dbusdir = join_paths(depdatadir, 'dbus-1/interfaces')
+ schemasdir = datadir / 'glib-2.0' / 'schemas'
+ 
++systemd_user_unit_dir = get_option('systemd_user_unit_dir')
++systemd_dep = dependency('systemd', required: false)
++if systemd_user_unit_dir == ''
++  if systemd_dep.found()
++    systemd_user_unit_dir = systemd_dep.get_variable('systemd_user_unit_dir')
++  else
++    systemd_user_unit_dir = prefix / get_option('libdir') / 'systemd' / 'user'
++  endif
++endif
++
+ conf_data = configuration_data()
+ conf_data.set_quoted('GETTEXT_PACKAGE', 'squeekboard')
+ conf_data.set_quoted('LOCALEDIR', localedir)
+@@ -115,4 +125,4 @@ subdir('tests')
+ 
+ gnome.post_install(
+     glib_compile_schemas: true,
+-)
+\ No newline at end of file
++)
+diff --git a/meson_options.txt b/meson_options.txt
+index 0c33385..c5ac20b 100644
+--- a/meson_options.txt
++++ b/meson_options.txt
+@@ -14,3 +14,7 @@ option('find_orphans',
+ option('strict',
+        type: 'boolean', value: true,
+        description: 'Turn more warnings into errors')
++
++option('systemd_user_unit_dir',
++       type: 'string', value: '',
++       description: 'Directory for systemd user units')
