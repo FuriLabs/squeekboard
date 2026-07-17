@@ -153,10 +153,14 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
     // Email
     ("email/us", include_str!("../data/keyboards/email/us.yaml")),
     ("email/us_wide", include_str!("../data/keyboards/email/us_wide.yaml")),
+    ("email/us+colemak", include_str!("../data/keyboards/email/us+colemak.yaml")),
+    ("email/us+colemak_wide", include_str!("../data/keyboards/email/us+colemak_wide.yaml")),
 
     // URL
     ("url/us", include_str!("../data/keyboards/url/us.yaml")),
     ("url/us_wide", include_str!("../data/keyboards/url/us_wide.yaml")),
+    ("url/us+colemak", include_str!("../data/keyboards/url/us+colemak.yaml")),
+    ("url/us+colemak_wide", include_str!("../data/keyboards/url/us+colemak_wide.yaml")),
 
     // Others
     ("number/us", include_str!("../data/keyboards/number/us.yaml")),
@@ -178,6 +182,8 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
 
     ("terminal/us", include_str!("../data/keyboards/terminal/us.yaml")),
     ("terminal/us_wide",   include_str!("../data/keyboards/terminal/us_wide.yaml")),
+    ("terminal/us+colemak", include_str!("../data/keyboards/terminal/us+colemak.yaml")),
+    ("terminal/us+colemak_wide",  include_str!("../data/keyboards/terminal/us+colemak_wide.yaml")),
     ("terminal/us+dvorak", include_str!("../data/keyboards/terminal/us+dvorak.yaml")),
     ("terminal/us+dvorak_wide",   include_str!("../data/keyboards/terminal/us+dvorak_wide.yaml")),
 
